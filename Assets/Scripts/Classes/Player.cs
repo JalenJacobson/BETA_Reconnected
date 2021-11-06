@@ -44,9 +44,9 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (isLocalPlayer == true && fixPosition == false){
+        // if (isLocalPlayer == true && fixPosition == false){
             Movement();
-        }
+        // }
 
         if(isBeingCarried)
         {
@@ -82,8 +82,8 @@ public class Player : MonoBehaviour
 
     public virtual void Movement()
     {
-        float horizontalMove = joystick.Horizontal;
-        float verticalMove = joystick.Vertical;
+        float horizontalMove = Input.GetAxis("Horizontal");
+        float verticalMove = Input.GetAxis("Vertical");
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
@@ -94,7 +94,7 @@ public class Player : MonoBehaviour
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
 
-        sendPos();
+        // sendPos();
     }
 
     async public void sendPos()

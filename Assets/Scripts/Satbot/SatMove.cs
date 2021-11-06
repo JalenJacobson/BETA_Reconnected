@@ -16,8 +16,8 @@ public class SatMove : Player
     void Start()
     {
         name = "Sat";
-        startPos = new Vector3(58f, 1.3f, -230f);
-        transform.position = startPos;
+        // startPos = new Vector3(58f, 1.3f, -230f);
+        // transform.position = startPos;
         Rails_Script = Rails.GetComponent<SatBotAnim>();
         TimerBar_Script = TimerBarSat.GetComponent<TimeBarSat>();
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
@@ -28,8 +28,8 @@ public class SatMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = joystick.Horizontal;
-        float verticalMove = joystick.Vertical;
+        float horizontalMove = Input.GetAxis("HorizontalPlayer1");
+        float verticalMove = Input.GetAxis("VerticalPlayer1");
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
@@ -40,7 +40,7 @@ public class SatMove : Player
         }
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        sendPos();
+        // sendPos();
     }
 
     void Update()
