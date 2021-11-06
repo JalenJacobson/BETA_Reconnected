@@ -76,7 +76,8 @@ public class LuzTriggerCube : MonoBehaviour
      {
          if(touching != null && Input.GetKeyDown("c"))
          {
-             Connect();
+            //  Connect();
+            Activate();
          }
          if(touching != null && Input.GetKeyDown("d"))
          {
