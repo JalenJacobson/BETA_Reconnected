@@ -28,8 +28,8 @@ public class SatMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis("HorizontalPlayer1");
-        float verticalMove = Input.GetAxis("VerticalPlayer1");
+        float horizontalMove = Input.GetAxis("Horizontal");
+        float verticalMove = Input.GetAxis("Vertical");
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 

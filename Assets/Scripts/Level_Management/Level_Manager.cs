@@ -21,11 +21,13 @@ public class Level_Manager : MonoBehaviour
 
     private int frameCount = 0;
     // private string selectedHero;
+    public string gearAxis;
 
     public async void Start()
     {
         sceneToGoTo = 1;
         addPlayerToParty();
+        gearAxis = PlayerPrefs.GetString("GearAxisHorizontal");
         
     }
 
@@ -158,6 +160,9 @@ public class Level_Manager : MonoBehaviour
     public void setPrefsGear()
     {
         PlayerPrefs.SetInt("selectedHero", 0);
+        PlayerPrefs.SetString("GearAxisHorizontal", "HorizontalPlayer2");
+        PlayerPrefs.SetString("GearAxisVertical", "VerticalPlayer2");
+        print("AAAAAAA- it was set - AAAAA");
     }
     public void setPrefsLuz()
     {

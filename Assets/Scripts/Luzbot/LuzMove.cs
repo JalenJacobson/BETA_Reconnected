@@ -16,6 +16,23 @@ public class LuzMove : Player
         blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
     }
 
+    public override void Movement()
+    {
+        float horizontalMove = Input.GetAxis("HorizontalPlayer2");
+        float verticalMove = Input.GetAxis("VerticalPlayer2");
+
+        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+            
+        }
+
+        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        // sendPos();
+    }
+
      void Update()
     {
         if(inWater == true)

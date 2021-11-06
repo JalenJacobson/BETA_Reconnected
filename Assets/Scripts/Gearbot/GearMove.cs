@@ -6,6 +6,14 @@ public class GearMove : Player
 {
     public GameObject TimerBarGear;
     public TimeBarGear TimerBar_Script;
+    public string moveAxisHorizontal;
+    public string moveAxisVertical;
+
+    void Awake()
+     {
+        moveAxisHorizontal = PlayerPrefs.GetString("GearAxisHorizontal");
+        moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");
+     }
 
     void Start()
     {
@@ -21,8 +29,8 @@ public class GearMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis("HorizontalPlayer2");
-        float verticalMove = Input.GetAxis("VerticalPlayer2");
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 

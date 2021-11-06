@@ -82,19 +82,19 @@ public class Player : MonoBehaviour
 
     public virtual void Movement()
     {
-        float horizontalMove = Input.GetAxis("Horizontal");
-        float verticalMove = Input.GetAxis("Vertical");
+        // float horizontalMove = Input.GetAxis("Horizontal");
+        // float verticalMove = Input.GetAxis("Vertical");
 
-        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+        // direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
-        if (direction != Vector3.zero)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-        }
+        // if (direction != Vector3.zero)
+        // {
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+        // }
 
-        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
 
-        // sendPos();
+        // // sendPos();
     }
 
     async public void sendPos()

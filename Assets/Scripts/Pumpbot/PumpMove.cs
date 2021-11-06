@@ -41,8 +41,8 @@ public class PumpMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = joystick.Horizontal;
-        float verticalMove = joystick.Vertical;
+        float horizontalMove = Input.GetAxis("HorizontalPlayer2");
+        float verticalMove = Input.GetAxis("VerticalPlayer2");
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
