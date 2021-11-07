@@ -9,7 +9,7 @@ public class LuzMove : Player
     {
         name = "Luz";
         breathRemaining = .1f;
-        // startPos = new Vector3(52.5f, 0.58f, -230f);
+        startPos = new Vector3(-180f, .5f, -98.5f);
         transform.position = startPos;
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
