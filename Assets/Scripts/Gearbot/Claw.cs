@@ -5,55 +5,91 @@ using UnityEngine;
 public class Claw : MonoBehaviour
 {
 
-   public Animator anim;
-   public float speed;
-   public Transform target;
-   public Transform target2;
-   public Transform target3;
-   public Transform target4;
-   public Transform target5;
+    public Animator anim;
+    public float speed;
+    public Vector3 direction;
+    public string moveAxisHorizontal;
+    public string moveAxisVertical;
+    public float moveSpeed = 10;
+    public float rotateSpeed = 10;
+    public Rigidbody rb;
+    public bool clawConnected = false;
+    public bool clawDroppedAndClosed = false;
+
+    public Transform target;
+    public Transform target2;
+    public Transform target3;
+    public Transform target4;
+    public Transform target5;
 
 
- // Use this for initialization
- void Start () {
-        anim = GetComponent<Animator>();
- }
-
+    void Awake()
+    {
+        moveAxisHorizontal = PlayerPrefs.GetString("GearAxisHorizontal");
+        moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");
+    }
 
  
- // Update is called once per frame
- void Update () {
-        if (Input.GetKeyDown("v"))
+    void Start () 
+    {
+        anim = GetComponent<Animator>();
+    }
 
+    void FixedUpdate()
+    {
+        if(clawConnected)
         {
-            anim.Play("Claw");
+            Movement();
+        }
+        
+    }
 
-        }
-        if (Input.GetKeyDown("b"))
-        {
-            anim.Play("Open");
+    void Update () {
 
-        }
-         if (Input.GetKeyDown("n"))
+        // if(clawConnected)
+        // {
+        //     if (Input.GetKeyDown("v"))
+        //     {
+        //         anim.Play("Claw");
+        //     }
+        //     if (Input.GetKeyDown("b"))
+        //     {
+        //         anim.Play("Open");
+        //     }
+        //     if (Input.GetKeyDown("n"))
+        //     {
+        //         anim.Play("ClawClose");
+        //     }
+        // }
+    }
+
+    public void Activate()
+    {
+        if(clawConnected)
         {
-            anim.Play("ClawClose");
+            if(clawDroppedAndClosed == false)
+            {
+                anim.Play("Claw");
+            }
         }
-                float step = speed * Time.deltaTime;
-        if (Input.GetKey("i")){
-            transform.position = Vector3.MoveTowards(transform.position, target.position, step);  
+        
+    }
+
+    void Movement()
+    {
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
+
+        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+
+        if (direction != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+            
         }
-        if (Input.GetKey("j")){
-            transform.position = Vector3.MoveTowards(transform.position, target2.position, step);  
-        }      
-        if (Input.GetKey("k")){
-            transform.position = Vector3.MoveTowards(transform.position, target3.position, step);  
-        }   
-        if (Input.GetKey("l")){
-            transform.position = Vector3.MoveTowards(transform.position, target4.position, step);
-        }    
-        //if (Input.GetKeyUp("v")){
-        //    transform.position = Vector3.MoveTowards(transform.position, target5.position, step);   
-       // }  
+
+        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        // sendPos();
     }
  }
 

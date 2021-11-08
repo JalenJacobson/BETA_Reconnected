@@ -44,9 +44,9 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        // if (isLocalPlayer == true && fixPosition == false){
+        if (fixPosition == false){
             Movement();
-        // }
+        }
 
         if(isBeingCarried)
         {

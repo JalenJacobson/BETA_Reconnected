@@ -82,12 +82,12 @@ public class GearTriggerCube : MonoBehaviour
          {
              Connect();
          }
-         if(touching != null && Input.GetKeyDown("d"))
+         if(touching != null && Input.GetKeyDown("b"))
          {
              Disconnect();
          }
 
-         if(connected == true && Input.GetKeyDown("z"))
+         if(connected == true && Input.GetKeyDown("v"))
          {
              Activate();
          }
@@ -108,10 +108,16 @@ public class GearTriggerCube : MonoBehaviour
             connected = !connected; 
             Gears.transform.position = touching.transform.TransformPoint(connectPos);
             GearMove_Script.toggleFixPosition();
-            Bubble_Script.actionBubbleStop();
-            Act1Button_Script.activate1();
-            Connection.text = touching.name.ToString(); 
-            CancelButton_Script.CancelStart();    
+            // Bubble_Script.actionBubbleStop();
+            // Act1Button_Script.activate1();
+            // Connection.text = touching.name.ToString(); 
+            // CancelButton_Script.CancelStart(); 
+            print(touching.name);
+            if(touching.name.Contains("Claw"))
+            {
+                print("CONNECTED To Claw");
+                touching.SendMessage("toggleClawConnected");
+            }   
             
      }
      
@@ -119,13 +125,17 @@ public class GearTriggerCube : MonoBehaviour
      {
             connected = false;  
             GearMove_Script.toggleFixPosition();
-            Light_Script.actionBubbleStop();
-            Circle_Script.actionBubbleStop();
-            Act1Button_Script.activate1Stop();
-            Connection.text= "F";
-            resetConsoleMessage();
-            CancelButton_Script.CancelStop();   
-                
+            // Light_Script.actionBubbleStop();
+            // Circle_Script.actionBubbleStop();
+            // Act1Button_Script.activate1Stop();
+            // Connection.text= "F";
+            // resetConsoleMessage();
+            // CancelButton_Script.CancelStop();  
+            if(touching.name.Contains("Claw"))
+            {
+                print("CONNECTED To Claw");
+                touching.SendMessage("toggleClawConnected");
+            }   
      }
 
      public void resetConsoleMessage()
