@@ -45,6 +45,17 @@ public class GearsSelect : HeroSelectPlayer
        anim.Play("GearsSelectDown");
 
    }
+      public void Up2()
+   {
+       anim.Play("GearsSelectUp2");
+       
+
+   }
+   public void Down2()
+   {
+       anim.Play("GearsSelectDown2");
+
+   }
 
     public void toggleSelect()
     {
@@ -63,6 +74,17 @@ public class GearsSelect : HeroSelectPlayer
     {
         isUp = false;
         anim.Play("GearDown");
+    }
+        public void gearsUp2()
+    {
+        isUp = true;
+        anim.Play("GearUp2");
+    }
+
+    public void gearsDown2()
+    {
+        isUp = false;
+        anim.Play("GearDown2");
     }
 }
    

@@ -29,7 +29,6 @@ public class Claw : MonoBehaviour
         moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");
     }
 
- 
     void Start () 
     {
         anim = GetComponent<Animator>();

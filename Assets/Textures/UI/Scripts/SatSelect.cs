@@ -45,6 +45,17 @@ public class SatSelect : HeroSelectPlayer
        anim.Play("SatSelectDown");
 
    }
+      public void Up2()
+   {
+       anim.Play("SatSelectUp2");
+       
+
+   }
+   public void Down2()
+   {
+       anim.Play("SatSelectDown2");
+
+   }
 
     public void toggleSelect()
     {

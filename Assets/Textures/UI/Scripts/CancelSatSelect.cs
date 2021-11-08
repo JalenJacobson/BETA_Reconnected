@@ -37,5 +37,20 @@ public class CancelSatSelect : MonoBehaviour
        anim.Play("SatDown");
 
    }
+      public void Up2()
+   {
+       anim.Play("CancelUp2");
+
+   }
+   public void Down2()
+   {
+       anim.Play("CancelDown2");
+
+   }
+      public void Select2()
+   {
+       anim.Play("SatDown2");
+
+   }
 }
    

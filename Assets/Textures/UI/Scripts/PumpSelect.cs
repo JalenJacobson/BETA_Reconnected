@@ -45,6 +45,17 @@ public class PumpSelect : HeroSelectPlayer
        anim.Play("PumpSelectDown");
 
    }
+      public void Up2()
+   {
+       anim.Play("PumpSelectUp2");
+       
+
+   }
+   public void Down2()
+   {
+       anim.Play("PumpSelectDown2");
+
+   }
 
     public void toggleSelect()
     {

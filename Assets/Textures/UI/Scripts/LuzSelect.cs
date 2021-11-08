@@ -44,6 +44,16 @@ public class LuzSelect : HeroSelectPlayer
        anim.Play("LuzSelectDown");
 
    }
+      public void Up2()
+   {
+        anim.Play("LuzSelectUp2");
+        
+   }
+   public void Down2()
+   {
+       anim.Play("LuzSelectDown2");
+
+   }
 
     public void toggleSelect()
     {

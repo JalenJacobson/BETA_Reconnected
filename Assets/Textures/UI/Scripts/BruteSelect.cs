@@ -44,6 +44,16 @@ public class BruteSelect : HeroSelectPlayer
        anim.Play("BruteSelectDown");
 
    }
+      public void Up2()
+   {
+        anim.Play("BruteSelectUp2");
+        
+   }
+   public void Down2()
+   {
+       anim.Play("BruteSelectDown2");
+
+   }
     public void toggleSelect()
     {
         isLocalPlayer = !isLocalPlayer;
@@ -61,6 +71,17 @@ public class BruteSelect : HeroSelectPlayer
     {
         isUp = false;
         anim.Play("BruteStart");
+    }
+        public void bruteUp2()
+    {
+        isUp = true;
+        anim.Play("BruteUp2");
+    }
+
+    public void bruteDown2()
+    {
+        isUp = false;
+        anim.Play("BruteStart2");
     }
 }
    
