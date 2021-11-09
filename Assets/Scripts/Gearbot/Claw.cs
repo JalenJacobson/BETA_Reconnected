@@ -14,8 +14,7 @@ public class Claw : MonoBehaviour
     public float rotateSpeed = 10;
     public Rigidbody rb;
     public bool clawConnected = false;
-    public bool clawDroppedAndClosed = false;
-
+    public bool clawDrop = false;
     public Transform target;
     public Transform target2;
     public Transform target3;
@@ -36,41 +35,29 @@ public class Claw : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(clawConnected)
+        if(clawConnected == true)
         {
             Movement();
+            anim.Play("Claw");
         }
+        if(clawDrop == false)
+            {
+            anim.Play("ClawDrop");
+            }
         
     }
 
     void Update () {
 
-        // if(clawConnected)
-        // {
-        //     if (Input.GetKeyDown("v"))
-        //     {
-        //         anim.Play("Claw");
-        //     }
-        //     if (Input.GetKeyDown("b"))
-        //     {
-        //         anim.Play("Open");
-        //     }
-        //     if (Input.GetKeyDown("n"))
-        //     {
-        //         anim.Play("ClawClose");
-        //     }
-        // }
+
     }
 
     public void Activate()
     {
-        if(clawConnected)
-        {
-            if(clawDroppedAndClosed == false)
+        if(clawDrop == true)
             {
-                anim.Play("Claw");
+            anim.Play("ClawDrop");
             }
-        }
         
     }
 
