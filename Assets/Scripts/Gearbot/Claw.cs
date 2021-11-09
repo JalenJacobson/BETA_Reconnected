@@ -15,6 +15,7 @@ public class Claw : MonoBehaviour
     public Rigidbody rb;
     public bool clawConnected = false;
     public bool clawDrop = false;
+    public bool clawCarrying = false;
     public Transform target;
     public Transform target2;
     public Transform target3;
@@ -38,13 +39,8 @@ public class Claw : MonoBehaviour
         if(clawConnected == true)
         {
             Movement();
-            anim.Play("Claw");
+            anim.Play("Claw"); 
         }
-        if(clawDrop == false)
-            {
-            anim.Play("ClawDrop");
-            }
-        
     }
 
     void Update () {
@@ -54,10 +50,18 @@ public class Claw : MonoBehaviour
 
     public void Activate()
     {
-        if(clawDrop == true)
-            {
+        if(!clawCarrying)
+        {
             anim.Play("ClawDrop");
-            }
+            //this will need to be a coroutine
+            //claw drops and closes
+            //set lifting to true
+            //claw lifts;
+        }
+        else if(clawCarrying)
+        {
+            // This needs to be an animation of the claw opening
+        }
         
     }
 

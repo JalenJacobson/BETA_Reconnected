@@ -8,7 +8,7 @@ public class Box : Box_Base
     void Start()
     {
         //assign name in editor
-        print(name);
+        // print(name);
         BruteMove_Script = Brute.GetComponent<Player>();
     }
 

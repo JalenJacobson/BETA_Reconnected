@@ -76,7 +76,7 @@ public class BruteTriggerCube : MonoBehaviour
         }
      }
 
-     void Update()
+    void Update()
      {   
         if(lifting == true)
         {
@@ -87,9 +87,7 @@ public class BruteTriggerCube : MonoBehaviour
             Bubble_Script.actionBubbleStop();
             AnimArms_Script.Lift(); 
         }
-        
-        
-     }
+    }
 
      public void drop()
      {
