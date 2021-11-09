@@ -54,7 +54,7 @@ public class Claw : MonoBehaviour
     {
         if(!clawCarrying)
         {
-            anim.Play("ClawDrop");
+            anim.Play("ClawClose");
             //this will need to be a coroutine
             //claw drops and closes
             //set lifting to true
@@ -62,6 +62,7 @@ public class Claw : MonoBehaviour
         }
         else if(clawCarrying)
         {
+            anim.Play("Open");
             // This needs to be an animation of the claw opening
         }
         
