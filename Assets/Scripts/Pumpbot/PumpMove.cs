@@ -21,7 +21,7 @@ public class PumpMove : Player
     void Start()
     {
         name = "Pump";
-        startPos = new Vector3(69f, 0.48f, -230f);
+        startPos = new Vector3(-157f, 0.7f, -120f);
         transform.position = startPos;
         anim = GetComponent<Animator>();
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
