@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Claw : MonoBehaviour
 {
-
+    public GameObject ClawTriggerCube;
+    public Vector3 ClawTriggerPos;
     public Animator anim;
     public float speed;
     public Vector3 direction;
@@ -32,6 +33,7 @@ public class Claw : MonoBehaviour
     void Start () 
     {
         anim = GetComponent<Animator>();
+        ClawTriggerPos = new Vector3(0.0f, -0.5f, -1.0f);
     }
 
     void FixedUpdate()
@@ -43,9 +45,9 @@ public class Claw : MonoBehaviour
         }
     }
 
-    void Update () {
-
-
+    void Update () 
+    {
+        ClawTriggerCube.transform.position = transform.TransformPoint(ClawTriggerPos);
     }
 
     public void Activate()

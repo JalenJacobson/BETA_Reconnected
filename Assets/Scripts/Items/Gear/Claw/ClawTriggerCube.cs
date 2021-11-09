@@ -46,6 +46,6 @@ public class ClawTriggerCube : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        touching.transform.position = transform.TransformPoint(liftPos);
+        // touching.transform.position = transform.TransformPoint(liftPos);
     }
 }
