@@ -14,7 +14,7 @@ public class BruteMove : Player
     {
         name = "Brute";
         moveSpeed = 7f;
-        startPos = new Vector3(63.5f, 0.77f, -230f);
+        startPos = new Vector3(-180, 0.77f, -111f);
         transform.position = startPos;
         TimerBar_Script = TimerBarBrute.GetComponent<TimeBarBrute>();
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
