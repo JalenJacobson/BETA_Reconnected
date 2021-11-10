@@ -105,7 +105,7 @@ public class GearTriggerCube : MonoBehaviour
 
      public void Connect()
      {
-            connected = !connected; 
+            connected = true; 
             Gears.transform.position = touching.transform.TransformPoint(connectPos);
             GearMove_Script.toggleFixPosition();
             // Bubble_Script.actionBubbleStop();
@@ -116,7 +116,7 @@ public class GearTriggerCube : MonoBehaviour
             if(touching.name.Contains("Claw"))
             {
                 print("CONNECTED To Claw");
-                touching.SendMessage("toggleClawConnected");
+                touching.SendMessage("ClawConnected");
             }   
             
      }
@@ -134,7 +134,7 @@ public class GearTriggerCube : MonoBehaviour
             if(touching.name.Contains("Claw"))
             {
                 print("CONNECTED To Claw");
-                touching.SendMessage("toggleClawConnected");
+                touching.SendMessage("ClawDisonnected");
             }   
      }
 

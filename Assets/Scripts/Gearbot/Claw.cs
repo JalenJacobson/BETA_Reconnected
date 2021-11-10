@@ -45,7 +45,6 @@ public class Claw : MonoBehaviour
         if(clawConnected == true)
         {
             Movement();
-            // anim.Play("Claw"); 
         }
     }
 
@@ -57,6 +56,7 @@ public class Claw : MonoBehaviour
             touching.GetComponent<Rigidbody>().useGravity = false;
         }
         else touching.GetComponent<Rigidbody>().useGravity = true;
+        
     }
 
     public void Activate()
@@ -74,7 +74,7 @@ public class Claw : MonoBehaviour
         else if(clawCarrying)
         {
             clawCarrying = false;
-            anim.Play("Open");
+            anim.Play("ClawOpen");
             lifting = false;
             // This needs to be an animation of the claw opening
         }
