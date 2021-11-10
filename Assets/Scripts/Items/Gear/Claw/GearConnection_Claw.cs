@@ -28,14 +28,16 @@ public class GearConnection_Claw : MonoBehaviour
     public void Activate()
     {
         ClawMove_Script.Activate();
-        ClawBoundry_Script.Activate();
+        
+        // ClawBoundry_Script.Activate();
         // ClawDrop_Script.Activate();
     }
 
     public void toggleClawConnected()
     {
         ClawMove_Script.clawConnected = !ClawMove_Script.clawConnected;
-        ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;
+        ClawMove_Script.anim.Play("Claw"); 
+        // ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;
         // ClawDrop_Script.clawDrop = !ClawDrop_Script.clawDrop;
 
     }

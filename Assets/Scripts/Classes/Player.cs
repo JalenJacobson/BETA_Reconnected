@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
         }
         else if(!isBeingCarried)
         {
-           GetComponent<Rigidbody>().useGravity = true; 
+        //    GetComponent<Rigidbody>().useGravity = true; 
         }
     }
     void Update()

@@ -15,13 +15,16 @@ public class Claw : MonoBehaviour
     public float rotateSpeed = 10;
     public Rigidbody rb;
     public bool clawConnected = false;
-    public bool clawDrop = false;
+    public bool lifting = false;
     public bool clawCarrying = false;
+    public Vector3 liftPos;
     public Transform target;
     public Transform target2;
     public Transform target3;
     public Transform target4;
     public Transform target5;
+
+    public GameObject touching = null;
 
 
     void Awake()
@@ -34,6 +37,7 @@ public class Claw : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         ClawTriggerPos = new Vector3(0.0f, -0.5f, -1.0f);
+        liftPos = new Vector3(0.0f, -0.075f, 0.0f);
     }
 
     void FixedUpdate()
@@ -41,20 +45,27 @@ public class Claw : MonoBehaviour
         if(clawConnected == true)
         {
             Movement();
-            anim.Play("Claw"); 
+            // anim.Play("Claw"); 
         }
     }
 
     void Update () 
     {
-        ClawTriggerCube.transform.position = transform.TransformPoint(ClawTriggerPos);
+        if(lifting)
+        {
+            touching.transform.position = transform.TransformPoint(liftPos);
+            touching.GetComponent<Rigidbody>().useGravity = false;
+        }
+        else touching.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void Activate()
     {
-        if(!clawCarrying)
+        if(!clawCarrying && touching)
         {
+            clawCarrying = true;
             anim.Play("ClawClose");
+            lifting = true;
             //this will need to be a coroutine
             //claw drops and closes
             //set lifting to true
@@ -62,7 +73,9 @@ public class Claw : MonoBehaviour
         }
         else if(clawCarrying)
         {
+            clawCarrying = false;
             anim.Play("Open");
+            lifting = false;
             // This needs to be an animation of the claw opening
         }
         
@@ -85,9 +98,3 @@ public class Claw : MonoBehaviour
         // sendPos();
     }
  }
-
-    // public void changeGearBox2()
-    // {
-    //     print("worked");
-    //     gearBox2 = !gearBox2; 
-    // }

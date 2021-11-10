@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657868, g: 0.4964124, b: 0.574817, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -984,7 +984,7 @@ PrefabInstance:
     - target: {fileID: 7203582232420453794, guid: dccf845c656fc4ca290ea16df1cc54f6,
         type: 3}
       propertyPath: m_Name
-      value: Brute 1
+      value: Brute
       objectReference: {fileID: 0}
     - target: {fileID: 7544535924299585304, guid: dccf845c656fc4ca290ea16df1cc54f6,
         type: 3}
@@ -1040,6 +1040,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8014483252400888514, guid: dccf845c656fc4ca290ea16df1cc54f6,
+        type: 3}
+      propertyPath: m_UseGravity
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dccf845c656fc4ca290ea16df1cc54f6, type: 3}
@@ -2610,10 +2615,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 261237449603517904, guid: e20e6e57e27232e48913dd540cb87b61,
+        type: 3}
+      propertyPath: Claw
+      value: 
+      objectReference: {fileID: 4077846746475444142}
+    - target: {fileID: 261237449603517907, guid: e20e6e57e27232e48913dd540cb87b61,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 261237449603517907, guid: e20e6e57e27232e48913dd540cb87b61,
+        type: 3}
+      propertyPath: m_Center.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 261237449921158349, guid: e20e6e57e27232e48913dd540cb87b61,
         type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 261237450882204903, guid: e20e6e57e27232e48913dd540cb87b61,
+        type: 3}
+      propertyPath: liftPos.y
+      value: -0.005
       objectReference: {fileID: 0}
     - target: {fileID: 300232021632819384, guid: e20e6e57e27232e48913dd540cb87b61,
         type: 3}

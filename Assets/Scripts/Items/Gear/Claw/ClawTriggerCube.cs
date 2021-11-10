@@ -7,12 +7,15 @@ public class ClawTriggerCube : MonoBehaviour
 
     public bool triggerEntered = false;
     public GameObject touching = null;
-    public Vector3 liftPos;
-    public bool lifting;
+    
+    
+
+    public GameObject Claw;
+    public Claw ClawMove_Script;
 
     void Start()
     {
-        liftPos = new Vector3(0.0f, -0.5f, -1.0f);
+        ClawMove_Script = Claw.GetComponent<Claw>();
     }
 
     void OnTriggerStay(Collider other)
@@ -25,27 +28,24 @@ public class ClawTriggerCube : MonoBehaviour
             if(touching == null)
             {
                 touching = other.gameObject; 
+                ClawMove_Script.touching = other.gameObject;
             }  
         }
         
     }
 
     void OnTriggerExit(Collider other)
-     { 
-            
+    {   
         if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("Box"))
         {   
-            if(lifting == false)
-            {
-                // canLift = false;
-                touching = null;
-            }
+            touching = null;
+            ClawMove_Script.touching = null;
         }
-     }
+    }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        // touching.transform.position = transform.TransformPoint(liftPos);
+        
     }
 }

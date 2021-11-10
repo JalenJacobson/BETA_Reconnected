@@ -34,8 +34,8 @@ public class BruteMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis("HorizontalPlayer2");
-        float verticalMove = Input.GetAxis("VerticalPlayer2");
+        float horizontalMove = Input.GetAxis("Horizontal");
+        float verticalMove = Input.GetAxis("Vertical");
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
