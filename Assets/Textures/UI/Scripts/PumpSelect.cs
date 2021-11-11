@@ -6,9 +6,12 @@ public class PumpSelect : HeroSelectPlayer
 {
     public GameObject PumpSelectButton;
     public GameObject Pump;
-   public Animator anim;
+    public Animator anim;
     // public bool displayBubble = false;
     public GameObject touching = null;
+
+    // public GameObject Level_Manager;
+    // public Level_Manager Level_Manager_Script;
 
 
  // Use this for initialization
@@ -18,7 +21,7 @@ public class PumpSelect : HeroSelectPlayer
         isUp = false;
         isLocalPlayer = false;
         isSelected = false;
-        sendState();
+        // Level_Manager_Script = Level_Manager.GetComponent<Level_Manager>();
  }
  
  // Update is called once per frame

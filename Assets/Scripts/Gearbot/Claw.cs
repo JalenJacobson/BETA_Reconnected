@@ -24,6 +24,8 @@ public class Claw : MonoBehaviour
     public Transform target4;
     public Transform target5;
 
+    public GameObject liftPoint;
+
     public GameObject touching = null;
 
 
@@ -37,7 +39,7 @@ public class Claw : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         ClawTriggerPos = new Vector3(0.0f, -0.5f, -1.0f);
-        liftPos = new Vector3(0.0f, -0.075f, 0.0f);
+        // liftPos = new Vector3(0.0f, -0.005f, 0.0f);
     }
 
     void FixedUpdate()
@@ -52,7 +54,7 @@ public class Claw : MonoBehaviour
     {
         if(lifting)
         {
-            touching.transform.position = transform.TransformPoint(liftPos);
+            touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
             touching.GetComponent<Rigidbody>().useGravity = false;
         }
         else touching.GetComponent<Rigidbody>().useGravity = true;

@@ -9,6 +9,11 @@ public class GearsSelect : HeroSelectPlayer
    public Animator anim;
     // public bool displayBubble = false;
     public GameObject touching = null;
+    
+    // public GameObject Level_Manager;
+    // public Level_Manager Level_Manager_Script;
+
+    public int playerLevelValue = 1;
 
 
  // Use this for initialization
@@ -19,6 +24,7 @@ public class GearsSelect : HeroSelectPlayer
         isLocalPlayer = false;
         isSelected = false;
         sendState();
+        // Level_Manager_Script = Level_Manager.GetComponent<Level_Manager>();
  }
  
  // Update is called once per frame
@@ -37,7 +43,6 @@ public class GearsSelect : HeroSelectPlayer
    public void Up()
    {
        anim.Play("GearsSelectUp");
-       
 
    }
    public void Down()
@@ -68,6 +73,8 @@ public class GearsSelect : HeroSelectPlayer
     {
         isUp = true;
         anim.Play("GearUp");
+        // Level_Manager_Script.setLevelValue(playerLevelValue);
+        // print(Level_Manager_Script.levelValue);
     }
 
     public void gearsDown()

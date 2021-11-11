@@ -10,6 +10,9 @@ public class BruteSelect : HeroSelectPlayer
     // public bool displayBubble = false;
     public GameObject touching = null;
 
+    // public GameObject Level_Manager;
+    // public Level_Manager Level_Manager_Script;
+
 
  // Use this for initialization
  void Start () {
@@ -18,7 +21,8 @@ public class BruteSelect : HeroSelectPlayer
         isUp = false;
         isLocalPlayer = false;
         isSelected = false;
-        sendState();
+        // sendState();
+        // Level_Manager_Script = Level_Manager.GetComponent<Level_Manager>();
  }
  
  // Update is called once per frame
