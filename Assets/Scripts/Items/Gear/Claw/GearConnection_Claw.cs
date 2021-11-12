@@ -35,7 +35,7 @@ public class GearConnection_Claw : MonoBehaviour
 
     public void ClawConnected()
     {
-        ClawMove_Script.clawConnected = !ClawMove_Script.clawConnected;
+        ClawMove_Script.clawConnected = true;
         ClawMove_Script.anim.Play("Claw"); 
         // ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;
         // ClawDrop_Script.clawDrop = !ClawDrop_Script.clawDrop;
@@ -44,7 +44,13 @@ public class GearConnection_Claw : MonoBehaviour
 
     public void ClawDisonnected()
     {
-        ClawMove_Script.clawConnected = !ClawMove_Script.clawConnected;
+        ClawMove_Script.clawConnected = false;
+        if(ClawMove_Script.lifting)
+        {
+            ClawMove_Script.touching.GetComponent<Rigidbody>().useGravity = true;
+            ClawMove_Script.lifting = false;
+            ClawMove_Script.clawCarrying = false;
+        }
         ClawMove_Script.anim.Play("ClawDrop"); 
         // ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;
         // ClawDrop_Script.clawDrop = !ClawDrop_Script.clawDrop;

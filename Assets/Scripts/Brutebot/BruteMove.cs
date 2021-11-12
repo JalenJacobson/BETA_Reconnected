@@ -8,7 +8,15 @@ public class BruteMove : Player
     //public float rotateSpeed = 10;
     public GameObject TimerBarBrute;
     TimeBarBrute TimerBar_Script;
+    public string moveAxisHorizontal;
+    public string moveAxisVertical;
     
+
+    void Awake()
+    {
+        moveAxisHorizontal = PlayerPrefs.GetString("BruteAxisHorizontal");
+        moveAxisVertical = PlayerPrefs.GetString("BruteAxisVertical");
+    }
 
     void Start()
     {
@@ -34,8 +42,8 @@ public class BruteMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis("Horizontal");
-        float verticalMove = Input.GetAxis("Vertical");
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 

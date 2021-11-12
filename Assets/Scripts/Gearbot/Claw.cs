@@ -58,7 +58,6 @@ public class Claw : MonoBehaviour
             touching.GetComponent<Rigidbody>().useGravity = false;
         }
         else touching.GetComponent<Rigidbody>().useGravity = true;
-        
     }
 
     public void Activate()
@@ -66,12 +65,7 @@ public class Claw : MonoBehaviour
         if(!clawCarrying && touching)
         {
             clawCarrying = true;
-            anim.Play("ClawClose");
-            lifting = true;
-            //this will need to be a coroutine
-            //claw drops and closes
-            //set lifting to true
-            //claw lifts;
+            StartCoroutine(clawPickUp());
         }
         else if(clawCarrying)
         {
@@ -83,6 +77,15 @@ public class Claw : MonoBehaviour
         
     }
 
+    IEnumerator clawPickUp()
+    {
+        anim.Play("ClawClose");
+        yield return new WaitForSeconds(1);
+        lifting = true;
+        yield return new WaitForSeconds(.5f);
+        anim.Play("ClawPickUp");
+    }
+
     void Movement()
     {
         float horizontalMove = Input.GetAxis(moveAxisHorizontal);
@@ -90,11 +93,11 @@ public class Claw : MonoBehaviour
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
-        if (direction != Vector3.zero)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+        // if (direction != Vector3.zero)
+        // {
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
             
-        }
+        // }
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         // sendPos();

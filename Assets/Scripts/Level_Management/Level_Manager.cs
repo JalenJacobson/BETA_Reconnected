@@ -12,25 +12,76 @@ public class Level_Manager : MonoBehaviour
     public Animator transition;
     public float transitionTime = 1f;
     
-    public float levelValues = 0;
+    public string levelValuePlayerOne = "";
+    public string levelValuePlayerTwo = "";
 
     public async void Start()
     {
         sceneToGoTo = 1;
-        levelValues = 0;
-        print("level value" + levelValues);
+        
         
     }
 
     void Update()
     {
-
+        if(Input.GetKeyDown("u"))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
 
     public void LoadNextLevel()
     {
-        StartCoroutine(LoadLevel(sceneToGoTo));
+        var nextScene = getSceneValue();
+        print(nextScene);
+        StartCoroutine(LoadLevel(nextScene));
+    }
+
+    public int getSceneValue()
+    {
+        var levelValueString = levelValuePlayerOne + levelValuePlayerTwo;
+        if(levelValueString == "gearluz" || levelValueString == "luzgear")
+        {
+            return 1;
+        }
+        else if(levelValueString == "gearbrute" || levelValueString == "brutegear")
+        {
+            return 2;
+        }
+        else if(levelValueString == "gearpump" || levelValueString == "pumpgear")
+        {
+            return 3;
+        }
+        else if(levelValueString == "gearsat" || levelValueString == "satgear")
+        {
+            return 4;
+        }
+        else if(levelValueString == "luzbrute" || levelValueString == "bruteluz")
+        {
+            return 5;
+        }
+        else if(levelValueString == "pumpluz" || levelValueString == "luzpump")
+        {
+            return 6;
+        }
+        else if(levelValueString == "brutepump" || levelValueString == "pumpbrute")
+        {
+            return 7;
+        }
+        else if(levelValueString == "brutesat" || levelValueString == "satbrute")
+        {
+            return 8;
+        }
+        else if(levelValueString == "pumpsat" || levelValueString == "satpump")
+        {
+            return 9;
+        }
+        else if(levelValueString == "satluz" || levelValueString == "luzsat")
+        {
+            return 10;
+        }
+        else return 0;
     }
     
     public void loadCurrentLevel()
@@ -65,7 +116,7 @@ public class Level_Manager : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        transition.SetTrigger("Start");
+        // transition.SetTrigger("Start");
 
         yield return new WaitForSeconds(transitionTime);
 
@@ -81,34 +132,70 @@ public class Level_Manager : MonoBehaviour
     // }
     
 
-//================= Character Selection =====================
-    public void setPrefsGear()
+//================= Character Selection P1 =====================
+    public void setPrefsGear1()
     {
-        // PlayerPrefs.SetInt("selectedHero", 0);
-        // PlayerPrefs.SetString("GearAxisHorizontal", "HorizontalPlayer2");
-        // PlayerPrefs.SetString("GearAxisVertical", "VerticalPlayer2");
-        print("level value" + levelValues);
-        levelValues = levelValues + 1;
-        print("level value" + levelValues);
+        PlayerPrefs.SetString("GearAxisHorizontal", "Horizontal");
+        PlayerPrefs.SetString("GearAxisVertical", "Vertical");
+        levelValuePlayerOne = "gear";
+        
     }
-    public void setPrefsLuz()
-    {
-        PlayerPrefs.SetInt("selectedHero", 1);
-        print("level value" + levelValues);
-        levelValues = levelValues + 1;
-        print("level value" + levelValues);
+    public void setPrefsLuz1()
+    {   
+        PlayerPrefs.SetString("LuzAxisHorizontal", "Horizontal");
+        PlayerPrefs.SetString("LuzAxisVertical", "Vertical");
+        levelValuePlayerOne = "luz";
     }
-    public void setPrefsBrute()
-    {
-        PlayerPrefs.SetInt("selectedHero", 2);
+    public void setPrefsBrute1()
+    {   
+        PlayerPrefs.SetString("BruteAxisHorizontal", "Horizontal");
+        PlayerPrefs.SetString("BruteAxisVertical", "Vertical");
+        levelValuePlayerOne = "brute";
     }
-    public void setPrefsPump()
+    public void setPrefsPump1()
     {
-        PlayerPrefs.SetInt("selectedHero", 3);
+        PlayerPrefs.SetString("PumpAxisHorizontal", "Horizontal");
+        PlayerPrefs.SetString("PumpAxisVertical", "Vertical");
+        levelValuePlayerOne = "pump";
     }
-    public void setPrefsSat()
+    public void setPrefsSat1()
     {
-        PlayerPrefs.SetInt("selectedHero", 4);
+        PlayerPrefs.SetString("SatAxisHorizontal", "Horizontal");
+        PlayerPrefs.SetString("SatAxisVertical", "Vertical");
+        levelValuePlayerOne = "sat";
+    }
+    
+//================= Character Selection P2 =====================
+    public void setPrefsGear2()
+    {
+        PlayerPrefs.SetString("GearAxisHorizontal", "HorizontalPlayer2");
+        PlayerPrefs.SetString("GearAxisVertical", "VerticalPlayer2");
+        levelValuePlayerTwo = "gear";
+        
+    }
+    public void setPrefsLuz2()
+    {   
+        PlayerPrefs.SetString("LuzAxisHorizontal", "HorizontalPlayer2");
+        PlayerPrefs.SetString("LuzAxisVertical", "VerticalPlayer2");
+        levelValuePlayerTwo = "luz";
+    }
+    public void setPrefsBrute2()
+    {   
+        PlayerPrefs.SetString("BruteAxisHorizontal", "HorizontalPlayer2");
+        PlayerPrefs.SetString("BruteAxisVertical", "VerticalPlayer2");
+        levelValuePlayerTwo = "brute";
+    }
+    public void setPrefsPump2()
+    {
+        PlayerPrefs.SetString("PumpAxisHorizontal", "HorizontalPlayer2");
+        PlayerPrefs.SetString("PumpAxisVertical", "VerticalPlayer2");
+        levelValuePlayerTwo = "pump";
+    }
+    public void setPrefsSat2()
+    {
+        PlayerPrefs.SetString("SatAxisHorizontal", "HorizontalPlayer2");
+        PlayerPrefs.SetString("SatAxisVertical", "VerticalPlayer2");
+        levelValuePlayerTwo = "sat";
     }
 }
 

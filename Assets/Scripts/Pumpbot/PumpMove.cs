@@ -17,6 +17,14 @@ public class PumpMove : Player
     public BlueWall pumpBlueWall_script;
     public bool BlueWallOpened;
     public Animator anim;
+    public string moveAxisHorizontal;
+    public string moveAxisVertical;
+
+    void Awake()
+    {
+        moveAxisHorizontal = PlayerPrefs.GetString("PumpAxisHorizontal");
+        moveAxisVertical = PlayerPrefs.GetString("PumpAxisVertical");
+    }
 
     void Start()
     {
@@ -41,8 +49,8 @@ public class PumpMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis("HorizontalPlayer2");
-        float verticalMove = Input.GetAxis("VerticalPlayer2");
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 

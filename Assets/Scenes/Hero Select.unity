@@ -2369,7 +2369,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1098039005}
         m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
-        m_MethodName: setPrefsPump
+        m_MethodName: setPrefsPump1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3339,9 +3339,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1098039004}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 1098039005}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: setPrefsBrute2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3974,7 +3974,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1098039005}
         m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
-        m_MethodName: setPrefsSat
+        m_MethodName: setPrefsSat1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5658,9 +5658,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: startGame
+      - m_Target: {fileID: 1098039005}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5932,10 +5932,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3739148410932969839, guid: 5b5f1292c8d734cf6a49677e279806d0,
-          type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: setPrefsGear
+      - m_Target: {fileID: 1098039005}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: setPrefsGear2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6344,10 +6343,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3739148410932969839, guid: 5b5f1292c8d734cf6a49677e279806d0,
-          type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: setPrefsPump
+      - m_Target: {fileID: 1098039005}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: setPrefsPump2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6982,53 +6980,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1040309200}
   m_CullTransparentMesh: 0
---- !u!1 &1098039004
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1098039006}
-  - component: {fileID: 1098039005}
-  m_Layer: 0
-  m_Name: LevelManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1098039005
+--- !u!114 &1098039005 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1230182418186178011, guid: 568bf262978ed427ea0ea2a5449542d9,
+    type: 3}
+  m_PrefabInstance: {fileID: 1230182419271365382}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098039004}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b76bcee1f9cc5431bba561e85e5adf12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToGoTo: 0
-  transition: {fileID: 0}
-  transitionTime: 1
-  levelValues: 0
---- !u!4 &1098039006
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1098039004}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -159.02486, y: 12.235355, z: -105.71913}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1112660107
 Animator:
   serializedVersion: 3
@@ -7303,7 +7266,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1098039005}
         m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
-        m_MethodName: setPrefsLuz
+        m_MethodName: setPrefsLuz1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8119,7 +8082,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1098039005}
         m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
-        m_MethodName: setPrefsBrute
+        m_MethodName: setPrefsBrute1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9051,10 +9014,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3739148410932969839, guid: 5b5f1292c8d734cf6a49677e279806d0,
-          type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: setPrefsLuz
+      - m_Target: {fileID: 1098039005}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: setPrefsLuz2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9974,7 +9936,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1098039005}
         m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
-        m_MethodName: setPrefsGear
+        m_MethodName: setPrefsGear1
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10768,10 +10730,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3739148410932969839, guid: 5b5f1292c8d734cf6a49677e279806d0,
-          type: 3}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: setPrefsSat
+      - m_Target: {fileID: 1098039005}
+        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
+        m_MethodName: setPrefsSat2
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -11814,3 +11775,72 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 326910821}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1230182419271365382
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -159.02486
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.235355
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -105.71913
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1230182418186178010, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_Name
+      value: Level_Manager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 568bf262978ed427ea0ea2a5449542d9, type: 3}

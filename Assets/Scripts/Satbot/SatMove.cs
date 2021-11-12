@@ -12,6 +12,14 @@ public class SatMove : Player
     public GameObject Rails;
     SatBotAnim Rails_Script;
 
+    public string moveAxisHorizontal;
+    public string moveAxisVertical;
+
+    void Awake()
+    {
+        moveAxisHorizontal = PlayerPrefs.GetString("SatAxisHorizontal");
+        moveAxisVertical = PlayerPrefs.GetString("SatAxisVertical");
+    }
 
     void Start()
     {
@@ -28,8 +36,8 @@ public class SatMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis("Horizontal");
-        float verticalMove = Input.GetAxis("Vertical");
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 

@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class LuzMove : Player
 {
+    public string moveAxisHorizontal;
+    public string moveAxisVertical;
+
+    void Awake()
+     {
+        moveAxisHorizontal = PlayerPrefs.GetString("LuzAxisHorizontal");
+        moveAxisVertical = PlayerPrefs.GetString("LuzAxisVertical");
+     }
 
     void Start()
     {
@@ -18,8 +26,8 @@ public class LuzMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis("HorizontalPlayer2");
-        float verticalMove = Input.GetAxis("VerticalPlayer2");
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
