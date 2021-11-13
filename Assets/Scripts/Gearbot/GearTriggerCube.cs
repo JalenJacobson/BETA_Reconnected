@@ -70,9 +70,9 @@ public class GearTriggerCube : MonoBehaviour
         if(other.name.Contains("Gear"))
         {
             touching = null;
-            Bubble_Script.actionBubbleStop();
-            Light_Script.actionBubbleStop();
-            Circle_Script.actionBubbleStop();
+            // Bubble_Script.actionBubbleStop();
+            // Light_Script.actionBubbleStop();
+            // Circle_Script.actionBubbleStop();
         }
      }
 

@@ -6,7 +6,7 @@ public class Sat_Upload_1 : MonoBehaviour
 {
     public string token = "1";
     public GameObject forcegate_gate;
-    ForceGate forcegate_script;
+    public ForceGate forcegate_script;
     
     public GameObject StartPort;
     public LevelComplete levelcomplete_script;

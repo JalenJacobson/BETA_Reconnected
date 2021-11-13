@@ -91,13 +91,14 @@ public class LuzTriggerCube : MonoBehaviour
 
          if(connected == true && Input.GetKeyDown("v"))
          {
+             print("chould activate");
              Activate();
          }
      }
 
      public void Activate()
      {
-             touching.SendMessage("Activate", ErrorMessage);
+             touching.SendMessage("Activate");
      }
      public void Deactivate()
      {
@@ -106,7 +107,7 @@ public class LuzTriggerCube : MonoBehaviour
 
      public void Connect()
      {
-            connected = !connected;  
+            connected = true;  
             LuzMove_Script.toggleFixPosition();
             Bubble_Script.actionBubbleStop();
             Act1Button_Script.activate1();

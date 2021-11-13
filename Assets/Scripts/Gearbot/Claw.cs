@@ -39,7 +39,7 @@ public class Claw : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         ClawTriggerPos = new Vector3(0.0f, -0.5f, -1.0f);
-        // liftPos = new Vector3(0.0f, -0.005f, 0.0f);
+        liftPos = new Vector3(0.0f, -0.04f, 0.0f);
     }
 
     void FixedUpdate()

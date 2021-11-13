@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PowerConnection_LuzLifter : CDI_Class
 {
     public GameObject LuzLifter;
-    Lifter LuzLifter_script;
+    public Lifter LuzLifter_script;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,9 +20,8 @@ public class PowerConnection_LuzLifter : CDI_Class
         
     }
 
-    public override void Activate(Text sndMessage)
+    public void Activate()
     {
         LuzLifter_script.Activate();
-        sndMessage.text = message;
     }
 }

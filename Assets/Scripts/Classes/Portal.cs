@@ -20,7 +20,7 @@ public class Portal : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName == "Brute" || characterName.Contains("Push"))
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute") || characterName.Contains("Push"))
         {
            if(portalIsActive && canPortal)
            {
@@ -33,7 +33,7 @@ public class Portal : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName == "Brute")
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute"))
         {
            
                canPortal = true;

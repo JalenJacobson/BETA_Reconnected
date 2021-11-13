@@ -101,6 +101,20 @@ public class SatTriggerCube : MonoBehaviour
                 ErrorMessage.text = "Token Expired";
             }      
         }
+
+        if(touching != null && Input.GetKeyDown("c"))
+         {
+             Connect();
+         }
+         if(touching != null && Input.GetKeyDown("b"))
+         {
+             Disconnect();
+         }
+
+         if(connected == true && Input.GetKeyDown("v"))
+         {
+             Activate();
+         }
      }
 
     void DownloadToken()
@@ -126,12 +140,12 @@ public class SatTriggerCube : MonoBehaviour
             if(touching.name.Contains("Expiring"))
             {
                 DownloadExpiringToken();
-                ErrorMessage.text = "Expiring Token Downloaded";
+                // ErrorMessage.text = "Expiring Token Downloaded";
             }
             else 
             {
                 DownloadToken();
-                ErrorMessage.text = "Token Downloaded";
+                // ErrorMessage.text = "Token Downloaded";
             }
         }
         else if(touching.name.Contains("Upload"))
@@ -142,14 +156,14 @@ public class SatTriggerCube : MonoBehaviour
                 {
                     touching.SendMessage("Activate", "endGame");
                     token = "0";
-                    ErrorMessage.text = "Token Uploaded";
+                    // ErrorMessage.text = "Token Uploaded";
                     tokenExpire = false;
                 }
                 else
                 {
                     touching.SendMessage("Activate", "forceGate");
                     token = "0";
-                    ErrorMessage.text = "Token Uploaded";
+                    // ErrorMessage.text = "Token Uploaded";
                     tokenExpire = false;
                 }
             }
