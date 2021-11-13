@@ -56,7 +56,7 @@ public class LuzTriggerCube : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if(other.name.Contains("luz") || other.name.Contains("Power")){
+        if(other.name.Contains("Luz") || other.name.Contains("Power")){
              touching = other.gameObject;
         }
     }
@@ -76,10 +76,10 @@ public class LuzTriggerCube : MonoBehaviour
      {
          if(touching != null && Input.GetKeyDown("c"))
          {
-            //  Connect();
-            Activate();
+             Connect();
+            // Activate();
          }
-         if(touching != null && Input.GetKeyDown("d"))
+         if(touching != null && Input.GetKeyDown("b"))
          {
              Disconnect();
          }
@@ -89,7 +89,7 @@ public class LuzTriggerCube : MonoBehaviour
         //      GearMove_Script.fixPosition = true;
         //  }
 
-         if(connected == true && Input.GetKeyDown("z"))
+         if(connected == true && Input.GetKeyDown("v"))
          {
              Activate();
          }
