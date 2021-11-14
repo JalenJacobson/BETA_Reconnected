@@ -18,7 +18,7 @@ public class ActivatePower : MonoBehaviour
             anim.Play("ActivatePower");
 
         }
-        if (Input.GetKeyDown("d"))
+        if (Input.GetKeyDown("b"))
         {
             anim.Play("ReleasePower");
 

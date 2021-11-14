@@ -32,5 +32,14 @@ public class BotSelect : MonoBehaviour
        anim.Play("BotSelectDownP2");
 
    }
+    public void Initiate()
+   {
+       anim.Play("BotSelectUp");
+
+   }
+       public void Initiate2()
+   {
+       anim.Play("BotSelectUpP2");
+   }
 }
    
