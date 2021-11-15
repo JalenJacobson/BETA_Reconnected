@@ -177,6 +177,10 @@ public class SatTriggerCube : MonoBehaviour
         {
             touching.SendMessage("Activate");
         }
+        else if(touching.name.Contains("Doors"))
+        {
+            touching.SendMessage("Activate");
+        }
              
      }
 

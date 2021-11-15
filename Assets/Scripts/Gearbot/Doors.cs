@@ -4,61 +4,37 @@ using UnityEngine;
 
 public class Doors : MonoBehaviour
 {
-   public Animator anim;
+    public Animator anim;
+    public int toOpen = 2;
+    public int activated = 0;
 
-//    public bool gearBox1 = false;
-//    public bool gearBox2;
-//    public bool powerConnection1 = false;
-//    public bool powerConnection2 = false;
+    public GameObject[] Doors_Boxes;
 
-public GameObject GatePowerConnection1;
-public GameObject GatePowerConnection2;
-public GameObject GateGearObj;
-public GameObject GateGearObj2;
-
-public IDI_Base GatePowerConnection1_script;
-public IDI_Base GatePowerConnection2_script;
-public IDI_Base GateGearObj_script;
-public IDI_Base GateGearObj2_script;
 
 
  // Use this for initialization
- void Start () {
+    void Start () 
+    {
         anim = GetComponent<Animator>();
-        GatePowerConnection1_script = GatePowerConnection1.GetComponent<IDI_Base>();
-        GatePowerConnection2_script = GatePowerConnection2.GetComponent<IDI_Base>();
-        GateGearObj_script = GateGearObj.GetComponent<IDI_Base>();
-        GateGearObj2_script = GateGearObj2.GetComponent<IDI_Base>();
-
- }
+        
+        Doors_Boxes = GameObject.FindGameObjectsWithTag("Doors_Boxes");
+        toOpen = Doors_Boxes.Length;
+    }
  
  // Update is called once per frame
- public virtual void Update () {
-        if (GatePowerConnection1_script.active == true && GatePowerConnection2_script.active == true && GateGearObj_script.active == true && GateGearObj2_script.active == true)
+    public virtual void Update () 
+    {
+        if (activated >= toOpen)
         // if (GatePowerConnection1_script.active == true  && GateGearObj_script.active == true)
         {
             anim.Play("Doors");
-
         }
     }
 
-    // public void changeGearBox1()
-    // {
-    //     print("worked");
-    //     gearBox1 = !gearBox1; 
-    // }
-    // public void changeGearBox2()
-    // {
-    //     print("worked");
-    //     gearBox2 = !gearBox2; 
-    // }
+    public void Activate()
+    {
+        activated++;
+    }
+
     
-    // public void changePowerConnection1()
-    // {
-    //     powerConnection1 = !powerConnection1; 
-    // }
-    // public void changePowerConnection2()
-    // {
-    //     powerConnection2 = !powerConnection2; 
-    // }
 }
