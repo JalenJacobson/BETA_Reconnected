@@ -32,5 +32,10 @@ public class Ready : MonoBehaviour
        anim.Play("NotReady");
 
    }
+         public void Initiate()
+   {
+       anim.Play("InitiateReadyButton");
+
+   }
 }
    
