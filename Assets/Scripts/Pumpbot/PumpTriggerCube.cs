@@ -98,11 +98,11 @@ public class PumpTriggerCube : MonoBehaviour
          {
              Connect();
          }
-         if(touching != null && Input.GetKeyDown("d"))
+         if(touching != null && Input.GetKeyDown("b"))
          {
              Disconnect();
          }
-         if(connected == true && Input.GetKeyDown("z"))
+         if(connected == true && Input.GetKeyDown("v"))
          {
              Activate();
          }
