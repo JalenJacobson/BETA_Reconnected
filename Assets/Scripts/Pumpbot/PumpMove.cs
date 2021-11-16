@@ -15,10 +15,10 @@ public class PumpMove : Player
 
     public GameObject PumpBlueWall;
     public BlueWall pumpBlueWall_script;
-    public bool BlueWallOpened;
     public Animator anim;
     public string moveAxisHorizontal;
     public string moveAxisVertical;
+    public bool bubbleOpen;
 
     void Awake()
     {
@@ -29,7 +29,7 @@ public class PumpMove : Player
     void Start()
     {
         name = "Pump";
-        startPos = new Vector3(-157f, 0.7f, -120f);
+        // startPos = new Vector3(-157f, 0.7f, -120f);
         transform.position = startPos;
         anim = GetComponent<Animator>();
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
@@ -65,45 +65,40 @@ public class PumpMove : Player
 
     void Update()
     {
-        if(blueWall == true && BlueWallOpened == false)
+        if(inWater == true && Input.GetKeyDown("space"))
         {
-            pumpBlueWall_script.Play();
-            BlueWallOpened = true;
-        }
-        else if(blueWall == false)
-        {
-            pumpBlueWall_script.Stop();
-            BlueWallOpened = false;
+            if(bubbleOpen == false)
+            {
+                pumpBlueWall_script.Play();
+                bubbleOpen = true;
+            }
+            else if(bubbleOpen == true)
+            {
+                pumpBlueWall_script.Stop();
+                bubbleOpen = false;
+            }
         }
     }
 
-    // public void toggleSelectedState (){
-    //     toggleSelected = !toggleSelected;
-    // }
-    // public void toggleFixPosition()
-    // {
-    //     print("togglefixpos");
-    //     fixPosition = !fixPosition;
-    // }
+    public void waterEnter()
+    {
+        inWater = true;
+    }
+    public void waterExit()
+    {
+        inWater = false;
+        bubbleOpen = false;
+        pumpBlueWall_script.Stop();
+    }
 
-    // public void highGravityEnter ()
+    // public void BlueWallOpen()
     // {
-    //     moveSpeed = 1;
+    //     blueWall = true;
+    //     print("NUMBER2 this should open wall "+blueWall);
+    //     //  anim.Play("BlueWallOpen");
     // }
-    // public void highGravityExit ()
+    // public void BlueWallClose()
     // {
-    //     moveSpeed = 10;
+    //     blueWall = false;
     // }
-    public void BlueWallOpen()
-    {
-        blueWall = true;
-        print("NUMBER2 this should open wall "+blueWall);
-        sendState();
-        //  anim.Play("BlueWallOpen");
-    }
-    public void BlueWallClose()
-    {
-        blueWall = false;
-        sendState();
-    }
 }

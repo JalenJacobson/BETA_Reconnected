@@ -46,7 +46,7 @@ public class BruteTriggerCube : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump")
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" ||characterName.Contains("Brute"))
         {
             if(touching == null)
             {
@@ -76,8 +76,10 @@ public class BruteTriggerCube : MonoBehaviour
         }
      }
 
+     
+
     void Update()
-     {   
+    {   
         if(lifting == true)
         {
             touching.transform.position = transform.TransformPoint(liftPos);
@@ -87,6 +89,15 @@ public class BruteTriggerCube : MonoBehaviour
             Bubble_Script.actionBubbleStop();
             AnimArms_Script.Lift(); 
         }
+        if(touching.name.Contains("Brute") && Input.GetKeyDown("v"))
+        {
+            Activate();
+        }
+    }
+
+    public void Activate()
+    {
+        touching.SendMessage("Activate");
     }
 
      public void drop()
