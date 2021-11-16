@@ -3709,13 +3709,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7544535924299585304}
   - component: {fileID: 8014483252400888514}
-  - component: {fileID: 8014483252400888515}
   - component: {fileID: 8014483252400888518}
   - component: {fileID: 8014483252400888513}
   - component: {fileID: 8014483252400888512}
   - component: {fileID: 8014483252400889148}
+  - component: {fileID: 1451018371034639619}
   m_Layer: 0
-  m_Name: Brute 1
+  m_Name: Brute
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3762,19 +3762,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!65 &8014483252400888515
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7203582232420453794}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.018, y: 0.025, z: 0.013}
-  m_Center: {x: 0, y: 0.015, z: 0}
 --- !u!95 &8014483252400888518
 Animator:
   serializedVersion: 3
@@ -3830,6 +3817,8 @@ MonoBehaviour:
   redDanger: {r: 0, g: 0, b: 0, a: 0}
   joystick: {fileID: 0}
   TimerBarBrute: {fileID: 0}
+  moveAxisHorizontal: 
+  moveAxisVertical: 
 --- !u!114 &8014483252400888512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3856,6 +3845,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+--- !u!136 &1451018371034639619
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203582232420453794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.008
+  m_Height: 0.03
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.0175, z: 0}
 --- !u!1 &7210880827466417590
 GameObject:
   m_ObjectHideFlags: 0

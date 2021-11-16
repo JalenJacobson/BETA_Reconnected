@@ -80,6 +80,19 @@ public class BruteTriggerCube : MonoBehaviour
 
     void Update()
     {   
+        if(Input.GetKeyDown("space") && touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
+        {
+            if(lifting)
+            {
+            lift();
+            }
+            else if(!lifting)
+            {
+            drop();    
+            }
+        }
+
+
         if(lifting == true)
         {
             touching.transform.position = transform.TransformPoint(liftPos);
