@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 8880585461883300757}
   - component: {fileID: 8582889754033682908}
   - component: {fileID: 5968163157066504630}
+  - component: {fileID: 8535112046374578962}
   m_Layer: 0
   m_Name: polySurface17
   m_TagString: Untagged
@@ -324,6 +325,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!122 &8535112046374578962
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1567709594541299776}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4279893760
+  m_Size: 2.04
 --- !u!1 &2081128463040187397
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,6 +867,7 @@ GameObject:
   - component: {fileID: 9218593090921497889}
   - component: {fileID: 8675547994290021071}
   - component: {fileID: 8675547994290021064}
+  - component: {fileID: 6391244845199880128}
   m_Layer: 0
   m_Name: Sat_Upload 1
   m_TagString: Untagged
@@ -912,8 +926,29 @@ MonoBehaviour:
   token: 1
   forcegate_gate: {fileID: 0}
   forcegate_script: {fileID: 0}
+  anim: {fileID: 6391244845199880128}
   StartPort: {fileID: 0}
   levelcomplete_script: {fileID: 0}
+  Active: 0
+--- !u!95 &6391244845199880128
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8405077268649435035}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 414fd3ae7297f8a42842b4bea0215976, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8752205042217698118
 GameObject:
   m_ObjectHideFlags: 0

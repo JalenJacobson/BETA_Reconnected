@@ -7,9 +7,11 @@ public class Sat_Upload_1 : MonoBehaviour
     public string token = "1";
     public GameObject forcegate_gate;
     public ForceGate forcegate_script;
+    public Animator anim;
     
     public GameObject StartPort;
     public LevelComplete levelcomplete_script;
+    public bool Active = false;
 
     
     // Start is called before the first frame update
@@ -17,17 +19,20 @@ public class Sat_Upload_1 : MonoBehaviour
     {
         forcegate_script = forcegate_gate.GetComponent<ForceGate>();
         levelcomplete_script = StartPort.GetComponent<LevelComplete>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Active == true)
+        anim.Play("UploadActive"); 
     }
     
     void Activate()
     {
         forcegate_script.toggleActive();
+        Active = true; 
     }
 
     // void Activate(string uploadType)

@@ -137,6 +137,7 @@ public class SatTriggerCube : MonoBehaviour
      {
         if(touching.name.Contains("Download"))
         {
+            touching.SendMessage("Activate");
             if(touching.name.Contains("Expiring"))
             {
                 DownloadExpiringToken();

@@ -10,11 +10,22 @@ public class Portal : MonoBehaviour
     public Vector3 sendToLocation;
     public bool canPortal = true;
     public bool portalIsActive = false;
+    public Animator anim;
 
     void Start() 
     {
         sendToLocation = OtherPortal.transform.position;
         other_portal_script = OtherPortal.GetComponent<Portal>();
+        anim = GetComponent<Animator>();
+    }
+
+    void Update()
+    {
+        if(portalIsActive == true)
+        anim.Play("Portal1WayActivate");
+
+        if(portalIsActive && canPortal == true)
+        anim.Play("PortalActive");
     }
 
     void OnTriggerStay(Collider other)
@@ -36,7 +47,7 @@ public class Portal : MonoBehaviour
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute"))
         {
            
-               canPortal = true;
+              // canPortal = true;
 
            
         }
