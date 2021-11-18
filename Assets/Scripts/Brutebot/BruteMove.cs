@@ -6,11 +6,13 @@ public class BruteMove : Player
 {
     // public float moveSpeed = 5;
     //public float rotateSpeed = 10;
+    public Animator anim;
     public GameObject TimerBarBrute;
     TimeBarBrute TimerBar_Script;
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
+
 
     void Awake()
      {
@@ -20,7 +22,7 @@ public class BruteMove : Player
 
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
         name = "Brute";
         moveSpeed = 7f;
         // startPos = new Vector3(-180, 0.77f, -111f);
@@ -118,4 +120,12 @@ public class BruteMove : Player
         inWater = false;
         breathRemaining = 5f;
     }
+       public void Lift()
+   {
+        anim.Play("Push");
+   }
+      public void Drop()
+   {
+        anim.Play("BruteWalk");
+   }
 }

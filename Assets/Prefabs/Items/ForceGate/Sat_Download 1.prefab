@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 1307789794264155542}
   - component: {fileID: 1307789794264155543}
   - component: {fileID: 8812998026062549854}
+  - component: {fileID: 5145378164716566067}
   m_Layer: 0
   m_Name: Sat_Download 1
   m_TagString: Untagged
@@ -393,6 +394,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   token: 1
   anim: {fileID: 0}
+  Active: 0
 --- !u!95 &8812998026062549854
 Animator:
   serializedVersion: 3
@@ -412,6 +414,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5145378164716566067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2226847713363900621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b568f5ee382b99142973d4c224bf221d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
 --- !u!1 &3034894236011729676
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,6 +961,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   token: 1
   anim: {fileID: 0}
+  Active: 0
 --- !u!1 &9187924460410666774
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1059,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   token: 1
   anim: {fileID: 0}
+  Active: 0
 --- !u!122 &4743779697762148790
 Halo:
   m_ObjectHideFlags: 0

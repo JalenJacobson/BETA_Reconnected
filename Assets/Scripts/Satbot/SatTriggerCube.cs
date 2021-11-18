@@ -18,25 +18,7 @@ public class SatTriggerCube : MonoBehaviour
     public bool tokenExpire = false;
     public float tokenExpireTime;
 
-    public Text Connection;
-    public Text ErrorMessage;
 
-    public GameObject ActionDownload;
-    DownloadBubbleScript Bubble_Script;
-    public GameObject ActionLight;
-    DownloadBubbleScript Light_Script;
-    public GameObject ActionCircles;
-    DownloadBubbleScript Circle_Script;
-    public GameObject Activate1;
-    Act1Script Act1Button_Script;
-    public GameObject Cancel;
-    CancelButton CancelButton_Script;
-
-    public Color orangeGravityField;
-    public Color greenConsole;
-    public Color blueCircuitField;
-    public Color redDanger;
-    
     // public GameObject TimerBarSat;
     // TimeBarSat TimerBarSat_Script;
 
@@ -54,13 +36,7 @@ public class SatTriggerCube : MonoBehaviour
 
     void Start(){
         SatMove_Script = SatBot.GetComponent<SatMove>();
-        Bubble_Script = ActionDownload.GetComponent<DownloadBubbleScript>();
-        Light_Script = ActionLight.GetComponent<DownloadBubbleScript>();
-        Circle_Script = ActionCircles.GetComponent<DownloadBubbleScript>();
-        Act1Button_Script = Activate1.GetComponent<Act1Script>();
-        CancelButton_Script = Cancel.GetComponent<CancelButton>();
-        redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
-        greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
+
     }
 
     public void getControls()
@@ -85,9 +61,7 @@ public class SatTriggerCube : MonoBehaviour
      {
         if(other.name.Contains("Sat")){
              
-            Bubble_Script.actionBubbleStart();
-            Light_Script.actionBubbleStart();
-            Circle_Script.actionBubbleStart();
+
              
         }
     }
@@ -109,9 +83,7 @@ public class SatTriggerCube : MonoBehaviour
         touchingToken = null;
         if(other.name.Contains("Sat"))
         {
-            Bubble_Script.actionBubbleStop();
-            Light_Script.actionBubbleStop();
-            Circle_Script.actionBubbleStop();
+
         }
      }
 
@@ -122,13 +94,13 @@ public class SatTriggerCube : MonoBehaviour
             if(tokenExpireTime > 0)
             {
                 tokenExpireTime -= Time.deltaTime;
-                ErrorMessage.text = "Token Expire in " + tokenExpireTime.ToString("0.00");
+
             }
             else 
             {
                 token = "0";
                 tokenExpire = false;
-                ErrorMessage.text = "Token Expired";
+
             }      
         }
 
@@ -200,8 +172,7 @@ public class SatTriggerCube : MonoBehaviour
             }
             else
             {
-                ErrorMessage.text = "Activation Failed - Token Required";
-                ErrorMessage.color = redDanger;
+
             }
         }
         else if(touching.name.Contains("Portal")) 
@@ -219,27 +190,20 @@ public class SatTriggerCube : MonoBehaviour
      {
         connected = !connected;  
         SatMove_Script.toggleFixPosition();
-        Bubble_Script.actionBubbleStop();
-        Act1Button_Script.activate1();
-        Connection.text = touching.name.ToString();
-        CancelButton_Script.CancelStart();     
+    
      }
      
      public void Disconnect()
      {
              connected = false;  
              SatMove_Script.toggleFixPosition();
-            Light_Script.actionBubbleStop();
-            Circle_Script.actionBubbleStop();
-            Act1Button_Script.activate1Stop();
-            Connection.text = "F";
+
             resetConsoleMessage();
-            CancelButton_Script.CancelStop();      
+     
      }
 
      public void resetConsoleMessage()
      {
-         ErrorMessage.text = "";
-         ErrorMessage.color = greenConsole;
+
      }
 }

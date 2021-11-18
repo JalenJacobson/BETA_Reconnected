@@ -3709,7 +3709,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7544535924299585304}
   - component: {fileID: 8014483252400888514}
-  - component: {fileID: 8014483252400888518}
   - component: {fileID: 8014483252400888513}
   - component: {fileID: 8014483252400888512}
   - component: {fileID: 8014483252400889148}
@@ -3762,25 +3761,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!95 &8014483252400888518
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7203582232420453794}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54ce24334487706449c467227b94f7ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &8014483252400888513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3816,9 +3796,11 @@ MonoBehaviour:
   blueCircuitField: {r: 0, g: 0, b: 0, a: 0}
   redDanger: {r: 0, g: 0, b: 0, a: 0}
   joystick: {fileID: 0}
+  anim: {fileID: 0}
   TimerBarBrute: {fileID: 0}
   moveAxisHorizontal: 
   moveAxisVertical: 
+  playerNumber: 
 --- !u!114 &8014483252400888512
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4368,7 +4350,6 @@ GameObject:
   - component: {fileID: 8014483251635068264}
   - component: {fileID: 8014483251635068265}
   - component: {fileID: 8014483251635068270}
-  - component: {fileID: 8014483251635068261}
   m_Layer: 0
   m_Name: BruteTriggerCube
   m_TagString: Untagged
@@ -4464,7 +4445,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b490bf3d5743d4a8580403ed3be5977a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
   triggerEntered: 0
   touching: {fileID: 0}
   canLift: 0
@@ -4475,25 +4455,11 @@ MonoBehaviour:
   ActionCircles: {fileID: 0}
   Cancel: {fileID: 0}
   Brute: {fileID: 7203582232420453794}
---- !u!95 &8014483251635068261
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8014483251635068271}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 54ce24334487706449c467227b94f7ce, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  playerNumber: 
+  connectKey: 
+  activateKey: 
+  disconnectKey: 
+  special: 
 --- !u!1 &8014483252513351689
 GameObject:
   m_ObjectHideFlags: 0
