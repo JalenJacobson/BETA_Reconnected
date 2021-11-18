@@ -10,16 +10,17 @@ public class BruteMove : Player
     TimeBarBrute TimerBar_Script;
     public string moveAxisHorizontal;
     public string moveAxisVertical;
-    
+    public string playerNumber;
 
     void Awake()
-    {
-        moveAxisHorizontal = PlayerPrefs.GetString("BruteAxisHorizontal");
-        moveAxisVertical = PlayerPrefs.GetString("BruteAxisVertical");
-    }
+     {
+        playerNumber = PlayerPrefs.GetString("BrutePlayerNumber");
+        getControls();
+     }
 
     void Start()
     {
+        
         name = "Brute";
         moveSpeed = 7f;
         // startPos = new Vector3(-180, 0.77f, -111f);
@@ -29,6 +30,20 @@ public class BruteMove : Player
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
         blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
         redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
+    }
+
+    void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            moveAxisHorizontal = "Horizontal";
+            moveAxisVertical = "Vertical";
+        }
+        else if(playerNumber == "P2")
+        {
+            moveAxisHorizontal = "HorizontalPlayer2";
+            moveAxisVertical = "VerticalPlayer2";   
+        }
     }
     
     public override void highGravityEnter ()
@@ -61,18 +76,19 @@ public class BruteMove : Player
     {
         if(inWater == true)
         {
+            print("brute in water");
             if(touchingAirBubble == true)
             {
                 // DangerState.text = "Danger State: Short Circuit - Delayed";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Delayed", greenConsole);
+                // setConsoleDangerField("Circuit Field", blueCircuitField);
+                // setConsoleDangerState("Short Circuit - Delayed", greenConsole);
                 TimerBar_Script.enterbluewall();
             }
             else
             {
                 // DangerState.text = "Danger State: Short Circuit - Danger";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Danger", redDanger);
+                // setConsoleDangerField("Circuit Field", blueCircuitField);
+                // setConsoleDangerState("Short Circuit - Danger", redDanger);
                 drowning();
             }
             
@@ -87,7 +103,7 @@ public class BruteMove : Player
     public override void drowning()
     {
         // print("drowning");
-        TimerBar_Script.timerStart();
+        // TimerBar_Script.timerStart();
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
@@ -95,10 +111,10 @@ public class BruteMove : Player
     }
     public override void waterExit()
     {
-        resetConsoleDangerState();
+        // resetConsoleDangerState();
         // DangerField.text = "Danger Area: None";
-        resetConsoleDangerField();
-        TimerBar_Script.timerStop();
+        // resetConsoleDangerField();
+        // TimerBar_Script.timerStop();
         inWater = false;
         breathRemaining = 5f;
     }

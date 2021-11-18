@@ -18,16 +18,19 @@ public class PumpMove : Player
     public Animator anim;
     public string moveAxisHorizontal;
     public string moveAxisVertical;
+    public string special;
     public bool bubbleOpen;
+    public string playerNumber;
 
     void Awake()
-    {
-        moveAxisHorizontal = PlayerPrefs.GetString("PumpAxisHorizontal");
-        moveAxisVertical = PlayerPrefs.GetString("PumpAxisVertical");
-    }
+     {
+        playerNumber = PlayerPrefs.GetString("PumpPlayerNumber");
+        getControls();
+     }
 
     void Start()
     {
+        
         name = "Pump";
         // startPos = new Vector3(-157f, 0.7f, -120f);
         transform.position = startPos;
@@ -37,6 +40,22 @@ public class PumpMove : Player
         blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
         redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
         pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
+    }
+
+    void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            moveAxisHorizontal = "Horizontal";
+            moveAxisVertical = "Vertical";
+            special = "space";
+        }
+        else if(playerNumber == "P2")
+        {
+            moveAxisHorizontal = "HorizontalPlayer2";
+            moveAxisVertical = "VerticalPlayer2";  
+            special = "return"; 
+        }
     }
 
     // void FixedUpdate()
@@ -65,7 +84,7 @@ public class PumpMove : Player
 
     void Update()
     {
-        if(inWater == true && Input.GetKeyDown("space"))
+        if(inWater == true && Input.GetKeyDown(special))
         {
             if(bubbleOpen == false)
             {

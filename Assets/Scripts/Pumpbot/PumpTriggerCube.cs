@@ -32,6 +32,18 @@ public class PumpTriggerCube : MonoBehaviour
     public GameObject BlueWall;
     BlueWall BlueWall_Script;
 
+    public string playerNumber;
+    public string connectKey;
+    public string activateKey;
+    public string disconnectKey;
+    public string special;
+
+    void Awake()
+     {
+        playerNumber = PlayerPrefs.GetString("PumpPlayerNumber");
+        getControls();
+     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +60,24 @@ public class PumpTriggerCube : MonoBehaviour
         CancelButton2_Script = Cancel2.GetComponent<CancelButton>();
         BlueWall_Script = BlueWall.GetComponent<BlueWall>();
         anim = GetComponent<Animator>();
+    }
+
+    public void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            activateKey = "v";
+            disconnectKey = "b";
+            connectKey = "c";
+            special = "space";
+        }
+        else if(playerNumber == "P2")
+        {
+            activateKey = "k";
+            disconnectKey = "l";
+            connectKey = "j";
+            special = "return";
+        }
     }
 
    void OnTriggerEnter(Collider other)
@@ -94,15 +124,15 @@ public class PumpTriggerCube : MonoBehaviour
 
      void Update()
      {
-         if(touching != null && Input.GetKeyDown("c"))
+         if(touching != null && Input.GetKeyDown(connectKey))
          {
              Connect();
          }
-         if(touching != null && Input.GetKeyDown("b"))
+         if(touching != null && Input.GetKeyDown(disconnectKey))
          {
              Disconnect();
          }
-         if(connected == true && Input.GetKeyDown("v"))
+         if(connected == true && Input.GetKeyDown(activateKey))
          {
              Activate();
          }

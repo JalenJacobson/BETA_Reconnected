@@ -35,12 +35,29 @@ public class Player : MonoBehaviour
     private static readonly HttpClient client = new HttpClient();
 
     public Joystick joystick;
+    // public string playerNumber;
+    // public string moveAxisHorizontal;
+    // public string moveAxisVertical;
 
     void Start()
     {
         startPos = new Vector3(47f, 1.29f, -246f);
         transform.position = startPos;
     }
+
+    // void getControls()
+    // {
+    //     if(playerNumber == "P1")
+    //     {
+    //         moveAxisHorizontal = "Hoirzontal";
+    //         moveAxisVertical = "Vertical";
+    //     }
+    //     else if(playerNumber == "P2")
+    //     {
+    //         moveAxisHorizontal = "HoirzontalPlayer2";
+    //         moveAxisVertical = "VerticalPlayer2";   
+    //     }
+    // }
 
     void FixedUpdate()
     {
@@ -55,13 +72,14 @@ public class Player : MonoBehaviour
         }
         else if(!isBeingCarried)
         {
-        //    GetComponent<Rigidbody>().useGravity = true; 
+           GetComponent<Rigidbody>().useGravity = true; 
         }
     }
     void Update()
     {
         if(inWater == true)
         {
+            print("player in water");
             if(touchingAirBubble == true)
             {
                 
@@ -149,19 +167,12 @@ public class Player : MonoBehaviour
         if(!isBeingCarried)
         {
             isBeingCarried = !isBeingCarried;
-            sendState();   
+            // sendState();   
         }
         else if(isBeingCarried)
         {
-            if(isLocalPlayer)
-            {
                 isBeingCarried = !isBeingCarried;
-                sendState();   
-            }
-            else if(!isLocalPlayer)
-            {
-                StartCoroutine(ExecuteAfterTime(3));
-            }
+                // sendState();   
         }
     }
 
@@ -195,7 +206,7 @@ public class Player : MonoBehaviour
     }
     public virtual void drowning()
     {
-        // print("drowning");
+        print("drowning");
         // TimerBar_Script.timerStart();
         if (breathRemaining > 0)
         {
@@ -205,7 +216,7 @@ public class Player : MonoBehaviour
     public void waterEnter()
     {
         // DangerField.text = "Circuit Field";
-        setConsoleDangerField("Circuit Field", blueCircuitField);
+        print("in WATERAAA");
         inWater = true;
     }
     public virtual void pumpAirBubbleEnter()

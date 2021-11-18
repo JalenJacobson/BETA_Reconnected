@@ -26,6 +26,18 @@ public class BruteTriggerCube : MonoBehaviour
     // public GameObject TimerBarBrute;
     // TimeBarBrute TimerBarBrute_Script;
 
+    public string playerNumber;
+    public string connectKey;
+    public string activateKey;
+    public string disconnectKey;
+    public string special;
+
+    void Awake()
+     {
+        playerNumber = PlayerPrefs.GetString("BrutePlayerNumber");
+        getControls();
+     }
+
     void Start()
     {
         liftPos = new Vector3(0.0f, -0.5f, -1.0f);
@@ -36,6 +48,24 @@ public class BruteTriggerCube : MonoBehaviour
         CancelButton_Script = Cancel.GetComponent<CancelButton>();
         AnimArms_Script = Brute.GetComponent<MoveBruteW>();
         // TimerBarBrute_Script = TimerBarBrute.GetComponent<TimeBarBrute>();
+    }
+
+    public void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            activateKey = "v";
+            disconnectKey = "b";
+            connectKey = "c";
+            special = "space";
+        }
+        else if(playerNumber == "P2")
+        {
+            activateKey = "k";
+            disconnectKey = "l";
+            connectKey = "j";
+            special = "return";
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -80,29 +110,23 @@ public class BruteTriggerCube : MonoBehaviour
 
     void Update()
     {   
-        if(Input.GetKeyDown("space") && touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
+        if(Input.GetKeyDown(special))
         {
-            if(lifting)
+            if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
             {
-            lift();
+                if(!lifting)
+                {
+                    lift();
+                }
+                else if(lifting)
+                {
+                    drop();    
+                }
             }
-            else if(!lifting)
-            {
-            drop();    
-            }
+            
         }
 
-
-        if(lifting == true)
-        {
-            touching.transform.position = transform.TransformPoint(liftPos);
-            CancelButton_Script.CancelStart();
-            Light_Script.actionBubbleStart();
-            Circle_Script.actionBubbleStart();
-            Bubble_Script.actionBubbleStop();
-            AnimArms_Script.Lift(); 
-        }
-        if(touching.name.Contains("Brute") && Input.GetKeyDown("v"))
+        if(touching.name.Contains("Brute") && Input.GetKeyDown(activateKey))
         {
             Activate();
         }
@@ -115,10 +139,7 @@ public class BruteTriggerCube : MonoBehaviour
 
      public void drop()
      {
-        Light_Script.actionBubbleStop();
-        Circle_Script.actionBubbleStop();
-        CancelButton_Script.CancelStop();
-        lifting = !lifting;
+        lifting = false;
         touching.SendMessage("toggleIsBeingCarried");
         AnimArms_Script.Drop();  
      }
@@ -127,7 +148,8 @@ public class BruteTriggerCube : MonoBehaviour
     {
         if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
         {
-            lifting = !lifting;
+            lifting = true;
+            // AnimArms_Script.Lift();
             touching.SendMessage("toggleIsBeingCarried");
         }
     }

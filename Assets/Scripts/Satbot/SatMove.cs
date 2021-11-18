@@ -14,15 +14,17 @@ public class SatMove : Player
 
     public string moveAxisHorizontal;
     public string moveAxisVertical;
+    public string playerNumber;
 
     void Awake()
-    {
-        moveAxisHorizontal = PlayerPrefs.GetString("SatAxisHorizontal");
-        moveAxisVertical = PlayerPrefs.GetString("SatAxisVertical");
-    }
+     {
+        playerNumber = PlayerPrefs.GetString("SatPlayerNumber");
+        getControls();
+     }
 
     void Start()
     {
+        
         name = "Sat";
         // startPos = new Vector3(58f, 1.3f, -230f);
         // transform.position = startPos;
@@ -32,6 +34,20 @@ public class SatMove : Player
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
         blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
         redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
+    }
+
+    void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            moveAxisHorizontal = "Horizontal";
+            moveAxisVertical = "Vertical";
+        }
+        else if(playerNumber == "P2")
+        {
+            moveAxisHorizontal = "HorizontalPlayer2";
+            moveAxisVertical = "VerticalPlayer2";   
+        }
     }
 
     public override void Movement()
@@ -58,15 +74,15 @@ public class SatMove : Player
             if(touchingAirBubble == true)
             {
                 // DangerState.text = "Danger State: Short Circuit - Delayed";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Delayed", greenConsole);
+                // setConsoleDangerField("Circuit Field", blueCircuitField);
+                // setConsoleDangerState("Short Circuit - Delayed", greenConsole);
                 TimerBar_Script.enterbluewall();
             }
             else
             {
                 // DangerState.text = "Danger State: Short Circuit - Danger";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Danger", redDanger);
+                // setConsoleDangerField("Circuit Field", blueCircuitField);
+                // setConsoleDangerState("Short Circuit - Danger", redDanger);
                 drowning();
             }
             

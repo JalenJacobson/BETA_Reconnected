@@ -6,15 +6,17 @@ public class LuzMove : Player
 {
     public string moveAxisHorizontal;
     public string moveAxisVertical;
+    public string playerNumber;
 
     void Awake()
      {
-        moveAxisHorizontal = PlayerPrefs.GetString("LuzAxisHorizontal");
-        moveAxisVertical = PlayerPrefs.GetString("LuzAxisVertical");
+        playerNumber = PlayerPrefs.GetString("LuzPlayerNumber");
+        getControls();
      }
 
     void Start()
     {
+        
         name = "Luz";
         breathRemaining = .1f;
         startPos = new Vector3(-180f, .5f, -98.5f);
@@ -22,6 +24,20 @@ public class LuzMove : Player
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
         blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
+    }
+
+    void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            moveAxisHorizontal = "Horizontal";
+            moveAxisVertical = "Vertical";
+        }
+        else if(playerNumber == "P2")
+        {
+            moveAxisHorizontal = "HorizontalPlayer2";
+            moveAxisVertical = "VerticalPlayer2";   
+        }
     }
 
     public override void Movement()

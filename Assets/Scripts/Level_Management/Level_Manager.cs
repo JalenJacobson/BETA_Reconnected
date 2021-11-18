@@ -135,6 +135,7 @@ public class Level_Manager : MonoBehaviour
 //================= Character Selection P1 =====================
     public void setPrefsGear1()
     {
+        PlayerPrefs.SetString("GearPlayerNumber", "P1");
         PlayerPrefs.SetString("GearAxisHorizontal", "Horizontal");
         PlayerPrefs.SetString("GearAxisVertical", "Vertical");
         levelValuePlayerOne = "gear";
@@ -142,24 +143,28 @@ public class Level_Manager : MonoBehaviour
     }
     public void setPrefsLuz1()
     {   
+        PlayerPrefs.SetString("LuzPlayerNumber", "P1");
         PlayerPrefs.SetString("LuzAxisHorizontal", "Horizontal");
         PlayerPrefs.SetString("LuzAxisVertical", "Vertical");
         levelValuePlayerOne = "luz";
     }
     public void setPrefsBrute1()
     {   
+        PlayerPrefs.SetString("BrutePlayerNumber", "P1");
         PlayerPrefs.SetString("BruteAxisHorizontal", "Horizontal");
         PlayerPrefs.SetString("BruteAxisVertical", "Vertical");
         levelValuePlayerOne = "brute";
     }
     public void setPrefsPump1()
     {
+        PlayerPrefs.SetString("PumpPlayerNumber", "P1");
         PlayerPrefs.SetString("PumpAxisHorizontal", "Horizontal");
         PlayerPrefs.SetString("PumpAxisVertical", "Vertical");
         levelValuePlayerOne = "pump";
     }
     public void setPrefsSat1()
     {
+        PlayerPrefs.SetString("SatPlayerNumber", "P1");
         PlayerPrefs.SetString("SatAxisHorizontal", "Horizontal");
         PlayerPrefs.SetString("SatAxisVertical", "Vertical");
         levelValuePlayerOne = "sat";
@@ -168,6 +173,7 @@ public class Level_Manager : MonoBehaviour
 //================= Character Selection P2 =====================
     public void setPrefsGear2()
     {
+        PlayerPrefs.SetString("GearPlayerNumber", "P2");
         PlayerPrefs.SetString("GearAxisHorizontal", "HorizontalPlayer2");
         PlayerPrefs.SetString("GearAxisVertical", "VerticalPlayer2");
         levelValuePlayerTwo = "gear";
@@ -175,24 +181,28 @@ public class Level_Manager : MonoBehaviour
     }
     public void setPrefsLuz2()
     {   
+        PlayerPrefs.SetString("LuzPlayerNumber", "P2");
         PlayerPrefs.SetString("LuzAxisHorizontal", "HorizontalPlayer2");
         PlayerPrefs.SetString("LuzAxisVertical", "VerticalPlayer2");
         levelValuePlayerTwo = "luz";
     }
     public void setPrefsBrute2()
     {   
+        PlayerPrefs.SetString("BrutePlayerNumber", "P2");
         PlayerPrefs.SetString("BruteAxisHorizontal", "HorizontalPlayer2");
         PlayerPrefs.SetString("BruteAxisVertical", "VerticalPlayer2");
         levelValuePlayerTwo = "brute";
     }
     public void setPrefsPump2()
     {
+        PlayerPrefs.SetString("PumpPlayerNumber", "P2");
         PlayerPrefs.SetString("PumpAxisHorizontal", "HorizontalPlayer2");
         PlayerPrefs.SetString("PumpAxisVertical", "VerticalPlayer2");
         levelValuePlayerTwo = "pump";
     }
     public void setPrefsSat2()
     {
+        PlayerPrefs.SetString("SatPlayerNumber", "P2");
         PlayerPrefs.SetString("SatAxisHorizontal", "HorizontalPlayer2");
         PlayerPrefs.SetString("SatAxisVertical", "VerticalPlayer2");
         levelValuePlayerTwo = "sat";

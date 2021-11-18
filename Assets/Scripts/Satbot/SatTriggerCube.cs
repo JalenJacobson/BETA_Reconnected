@@ -40,6 +40,18 @@ public class SatTriggerCube : MonoBehaviour
     // public GameObject TimerBarSat;
     // TimeBarSat TimerBarSat_Script;
 
+    public string playerNumber;
+    public string connectKey;
+    public string activateKey;
+    public string disconnectKey;
+    public string special;
+
+    void Awake()
+     {
+        playerNumber = PlayerPrefs.GetString("SatPlayerNumber");
+        getControls();
+     }
+
     void Start(){
         SatMove_Script = SatBot.GetComponent<SatMove>();
         Bubble_Script = ActionDownload.GetComponent<DownloadBubbleScript>();
@@ -49,6 +61,24 @@ public class SatTriggerCube : MonoBehaviour
         CancelButton_Script = Cancel.GetComponent<CancelButton>();
         redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
+    }
+
+    public void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            activateKey = "v";
+            disconnectKey = "b";
+            connectKey = "c";
+            special = "space";
+        }
+        else if(playerNumber == "P2")
+        {
+            activateKey = "k";
+            disconnectKey = "l";
+            connectKey = "j";
+            special = "return";
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -102,16 +132,16 @@ public class SatTriggerCube : MonoBehaviour
             }      
         }
 
-        if(touching != null && Input.GetKeyDown("c"))
+        if(touching != null && Input.GetKeyDown(connectKey))
          {
              Connect();
          }
-         if(touching != null && Input.GetKeyDown("b"))
+         if(touching != null && Input.GetKeyDown(disconnectKey))
          {
              Disconnect();
          }
 
-         if(connected == true && Input.GetKeyDown("v"))
+         if(connected == true && Input.GetKeyDown(activateKey))
          {
              Activate();
          }

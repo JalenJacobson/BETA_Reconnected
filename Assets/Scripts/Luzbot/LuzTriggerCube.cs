@@ -32,6 +32,18 @@ public class LuzTriggerCube : MonoBehaviour
     public Color blueCircuitField;
     public Color redDanger;
 
+    public string playerNumber;
+    public string connectKey;
+    public string activateKey;
+    public string disconnectKey;
+    public string special;
+
+    void Awake()
+     {
+        playerNumber = PlayerPrefs.GetString("LuzPlayerNumber");
+        getControls();
+     }
+
     void Start()
     {
         LuzMove_Script = IdleLuz.GetComponent<LuzMove>();
@@ -42,6 +54,24 @@ public class LuzTriggerCube : MonoBehaviour
         CancelButton_Script = Cancel.GetComponent<CancelButton>();
         redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
+    }
+
+    public void getControls()
+    {
+        if(playerNumber == "P1")
+        {
+            activateKey = "v";
+            disconnectKey = "b";
+            connectKey = "c";
+            special = "space";
+        }
+        else if(playerNumber == "P2")
+        {
+            activateKey = "k";
+            disconnectKey = "l";
+            connectKey = "j";
+            special = "return";
+        }
     }
 
     void OnTriggerEnter(Collider other)
@@ -74,12 +104,12 @@ public class LuzTriggerCube : MonoBehaviour
 
      void Update()
      {
-         if(touching != null && Input.GetKeyDown("c"))
+         if(touching != null && Input.GetKeyDown(connectKey))
          {
              Connect();
             // Activate();
          }
-         if(touching != null && Input.GetKeyDown("b"))
+         if(touching != null && Input.GetKeyDown(disconnectKey))
          {
              Disconnect();
          }
@@ -89,7 +119,7 @@ public class LuzTriggerCube : MonoBehaviour
         //      GearMove_Script.fixPosition = true;
         //  }
 
-         if(connected == true && Input.GetKeyDown("v"))
+         if(connected == true && Input.GetKeyDown(activateKey))
          {
              print("chould activate");
              Activate();
