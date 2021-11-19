@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SatMove : Player
 {
+    public Animator anim;
     
 
     public GameObject TimerBarSat;
@@ -24,7 +25,7 @@ public class SatMove : Player
 
     void Start()
     {
-        
+        anim = GetComponent<Animator>(); 
         name = "Sat";
         // startPos = new Vector3(58f, 1.3f, -230f);
         // transform.position = startPos;
@@ -111,4 +112,11 @@ public class SatMove : Player
         inWater = false;
         breathRemaining = 5f;
     }
+        void OnTriggerEnter(Collider other)
+     {
+        if(other.name.Contains("Hole"))
+        {     
+            anim.Play("DeadSat");    
+        }
+     }
 }

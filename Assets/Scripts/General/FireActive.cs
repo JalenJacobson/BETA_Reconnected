@@ -6,6 +6,11 @@ public class FireActive : MonoBehaviour
 {
     public bool activeFlame = true;
 
+    void Start()
+    {
+
+    }
+
     void OnTriggerEnter(Collider other)
     {
       var characterName = other.name;

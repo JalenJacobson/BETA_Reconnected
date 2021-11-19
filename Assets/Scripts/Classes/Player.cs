@@ -229,9 +229,13 @@ public class Player : MonoBehaviour
         touchingAirBubble = false;
     }
 
-    public void returnToStart()
+    public IEnumerator returnToStart()
     {
+        fixPosition = !fixPosition;
+        yield return new WaitForSeconds(1);
         transform.position = startPos;
+        yield return new WaitForSeconds(5);
+        fixPosition = !fixPosition;
     }
     public virtual void waterExit()
     {

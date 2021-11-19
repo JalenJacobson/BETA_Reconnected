@@ -18,11 +18,6 @@ public class Claw : MonoBehaviour
     public bool lifting = false;
     public bool clawCarrying = false;
     public Vector3 liftPos;
-    public Transform target;
-    public Transform target2;
-    public Transform target3;
-    public Transform target4;
-    public Transform target5;
 
     public GameObject liftPoint;
 

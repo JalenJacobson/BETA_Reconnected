@@ -9,6 +9,7 @@ public class GearMove : Player
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
+    public Animator anim;
 
     void Awake()
      {
@@ -18,7 +19,7 @@ public class GearMove : Player
 
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
         name = "Gears";
         // startPos = new Vector3(47f, 1.44f, -231f);
         // transform.position = startPos;
@@ -108,4 +109,13 @@ public class GearMove : Player
         inWater = false;
         breathRemaining = 5f;
     }
+
+       void OnTriggerEnter(Collider other)
+     {
+        if(other.name.Contains("Hole"))
+        {     
+            anim.Play("Dead");    
+        }
+
+     }
 }
