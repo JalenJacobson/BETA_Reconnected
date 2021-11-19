@@ -6,21 +6,18 @@ using UnityEngine.UI;
 public class Gearbox_2 : CDI_Class
 {
     // public Animator anim;
-    public float pos = 0;
+    //public float pos = 0;
     public GameObject GearMoverMove;
     GearMoverMove gearmover_script;
     public GameObject GearMoverGears;
     GearMoverGears gearmovergears_script;
     public GameObject GearMoverStart;
     GearMoverGears gearmoverstart_script;
-    public GameObject GateGearObj2;
-    GateGear2 gategearactivate_script;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
-        gategearactivate_script = GateGearObj2.GetComponent<GateGear2>();
         gearmover_script = GearMoverMove.GetComponent<GearMoverMove>();
         gearmovergears_script = GearMoverGears.GetComponent<GearMoverGears>();
         gearmoverstart_script = GearMoverStart.GetComponent<GearMoverGears>();
@@ -34,7 +31,7 @@ public class Gearbox_2 : CDI_Class
 
     public override void Activate(Text sndMessage)
     {
-        pos = 1; 
+        //pos = 1; 
         gearmover_script.changeGearBox2();
         gearmovergears_script.changeGearBox2();
         gearmoverstart_script.changeGearBox2();
