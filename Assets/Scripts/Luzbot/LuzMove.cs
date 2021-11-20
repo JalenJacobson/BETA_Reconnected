@@ -7,6 +7,8 @@ public class LuzMove : Player
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
+    public Animator anim;
+    public string special;
 
     void Awake()
      {
@@ -16,7 +18,7 @@ public class LuzMove : Player
 
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
         name = "Luz";
         breathRemaining = .1f;
         startPos = new Vector3(-180f, .5f, -98.5f);
@@ -32,11 +34,13 @@ public class LuzMove : Player
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
+            special = "space";
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
-            moveAxisVertical = "VerticalPlayer2";   
+            moveAxisVertical = "VerticalPlayer2";
+            special = "return";   
         }
     }
 
@@ -59,6 +63,7 @@ public class LuzMove : Player
 
      void Update()
     {
+
         if(inWater == true)
         {
             if(touchingAirBubble == true)
@@ -82,6 +87,11 @@ public class LuzMove : Player
             returnToStart();
             waterExit();
         }
+        
+        if (Input.GetKeyDown(special))
+        {
+        anim.Play("Recharge");
+        }
     }
     public override void drowning()
     {
@@ -104,5 +114,10 @@ public class LuzMove : Player
         resetConsoleDangerState();
         inWater = false;
         breathRemaining = .1f;
+    }
+
+    public void Recharge()
+    {
+
     }
 }
