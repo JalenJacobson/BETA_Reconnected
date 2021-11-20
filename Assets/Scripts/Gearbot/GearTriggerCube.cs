@@ -73,6 +73,7 @@ public class GearTriggerCube : MonoBehaviour
     {
         if(other.name.Contains("Gear")){
              touching = other.gameObject;
+             // touching.sendmessage("bot_touching");
         }
     }
 

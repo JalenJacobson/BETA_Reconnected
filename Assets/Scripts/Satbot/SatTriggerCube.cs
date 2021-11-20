@@ -59,11 +59,15 @@ public class SatTriggerCube : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
      {
-        if(other.name.Contains("Sat")){
-             
-
-             
+         if(other.name.Contains("Sat")){
+             touching = other.gameObject;
+             touching.SendMessage("toggleBotTouching");
+             if(other.name.Contains("Upload"))
+             {
+                 touchingToken = touching.GetComponent<Sat_Upload_1>().token;
+             }
         }
+
     }
 
     void OnTriggerStay(Collider other)
@@ -79,6 +83,7 @@ public class SatTriggerCube : MonoBehaviour
 
      void OnTriggerExit(Collider other)
      {
+         touching.SendMessage("toggleBotBoth");
         touching = null;
         touchingToken = null;
         if(other.name.Contains("Sat"))
@@ -188,6 +193,7 @@ public class SatTriggerCube : MonoBehaviour
 
      public void Connect()
      {
+         touching.SendMessage("toggleBotConnected");
         connected = !connected;  
         SatMove_Script.toggleFixPosition();
     
@@ -195,6 +201,7 @@ public class SatTriggerCube : MonoBehaviour
      
      public void Disconnect()
      {
+            touching.SendMessage("toggleBotConnected");
              connected = false;  
              SatMove_Script.toggleFixPosition();
 
