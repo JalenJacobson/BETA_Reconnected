@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
     public Color blueCircuitField;
     public Color redDanger;
 
+    public float currentHealth ;
+    public float maxHealth = 100f;
+
     private static readonly HttpClient client = new HttpClient();
 
     public Joystick joystick;

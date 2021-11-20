@@ -10,6 +10,8 @@ public class LuzMove : Player
     public Animator anim;
     public string special;
 
+    public healthBar healthBar;
+
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("LuzPlayerNumber");
@@ -20,6 +22,8 @@ public class LuzMove : Player
     {
         anim = GetComponent<Animator>();
         name = "Luz";
+        currentHealth = maxHealth;
+        healthBar.setHealth(maxHealth);
         breathRemaining = .1f;
         startPos = new Vector3(-180f, .5f, -98.5f);
         transform.position = startPos;
@@ -54,7 +58,7 @@ public class LuzMove : Player
         if (direction != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            
+            currentHealth = currentHealth - .025f;
         }
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
@@ -90,8 +94,10 @@ public class LuzMove : Player
         
         if (Input.GetKeyDown(special))
         {
-        anim.Play("Recharge");
+            anim.Play("Recharge");
         }
+
+        healthBar.setHealth(currentHealth);
     }
     public override void drowning()
     {
@@ -119,5 +125,10 @@ public class LuzMove : Player
     public void Recharge()
     {
 
+    }
+
+    public void restoreHealth()
+    {
+        currentHealth = maxHealth;
     }
 }

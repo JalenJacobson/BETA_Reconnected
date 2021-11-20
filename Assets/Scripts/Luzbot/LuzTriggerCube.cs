@@ -138,6 +138,7 @@ public class LuzTriggerCube : MonoBehaviour
      public void Connect()
      {
             connected = true;  
+            LuzMove_Script.restoreHealth();
             LuzMove_Script.toggleFixPosition();
             Bubble_Script.actionBubbleStop();
             Act1Button_Script.activate1();

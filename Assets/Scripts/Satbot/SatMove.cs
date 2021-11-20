@@ -19,8 +19,8 @@ public class SatMove : Player
 
     public healthBar healthBar;
 
-    public float currentHealth = 100f;
-    public float maxHealth = 100f;
+    // public float currentHealth ;
+    // public float maxHealth = 100f;
 
     void Awake()
      {
@@ -109,6 +109,7 @@ public class SatMove : Player
 
         healthBar.setHealth(currentHealth);
     }
+
     public override void drowning()
     {
         // print("drowning");
@@ -118,6 +119,7 @@ public class SatMove : Player
             breathRemaining -= Time.deltaTime;
         }
     }
+
     public override void waterExit()
     {
         resetConsoleDangerField();
@@ -126,11 +128,17 @@ public class SatMove : Player
         inWater = false;
         breathRemaining = 5f;
     }
-        void OnTriggerEnter(Collider other)
-     {
+    
+    void OnTriggerEnter(Collider other)
+    {
         if(other.name.Contains("Hole"))
         {     
             anim.Play("DeadSat");    
         }
-     }
+    }
+
+    public void restoreHealth()
+    {
+        currentHealth = maxHealth;
+    }
 }

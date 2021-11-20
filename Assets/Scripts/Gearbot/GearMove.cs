@@ -21,6 +21,7 @@ public class GearMove : Player
     {
         anim = GetComponent<Animator>();
         name = "Gears";
+        currentHealth = maxHealth;
         // startPos = new Vector3(47f, 1.44f, -231f);
         // transform.position = startPos;
         TimerBar_Script = TimerBarGear.GetComponent<TimeBarGear>();
@@ -47,18 +48,22 @@ public class GearMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
-
-        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
-
-        if (direction != Vector3.zero)
+        if(currentHealth > 0)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            
-        }
+            float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+            float verticalMove = Input.GetAxis(moveAxisVertical);
 
-        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+            direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+
+            if (direction != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                currentHealth = currentHealth - .05f;
+            }
+
+            rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        }
+        
         // sendPos();
     }
 
@@ -118,4 +123,9 @@ public class GearMove : Player
         }
 
      }
+
+     public void restoreHealth()
+    {
+        currentHealth = maxHealth;
+    }
 }
