@@ -17,6 +17,11 @@ public class SatMove : Player
     public string moveAxisVertical;
     public string playerNumber;
 
+    public healthBar healthBar;
+
+    public float currentHealth = 100f;
+    public float maxHealth = 100f;
+
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("SatPlayerNumber");
@@ -27,9 +32,12 @@ public class SatMove : Player
     {
         anim = GetComponent<Animator>(); 
         name = "Sat";
+        Rails_Script = Rails.GetComponent<SatBotAnim>();
+        currentHealth = maxHealth;
+        healthBar.setHealth(maxHealth);
         // startPos = new Vector3(58f, 1.3f, -230f);
         // transform.position = startPos;
-        Rails_Script = Rails.GetComponent<SatBotAnim>();
+        
         TimerBar_Script = TimerBarSat.GetComponent<TimeBarSat>();
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
@@ -53,18 +61,22 @@ public class SatMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
-
-        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
-
-        if (direction != Vector3.zero)
+        if(currentHealth > 0)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            Rails_Script.rails();
-        }
+            float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+            float verticalMove = Input.GetAxis(moveAxisVertical);
 
-        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+            direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+
+            if (direction != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+                currentHealth = currentHealth - .05f;
+                Rails_Script.rails();
+            }
+
+            rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        }
         // sendPos();
     }
 
@@ -94,6 +106,8 @@ public class SatMove : Player
             returnToStart();
             waterExit();
         }
+
+        healthBar.setHealth(currentHealth);
     }
     public override void drowning()
     {
