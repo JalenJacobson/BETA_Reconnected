@@ -1,19 +1,23 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GearMoverGears : MonoBehaviour
+public class Gear_Crawler_MoverXaxis : MonoBehaviour
 {
-public GameObject GearMoverBox;
-public Animator anim;
-public bool gearBox2 = false;
-public GameObject touching = null;
-    
+    public GameObject touching = null;
+
+    // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-    } 
-    
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     void OnTriggerEnter(Collider other)
     {
         //   anim.Play("Stop");
@@ -36,20 +40,4 @@ public GameObject touching = null;
         }
     
     } 
-    
-    public void Update()
-    {
-        if (gearBox2 == true)
-        {
-            anim.Play("Forward");        
-        }  
-    
-    
-        if (gearBox2 == false)
-        {
-            anim.Play("Backward");        
-        }
-    }
-    
-
 }

@@ -17,11 +17,11 @@ public class Gearbox_2 : CDI_Class
     // Start is called before the first frame update
     void Start()
     {
-        anim = GetComponent<Animator>();
-        gearmover_script = GearMoverMove.GetComponent<GearMoverMove>();
-        gearmovergears_script = GearMoverGears.GetComponent<GearMoverGears>();
-        gearmoverstart_script = GearMoverStart.GetComponent<GearMoverGears>();
-        message = "Gate Gear 2 Activated";
+        // anim = GetComponent<Animator>();
+        // gearmover_script = GearMoverMove.GetComponent<GearMoverMove>();
+        // gearmovergears_script = GearMoverGears.GetComponent<GearMoverGears>();
+        // gearmoverstart_script = GearMoverStart.GetComponent<GearMoverGears>();
+        // message = "Gate Gear 2 Activated";
     }
 
     // Update is called once per frame
@@ -32,18 +32,18 @@ public class Gearbox_2 : CDI_Class
     public override void Activate(Text sndMessage)
     {
         //pos = 1; 
-        gearmover_script.changeGearBox2();
-        gearmovergears_script.changeGearBox2();
-        gearmoverstart_script.changeGearBox2();
-        anim.Play("GearTrigger");
-        sndMessage.text = message;
+        // gearmover_script.changeGearBox2();
+        // gearmovergears_script.changeGearBox2();
+        // gearmoverstart_script.changeGearBox2();
+        // anim.Play("GearTrigger");
+        // sndMessage.text = message;
     }
 
     public void Deactivate()
     {
-        gearmover_script.changeGearBox2();
-        gearmovergears_script.changeGearBox2();
-        gearmoverstart_script.changeGearBox2();
-        anim.Play("GearTrigger");
+        // gearmover_script.changeGearBox2();
+        // gearmovergears_script.changeGearBox2();
+        // gearmoverstart_script.changeGearBox2();
+        // anim.Play("GearTrigger");
     }
 }

@@ -20,9 +20,9 @@ public class GearConection_Raisers : CDI_Class
         
     }
 
-    public override void Activate(Text sndMessage)
+    public void Activate()
     {
         GearRaiser_script.Activate();
-        sndMessage.text = message;
+        // sndMessage.text = message;
     }
 }

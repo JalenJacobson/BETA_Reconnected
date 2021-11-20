@@ -129,6 +129,10 @@ public class GearTriggerCube : MonoBehaviour
                 print("CONNECTED To Claw");
                 touching.SendMessage("ClawConnected");
             }   
+            else if(touching.name.Contains("Crawlers"))
+            {
+                touching.SendMessage("standConnected");
+            }
             
      }
      
@@ -146,7 +150,11 @@ public class GearTriggerCube : MonoBehaviour
             {
                 print("CONNECTED To Claw");
                 touching.SendMessage("ClawDisonnected");
-            }   
+            }  
+            else if(touching.name.Contains("Crawlers"))
+            {
+                touching.SendMessage("standDisconnected");
+            } 
      }
 
      public void resetConsoleMessage()
