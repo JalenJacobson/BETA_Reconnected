@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class CDI_Class : MonoBehaviour
 {
+
     public Animator anim;
     // public float pos = 0;
     // public GameObject GateDoors;
@@ -17,6 +18,23 @@ public class CDI_Class : MonoBehaviour
     public Color greenConsole;
     public Color blueCircuitField;
     public Color redDanger;
+    public bool botTouching = false;
+    public bool botConnected = false;
+
+    public void toggleBotTouching()
+    {
+      botTouching = !botTouching;  
+    }
+    public void toggleBotConnected()
+    {
+      botConnected = !botConnected;  
+    }
+    public void toggleBotBoth()
+    {
+      botConnected = false;
+      botTouching = false;  
+    }
+
 
     // Start is called before the first frame update
     void Start()
