@@ -822,6 +822,7 @@ GameObject:
   - component: {fileID: 5872650244199775928}
   - component: {fileID: 1865675114465321140}
   - component: {fileID: 1413551521497715798}
+  - component: {fileID: 3562774539194860782}
   m_Layer: 0
   m_Name: pSphere1
   m_TagString: Untagged
@@ -892,6 +893,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!122 &3562774539194860782
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188487025621398315}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4293263104
+  m_Size: 2
 --- !u!1 &5775876752785182863
 GameObject:
   m_ObjectHideFlags: 0
@@ -1473,10 +1486,12 @@ MonoBehaviour:
   blueCircuitField: {r: 0, g: 0, b: 0, a: 0}
   redDanger: {r: 0, g: 0, b: 0, a: 0}
   joystick: {fileID: 0}
+  anim: {fileID: 0}
   TimerBarSat: {fileID: 0}
   Rails: {fileID: 7135977554303709444}
   moveAxisHorizontal: 
   moveAxisVertical: 
+  playerNumber: 
 --- !u!136 &4566496113122065698
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1704,17 +1719,11 @@ MonoBehaviour:
   token: 0
   tokenExpire: 0
   tokenExpireTime: 0
-  Connection: {fileID: 0}
-  ErrorMessage: {fileID: 0}
-  ActionDownload: {fileID: 0}
-  ActionLight: {fileID: 0}
-  ActionCircles: {fileID: 0}
-  Activate1: {fileID: 0}
-  Cancel: {fileID: 0}
-  orangeGravityField: {r: 0, g: 0, b: 0, a: 0}
-  greenConsole: {r: 0, g: 0, b: 0, a: 0}
-  blueCircuitField: {r: 0, g: 0, b: 0, a: 0}
-  redDanger: {r: 0, g: 0, b: 0, a: 0}
+  playerNumber: 
+  connectKey: 
+  activateKey: 
+  disconnectKey: 
+  special: 
 --- !u!1 &8360255768722261136
 GameObject:
   m_ObjectHideFlags: 0

@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 4140155652015758380}
   - component: {fileID: 4514191398041911750}
   - component: {fileID: 5370049908599938926}
+  - component: {fileID: 5806316895958512240}
   m_Layer: 0
   m_Name: pGear1
   m_TagString: Untagged
@@ -324,6 +325,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!122 &5806316895958512240
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 740993947214626751}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4293656320
+  m_Size: 0
 --- !u!1 &747256731167298367
 GameObject:
   m_ObjectHideFlags: 0
@@ -718,6 +731,10 @@ MonoBehaviour:
   joystick: {fileID: 0}
   TimerBarGear: {fileID: 0}
   TimerBar_Script: {fileID: 0}
+  moveAxisHorizontal: 
+  moveAxisVertical: 
+  playerNumber: 
+  anim: {fileID: 0}
 --- !u!114 &2211936947424602208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1189,14 +1206,13 @@ MonoBehaviour:
   touching: {fileID: 0}
   connectPos: {x: 0, y: 0, z: 0}
   ActionBubbles: {fileID: 0}
-  ActionLight: {fileID: 0}
-  ActionCircles: {fileID: 0}
-  Activate1: {fileID: 0}
-  Cancel: {fileID: 0}
-  orangeGravityField: {r: 0, g: 0, b: 0, a: 0}
-  greenConsole: {r: 0, g: 0, b: 0, a: 0}
   blueCircuitField: {r: 0, g: 0, b: 0, a: 0}
   redDanger: {r: 0, g: 0, b: 0, a: 0}
+  playerNumber: 
+  connectKey: 
+  activateKey: 
+  disconnectKey: 
+  special: 
 --- !u!1 &2211936948432214019
 GameObject:
   m_ObjectHideFlags: 0
