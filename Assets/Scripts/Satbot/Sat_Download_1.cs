@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sat_Download_1 : MonoBehaviour
+public class Sat_Download_1 : CDI_Class
 {
    public string token = "1";
-   public Animator anim;
    public bool Active = false;
     // public GameObject forcegate_gate;
     // ForceGate forcegate_script;
@@ -21,8 +20,34 @@ public class Sat_Download_1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InfoButtons();
+
+    }
+
+    void InfoButtons()
+    {
         if(Active == true)
-        anim.Play("DownloadActivate");
+        {
+            if(botConnected)
+            {
+                anim.Play("DisconnectButton");    
+            }
+            else anim.Play("DownloadActivate");
+        }
+
+        else if(!Active)
+        {
+            if(botTouching == true)
+            {
+                if(botConnected)
+                {
+                    anim.Play("Connected");
+                }
+                else anim.Play("PushC");
+            }
+            else anim.Play("DisconnectedButtons");
+ 
+        }  
     }
 
     void Activate()

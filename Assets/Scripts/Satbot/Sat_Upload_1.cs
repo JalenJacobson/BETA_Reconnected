@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Sat_Upload_1 : MonoBehaviour
+public class Sat_Upload_1 : CDI_Class
 {
     public string token = "1";
     public GameObject forcegate_gate;
     public ForceGate forcegate_script;
-    public Animator anim;
     
     public GameObject StartPort;
     public LevelComplete levelcomplete_script;
@@ -25,8 +24,33 @@ public class Sat_Upload_1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InfoButtons();
+    }
+    
+        void InfoButtons()
+    {
         if(Active == true)
-        anim.Play("UploadActive"); 
+        {
+            if(botConnected)
+            {
+                anim.Play("DisconnectButton");    
+            }
+            else anim.Play("UploadActive");
+        }
+
+        else if(!Active)
+        {
+            if(botTouching == true)
+            {
+                if(botConnected)
+                {
+                    anim.Play("Connected");
+                }
+                else anim.Play("PushC");
+            }
+            else anim.Play("DisconnectedButtons");
+ 
+        }  
     }
     
     void Activate()
