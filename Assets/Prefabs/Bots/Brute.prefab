@@ -3713,6 +3713,7 @@ GameObject:
   - component: {fileID: 8014483252400888512}
   - component: {fileID: 8014483252400889148}
   - component: {fileID: 1451018371034639619}
+  - component: {fileID: 8177045566182688615}
   m_Layer: 0
   m_Name: Brute
   m_TagString: Untagged
@@ -3795,6 +3796,8 @@ MonoBehaviour:
   greenConsole: {r: 0, g: 0, b: 0, a: 0}
   blueCircuitField: {r: 0, g: 0, b: 0, a: 0}
   redDanger: {r: 0, g: 0, b: 0, a: 0}
+  currentHealth: 0
+  maxHealth: 100
   joystick: {fileID: 0}
   anim: {fileID: 0}
   TimerBarBrute: {fileID: 0}
@@ -3836,11 +3839,24 @@ CapsuleCollider:
   m_GameObject: {fileID: 7203582232420453794}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.008
   m_Height: 0.03
   m_Direction: 1
   m_Center: {x: 0, y: 0.0175, z: 0}
+--- !u!65 &8177045566182688615
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7203582232420453794}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.02, y: 0.026, z: 0.013}
+  m_Center: {x: 0, y: 0.016, z: 0}
 --- !u!1 &7210880827466417590
 GameObject:
   m_ObjectHideFlags: 0
@@ -4445,16 +4461,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b490bf3d5743d4a8580403ed3be5977a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Brute: {fileID: 7203582232420453794}
   triggerEntered: 0
   touching: {fileID: 0}
   canLift: 0
   liftPos: {x: 0, y: -0.5, z: -1}
   lifting: 0
-  ActionBrute: {fileID: 0}
-  ActionLight: {fileID: 0}
-  ActionCircles: {fileID: 0}
-  Cancel: {fileID: 0}
-  Brute: {fileID: 7203582232420453794}
   playerNumber: 
   connectKey: 
   activateKey: 

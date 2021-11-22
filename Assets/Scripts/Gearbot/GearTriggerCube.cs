@@ -63,15 +63,16 @@ public class GearTriggerCube : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
      {
-    if(other.name.Contains("Gear")){
+         if(other.name.Contains("Gears")){
 
-        }
-
-     }
+            }
+            touching = other.gameObject;
+            touching.SendMessage("toggleBotTouching");
+            }
 
     void OnTriggerStay(Collider other)
     {
-        if(other.name.Contains("Gear")){
+        if(other.name.Contains("Gears")){
              touching = other.gameObject;
              // touching.sendmessage("bot_touching");
         }
@@ -79,13 +80,13 @@ public class GearTriggerCube : MonoBehaviour
 
      void OnTriggerExit(Collider other)
      {
-        if(other.name.Contains("Gear"))
-        {
+
             touching = null;
+            touching.SendMessage("toggleBotTouching");
             // Bubble_Script.actionBubbleStop();
             // Light_Script.actionBubbleStop();
             // Circle_Script.actionBubbleStop();
-        }
+
      }
 
      void Update()
@@ -118,6 +119,7 @@ public class GearTriggerCube : MonoBehaviour
      public void Connect()
      {
             connected = true; 
+            touching.SendMessage("toggleBotConnected");
             Gears.transform.position = touching.transform.TransformPoint(connectPos);
             GearMove_Script.toggleFixPosition();
             // Bubble_Script.actionBubbleStop();
@@ -139,6 +141,7 @@ public class GearTriggerCube : MonoBehaviour
      
      public void Disconnect()
      {
+            touching.SendMessage("toggleBotConnected");
             connected = false;  
             GearMove_Script.toggleFixPosition();
             // Light_Script.actionBubbleStop();
