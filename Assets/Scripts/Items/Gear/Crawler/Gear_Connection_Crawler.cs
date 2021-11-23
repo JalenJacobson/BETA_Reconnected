@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Gear_Connection_Crawler : MonoBehaviour
+public class Gear_Connection_Crawler : CDI_Class
 {
 
     public GameObject Stand;

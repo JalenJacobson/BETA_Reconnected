@@ -137,30 +137,22 @@ public class LuzTriggerCube : MonoBehaviour
 
      public void Connect()
      {
+        if(!connected)
+        { 
             connected = true;  
             LuzMove_Script.restoreHealth();
             LuzMove_Script.toggleFixPosition();
-            Bubble_Script.actionBubbleStop();
-            Act1Button_Script.activate1();
-            Connection.text = touching.name.ToString();
-            CancelButton_Script.CancelStart();       
+        }
+        else return;       
      }
      
-     public void Disconnect()
-     {
+    public void Disconnect()
+    {
+        if(connected)
+        {
             connected = false;  
-            LuzMove_Script.toggleFixPosition();
-            Light_Script.actionBubbleStop();
-            Circle_Script.actionBubbleStop();
-            Act1Button_Script.activate1Stop();
-            Connection.text = "T";
-            resetConsoleMessage();
-            CancelButton_Script.CancelStop();        
-     }
-
-     public void resetConsoleMessage()
-     {
-         ErrorMessage.text = "";
-         ErrorMessage.color = greenConsole;
-     }
+            LuzMove_Script.toggleFixPosition(); 
+        }    
+        else return;         
+    }
 }

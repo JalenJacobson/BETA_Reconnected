@@ -62,17 +62,19 @@ public class GearTriggerCube : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other)
-     {
-         if(other.name.Contains("Gears")){
-
-            }
+    {
+        if(other.name.Contains("Gears"))
+        {
             touching = other.gameObject;
             touching.SendMessage("toggleBotTouching");
-            }
+        }
+            
+    }
 
     void OnTriggerStay(Collider other)
     {
-        if(other.name.Contains("Gears")){
+        if(other.name.Contains("Gears"))
+        {
              touching = other.gameObject;
              // touching.sendmessage("bot_touching");
         }
@@ -118,10 +120,12 @@ public class GearTriggerCube : MonoBehaviour
 
      public void Connect()
      {
+        if(!connected)
+        {
             connected = true; 
-            touching.SendMessage("toggleBotConnected");
             Gears.transform.position = touching.transform.TransformPoint(connectPos);
             GearMove_Script.toggleFixPosition();
+            touching.SendMessage("toggleBotConnected");
             // Bubble_Script.actionBubbleStop();
             // Act1Button_Script.activate1();
             // Connection.text = touching.name.ToString(); 
@@ -136,14 +140,18 @@ public class GearTriggerCube : MonoBehaviour
             {
                 touching.SendMessage("standConnected");
             }
+        }
+        else return;
             
      }
      
      public void Disconnect()
      {
-            touching.SendMessage("toggleBotConnected");
+        if(connected)
+        {
             connected = false;  
             GearMove_Script.toggleFixPosition();
+            touching.SendMessage("toggleBotConnected");
             // Light_Script.actionBubbleStop();
             // Circle_Script.actionBubbleStop();
             // Act1Button_Script.activate1Stop();
@@ -152,13 +160,14 @@ public class GearTriggerCube : MonoBehaviour
             // CancelButton_Script.CancelStop();  
             if(touching.name.Contains("Claw"))
             {
-                print("CONNECTED To Claw");
                 touching.SendMessage("ClawDisonnected");
             }  
             else if(touching.name.Contains("Crawlers"))
             {
                 touching.SendMessage("standDisconnected");
             } 
+        }
+        else return;    
      }
 
      public void resetConsoleMessage()

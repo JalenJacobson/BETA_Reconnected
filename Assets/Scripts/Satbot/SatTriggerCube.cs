@@ -191,26 +191,25 @@ public class SatTriggerCube : MonoBehaviour
              
      }
 
-     public void Connect()
-     {
-         touching.SendMessage("toggleBotConnected");
-        connected = !connected;  
-        SatMove_Script.toggleFixPosition();
-    
-     }
-     
-     public void Disconnect()
-     {
+    public void Connect()
+    {
+        if(!connected)
+        {
+            connected = !connected;  
+            SatMove_Script.toggleFixPosition();
             touching.SendMessage("toggleBotConnected");
-             connected = false;  
-             SatMove_Script.toggleFixPosition();
-
-            resetConsoleMessage();
+        }
+        else return;
+    }
      
-     }
-
-     public void resetConsoleMessage()
-     {
-
-     }
+    public void Disconnect()
+    {
+        if(connected)
+        {
+            connected = false;  
+            SatMove_Script.toggleFixPosition();
+            touching.SendMessage("toggleBotConnected");
+        }   
+        else return; 
+    }
 }

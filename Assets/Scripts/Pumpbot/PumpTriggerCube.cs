@@ -159,35 +159,21 @@ public class PumpTriggerCube : MonoBehaviour
 
     public void Connect()
     {
-        connected = true;  
-        PumpMove_Script.toggleFixPosition();
+        if(!connected)
+        {
+             connected = true;  
+            PumpMove_Script.toggleFixPosition();
+        }
+       
     }
      
-     public void Disconnect()
-     {
-             connected = false;  
-             PumpMove_Script.toggleFixPosition();
-             CancelButton2_Script.CancelStop();
-             Light_Script.actionBubbleStop();
-            Circle_Script.actionBubbleStop();
-            Act1Button_Script.activate1Stop();
-            Act2Button_Script.activate1Stop();
-            Act3Button_Script.activate1Stop();     
-     }
-
-    //       public void WaterWall()
-    //  {
-    //     Bubble_Script.actionBubbleStop();
-    //     CancelButton_Script.CancelStart();
-
-    //  }
-    
-    // public void WaterWallClose()
-    //  {
-
-    //     CancelButton_Script.CancelStop();
-    //     BlueWall_Script.Stop();
-
-    //  }
-    
+    public void Disconnect()
+    {   
+        if(connected)
+        {
+            connected = false;  
+            PumpMove_Script.toggleFixPosition(); 
+        }
+        else return;  
+    }
 }

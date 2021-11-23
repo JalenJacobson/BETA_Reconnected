@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GearConnection_Claw : MonoBehaviour
+public class GearConnection_Claw : CDI_Class
 {
 
     public GameObject Claw;
