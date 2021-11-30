@@ -7,7 +7,7 @@ public class LuzMove : Player
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
-    public Animator anim;
+    // public Animator anim;
     public string special;
 
     public healthBar healthBar;

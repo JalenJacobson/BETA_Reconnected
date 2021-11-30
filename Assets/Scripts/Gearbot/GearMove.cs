@@ -9,7 +9,7 @@ public class GearMove : Player
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
-    public Animator anim;
+    // public Animator anim;
 
     void Awake()
      {
@@ -74,16 +74,16 @@ public class GearMove : Player
             if(touchingAirBubble == true)
             {
                 // DangerState.text = "Danger State: Short Circuit - Delayed";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Delayed", greenConsole);
+                // setConsoleDangerField("Circuit Field", blueCircuitField);
+                // setConsoleDangerState("Short Circuit - Delayed", greenConsole);
                 
                 TimerBar_Script.enterbluewall();
             }
             else
             {
                 // DangerState.text = "Danger State: Short Circuit - Danger";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Danger", redDanger);
+                // setConsoleDangerField("Circuit Field", blueCircuitField);
+                // setConsoleDangerState("Short Circuit - Danger", redDanger);
                 drowning();
             }
             
@@ -91,14 +91,14 @@ public class GearMove : Player
 
         if(breathRemaining <= 0f)
         {
-            returnToStart();
+            StartCoroutine(returnToStart());
             waterExit();
         }
     }
     public override void drowning()
     {
         // print("drowning");
-        TimerBar_Script.timerStart();
+        // TimerBar_Script.timerStart();
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
@@ -117,7 +117,7 @@ public class GearMove : Player
 
        void OnTriggerEnter(Collider other)
      {
-        if(other.name.Contains("Hole"))
+        if(other.name.Contains("Hole") || other.name.Contains("Fire"))
         {     
             anim.Play("Dead");    
         }

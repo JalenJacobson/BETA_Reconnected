@@ -15,7 +15,7 @@ public class PumpMove : Player
 
     public GameObject PumpBlueWall;
     public BlueWall pumpBlueWall_script;
-    public Animator anim;
+    // public Animator anim;
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string special;
@@ -32,6 +32,8 @@ public class PumpMove : Player
     {
         
         name = "Pump";
+        currentHealth = maxHealth;
+        healthBar.setHealth(maxHealth);
         // startPos = new Vector3(-157f, 0.7f, -120f);
         transform.position = startPos;
         anim = GetComponent<Animator>();
@@ -77,6 +79,7 @@ public class PumpMove : Player
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
             anim.Play("PumpWalk");
+            currentHealth = currentHealth - .05f;
         }
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         sendPos();
@@ -97,6 +100,7 @@ public class PumpMove : Player
                 bubbleOpen = false;
             }
         }
+        healthBar.setHealth(currentHealth);
     }
 
     public void waterEnter()

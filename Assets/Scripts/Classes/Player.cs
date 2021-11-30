@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public float rotateSpeed = 10;
     public Rigidbody rb;
     public bool toggleSelected;
-
+    public healthBar healthBar;
     public bool blueWall;
     public bool isLocalPlayer;
     public bool isBeingCarried;
@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public Color greenConsole;
     public Color blueCircuitField;
     public Color redDanger;
+    public Animator anim;
 
     public float currentHealth ;
     public float maxHealth = 100f;
@@ -96,7 +97,7 @@ public class Player : MonoBehaviour
 
         if(breathRemaining <= 0f)
         {
-            returnToStart();
+            StartCoroutine(returnToStart());
             waterExit();
         }
     }
@@ -234,9 +235,12 @@ public class Player : MonoBehaviour
 
     public IEnumerator returnToStart()
     {
+        anim.Play("Dead");
         fixPosition = !fixPosition;
         yield return new WaitForSeconds(1);
         transform.position = startPos;
+        inWater = false;
+        breathRemaining = 5f;
         yield return new WaitForSeconds(5);
         fixPosition = !fixPosition;
     }

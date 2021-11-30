@@ -6,7 +6,7 @@ public class BruteMove : Player
 {
     // public float moveSpeed = 5;
     //public float rotateSpeed = 10;
-    public Animator anim;
+    // public Animator anim;
     public GameObject TimerBarBrute;
     TimeBarBrute TimerBar_Script;
     public string moveAxisHorizontal;
@@ -25,6 +25,8 @@ public class BruteMove : Player
         anim = GetComponent<Animator>();
         name = "Brute";
         moveSpeed = 7f;
+        currentHealth = maxHealth;
+        healthBar.setHealth(maxHealth);
         // startPos = new Vector3(-180, 0.77f, -111f);
         transform.position = startPos;
         TimerBar_Script = TimerBarBrute.GetComponent<TimeBarBrute>();
@@ -67,7 +69,7 @@ public class BruteMove : Player
         if (direction != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            
+            currentHealth = currentHealth - .05f;
         }
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
@@ -98,9 +100,11 @@ public class BruteMove : Player
 
         if(breathRemaining <= 0f)
         {
-            returnToStart();
+            StartCoroutine(returnToStart());
             waterExit();
         }
+
+        healthBar.setHealth(currentHealth);
     }
     public override void drowning()
     {

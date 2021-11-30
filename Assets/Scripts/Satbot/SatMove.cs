@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SatMove : Player
 {
-    public Animator anim;
+    // public Animator anim;
     
 
     public GameObject TimerBarSat;
@@ -17,7 +17,7 @@ public class SatMove : Player
     public string moveAxisVertical;
     public string playerNumber;
 
-    public healthBar healthBar;
+    
 
     // public float currentHealth ;
     // public float maxHealth = 100f;

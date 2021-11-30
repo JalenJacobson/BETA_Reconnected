@@ -63,7 +63,7 @@ public class GearTriggerCube : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains("Gears"))
+        if(other.name.Contains("Gear"))
         {
             touching = other.gameObject;
             touching.SendMessage("toggleBotTouching");
@@ -73,7 +73,7 @@ public class GearTriggerCube : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if(other.name.Contains("Gears"))
+        if(other.name.Contains("Gear"))
         {
              touching = other.gameObject;
              // touching.sendmessage("bot_touching");
