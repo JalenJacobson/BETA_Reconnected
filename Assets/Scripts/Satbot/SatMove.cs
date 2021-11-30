@@ -139,6 +139,11 @@ public class SatMove : Player
 
     public void restoreHealth()
     {
-        currentHealth = maxHealth;
+        while(currentHealth < maxHealth)
+        {
+            currentHealth+= 0.05f;
+            print(currentHealth);
+        }
+        
     }
 }
