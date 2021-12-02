@@ -4,37 +4,40 @@ using UnityEngine;
 
 public class BlueWall : MonoBehaviour
 {
-   public Animator anim;
+  public Animator anim;
 
-    
+  void Start () 
+  {  
+    anim = GetComponent<Animator>();
+  }
 
- // Use this for initialization
- void Start () {
-        anim = GetComponent<Animator>();
- }
-     void OnTriggerEnter(Collider other)
-     {
-
-    
-     }
-
-    void OnTriggerStay(Collider other)
+  void OnTriggerEnter(Collider other)
+  {
+    var characterName = other.name;
+    print(characterName);
+    if(characterName == "Brute" || characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot")
     {
-
+      other.gameObject.SendMessage("pumpAirBubbleEnter"); 
     }
-
-     void OnTriggerExit(Collider other)
-     {
-  // anim.Play("BlueWallClose");
-     }
- 
- // Update is called once per frame
-    public void Play()
+            
+  }
+     
+  void OnTriggerExit(Collider other)
+  {
+    var characterName = other.name;
+    print(characterName);
+    if(characterName == "Brute" || characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot")
     {
-      anim.Play("BlueWallOpen");
-    }
-    public void Stop()
-    {
-      anim.Play("BlueWallClose");
-    }
+      other.gameObject.SendMessage("pumpAirBubbleExit"); 
+    }     
+  }
+  
+  public void Play()
+  {
+    anim.Play("BlueWallOpen");
+  }
+  public void Stop()
+  {
+    anim.Play("BlueWallClose");
+  }
 }

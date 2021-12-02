@@ -29,19 +29,13 @@ public class PumpMove : Player
      }
 
     void Start()
-    {
-        
+    {   
         name = "Pump";
         currentHealth = maxHealth;
-        healthBar.setHealth(maxHealth);
-        // startPos = new Vector3(-157f, 0.7f, -120f);
+        pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
         transform.position = startPos;
         anim = GetComponent<Animator>();
-        orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
-        greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
-        blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
-        redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
-        pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
+        healthBar.setHealth(maxHealth);        
     }
 
     void getControls()
