@@ -1,5 +1,18 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &382572931051528508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382572931666216571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8271eabe659bb471c8857b332be188c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeFlame: 1
 --- !u!1 &1382405471244952665
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +24,7 @@ GameObject:
   - component: {fileID: 1757700038016696035}
   - component: {fileID: 2300815639358756420}
   - component: {fileID: 2300815639358756422}
+  - component: {fileID: 7151154962885827581}
   m_Layer: 0
   m_Name: fire
   m_TagString: Untagged
@@ -66,6 +80,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+--- !u!136 &7151154962885827581
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382405471244952665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.005
+  m_Height: 0.06
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.04, z: 0}
 --- !u!1 &3141956941157299563
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,16 +372,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 382572931666377645}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &382572931051528508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382572931666216571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8271eabe659bb471c8857b332be188c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeFlame: 1

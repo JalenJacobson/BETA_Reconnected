@@ -233,9 +233,14 @@ public class Player : MonoBehaviour
         touchingAirBubble = false;
     }
 
+    public void death()
+    {
+        StartCoroutine(returnToStart());
+    }
+
     public IEnumerator returnToStart()
     {
-        anim.Play("Dead");
+        // anim.Play("Dead");
         fixPosition = !fixPosition;
         yield return new WaitForSeconds(1);
         transform.position = startPos;

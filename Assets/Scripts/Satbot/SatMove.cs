@@ -103,7 +103,7 @@ public class SatMove : Player
 
         if(breathRemaining <= 0f)
         {
-            returnToStart();
+            StartCoroutine(returnToStart());
             waterExit();
         }
 
@@ -113,7 +113,7 @@ public class SatMove : Player
     public override void drowning()
     {
         // print("drowning");
-        TimerBar_Script.timerStart();
+        // TimerBar_Script.timerStart();
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
@@ -122,9 +122,9 @@ public class SatMove : Player
 
     public override void waterExit()
     {
-        resetConsoleDangerField();
-        resetConsoleDangerState();
-        TimerBar_Script.timerStop();
+        // resetConsoleDangerField();
+        // resetConsoleDangerState();
+        // TimerBar_Script.timerStop();
         inWater = false;
         breathRemaining = 5f;
     }

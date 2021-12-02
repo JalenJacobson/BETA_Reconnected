@@ -5,22 +5,25 @@ using UnityEngine;
 public class Pump_Gasconnection : MonoBehaviour
 {
     // IDI's
-    public GameObject Fire;
-    Fire firestop_Script;
-    public GameObject Fire_1;
-    Fire firestop2_Script;
-    public GameObject Fire_2;
-    Fire firestop3_Script;
+    // public GameObject Fire;
+    // Fire firestop_Script;
+    // public GameObject Fire_1;
+    // Fire firestop2_Script;
+    // public GameObject Fire_2;
+    // Fire firestop3_Script;
+
+    public List<GameObject> fires;
+    public List<Fire> fire_Scripts;
 
 
 
     // Start is called before the first frame update
     public void Start()
     {
-        firestop_Script = Fire.GetComponent<Fire>();
-        firestop2_Script = Fire_1.GetComponent<Fire>();
-        firestop3_Script = Fire_2.GetComponent<Fire>();
-
+        // firestop_Script = Fire.GetComponent<Fire>();
+        // firestop2_Script = Fire_1.GetComponent<Fire>();
+        // firestop3_Script = Fire_2.GetComponent<Fire>();
+        getFireScripts();
     }
 
     // Update is called once per frame
@@ -29,26 +32,30 @@ public class Pump_Gasconnection : MonoBehaviour
         
     }
 
-    public void Activate1()
+    public void getFireScripts()
     {
-        firestop_Script.Stop();
-
+        foreach(GameObject fire in fires)
+        {
+            var fire_Script = fire.GetComponent<Fire>();
+            fire_Scripts.Add(fire_Script);
+        }
     }
-    public void Activate2()
+
+    public void Activate()
     {
-        firestop2_Script.Stop();
-
+    //    firestop_Script.deactivateFire(); 
+    //    firestop2_Script.deactivateFire(); 
+    //    firestop3_Script.deactivateFire(); 
+        foreach(Fire fire_Script in fire_Scripts)
+        {
+            fire_Script.Activate();
+        }
     }
-    public void Activate3()
-    {
-        firestop3_Script.Stop();
 
-    }
     public void Deactivate()
     {
-        firestop_Script.Play();
-        firestop2_Script.Play();
-        firestop3_Script.Play();
-
+        // firestop_Script.Play();
+        // firestop2_Script.Play();
+        // firestop3_Script.Play();
     }
 }

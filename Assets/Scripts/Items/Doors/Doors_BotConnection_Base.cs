@@ -19,7 +19,7 @@ public class Doors_BotConnection_Base : CDI_Class
     // Update is called once per frame
     void Update()
     {
-        InfoButtons();
+        // InfoButtons();
 
     }
 

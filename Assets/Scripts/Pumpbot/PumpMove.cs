@@ -74,6 +74,7 @@ public class PumpMove : Player
         float verticalMove = Input.GetAxis(moveAxisVertical);
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
 
         if (direction != Vector3.zero)
         {
@@ -81,8 +82,8 @@ public class PumpMove : Player
             anim.Play("PumpWalk");
             currentHealth = currentHealth - .05f;
         }
-        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        sendPos();
+        
+        
     }
 
     void Update()
