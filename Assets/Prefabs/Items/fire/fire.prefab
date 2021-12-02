@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &382572931051528508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 382572931666216571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8271eabe659bb471c8857b332be188c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activeFlame: 1
 --- !u!1 &1382405471244952665
 GameObject:
   m_ObjectHideFlags: 0
@@ -80,6 +67,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anim: {fileID: 0}
+  fireActive: 1
+  TimeDeactivated: 5
 --- !u!136 &7151154962885827581
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -290,6 +279,10 @@ PrefabInstance:
       propertyPath: StopTime
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 11498850, guid: 50daa816369323b42b56093bb108296f, type: 3}
+      propertyPath: AudioSource
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 19810244, guid: 50daa816369323b42b56093bb108296f, type: 3}
       propertyPath: lengthInSec
       value: 1000
@@ -358,7 +351,8 @@ PrefabInstance:
       propertyPath: InitialModule.startRotationY.minMaxState
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8256470, guid: 50daa816369323b42b56093bb108296f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 50daa816369323b42b56093bb108296f, type: 3}
 --- !u!1 &382572931666216571 stripped
 GameObject:
@@ -372,3 +366,16 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 382572931666377645}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &382572931051528508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 382572931666216571}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8271eabe659bb471c8857b332be188c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeFlame: 1

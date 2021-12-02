@@ -21,4 +21,14 @@ public class StartUpButton : MonoBehaviour
        anim.Play("StartButtonDown");
 
    }
+       public void newButtons()
+   {
+       anim.Play("NewButtons");
+
+   }
+          public void newButtonsDown()
+   {
+       anim.Play("StartButtonDown");
+
+   }
 }

@@ -6,6 +6,7 @@ public class Fire : MonoBehaviour
 {
   public Animator anim;
   public bool fireActive = true;
+  public float TimeDeactivated = 5;
   
 
   void Start()
@@ -54,7 +55,7 @@ public class Fire : MonoBehaviour
   public IEnumerator fireActivateDeactivateSequence()
   {
     deactivateFire();
-    yield return new WaitForSeconds(2);
+    yield return new WaitForSeconds(TimeDeactivated);
     activateFire();
   }
 }

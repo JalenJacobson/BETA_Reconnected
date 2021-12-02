@@ -17,6 +17,8 @@ public class SatMove : Player
     public string moveAxisVertical;
     public string playerNumber;
 
+    public float StartHealth = 100;
+
     
 
     // public float currentHealth ;
@@ -33,7 +35,7 @@ public class SatMove : Player
         anim = GetComponent<Animator>(); 
         name = "Sat";
         Rails_Script = Rails.GetComponent<SatBotAnim>();
-        currentHealth = maxHealth;
+        currentHealth = StartHealth;
         healthBar.setHealth(maxHealth);
         // startPos = new Vector3(58f, 1.3f, -230f);
         // transform.position = startPos;
