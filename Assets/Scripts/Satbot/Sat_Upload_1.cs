@@ -31,26 +31,9 @@ public class Sat_Upload_1 : CDI_Class
     {
         if(Active == true)
         {
-            if(botConnected)
-            {
-                anim.Play("DisconnectButton");    
-            }
-            else anim.Play("UploadActive");
+            anim.Play("UploadActive");
         }
-
-        else if(!Active)
-        {
-            if(botTouching == true)
-            {
-                if(botConnected)
-                {
-                    anim.Play("Connected");
-                }
-                else anim.Play("PushC");
-            }
-            else anim.Play("DisconnectedButtons");
  
-        }  
     }
     
     void Activate()

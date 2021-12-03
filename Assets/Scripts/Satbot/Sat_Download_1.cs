@@ -28,26 +28,9 @@ public class Sat_Download_1 : CDI_Class
     {
         if(Active == true)
         {
-            if(botConnected)
-            {
-                anim.Play("DisconnectButton");    
-            }
-            else anim.Play("DownloadActivate");
+            anim.Play("DownloadActivate");
         }
 
-        else if(!Active)
-        {
-            if(botTouching == true)
-            {
-                if(botConnected)
-                {
-                    anim.Play("Connected");
-                }
-                else anim.Play("PushC");
-            }
-            else anim.Play("DisconnectedButtons");
- 
-        }  
     }
 
     void Activate()

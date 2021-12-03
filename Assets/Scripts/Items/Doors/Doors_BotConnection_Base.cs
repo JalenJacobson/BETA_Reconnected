@@ -32,13 +32,7 @@ public class Doors_BotConnection_Base : CDI_Class
                 anim.Play("DisconnectButton");   
             }
             else anim.Play("SatDoorActivate");
-
-            if(botConnected)
-            {
-                anim.Play("DisconnectGearButtons");    
-            }
-            else anim.Play("GearsSpin");
-             }
+        }
 
         else if(!Active)
         {
@@ -65,6 +59,7 @@ public class Doors_BotConnection_Base : CDI_Class
             anim.Play("ButtonActive");
             anim.Play("PumpActivate");
             anim.Play("SatDoorActivate");
+            anim.Play("LuzDoorActivate");
         }
     }
 }

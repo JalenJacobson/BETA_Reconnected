@@ -9,6 +9,7 @@ public class GearMove : Player
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
+    public float StartHealth = 100;
     // public Animator anim;
 
     void Awake()
@@ -21,7 +22,8 @@ public class GearMove : Player
     {
         anim = GetComponent<Animator>();
         name = "Gears";
-        currentHealth = maxHealth;
+        currentHealth = StartHealth;
+        healthBar.setHealth(maxHealth);
         // startPos = new Vector3(47f, 1.44f, -231f);
         // transform.position = startPos;
         TimerBar_Script = TimerBarGear.GetComponent<TimeBarGear>();
