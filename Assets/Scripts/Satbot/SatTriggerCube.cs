@@ -118,7 +118,7 @@ public class SatTriggerCube : MonoBehaviour
              Disconnect();
          }
 
-         if(connected == true && Input.GetKeyDown(activateKey))
+         if(touching != null && Input.GetKeyDown(activateKey))
          {
              Activate();
          }

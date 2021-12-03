@@ -33,7 +33,7 @@ public class GearConnection_Claw : CDI_Class
         // ClawDrop_Script.Activate();
     }
 
-    public void ClawConnected()
+    public void connect()
     {
         ClawMove_Script.clawConnected = true;
         ClawMove_Script.anim.Play("Claw"); 
@@ -42,7 +42,7 @@ public class GearConnection_Claw : CDI_Class
 
     }
 
-    public void ClawDisonnected()
+    public void disconnect()
     {
         ClawMove_Script.clawConnected = false;
         if(ClawMove_Script.lifting)

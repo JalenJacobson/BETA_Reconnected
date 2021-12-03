@@ -27,6 +27,8 @@ public class GearTriggerCube : MonoBehaviour
     public string disconnectKey;
     public string special;
 
+    public string connectMessage;
+
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("GearPlayerNumber");
@@ -93,85 +95,109 @@ public class GearTriggerCube : MonoBehaviour
 
      void Update()
      {
-         if(touching != null && Input.GetKeyDown(connectKey))
-         {
-             Connect();
-         }
-         if(touching != null && Input.GetKeyDown(disconnectKey))
-         {
-             Disconnect();
-         }
+        // if(touching != null && Input.GetKeyDown(connectKey))
+        // {
+        //     Connect();
+        // }
+        // if(touching != null && Input.GetKeyDown(disconnectKey))
+        // {
+        //     Disconnect();
+        // }
 
-         if(connected == true && Input.GetKeyDown(activateKey))
-         {
-             Activate();
-         }
+        if(touching != null && Input.GetKeyDown(activateKey))
+        {
+            Activate();
+        }
+        if(connected && Input.GetKeyDown(special))
+        {
+            touching.SendMessage("Activate", ErrorMessage);
+        }
      }
 
      public void Activate()
      {
-        touching.SendMessage("Activate", ErrorMessage);
-            
-     }
-     public void Deactivate()
-     {
-         touching.SendMessage("Deactivate", ErrorMessage);
-     }
-
-     public void Connect()
-     {
-        if(!connected)
+         
+        if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers"))
         {
-            connected = true; 
+            var connectMessage = connected ? "disconnect" : "connect";
+            print(connectMessage);
+            connected = !connected; 
             Gears.transform.position = touching.transform.TransformPoint(connectPos);
             GearMove_Script.toggleFixPosition();
             touching.SendMessage("toggleBotConnected");
-            // Bubble_Script.actionBubbleStop();
-            // Act1Button_Script.activate1();
-            // Connection.text = touching.name.ToString(); 
-            // CancelButton_Script.CancelStart(); 
-            print(touching.name);
-            if(touching.name.Contains("Claw"))
-            {
-                print("CONNECTED To Claw");
-                touching.SendMessage("ClawConnected");
-            }   
-            else if(touching.name.Contains("Crawlers"))
-            {
-                touching.SendMessage("standConnected");
-            }
-        }
-        else return;
-            
-     }
-     
-     public void Disconnect()
-     {
-        if(connected)
+            // print("CONNECTED To Claw");
+            touching.SendMessage(connectMessage);
+        }   
+        else if(touching.name.Contains("Crawlers"))
         {
-            connected = false;  
+            // connected = !connected; 
+            Gears.transform.position = touching.transform.TransformPoint(connectPos);
             GearMove_Script.toggleFixPosition();
             touching.SendMessage("toggleBotConnected");
-            // Light_Script.actionBubbleStop();
-            // Circle_Script.actionBubbleStop();
-            // Act1Button_Script.activate1Stop();
-            // Connection.text= "F";
-            // resetConsoleMessage();
-            // CancelButton_Script.CancelStop();  
-            if(touching.name.Contains("Claw"))
-            {
-                touching.SendMessage("ClawDisonnected");
-            }  
-            else if(touching.name.Contains("Crawlers"))
-            {
-                touching.SendMessage("standDisconnected");
-            } 
-        }
-        else return;    
+            touching.SendMessage("standConnected");
+        } 
+        else touching.SendMessage("Activate", ErrorMessage);
+            
      }
+    //  public void Deactivate()
+    //  {
+    //      touching.SendMessage("Deactivate", ErrorMessage);
+    //  }
 
-     public void resetConsoleMessage()
-     {
-         ErrorMessage.text = "";
-     }
+    //  public void Connect()
+    //  {
+    //     if(!connected)
+    //     {
+    //         connected = true; 
+    //         Gears.transform.position = touching.transform.TransformPoint(connectPos);
+    //         GearMove_Script.toggleFixPosition();
+    //         touching.SendMessage("toggleBotConnected");
+    //         // Bubble_Script.actionBubbleStop();
+    //         // Act1Button_Script.activate1();
+    //         // Connection.text = touching.name.ToString(); 
+    //         // CancelButton_Script.CancelStart(); 
+    //         print(touching.name);
+    //         if(touching.name.Contains("Claw"))
+    //         {
+    //             print("CONNECTED To Claw");
+    //             touching.SendMessage("ClawConnected");
+    //         }   
+    //         else if(touching.name.Contains("Crawlers"))
+    //         {
+    //             touching.SendMessage("standConnected");
+    //         }
+    //     }
+    //     else return;
+            
+    //  }
+     
+    //  public void Disconnect()
+    //  {
+    //     if(connected)
+    //     {
+    //         connected = false;  
+    //         GearMove_Script.toggleFixPosition();
+    //         touching.SendMessage("toggleBotConnected");
+    //         // Light_Script.actionBubbleStop();
+    //         // Circle_Script.actionBubbleStop();
+    //         // Act1Button_Script.activate1Stop();
+    //         // Connection.text= "F";
+    //         // resetConsoleMessage();
+    //         // CancelButton_Script.CancelStop();  
+    //         if(touching.name.Contains("Claw"))
+    //         {
+    //             touching.SendMessage("ClawDisonnected");
+    //         }  
+    //         else if(touching.name.Contains("Crawlers"))
+    //         {
+    //             touching.SendMessage("standDisconnected");
+    //         } 
+    //     }
+    //     else return;    
+    //  }
+
+    //  public void resetConsoleMessage()
+    //  {
+    //      ErrorMessage.text = "";
+    //  }
 }

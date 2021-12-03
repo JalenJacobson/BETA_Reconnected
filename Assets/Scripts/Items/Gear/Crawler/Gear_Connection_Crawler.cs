@@ -19,11 +19,11 @@ public class Gear_Connection_Crawler : CDI_Class
         
     }
 
-    void standConnected()
+    void connect()
     {
         StandMove_Script.standConnected = true;
     }
-    void standDisconnected()
+    void disconnect()
     {
         StandMove_Script.standConnected = false;
     }

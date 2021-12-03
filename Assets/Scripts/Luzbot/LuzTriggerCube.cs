@@ -119,7 +119,7 @@ public class LuzTriggerCube : MonoBehaviour
         //      GearMove_Script.fixPosition = true;
         //  }
 
-         if(connected == true && Input.GetKeyDown(activateKey))
+         if(touching != null && Input.GetKeyDown(activateKey))
          {
              print("chould activate");
              Activate();
