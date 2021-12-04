@@ -35,6 +35,17 @@ public class Level_Manager : MonoBehaviour
         print("AAAAASomething happened");
         SceneManager.LoadScene(0);
     }
+    public void Win()
+    {
+        //SceneManager.LoadScene(11);
+        StartCoroutine(StartWin());
+    }
+    IEnumerator StartWin()
+    {
+        yield return new WaitForSeconds(2);
+      //  print("AAAAASomething happened");
+        SceneManager.LoadScene(11);
+    }
     
 
 
