@@ -29,6 +29,11 @@ public class Level_Manager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+    public void Back()
+        {
+            SceneManager.LoadScene(0);
+        }
+    
 
 
     public void LoadNextLevel()
