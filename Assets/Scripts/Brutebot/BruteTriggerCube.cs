@@ -59,6 +59,10 @@ public class BruteTriggerCube : MonoBehaviour
     void OnTriggerEnter(Collider other)
      {
           canLift = true;
+            if(other.name.Contains("BatteryUI"))
+            {
+                touching = other.gameObject; 
+            }   
      }
 
     void OnTriggerStay(Collider other)
@@ -72,13 +76,17 @@ public class BruteTriggerCube : MonoBehaviour
             }
  
         }
+        if(characterName.Contains("BatteryUI"))
+        {
+            touching = other.gameObject; 
+        }
         
     }
 
      void OnTriggerExit(Collider other)
      { 
         var characterName = other.name;    
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box"))
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("BatteryUI") || characterName.Contains("Brute"))
         {   
             if(lifting == false)
             {
@@ -112,7 +120,7 @@ public class BruteTriggerCube : MonoBehaviour
             
         }
 
-        if(touching.name.Contains("Brute") && Input.GetKeyDown(activateKey))
+        if(Input.GetKeyDown(activateKey))
         {
             Activate();
         }

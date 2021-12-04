@@ -139,13 +139,13 @@ public class SatMove : Player
         }
     }
 
-    public void restoreHealth()
-    {
-        while(currentHealth < maxHealth)
-        {
-            currentHealth+= 0.05f;
-            print(currentHealth);
-        }
+    // public void restoreHealth()
+    // {
+    //     while(currentHealth < maxHealth)
+    //     {
+    //         currentHealth+= 0.05f;
+    //         print(currentHealth);
+    //     }
         
-    }
+    // }
 }

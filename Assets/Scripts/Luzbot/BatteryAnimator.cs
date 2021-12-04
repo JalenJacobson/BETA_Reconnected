@@ -6,10 +6,11 @@ public class BatteryAnimator : MonoBehaviour
 {
 
     public Animator anim;
+    public bool canAnimate = false;
 
     public void Start()
     {
-    anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
     }
 
 
@@ -17,9 +18,18 @@ public class BatteryAnimator : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown("m"))
-        {
-         anim.Play("RechargeBattery");
-        }
+        // if(canAnimate)
+        // {
+
+        // }
+        // if (Input.GetKeyDown("m"))
+        // {
+        //     anim.Play("RechargeBattery");
+        // }
+    }
+
+    public void Activate()
+    {
+        anim.Play("RechargeBattery");
     }
 }

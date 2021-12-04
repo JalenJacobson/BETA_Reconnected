@@ -99,7 +99,7 @@ public class PumpTriggerCube : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if((other.name.Contains("Pump")) || (other.name.Contains("Gas")))
+        if(other.name.Contains("Pump") || other.name.Contains("Gas") || other.name.Contains("BatteryUI"))
         {
              touching = other.gameObject;
         }
@@ -108,16 +108,16 @@ public class PumpTriggerCube : MonoBehaviour
      void OnTriggerExit(Collider other)
      {
         touching = null;
-        if((other.name.Contains("pump")) || (other.name.Contains("Gas")))
+        if(other.name.Contains("pump") || other.name.Contains("Gas") || other.name.Contains("BatteryUI"))
         {
             touching = null;
-            Bubble_Script.actionBubbleStop();
-            Light_Script.actionBubbleStop();
-            Circle_Script.actionBubbleStop();
+            // Bubble_Script.actionBubbleStop();
+            // Light_Script.actionBubbleStop();
+            // Circle_Script.actionBubbleStop();
             // BlueWall_Script.Stop();
             // PumpMove_Script.BlueWallClose();
-            CancelButton_Script.CancelStop();
-            Bubble_Script2.actionBubble2Stop();
+            // CancelButton_Script.CancelStop();
+            // Bubble_Script2.actionBubble2Stop();
         }
 
      }

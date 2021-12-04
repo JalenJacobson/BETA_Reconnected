@@ -257,6 +257,16 @@ public class Player : MonoBehaviour
         breathRemaining = 5f;
     }
 
+    public void restoreHealth()
+    {
+        while(currentHealth < maxHealth)
+        {
+            currentHealth+= 0.05f;
+            print(currentHealth);
+        }
+        
+    }
+
     public void setConsoleDangerField(string text, Color color)
     {
         DangerField.text = text;

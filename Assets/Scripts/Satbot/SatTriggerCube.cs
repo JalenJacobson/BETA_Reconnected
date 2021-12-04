@@ -67,6 +67,10 @@ public class SatTriggerCube : MonoBehaviour
                  touchingToken = touching.GetComponent<Sat_Upload_1>().token;
              }
         }
+        else if(other.name.Contains("BatteryUI"))
+        {
+            touching = other.gameObject;
+        }
 
     }
 
@@ -79,6 +83,10 @@ public class SatTriggerCube : MonoBehaviour
                  touchingToken = touching.GetComponent<Sat_Upload_1>().token;
              }
         }
+        else if(other.name.Contains("BatteryUI"))
+        {
+            touching = other.gameObject;
+        }
     }
 
      void OnTriggerExit(Collider other)
@@ -89,6 +97,10 @@ public class SatTriggerCube : MonoBehaviour
         if(other.name.Contains("Sat"))
         {
 
+        }
+        else if(other.name.Contains("BatteryUI"))
+        {
+            touching = null;
         }
      }
 
@@ -180,14 +192,15 @@ public class SatTriggerCube : MonoBehaviour
 
             }
         }
-        else if(touching.name.Contains("Portal")) 
-        {
-            touching.SendMessage("Activate");
-        }
-        else if(touching.name.Contains("Doors"))
-        {
-            touching.SendMessage("Activate");
-        }
+        // else if(touching.name.Contains("Portal")) 
+        // {
+        //     touching.SendMessage("Activate");
+        // }
+        // else if(touching.name.Contains("Doors"))
+        // {
+        //     touching.SendMessage("Activate");
+        // }
+        else touching.SendMessage("Activate");
              
      }
 
