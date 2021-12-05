@@ -52,5 +52,15 @@ public class CancelGearSelect : MonoBehaviour
        anim.Play("GearDown2");
 
    }
+         public void Back()
+   {
+       anim.Play("CancelBackUp");
+
+   }
+        public void BackDown()
+   {
+       anim.Play("CancelBackDown");
+
+   }
 }
    
