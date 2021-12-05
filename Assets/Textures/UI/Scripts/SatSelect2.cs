@@ -51,6 +51,12 @@ public class SatSelect2 : HeroSelectPlayer
        
 
    }
+         public void SatTutorial()
+   {
+       anim.Play("SatTutorial");
+       
+
+   }
    public void Down2()
    {
        anim.Play("SatSelectDown2");
