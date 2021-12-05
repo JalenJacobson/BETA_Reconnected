@@ -45,5 +45,9 @@ public class BotSelect : MonoBehaviour
    {
        anim.Play("TutorialInfo");
    }
+             public void TurnOffInfo()
+   {
+       anim.Play("TurnOffInfo");
+   }
 }
    

@@ -29,6 +29,12 @@ public class Level_Manager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
+       public void Tutorial()
+    {
+        {
+            StartCoroutine(StartTutorial());
+        }
+    }
     
     public void Back()
     {
@@ -47,6 +53,12 @@ public class Level_Manager : MonoBehaviour
         SceneManager.LoadScene(11);
     }
     
+    IEnumerator StartTutorial()
+    {
+        yield return new WaitForSeconds(5);
+      //  print("AAAAASomething happened");
+        SceneManager.LoadScene(12);
+    }
 
 
     public void LoadNextLevel()
