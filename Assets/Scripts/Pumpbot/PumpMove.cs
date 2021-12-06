@@ -73,8 +73,9 @@ public class PumpMove : Player
         if (direction != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            anim.Play("PumpWalk");
             currentHealth = currentHealth - .05f;
+            anim.Play("PumpWalk");
+            
         }
         
         

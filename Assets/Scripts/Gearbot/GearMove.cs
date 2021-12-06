@@ -96,6 +96,8 @@ public class GearMove : Player
             StartCoroutine(returnToStart());
             waterExit();
         }
+
+        healthBar.setHealth(currentHealth);
     }
     public override void drowning()
     {
