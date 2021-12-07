@@ -19,6 +19,10 @@ public class SatMove : Player
 
     public float StartHealth = 100;
 
+    public GameObject MiniMap_Manager;
+    public MiniMap MiniMap_Script;
+    public string special;
+
     
 
     // public float currentHealth ;
@@ -32,6 +36,7 @@ public class SatMove : Player
 
     void Start()
     {
+        MiniMap_Script = MiniMap_Manager.GetComponent<MiniMap>();
         anim = GetComponent<Animator>(); 
         name = "Sat";
         Rails_Script = Rails.GetComponent<SatBotAnim>();
@@ -53,11 +58,13 @@ public class SatMove : Player
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
+            special = "space";
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
-            moveAxisVertical = "VerticalPlayer2";   
+            moveAxisVertical = "VerticalPlayer2";
+            special = "return";   
         }
     }
 
@@ -110,6 +117,11 @@ public class SatMove : Player
         }
 
         healthBar.setHealth(currentHealth);
+
+        if (Input.GetKeyDown(special))
+        {
+            MiniMap_Script.MiniMapToggle();
+        }
     }
 
     public override void drowning()
@@ -129,15 +141,6 @@ public class SatMove : Player
         // TimerBar_Script.timerStop();
         inWater = false;
         breathRemaining = 5f;
-    }
-    
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.name.Contains("Hole"))
-        {     
-            currentHealth = currentHealth - 20f;
-            anim.Play("DeadSat");    
-        }
     }
 
     public void death()

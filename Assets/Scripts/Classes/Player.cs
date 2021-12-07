@@ -242,6 +242,7 @@ public class Player : MonoBehaviour
     {
         print(deathAnimation);
         anim.Play(deathAnimation);
+        currentHealth = currentHealth - 20f;
         fixPosition = !fixPosition;
         yield return new WaitForSeconds(1);
         transform.position = startPos;

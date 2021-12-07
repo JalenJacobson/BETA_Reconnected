@@ -132,14 +132,6 @@ public class BruteMove : Player
    {
         anim.Play("BruteWalk");
    }
-       void OnTriggerEnter(Collider other)
-    {
-        if(other.name.Contains("Hole"))
-        {     
-            currentHealth = currentHealth - 20f;
-            anim.Play("DeadBrute");    
-        }
-    }
 
     public void death()
     {

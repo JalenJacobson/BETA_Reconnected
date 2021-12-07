@@ -126,14 +126,6 @@ public class LuzMove : Player
     {
 
     }
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.name.Contains("Hole"))
-        {     
-            currentHealth = currentHealth - 20f;
-            anim.Play("DeadLuz");    
-        }
-    }
 
     public void death()
     {

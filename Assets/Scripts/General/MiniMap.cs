@@ -17,10 +17,12 @@ public class MiniMap : MonoBehaviour
     void Update()
     {
         // renderActive();
-        if (Input.GetKeyDown("m"))
-        {
-            toggleActive();
-        }
+
+    }
+
+    public void MiniMapToggle()
+    {
+        toggleActive();
     }
 
     public void toggleActive()
