@@ -109,13 +109,19 @@ public class PumpMove : Player
         bubbleOpen = false;
         pumpBlueWall_script.Stop();
     }
-           void OnTriggerEnter(Collider other)
+           
+    void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains("Hole") || other.name.Contains("fire"))
+        if(other.name.Contains("Hole"))
         {     
             currentHealth = currentHealth - 20f;
             anim.Play("DeadPump");    
         }
+    }
+
+    public void death()
+    {
+        StartCoroutine(returnToStart("DeadPump"));
     }
 
     // public void BlueWallOpen()

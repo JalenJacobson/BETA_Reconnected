@@ -95,11 +95,11 @@ public class Player : MonoBehaviour
             
         }
 
-        if(breathRemaining <= 0f)
-        {
-            StartCoroutine(returnToStart());
-            waterExit();
-        }
+        // if(breathRemaining <= 0f)
+        // {
+        //     StartCoroutine(returnToStart());
+        //     waterExit();
+        // }
     }
 
     public virtual void Movement()
@@ -233,14 +233,15 @@ public class Player : MonoBehaviour
         touchingAirBubble = false;
     }
 
-    public void death()
-    {
-        StartCoroutine(returnToStart());
-    }
+    // public void death()
+    // {
+    //     StartCoroutine(returnToStart());
+    // }
 
-    public IEnumerator returnToStart()
+    public IEnumerator returnToStart(string deathAnimation)
     {
-        // anim.Play("Dead");
+        print(deathAnimation);
+        anim.Play(deathAnimation);
         fixPosition = !fixPosition;
         yield return new WaitForSeconds(1);
         transform.position = startPos;

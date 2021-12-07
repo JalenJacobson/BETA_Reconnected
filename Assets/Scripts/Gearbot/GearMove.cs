@@ -93,7 +93,7 @@ public class GearMove : Player
 
         if(breathRemaining <= 0f)
         {
-            StartCoroutine(returnToStart());
+            StartCoroutine(returnToStart("Dead"));
             waterExit();
         }
 
@@ -119,15 +119,20 @@ public class GearMove : Player
         breathRemaining = 5f;
     }
 
-       void OnTriggerEnter(Collider other)
-     {
-        if(other.name.Contains("Hole") || other.name.Contains("Fire"))
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.name.Contains("Hole"))
         {     
             currentHealth = currentHealth - 20f;
             anim.Play("Dead");    
         }
 
-     }
+    }
+
+    public void death()
+    {
+        StartCoroutine(returnToStart("Dead"));
+    }
 
     //  public void restoreHealth()
     // {

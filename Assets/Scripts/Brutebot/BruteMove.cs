@@ -100,7 +100,7 @@ public class BruteMove : Player
 
         if(breathRemaining <= 0f)
         {
-            StartCoroutine(returnToStart());
+            StartCoroutine(returnToStart("DeadBrute"));
             waterExit();
         }
 
@@ -134,10 +134,15 @@ public class BruteMove : Player
    }
        void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains("Hole") || other.name.Contains("fire"))
+        if(other.name.Contains("Hole"))
         {     
             currentHealth = currentHealth - 20f;
             anim.Play("DeadBrute");    
         }
+    }
+
+    public void death()
+    {
+        StartCoroutine(returnToStart("DeadBrute"));
     }
 }

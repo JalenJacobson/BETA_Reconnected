@@ -87,7 +87,7 @@ public class LuzMove : Player
 
         if(breathRemaining <= 0f)
         {
-            returnToStart();
+            returnToStart("DeadLuz");
             waterExit();
         }
         
@@ -128,11 +128,16 @@ public class LuzMove : Player
     }
     void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains("Hole") || other.name.Contains("fire"))
+        if(other.name.Contains("Hole"))
         {     
             currentHealth = currentHealth - 20f;
             anim.Play("DeadLuz");    
         }
+    }
+
+    public void death()
+    {
+        StartCoroutine(returnToStart("DeadLuz"));
     }
 
     // public void restoreHealth()

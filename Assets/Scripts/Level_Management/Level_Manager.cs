@@ -11,6 +11,8 @@ public class Level_Manager : MonoBehaviour
     public int sceneToGoTo;
     public Animator transition;
     public float transitionTime = 1f;
+
+    public static int oldTutorialLevel;
     
     public string levelValuePlayerOne = "";
     public string levelValuePlayerTwo = "";
@@ -18,8 +20,7 @@ public class Level_Manager : MonoBehaviour
     public async void Start()
     {
         sceneToGoTo = 1;
-        
-        
+        print(oldTutorialLevel);
     }
 
     void Update()
@@ -29,36 +30,16 @@ public class Level_Manager : MonoBehaviour
             SceneManager.LoadScene(0);
         }
     }
-       public void Tutorial()
-    {
-        {
-            StartCoroutine(StartTutorial());
-        }
-    }
+       
+    
     
     public void Back()
     {
         print("AAAAASomething happened");
         SceneManager.LoadScene(0);
     }
-    public void Win()
-    {
-        //SceneManager.LoadScene(11);
-        StartCoroutine(StartWin());
-    }
-    IEnumerator StartWin()
-    {
-        yield return new WaitForSeconds(2);
-      //  print("AAAAASomething happened");
-        SceneManager.LoadScene(11);
-    }
+
     
-    IEnumerator StartTutorial()
-    {
-        yield return new WaitForSeconds(5);
-      //  print("AAAAASomething happened");
-        SceneManager.LoadScene(12);
-    }
 
 
     public void LoadNextLevel()
@@ -154,12 +135,46 @@ public class Level_Manager : MonoBehaviour
     }
 
 
-//================= get next level ====================
+//================= Tutorial  ====================
 
-    // public void setLevelValues(int valueToAdd)
-    // {
-    //     levelValues = levelValues + valueToAdd;
-    // }
+    public void Tutorial()
+    {
+        {
+            StartCoroutine(StartTutorial());
+        }
+    }
+
+    public void winTutorial(int sendingTutorialLevel)
+    {
+        print(sendingTutorialLevel);
+        oldTutorialLevel = sendingTutorialLevel;
+        StartCoroutine(startTutorialWin());
+    }
+    
+    IEnumerator startTutorialWin()
+    {
+        yield return new WaitForSeconds(2);
+      //  print("AAAAASomething happened");
+        SceneManager.LoadScene(11);
+    }
+    
+    IEnumerator StartTutorial()
+    {
+        yield return new WaitForSeconds(5);
+      //  print("AAAAASomething happened");
+        SceneManager.LoadScene(12);
+    }
+
+    public void continueTutorial()
+    {
+        var nextScene = oldTutorialLevel +1;
+        SceneManager.LoadScene(nextScene);
+    }
+
+    public void replayTutorial()
+    {
+        SceneManager.LoadScene(oldTutorialLevel);
+    }
     
 
 //================= Character Selection P1 =====================

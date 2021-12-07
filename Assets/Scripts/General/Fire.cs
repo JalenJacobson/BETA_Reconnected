@@ -28,11 +28,15 @@ public class Fire : MonoBehaviour
 
   public void OnTriggerEnter(Collider other)
   {
-    if(!fireActive) return;
-    if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
+    // if(!fireActive) return;
+    if(fireActive)
     {
-      other.gameObject.SendMessage("death");
+      if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
+      {
+        other.gameObject.SendMessage("death");
+      }
     }
+    
   }  
 
   public void Activate()

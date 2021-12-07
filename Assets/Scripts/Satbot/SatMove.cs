@@ -105,7 +105,7 @@ public class SatMove : Player
 
         if(breathRemaining <= 0f)
         {
-            StartCoroutine(returnToStart());
+            StartCoroutine(returnToStart("DeadSat"));
             waterExit();
         }
 
@@ -133,11 +133,16 @@ public class SatMove : Player
     
     void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains("Hole") || other.name.Contains("fire"))
+        if(other.name.Contains("Hole"))
         {     
             currentHealth = currentHealth - 20f;
             anim.Play("DeadSat");    
         }
+    }
+
+    public void death()
+    {
+        StartCoroutine(returnToStart("DeadSat"));
     }
 
     // public void restoreHealth()
