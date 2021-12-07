@@ -9,6 +9,8 @@ public class LuzTriggerCube : MonoBehaviour
     public GameObject IdleLuz;
     LuzMove LuzMove_Script;
     
+    ActivatePower PowerScript;
+    
     public bool triggerEntered = false;
     public bool connected = false;
     public Vector3 connectPos;
@@ -47,6 +49,7 @@ public class LuzTriggerCube : MonoBehaviour
     void Start()
     {
         LuzMove_Script = IdleLuz.GetComponent<LuzMove>();
+        PowerScript = IdleLuz.GetComponent<ActivatePower>();
         Bubble_Script = ActionPower.GetComponent<ActionPowerScript>();
         Light_Script = ActionLight.GetComponent<ActionPowerScript>();
         Circle_Script = ActionCircles.GetComponent<ActionPowerScript>();
@@ -123,6 +126,7 @@ public class LuzTriggerCube : MonoBehaviour
          {
              print("chould activate");
              Activate();
+             PowerScript.Play();
          }
      }
 

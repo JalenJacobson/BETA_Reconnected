@@ -133,8 +133,9 @@ public class SatMove : Player
     
     void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains("Hole"))
+        if(other.name.Contains("Hole") || other.name.Contains("fire"))
         {     
+            currentHealth = currentHealth - 20f;
             anim.Play("DeadSat");    
         }
     }

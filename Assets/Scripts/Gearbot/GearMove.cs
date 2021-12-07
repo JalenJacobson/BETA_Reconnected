@@ -123,6 +123,7 @@ public class GearMove : Player
      {
         if(other.name.Contains("Hole") || other.name.Contains("Fire"))
         {     
+            currentHealth = currentHealth - 20f;
             anim.Play("Dead");    
         }
 

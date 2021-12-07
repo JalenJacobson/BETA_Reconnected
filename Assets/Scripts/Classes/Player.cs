@@ -246,7 +246,7 @@ public class Player : MonoBehaviour
         transform.position = startPos;
         inWater = false;
         breathRemaining = 5f;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         fixPosition = !fixPosition;
     }
     public virtual void waterExit()

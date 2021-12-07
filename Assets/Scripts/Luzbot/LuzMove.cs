@@ -10,7 +10,6 @@ public class LuzMove : Player
     // public Animator anim;
     public string special;
 
-    public healthBar healthBar;
 
     void Awake()
      {
@@ -25,7 +24,7 @@ public class LuzMove : Player
         currentHealth = maxHealth;
         healthBar.setHealth(maxHealth);
         breathRemaining = .1f;
-        startPos = new Vector3(-180f, .5f, -98.5f);
+        // startPos = new Vector3(-180f, .5f, -98.5f);
         transform.position = startPos;
         orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
         greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
@@ -58,7 +57,7 @@ public class LuzMove : Player
         if (direction != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            currentHealth = currentHealth - .025f;
+            currentHealth = currentHealth - .005f;
         }
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
@@ -95,6 +94,7 @@ public class LuzMove : Player
         if (Input.GetKeyDown(special))
         {
             anim.Play("Recharge");
+            currentHealth = currentHealth - 10f;
         }
 
         healthBar.setHealth(currentHealth);
@@ -125,6 +125,14 @@ public class LuzMove : Player
     public void Recharge()
     {
 
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.name.Contains("Hole") || other.name.Contains("fire"))
+        {     
+            currentHealth = currentHealth - 20f;
+            anim.Play("DeadLuz");    
+        }
     }
 
     // public void restoreHealth()
