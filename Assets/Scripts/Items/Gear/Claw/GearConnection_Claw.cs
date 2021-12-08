@@ -14,6 +14,7 @@ public class GearConnection_Claw : CDI_Class
     
     void Start()
     {
+        anim = GetComponent<Animator>();
         ClawMove_Script = Claw.GetComponent<Claw>();
         // ClawDrop_Script = Claw.GetComponent<Claw>();
         ClawBoundry_Script = ClawBoundries.GetComponent<ClawBoundries>();
@@ -35,6 +36,7 @@ public class GearConnection_Claw : CDI_Class
 
     public void connect()
     {
+        anim.Play("ActivateGearBox");
         ClawMove_Script.clawConnected = true;
         ClawMove_Script.anim.Play("Claw"); 
         // ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;
@@ -44,14 +46,20 @@ public class GearConnection_Claw : CDI_Class
 
     public void disconnect()
     {
+        anim.Play("DeactivateGearBox");
         ClawMove_Script.clawConnected = false;
         if(ClawMove_Script.lifting)
         {
             ClawMove_Script.touching.GetComponent<Rigidbody>().useGravity = true;
             ClawMove_Script.lifting = false;
             ClawMove_Script.clawCarrying = false;
+            ClawMove_Script.anim.Play("ClawDrop");
         }
-        ClawMove_Script.anim.Play("ClawDrop"); 
+        else if(ClawMove_Script.lifting == false)
+        {
+        ClawMove_Script.anim.Play("ClawEnd");
+        }
+         
         // ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;
         // ClawDrop_Script.clawDrop = !ClawDrop_Script.clawDrop;
 

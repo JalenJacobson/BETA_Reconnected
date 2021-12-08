@@ -132,6 +132,10 @@ public class BruteMove : Player
    {
         anim.Play("BruteWalk");
    }
+         public void Activate()
+   {
+        anim.Play("Slam");
+   }
 
     public void death()
     {

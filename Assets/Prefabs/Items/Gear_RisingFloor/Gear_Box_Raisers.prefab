@@ -1047,6 +1047,7 @@ MonoBehaviour:
   redDanger: {r: 0, g: 0, b: 0, a: 0}
   botTouching: 0
   botConnected: 0
+  TimeDeactivated: 2
   GearRaiser: {fileID: 0}
 --- !u!1 &4570362487130593713
 GameObject:
@@ -1059,6 +1060,7 @@ GameObject:
   - component: {fileID: 6866013713736645425}
   - component: {fileID: 6014291421150552543}
   - component: {fileID: 8676178874980613909}
+  - component: {fileID: 202920146092183148}
   m_Layer: 0
   m_Name: polySurface2
   m_TagString: Untagged
@@ -1129,6 +1131,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!122 &202920146092183148
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570362487130593713}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_Size: 2.5
 --- !u!1 &4592846058832153138
 GameObject:
   m_ObjectHideFlags: 0

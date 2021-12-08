@@ -48,7 +48,6 @@ public class Level_Manager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    
 
 
     public void LoadNextLevel()
@@ -200,6 +199,19 @@ public class Level_Manager : MonoBehaviour
          SceneManager.LoadScene(oldTutorialLevel);
     }
     
+    public void NextTurtorialLevel()
+    {
+        StartCoroutine(LoadNextTutorialLevel());
+    }
+        IEnumerator LoadNextTutorialLevel()
+    {
+        var nextScene = oldTutorialLevel +2;
+        // transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(2);
+
+        SceneManager.LoadScene(nextScene);
+    }
 
 //================= Character Selection P1 =====================
     public void setPrefsGear1()

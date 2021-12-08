@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 4208532253674944818}
   - component: {fileID: 1293884449700649121}
   - component: {fileID: 3558039685482154644}
+  - component: {fileID: 2511054080991402084}
   m_Layer: 0
   m_Name: pCylinder1
   m_TagString: Untagged
@@ -186,7 +187,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0677d41e099533c4b99c21818d41d3e1, type: 2}
+  - {fileID: 2100000, guid: 483cf52d4355efc42952889c301645d8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -208,6 +209,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!122 &2511054080991402084
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6702159471124237995}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278252543
+  m_Size: 3.95
 --- !u!1 &7415957832906037027
 GameObject:
   m_ObjectHideFlags: 0
@@ -220,6 +233,7 @@ GameObject:
   - component: {fileID: 6316598856590312258}
   - component: {fileID: 6975014922209382850}
   - component: {fileID: 8109896677193321556}
+  - component: {fileID: 6187847052333948078}
   m_Layer: 0
   m_Name: pCube3
   m_TagString: Untagged
@@ -241,7 +255,7 @@ Transform:
   - {fileID: 4208532253674944818}
   m_Father: {fileID: 8576715655442848440}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -180}
 --- !u!33 &6316598856590312258
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -269,7 +283,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f601497c939d871418d95904fe4643dd, type: 2}
+  - {fileID: 2100000, guid: 1842aa2399aa0544880c837afc51bb74, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -305,6 +319,18 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3369316746193770658, guid: e62a23065cc5acf489242d180adbc206, type: 3}
+--- !u!122 &6187847052333948078
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7415957832906037027}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4278190335
+  m_Size: 4
 --- !u!1 &8743203837140228096
 GameObject:
   m_ObjectHideFlags: 0
@@ -365,7 +391,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 88f0b375e6dd10840be7fa0c76053eed, type: 2}
+  - {fileID: 2100000, guid: 4e4e724c5d1d4874ca0b55d9d7c9ece8, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -671,7 +697,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 88f0b375e6dd10840be7fa0c76053eed, type: 2}
+      objectReference: {fileID: 2100000, guid: 1842aa2399aa0544880c837afc51bb74, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d38961f05a585034eb33c88a91e6f11f, type: 3}
 --- !u!4 &8576715654239077319 stripped

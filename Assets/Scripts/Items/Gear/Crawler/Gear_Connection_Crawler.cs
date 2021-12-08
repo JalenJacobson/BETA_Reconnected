@@ -10,6 +10,7 @@ public class Gear_Connection_Crawler : CDI_Class
     
     void Start()
     {
+        anim = GetComponent<Animator>();
         StandMove_Script = Stand.GetComponent<Gear_Crawler>();
     }
 
@@ -21,10 +22,12 @@ public class Gear_Connection_Crawler : CDI_Class
 
     void connect()
     {
+        anim.Play("ActivateGearBox");
         StandMove_Script.standConnected = true;
     }
     void disconnect()
     {
+        anim.Play("DeactivateGearBox");
         StandMove_Script.standConnected = false;
     }
 }

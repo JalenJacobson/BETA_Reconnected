@@ -130,6 +130,7 @@ public class BruteTriggerCube : MonoBehaviour
         if(touching)
         {
             touching.SendMessage("Activate");
+            BruteMove_Script.Activate();
         }
         if(batteryTouching)
         {

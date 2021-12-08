@@ -362,6 +362,7 @@ GameObject:
   - component: {fileID: 5117887473744896711}
   - component: {fileID: 1835199449747747348}
   - component: {fileID: 361310689222011643}
+  - component: {fileID: 305658771359903296}
   m_Layer: 0
   m_Name: polySurface15
   m_TagString: Untagged
@@ -432,6 +433,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!122 &305658771359903296
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1187043346360691638}
+  m_Enabled: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294902016
+  m_Size: 2.6
 --- !u!1 &1243336741587549497
 GameObject:
   m_ObjectHideFlags: 0
@@ -1806,6 +1819,7 @@ GameObject:
   - component: {fileID: 8999629476494903223}
   - component: {fileID: 8999629476494903112}
   - component: {fileID: 8999629476494903222}
+  - component: {fileID: 8992163073699856880}
   m_Layer: 0
   m_Name: Pump_Box 1
   m_TagString: Untagged
@@ -1883,8 +1897,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8427512c7a03bec4e86a55f389a959f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
   fires: []
   fire_Scripts: []
+--- !u!95 &8992163073699856880
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8080709535365348066}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ae47bc6876056734d93ad0cd05f62e7f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8472691921760232849
 GameObject:
   m_ObjectHideFlags: 0

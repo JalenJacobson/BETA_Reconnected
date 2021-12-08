@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gear_Crawler : MonoBehaviour
 {
+     public Animator anim;
     public Vector3 directionx;
     public Vector3 directionz;
     public Vector3 direction;
@@ -17,6 +18,7 @@ public class Gear_Crawler : MonoBehaviour
 
     void Awake()
     {
+        anim = GetComponent<Animator>();
         moveAxisHorizontal = PlayerPrefs.GetString("GearAxisHorizontal");
         moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");
     }
@@ -36,6 +38,7 @@ public class Gear_Crawler : MonoBehaviour
     {
         if(standConnected)
         {
+            anim.Play("GearStandActivate");
             if(xMove && zMove)
             {
                 Movement();
@@ -48,6 +51,10 @@ public class Gear_Crawler : MonoBehaviour
             {
                 MovementZ();
             }
+        }
+        else if(standConnected == false)
+        {
+        anim.Play("GearStandDeactivate");  
         }
           
     }
@@ -118,11 +125,13 @@ public class Gear_Crawler : MonoBehaviour
 
     public void standConnect()
     {
+        anim.Play("GearStandActivate");
         standConnected = true;
     }
 
     public void standDisconnected()
     {
+        anim.Play("GearStandDeactivate");
         standConnected = false;
     }
 
