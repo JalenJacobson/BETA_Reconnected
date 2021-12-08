@@ -76,12 +76,20 @@ public class BruteTriggerCube : MonoBehaviour
         else if(other.name.Contains("BatteryUI"))
         {
             batteryTouching = other.gameObject;   
+        }
+        else if(other.name.Contains("Push"))
+        {
+           BruteMove_Script.anim.Play("Push");
         }  
         
     }
 
      void OnTriggerExit(Collider other)
      { 
+        if(other.name.Contains("Push"))
+        {
+           BruteMove_Script.anim.Play("BruteWalk");
+        } 
         var characterName = other.name;    
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("Brute"))
         {   
@@ -95,6 +103,10 @@ public class BruteTriggerCube : MonoBehaviour
         {
             batteryTouching = null;
         }
+        else if(other.name.Contains("Push"))
+        {
+           BruteMove_Script.anim.Play("BruteWalk");
+        } 
      }
 
      
