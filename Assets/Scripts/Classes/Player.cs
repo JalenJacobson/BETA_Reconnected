@@ -264,7 +264,7 @@ public class Player : MonoBehaviour
         while(currentHealth < maxHealth)
         {
             currentHealth+= 0.05f;
-            print(currentHealth);
+            // print(currentHealth);
         }
         
     }

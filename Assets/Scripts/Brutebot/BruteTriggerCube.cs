@@ -8,6 +8,7 @@ public class BruteTriggerCube : MonoBehaviour
     BruteMove BruteMove_Script;
     public bool triggerEntered = false;
     public GameObject touching = null;
+    public GameObject batteryTouching = null;
     public bool canLift = false;
     public Vector3 liftPos;
     public bool lifting;
@@ -74,11 +75,7 @@ public class BruteTriggerCube : MonoBehaviour
         }
         else if(other.name.Contains("BatteryUI"))
         {
-            if(touching == null)
-            {
-                touching = other.gameObject;
-            }
-                 
+            batteryTouching = other.gameObject;   
         }  
         
     }
@@ -86,15 +83,17 @@ public class BruteTriggerCube : MonoBehaviour
      void OnTriggerExit(Collider other)
      { 
         var characterName = other.name;    
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("BatteryUI") || characterName.Contains("Brute"))
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("Brute"))
         {   
             if(lifting == false)
             {
                 canLift = false;
                 touching = null;
             }
-
-        // lifting = false;
+        }
+        else if(characterName.Contains("BatteryUI"))
+        {
+            batteryTouching = null;
         }
      }
 
@@ -128,7 +127,15 @@ public class BruteTriggerCube : MonoBehaviour
 
     public void Activate()
     {
-        touching.SendMessage("Activate");
+        if(touching)
+        {
+            touching.SendMessage("Activate");
+        }
+        if(batteryTouching)
+        {
+            batteryTouching.SendMessage("Activate");
+        }
+        
     }
 
      public void drop()
