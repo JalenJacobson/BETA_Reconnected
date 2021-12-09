@@ -42,6 +42,8 @@ public class SatMove : Player
         Rails_Script = Rails.GetComponent<SatBotAnim>();
         currentHealth = StartHealth;
         healthBar.setHealth(maxHealth);
+        lose_condition = GameObject.Find("Lose_Conditions");
+        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(58f, 1.3f, -230f);
         // transform.position = startPos;
         
@@ -70,8 +72,8 @@ public class SatMove : Player
 
     public override void Movement()
     {
-        if(currentHealth > 0)
-        {
+        // if(currentHealth > 0)
+        // {
             float horizontalMove = Input.GetAxis(moveAxisHorizontal);
             float verticalMove = Input.GetAxis(moveAxisVertical);
 
@@ -85,7 +87,7 @@ public class SatMove : Player
             }
 
             rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        }
+        // }
         // sendPos();
     }
 
@@ -114,6 +116,15 @@ public class SatMove : Player
         {
             StartCoroutine(returnToStart("DeadSat"));
             waterExit();
+        }
+
+        if(currentHealth <= 0)
+        {
+            batteryDead = true;
+        }
+        else if(currentHealth > 0)
+        {
+            batteryDead = false;
         }
 
         healthBar.setHealth(currentHealth);

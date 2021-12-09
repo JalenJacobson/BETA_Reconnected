@@ -35,7 +35,9 @@ public class PumpMove : Player
         pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
         transform.position = startPos;
         anim = GetComponent<Animator>();
-        healthBar.setHealth(maxHealth);        
+        healthBar.setHealth(maxHealth);  
+        lose_condition = GameObject.Find("Lose_Conditions");
+        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();      
     }
 
     void getControls()
@@ -97,6 +99,15 @@ public class PumpMove : Player
             }
         }
         healthBar.setHealth(currentHealth);
+
+        if(currentHealth <= 0)
+        {
+            batteryDead = true;
+        }
+        else if(currentHealth > 0)
+        {
+            batteryDead = false;
+        }
     }
 
     public void waterEnter()

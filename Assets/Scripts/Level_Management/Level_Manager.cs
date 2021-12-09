@@ -48,6 +48,11 @@ public class Level_Manager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void lose()
+    {
+       SceneManager.LoadScene(22); 
+    }
+
 
 
     public void LoadNextLevel()
@@ -148,7 +153,9 @@ public class Level_Manager : MonoBehaviour
     public void Tutorial()
     {
         {
+            setTutorialControls();
             StartCoroutine(StartTutorial());
+            
         }
     }
 
@@ -211,6 +218,16 @@ public class Level_Manager : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         SceneManager.LoadScene(nextScene);
+    }
+
+    public void setTutorialControls()
+    {
+        setPrefsGear1();
+        setPrefsLuz1();
+        setPrefsBrute1();
+        setPrefsPump1();
+        setPrefsSat2();
+
     }
 
 //================= Character Selection P1 =====================

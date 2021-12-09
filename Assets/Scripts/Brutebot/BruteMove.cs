@@ -27,6 +27,8 @@ public class BruteMove : Player
         moveSpeed = 7f;
         currentHealth = maxHealth;
         healthBar.setHealth(maxHealth);
+        lose_condition = GameObject.Find("Lose_Conditions");
+        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(-180, 0.77f, -111f);
         transform.position = startPos;
         TimerBar_Script = TimerBarBrute.GetComponent<TimeBarBrute>();
@@ -102,6 +104,15 @@ public class BruteMove : Player
         {
             StartCoroutine(returnToStart("DeadBrute"));
             waterExit();
+        }
+
+        if(currentHealth <= 0)
+        {
+            batteryDead = true;
+        }
+        else if(currentHealth > 0)
+        {
+            batteryDead = false;
         }
 
         healthBar.setHealth(currentHealth);

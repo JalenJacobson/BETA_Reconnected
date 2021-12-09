@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
     public float currentHealth ;
     public float maxHealth = 100f;
 
+    public GameObject lose_condition;
+    public Lose_Conditions lose_condition_script;
+
+    public bool batteryDead;
+
     private static readonly HttpClient client = new HttpClient();
 
     public Joystick joystick;
@@ -65,7 +70,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (fixPosition == false){
+        if (fixPosition == false && currentHealth > 0){
             Movement();
         }
 
@@ -93,6 +98,11 @@ public class Player : MonoBehaviour
                 drowning();
             }
             
+        }
+
+        if(currentHealth <= 0)
+        {
+            print(name +" dead");
         }
 
         // if(breathRemaining <= 0f)

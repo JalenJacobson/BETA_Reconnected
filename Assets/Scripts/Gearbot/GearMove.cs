@@ -24,6 +24,8 @@ public class GearMove : Player
         name = "Gears";
         currentHealth = StartHealth;
         healthBar.setHealth(maxHealth);
+        lose_condition = GameObject.Find("Lose_Conditions");
+        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(47f, 1.44f, -231f);
         // transform.position = startPos;
         TimerBar_Script = TimerBarGear.GetComponent<TimeBarGear>();
@@ -95,6 +97,15 @@ public class GearMove : Player
         {
             StartCoroutine(returnToStart("Dead"));
             waterExit();
+        }
+
+        if(currentHealth <= 0)
+        {
+            batteryDead = true;
+        }
+        else if(currentHealth > 0)
+        {
+            batteryDead = false;
         }
 
         healthBar.setHealth(currentHealth);
