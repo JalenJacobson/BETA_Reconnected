@@ -15,11 +15,11 @@ public class Box : Box_Base
     // Update is called once per frame
     void Update()
     {
-        activeBox = BruteMove_Script.isLocalPlayer;
-        if(activeBox == true)
-        {
-            sendBox();
-        }
+        // activeBox = BruteMove_Script.isLocalPlayer;
+        // if(activeBox == true)
+        // {
+        //     sendBox();
+        // }
     }
 }
 

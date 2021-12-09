@@ -25,23 +25,23 @@ public class Box_Base : MonoBehaviour
     {
     }
 
-    public async void sendBox()
-    {
-        print("sending the box State");
-        var box = new BoxState();
-        box.name = name;
-        box.position = new Position();
-        box.position.position = transform.position;
-        box.position.rotation = transform.rotation;
+//     public async void sendBox()
+//     {
+//         print("sending the box State");
+//         var box = new BoxState();
+//         box.name = name;
+//         box.position = new Position();
+//         box.position.position = transform.position;
+//         box.position.rotation = transform.rotation;
     
-        string json = JsonUtility.ToJson(box);
+//         string json = JsonUtility.ToJson(box);
 
-        // var response = await client.PostAsync("http://74.207.254.19:7000/boxstate/save", new StringContent(json, Encoding.UTF8, "application/json"));
-        var response = await client.PostAsync("http://localhost:7000/boxstate/save", new StringContent(json, Encoding.UTF8, "application/json"));
+//         // var response = await client.PostAsync("http://74.207.254.19:7000/boxstate/save", new StringContent(json, Encoding.UTF8, "application/json"));
+//         var response = await client.PostAsync("http://localhost:7000/boxstate/save", new StringContent(json, Encoding.UTF8, "application/json"));
 
-        var responseString = await response.Content.ReadAsStringAsync();
-    }
-}
+//         var responseString = await response.Content.ReadAsStringAsync();
+//     }
+ }
 
 // [Serializable]
 // public class Position
@@ -50,9 +50,9 @@ public class Box_Base : MonoBehaviour
 //     public Quaternion rotation;
 // }
 
-[Serializable]
-public class BoxState
-{
-    public string name;
-    public Position position;
-}
+// [Serializable]
+// public class BoxState
+// {
+//     public string name;
+//     public Position position;
+// }

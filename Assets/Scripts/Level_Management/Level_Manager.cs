@@ -48,10 +48,6 @@ public class Level_Manager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void lose()
-    {
-       SceneManager.LoadScene(22); 
-    }
 
 
 
@@ -171,6 +167,20 @@ public class Level_Manager : MonoBehaviour
         yield return new WaitForSeconds(2);
       //  print("AAAAASomething happened");
         SceneManager.LoadScene(11);
+    }
+    
+    public void loseTutorial(int sendingTutorialLevel)
+    {
+        print(sendingTutorialLevel);
+        oldTutorialLevel = sendingTutorialLevel;
+        StartCoroutine(startTutorialLose());
+    }
+    
+    IEnumerator startTutorialLose()
+    {
+        yield return new WaitForSeconds(2);
+      //  print("AAAAASomething happened");
+        SceneManager.LoadScene(22);
     }
     
     IEnumerator StartTutorial()

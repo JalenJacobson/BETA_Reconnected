@@ -28,9 +28,9 @@ public class LuzMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(-180f, .5f, -98.5f);
         transform.position = startPos;
-        orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
-        greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
-        blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
+        // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
+        // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
+        // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
     }
 
     void getControls()
@@ -74,14 +74,14 @@ public class LuzMove : Player
             if(touchingAirBubble == true)
             {
                 // DangerState.text = "Danger State: Short Circuit - Delayed";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Delayed", greenConsole);
+                //setConsoleDangerField("Circuit Field", blueCircuitField);
+               // setConsoleDangerState("Short Circuit - Delayed", greenConsole);
             }
             else
             {
                 // DangerState.text = "Danger State: Short Circuit - Danger";
-                setConsoleDangerField("Circuit Field", blueCircuitField);
-                setConsoleDangerState("Short Circuit - Danger", redDanger);
+               // setConsoleDangerField("Circuit Field", blueCircuitField);
+               // setConsoleDangerState("Short Circuit - Danger", redDanger);
                 drowning();
             }
             
@@ -127,8 +127,8 @@ public class LuzMove : Player
     {
         // DangerState.text = "Danger State: None";
         // DangerField.text = "Danger Area: None";
-        resetConsoleDangerField();
-        resetConsoleDangerState();
+       // resetConsoleDangerField();
+       // resetConsoleDangerState();
         inWater = false;
         breathRemaining = .1f;
     }

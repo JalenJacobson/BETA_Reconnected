@@ -11,24 +11,24 @@ public class PumpTriggerCube : MonoBehaviour
     public Vector3 connectPos;
     public GameObject touching = null;
     public Animator anim;
-    public GameObject ActionPump;
-    ActionPump Bubble_Script;
-    public GameObject ActionPump2;
-    ActionPump2 Bubble_Script2;
-    public GameObject ActionLight;
-    ActionPump Light_Script;
-    public GameObject ActionCircles;
-    ActionPump Circle_Script;
-    public GameObject Activate1Pump;
-    Act1Script Act1Button_Script;
-    public GameObject Activate2;
-    Act1Script Act2Button_Script;
-    public GameObject Activate3;
-    Act1Script Act3Button_Script;
-    public GameObject Cancel;
-    CancelButton CancelButton_Script;
-    public GameObject Cancel2;
-    CancelButton CancelButton2_Script;
+    // public GameObject ActionPump;
+    // ActionPump Bubble_Script;
+    // public GameObject ActionPump2;
+    // ActionPump2 Bubble_Script2;
+    // public GameObject ActionLight;
+    // ActionPump Light_Script;
+    // public GameObject ActionCircles;
+    // ActionPump Circle_Script;
+    // public GameObject Activate1Pump;
+    // Act1Script Act1Button_Script;
+    // public GameObject Activate2;
+    // Act1Script Act2Button_Script;
+    // public GameObject Activate3;
+    // Act1Script Act3Button_Script;
+    // public GameObject Cancel;
+    // CancelButton CancelButton_Script;
+    // public GameObject Cancel2;
+    // CancelButton CancelButton2_Script;
     public GameObject BlueWall;
     BlueWall BlueWall_Script;
 
@@ -49,15 +49,15 @@ public class PumpTriggerCube : MonoBehaviour
     void Start()
     {
         PumpMove_Script = Pump.GetComponent<PumpMove>();
-        Bubble_Script = ActionPump.GetComponent<ActionPump>();
-        Bubble_Script2 = ActionPump2.GetComponent<ActionPump2>();
-        Light_Script = ActionLight.GetComponent<ActionPump>();
-        Circle_Script = ActionCircles.GetComponent<ActionPump>();
-        Act1Button_Script = Activate1Pump.GetComponent<Act1Script>();
-        Act2Button_Script = Activate2.GetComponent<Act1Script>();
-        Act3Button_Script = Activate3.GetComponent<Act1Script>();
-        CancelButton_Script = Cancel.GetComponent<CancelButton>();
-        CancelButton2_Script = Cancel2.GetComponent<CancelButton>();
+        // Bubble_Script = ActionPump.GetComponent<ActionPump>();
+        // Bubble_Script2 = ActionPump2.GetComponent<ActionPump2>();
+        // Light_Script = ActionLight.GetComponent<ActionPump>();
+        // Circle_Script = ActionCircles.GetComponent<ActionPump>();
+        // Act1Button_Script = Activate1Pump.GetComponent<Act1Script>();
+        // Act2Button_Script = Activate2.GetComponent<Act1Script>();
+        // Act3Button_Script = Activate3.GetComponent<Act1Script>();
+        // CancelButton_Script = Cancel.GetComponent<CancelButton>();
+        // CancelButton2_Script = Cancel2.GetComponent<CancelButton>();
         BlueWall_Script = BlueWall.GetComponent<BlueWall>();
         anim = GetComponent<Animator>();
     }
@@ -80,22 +80,22 @@ public class PumpTriggerCube : MonoBehaviour
         }
     }
 
-   void OnTriggerEnter(Collider other)
-     {
-        if(other.name.Contains("Water"))
-        {
-            Bubble_Script.actionBubbleStart();
-            Light_Script.actionBubbleStart();
-            Circle_Script.actionBubbleStart();
-        }
-        if(other.name.Contains("Pump") || (other.name.Contains("Gas")))
-        {
-            Bubble_Script2.actionBubble2Start();
-            Light_Script.actionBubbleStart();
-            Circle_Script.actionBubbleStart();
-        }
+//    void OnTriggerEnter(Collider other)
+//      {
+//         if(other.name.Contains("Water"))
+//         {
+//             Bubble_Script.actionBubbleStart();
+//             Light_Script.actionBubbleStart();
+//             Circle_Script.actionBubbleStart();
+//         }
+//         if(other.name.Contains("Pump") || (other.name.Contains("Gas")))
+//         {
+//             Bubble_Script2.actionBubble2Start();
+//             Light_Script.actionBubbleStart();
+//             Circle_Script.actionBubbleStart();
+//         }
 
-     }
+//      }
 
     void OnTriggerStay(Collider other)
     {
@@ -138,12 +138,12 @@ public class PumpTriggerCube : MonoBehaviour
          }
      }
 
-         public void Reactivate()
-     {
-            Bubble_Script.actionBubbleStart();
-            Light_Script.actionBubbleStart();
-            Circle_Script.actionBubbleStart();
-     }
+    //      public void Reactivate()
+    //  {
+    //         Bubble_Script.actionBubbleStart();
+    //         Light_Script.actionBubbleStart();
+    //         Circle_Script.actionBubbleStart();
+    //  }
      public void Activate()
      {
              touching.SendMessage("Activate");

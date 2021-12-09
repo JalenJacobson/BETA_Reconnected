@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Lose_Conditions : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class Lose_Conditions : MonoBehaviour
     public int deadBots;
     public List<Player> botsScripts;
     public GameObject bot;
+    private int currentScene;
     // public int deadBots;
 
 
@@ -26,9 +28,10 @@ public class Lose_Conditions : MonoBehaviour
     {
         Level_Manager_Script = Level_Manager.GetComponent<Level_Manager>();
         timerText = GameObject.Find("TimeRemaining");
-        timerText.GetComponent<Text>().text = "00" + timeRemaining;
+        timerText.GetComponent<Text>().text = timeRemaining.ToString();
         bots = GameObject.FindGameObjectsWithTag("Bot");
         getBotScripts();
+        currentScene = SceneManager.GetActiveScene().buildIndex;
     }
 
     
@@ -45,7 +48,7 @@ public class Lose_Conditions : MonoBehaviour
             {
                 if(timeRemaining <= 0 || allBotsDead)
                 {   
-                    lose();
+                   lose();
                 }
             }
             
@@ -83,13 +86,13 @@ public class Lose_Conditions : MonoBehaviour
         timeDecreasing = true;
         yield return new WaitForSeconds(1);
         timeRemaining -= 1;
-        timerText.GetComponent<Text>().text = "00" + timeRemaining;
+        timerText.GetComponent<Text>().text = timeRemaining.ToString();
         timeDecreasing = false;
     }
 
     public void lose()
     {
         loseFunctionCalled = true;
-        Level_Manager_Script.lose();
+        Level_Manager_Script.loseTutorial(currentScene);
     }
 }

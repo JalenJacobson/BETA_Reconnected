@@ -8,7 +8,7 @@ public class Sat_Upload_1 : CDI_Class
     public GameObject forcegate_gate;
     public ForceGate forcegate_script;
     
-    public GameObject StartPort;
+    //public GameObject StartPort;
     public LevelComplete levelcomplete_script;
     public bool Active = false;
 
@@ -17,7 +17,7 @@ public class Sat_Upload_1 : CDI_Class
     void Start()
     {
         forcegate_script = forcegate_gate.GetComponent<ForceGate>();
-        levelcomplete_script = StartPort.GetComponent<LevelComplete>();
+       // levelcomplete_script = StartPort.GetComponent<LevelComplete>();
         anim = GetComponent<Animator>();
     }
 

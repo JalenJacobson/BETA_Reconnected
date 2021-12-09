@@ -7,8 +7,8 @@ public class SatMove : Player
     // public Animator anim;
     
 
-    public GameObject TimerBarSat;
-    TimeBarSat TimerBar_Script;
+    // public GameObject TimerBarSat;
+    // TimeBarSat TimerBar_Script;
     
     public GameObject Rails;
     SatBotAnim Rails_Script;
@@ -47,11 +47,11 @@ public class SatMove : Player
         // startPos = new Vector3(58f, 1.3f, -230f);
         // transform.position = startPos;
         
-        TimerBar_Script = TimerBarSat.GetComponent<TimeBarSat>();
-        orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
-        greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
-        blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
-        redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
+        // TimerBar_Script = TimerBarSat.GetComponent<TimeBarSat>();
+        // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
+        // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
+        // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
+        // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
     }
 
     void getControls()
@@ -100,7 +100,7 @@ public class SatMove : Player
                 // DangerState.text = "Danger State: Short Circuit - Delayed";
                 // setConsoleDangerField("Circuit Field", blueCircuitField);
                 // setConsoleDangerState("Short Circuit - Delayed", greenConsole);
-                TimerBar_Script.enterbluewall();
+               // TimerBar_Script.enterbluewall();
             }
             else
             {
