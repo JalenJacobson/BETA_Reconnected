@@ -75,9 +75,9 @@ public class Claw : MonoBehaviour
     IEnumerator clawPickUp()
     {
         anim.Play("ClawClose");
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(.3f);
         lifting = true;
-        yield return new WaitForSeconds(.5f);
+        yield return new WaitForSeconds(.25f);
         anim.Play("ClawPickUp");
     }
 
