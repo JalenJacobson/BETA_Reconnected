@@ -11,7 +11,6 @@ public class VideoStart : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    videoPlayer.url = System.IO.Path.Combine (Application.streamingAssetsPath,"IntroSplashScrene.mp4");
     videoPlayer.Play();
      
     }
@@ -21,4 +20,5 @@ public class VideoStart : MonoBehaviour
     {
         
     }
+
 }

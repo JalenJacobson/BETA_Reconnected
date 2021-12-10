@@ -142,8 +142,11 @@ public class BruteTriggerCube : MonoBehaviour
     {
         if(touching)
         {
+            if(touching.name.Contains("Doors"))
+            {
             touching.SendMessage("Activate");
             BruteMove_Script.Activate();
+            }
         }
         if(batteryTouching)
         {

@@ -27,7 +27,12 @@ public class Claw : MonoBehaviour
     void Awake()
     {
         moveAxisHorizontal = PlayerPrefs.GetString("GearAxisHorizontal");
-        moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");
+        moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");;
+
+            if (direction != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+            }
     }
 
     void Start () 
