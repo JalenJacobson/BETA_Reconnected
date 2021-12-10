@@ -279,6 +279,11 @@ public class Player : MonoBehaviour
         
     }
 
+    // public void deactivate()
+    // {
+    //     SetActive(false);
+    // }
+
     // public void setConsoleDangerField(string text, Color color)
     // {
     //     DangerField.text = text;

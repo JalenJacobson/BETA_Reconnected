@@ -16,7 +16,7 @@ public class Battery_Recharge_Sphere : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" ||characterName.Contains("Brute"))
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName == "IdleLuz")
         {
             // if(touching == null)
             // {
@@ -32,7 +32,7 @@ public class Battery_Recharge_Sphere : MonoBehaviour
      void OnTriggerExit(Collider other)
      { 
         var characterName = other.name;    
-        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box"))
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName == "IdleLuz")
         {   
                 touchingBots.Remove(other.gameObject);
         }
