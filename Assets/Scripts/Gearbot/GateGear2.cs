@@ -16,7 +16,7 @@ public class GateGear2 : IDI_Base
  public void toggleActive()
     {
         active = !active;
-        sendState();
+        //sendState();
     }
  
  // Update is called once per frame

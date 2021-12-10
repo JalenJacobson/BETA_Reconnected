@@ -8,8 +8,6 @@ public class GearConnection_Claw : CDI_Class
     public GameObject Claw;
     public Claw ClawMove_Script;
     // public Claw ClawDrop_Script;
-    public GameObject ClawBoundries;
-    public ClawBoundries ClawBoundry_Script;
 
     
     void Start()
@@ -17,7 +15,6 @@ public class GearConnection_Claw : CDI_Class
         anim = GetComponent<Animator>();
         ClawMove_Script = Claw.GetComponent<Claw>();
         // ClawDrop_Script = Claw.GetComponent<Claw>();
-        ClawBoundry_Script = ClawBoundries.GetComponent<ClawBoundries>();
     }
 
     

@@ -16,10 +16,10 @@ public class GearTriggerCube : MonoBehaviour
     public GameObject touching = null;
     public Vector3 connectPos;
 
-    public GameObject ActionBubbles;
-    BubbleScript Bubble_Script;
-    public Color blueCircuitField;
-    public Color redDanger;
+    // public GameObject ActionBubbles;
+    // BubbleScript Bubble_Script;
+    // public Color blueCircuitField;
+    // public Color redDanger;
 
     public string playerNumber;
     public string connectKey;
@@ -40,8 +40,8 @@ public class GearTriggerCube : MonoBehaviour
     {
         GearMove_Script = Gears.GetComponent<GearMove>();
         connectPos = new Vector3(-0.01f, 0.005f, -0.003f);
-        Bubble_Script = ActionBubbles.GetComponent<BubbleScript>();
-        redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
+        // Bubble_Script = ActionBubbles.GetComponent<BubbleScript>();
+        // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
         
     }
 

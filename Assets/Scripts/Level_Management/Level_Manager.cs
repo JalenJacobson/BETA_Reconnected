@@ -27,7 +27,7 @@ public class Level_Manager : MonoBehaviour
     {
         if(Input.GetKeyDown("u"))
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(1);
         }
     }
        
@@ -45,7 +45,7 @@ public class Level_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(2);
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
 
@@ -63,45 +63,45 @@ public class Level_Manager : MonoBehaviour
         var levelValueString = levelValuePlayerOne + levelValuePlayerTwo;
         if(levelValueString == "gearluz" || levelValueString == "luzgear")
         {
-            return 1;
+            return 2;
         }
         else if(levelValueString == "gearbrute" || levelValueString == "brutegear")
         {
-            return 2;
+            return 3;
         }
         else if(levelValueString == "gearpump" || levelValueString == "pumpgear")
         {
-            return 3;
+            return 4;
         }
         else if(levelValueString == "gearsat" || levelValueString == "satgear")
         {
-            return 4;
+            return 5;
         }
         else if(levelValueString == "luzbrute" || levelValueString == "bruteluz")
         {
-            return 5;
+            return 6;
         }
         else if(levelValueString == "pumpluz" || levelValueString == "luzpump")
         {
-            return 6;
+            return 7;
         }
         else if(levelValueString == "brutepump" || levelValueString == "pumpbrute")
         {
-            return 7;
+            return 8;
         }
         else if(levelValueString == "brutesat" || levelValueString == "satbrute")
         {
-            return 8;
+            return 9;
         }
         else if(levelValueString == "pumpsat" || levelValueString == "satpump")
         {
-            return 9;
+            return 10;
         }
         else if(levelValueString == "satluz" || levelValueString == "luzsat")
         {
-            return 10;
+            return 11;
         }
-        else return 0;
+        else return 1;
     }
     
     public void loadCurrentLevel()
@@ -115,7 +115,7 @@ public class Level_Manager : MonoBehaviour
     
     public void loadLevelSelectLevel()
     {
-        sceneToGoTo = 1;
+        sceneToGoTo = 2;
         SceneManager.LoadScene(sceneToGoTo);
         // StartCoroutine(LoadLevel(sceneToGoTo));
         // sceneToGoTo = 1;
@@ -123,7 +123,7 @@ public class Level_Manager : MonoBehaviour
     
     public void loadGameOverLevel()
     {
-        sceneToGoTo = 2;
+        sceneToGoTo = 3;
         SceneManager.LoadScene(sceneToGoTo);
         // StartCoroutine(LoadLevel(sceneToGoTo));
         // sceneToGoTo = 1;
@@ -166,7 +166,7 @@ public class Level_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
       //  print("AAAAASomething happened");
-        SceneManager.LoadScene(11);
+        SceneManager.LoadScene(12);
     }
     
     public void loseTutorial(int sendingTutorialLevel)
@@ -180,14 +180,14 @@ public class Level_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(2);
       //  print("AAAAASomething happened");
-        SceneManager.LoadScene(22);
+        SceneManager.LoadScene(23);
     }
     
     IEnumerator StartTutorial()
     {
         yield return new WaitForSeconds(5);
       //  print("AAAAASomething happened");
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene(13);
     }
 
     public void continueTutorial()

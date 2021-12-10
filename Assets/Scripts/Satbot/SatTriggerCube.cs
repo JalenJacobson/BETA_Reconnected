@@ -91,7 +91,7 @@ public class SatTriggerCube : MonoBehaviour
 
      void OnTriggerExit(Collider other)
      {
-         touching.SendMessage("toggleBotBoth");
+        // touching.SendMessage("toggleBotBoth");
         touching = null;
         touchingToken = null;
         if(other.name.Contains("Sat"))

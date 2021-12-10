@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 
     // private static readonly HttpClient client = new HttpClient();
 
-    public Joystick joystick;
+   // public Joystick joystick;
     // public string playerNumber;
     // public string moveAxisHorizontal;
     // public string moveAxisVertical;

@@ -135,6 +135,7 @@ public class BruteTriggerCube : MonoBehaviour
         {
             Activate();
         }
+
     }
 
     public void Activate()

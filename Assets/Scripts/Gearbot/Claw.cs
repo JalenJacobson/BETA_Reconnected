@@ -52,7 +52,7 @@ public class Claw : MonoBehaviour
             touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
             touching.GetComponent<Rigidbody>().useGravity = false;
         }
-        else touching.GetComponent<Rigidbody>().useGravity = true;
+       // else touching.GetComponent<Rigidbody>().useGravity = true;
     }
 
     public void Activate()

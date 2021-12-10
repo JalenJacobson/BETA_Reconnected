@@ -26,56 +26,56 @@ public class UpdateMapState : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        frameCount++;
-        if(frameCount%10 == 0)
-        {
-            updateItemStates();
-        }
-    }
+    // void Update()
+    // {
+    //     frameCount++;
+    //     if(frameCount%10 == 0)
+    //     {
+    //         updateItemStates();
+    //     }
+    // }
 
     void FixedUpdate()
     {
         
     }    
 
-    MapState getMapState(MapState[] states, string name)
-    {
-        foreach(MapState state in states)
-        {
-            if(state.name == name)
-            {
-                return state;
-            }
-        }
-        var emptyMap = new MapState();
-        emptyMap.name = "empty";
-        emptyMap.itemState = new ItemState();
-        emptyMap.itemState.PlayerIDI_Active = false;
-        return emptyMap;
-        // return false;
-    }
+    // MapState getMapState(MapState[] states, string name)
+    // {
+    //     foreach(MapState state in states)
+    //     {
+    //         if(state.name == name)
+    //         {
+    //             return state;
+    //         }
+    //     }
+    //     var emptyMap = new MapState();
+    //     emptyMap.name = "empty";
+    //     emptyMap.itemState = new ItemState();
+    //     emptyMap.itemState.PlayerIDI_Active = false;
+    //     return emptyMap;
+    //     // return false;
+    // }
 
-    async void updateItemStates()
-    {
+//     async void updateItemStates()
+//     {
 
-        print("running function");
-        // var positionResponse = await client.PostAsync("http://74.207.254.19:7000/mapstates", new StringContent("{\"name\": \"gears\"}", Encoding.UTF8, "application/json"));
-        var positionResponse = await client.PostAsync("http://localhost:7000/mapstates", new StringContent("{}", Encoding.UTF8, "application/json"));
+//         print("running function");
+//         // var positionResponse = await client.PostAsync("http://74.207.254.19:7000/mapstates", new StringContent("{\"name\": \"gears\"}", Encoding.UTF8, "application/json"));
+//         var positionResponse = await client.PostAsync("http://localhost:7000/mapstates", new StringContent("{}", Encoding.UTF8, "application/json"));
 
-        var positionResponseString = await positionResponse.Content.ReadAsStringAsync();
-        var response = JsonUtility.FromJson<MapStateResponse>(positionResponseString);
-        foreach(IDI_Base script in item_scripts)
-        {
-            script.active = getMapState(response.mapStates, script.name).itemState.PlayerIDI_Active;
-        }
-    }
-}
+//         var positionResponseString = await positionResponse.Content.ReadAsStringAsync();
+//         var response = JsonUtility.FromJson<MapStateResponse>(positionResponseString);
+//         foreach(IDI_Base script in item_scripts)
+//         {
+//             script.active = getMapState(response.mapStates, script.name).itemState.PlayerIDI_Active;
+//         }
+//     }
+// }
 
 
-[Serializable]
-public class MapStateResponse
-{
-    public MapState[] mapStates;
-}
+// [Serializable]
+// public class MapStateResponse
+// {
+//     public MapState[] mapStates;
+ }

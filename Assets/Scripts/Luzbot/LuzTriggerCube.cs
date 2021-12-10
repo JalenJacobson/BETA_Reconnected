@@ -93,6 +93,12 @@ public class LuzTriggerCube : MonoBehaviour
              touching = other.gameObject;
         }
     }
+    void OnTriggerExit(Collider other)
+    {
+        if(other.name.Contains("Luz") || other.name.Contains("Power") || other.name.Contains("BatteryUI")){
+             touching = null;
+        }
+    }
 
     //  void OnTriggerExit(Collider other)
     //  {
