@@ -76,4 +76,14 @@ public class InfoLayer : MonoBehaviour
        anim.Play("P2InfoDown");
 
    }
+    public void P1Cancel()
+   {
+       anim.Play("InfoCancel");
+
+   }
+       public void P2Cancel()
+   {
+       anim.Play("P2InfoCancel");
+
+   }
 }

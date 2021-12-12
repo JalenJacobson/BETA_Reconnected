@@ -31,6 +31,16 @@ public class StartUpBeacon : MonoBehaviour
        anim.Play("Rotate");
 
    }
+    public void Down()
+   {
+       anim.Play("BeaconDown");
+
+   }
+    public void Down2()
+   {
+       anim.Play("BeaconDown2");
+
+   }
     public void Tutorial()
    {
        anim.Play("StartBeaconTutorial");

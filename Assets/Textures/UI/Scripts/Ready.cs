@@ -32,6 +32,11 @@ public class Ready : MonoBehaviour
        anim.Play("NotReady");
 
    }
+         public void Cancel()
+   {
+       anim.Play("CancelReadyTutorial");
+
+   }
          public void Initiate()
    {
        anim.Play("InitiateReadyButton");
