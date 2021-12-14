@@ -18,6 +18,7 @@ public class Tutorial_Cube : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
+        print(other.name);
         if(other.name.Contains(objectThatShouldTrigger))
         {
             if(displayTextOnlyOnce)

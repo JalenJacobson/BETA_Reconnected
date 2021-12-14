@@ -143,6 +143,36 @@ public class Level_Manager : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
+    public void replayLevel(int replayLevel)
+    {
+        StartCoroutine(replayLevelCoroutine(replayLevel));
+    }
+
+    IEnumerator replayLevelCoroutine(int levelIndex)
+    {
+        // transition.SetTrigger("Start");
+        print(levelIndex);
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(levelIndex);
+    }
+    
+    public void returnToMainMenu()
+    {
+        StartCoroutine(returnToMainMenuCoroutine());
+    }
+
+    IEnumerator returnToMainMenuCoroutine()
+    {
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(1);
+    }
+
+
+
 
 //================= Tutorial  ====================
 

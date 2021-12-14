@@ -46,10 +46,7 @@ public class Portal : MonoBehaviour
         var characterName = other.name;
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute"))
         {
-           
-              // canPortal = true;
-
-           
+            canPortal = true;
         }
 
     }
