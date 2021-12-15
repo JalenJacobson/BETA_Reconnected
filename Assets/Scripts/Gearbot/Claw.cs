@@ -48,16 +48,23 @@ public class Claw : MonoBehaviour
         {
             Movement();
         }
+        if(lifting)
+        {
+            touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
+            touching.GetComponent<Rigidbody>().isKinematic = true;
+        }
+        else if(!lifting)
+        {
+            touching.GetComponent<Rigidbody>().isKinematic = false;
+        }
+           
+        
+        
     }
 
     void Update () 
     {
-        if(lifting)
-        {
-            touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
-            touching.GetComponent<Rigidbody>().useGravity = false;
-        }
-       // else touching.GetComponent<Rigidbody>().useGravity = true;
+        
     }
 
     public void Activate()
@@ -84,6 +91,7 @@ public class Claw : MonoBehaviour
         lifting = true;
         yield return new WaitForSeconds(.25f);
         anim.Play("ClawPickUp");
+        // touching.GetComponent<Rigidbody>().isKinematic = true;
     }
 
     void Movement()

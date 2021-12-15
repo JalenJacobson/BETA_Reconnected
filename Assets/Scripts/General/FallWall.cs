@@ -11,14 +11,14 @@ public GameObject Wall;
        {
         anim = GetComponent<Animator>();
        }
-     void OnTriggerEnter(Collider other)
-     {
-             var characterName = other.name;
-    if(characterName == "Brute" || characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump")
+    void OnTriggerEnter(Collider other)
     {
+        var characterName = other.name;
+        if(characterName == "Brute" || characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump")
+        {
              anim.Play("FallWall"); 
-         }
-     }
+        }
+    }
               
 }
  

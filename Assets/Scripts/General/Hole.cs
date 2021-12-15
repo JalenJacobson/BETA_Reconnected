@@ -16,11 +16,13 @@ public class Hole : MonoBehaviour
 
   public void OnTriggerEnter(Collider other)
   {
-    print(other.gameObject.name);
+    // print(other.gameObject.name);
+
     if(holeActive)
     {
       if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
       {
+        print(other.gameObject.name);
         other.gameObject.SendMessage("death");
       }
     }
