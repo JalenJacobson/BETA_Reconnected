@@ -11,9 +11,7 @@ public class Level_Manager : MonoBehaviour
     public int sceneToGoTo;
     public Animator transition;
     public float transitionTime = 1f;
-
     public static int oldTutorialLevel;
-    
     public string levelValuePlayerOne = "";
     public string levelValuePlayerTwo = "";
 
@@ -31,25 +29,16 @@ public class Level_Manager : MonoBehaviour
         }
     }
        
-    
-    
     public void Back()
     {
-        print("AAAAASomething happened");
         StartCoroutine(StartBack());
     }
 
-        IEnumerator StartBack()
+    IEnumerator StartBack()
     {
-        // transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(2);
-
         SceneManager.LoadScene(1);
     }
-
-
-
 
     public void LoadNextLevel()
     {
@@ -109,24 +98,18 @@ public class Level_Manager : MonoBehaviour
         sceneToGoTo = PlayerPrefs.GetInt("currentLevel");
         print(sceneToGoTo);
         SceneManager.LoadScene(sceneToGoTo);
-        // this.StartCoroutine(LoadLevel(sceneToGoTo));
-        // sceneToGoTo = 1;
     }
     
     public void loadLevelSelectLevel()
     {
         sceneToGoTo = 2;
         SceneManager.LoadScene(sceneToGoTo);
-        // StartCoroutine(LoadLevel(sceneToGoTo));
-        // sceneToGoTo = 1;
     }
     
     public void loadGameOverLevel()
     {
         sceneToGoTo = 3;
         SceneManager.LoadScene(sceneToGoTo);
-        // StartCoroutine(LoadLevel(sceneToGoTo));
-        // sceneToGoTo = 1;
     }
 
     public void setSceneToGoTo(int nextScene)
@@ -136,10 +119,7 @@ public class Level_Manager : MonoBehaviour
 
     IEnumerator LoadLevel(int levelIndex)
     {
-        // transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(transitionTime);
-
         SceneManager.LoadScene(levelIndex);
     }
 
@@ -150,11 +130,8 @@ public class Level_Manager : MonoBehaviour
 
     IEnumerator replayLevelCoroutine(int levelIndex)
     {
-        // transition.SetTrigger("Start");
         print(levelIndex);
-
         yield return new WaitForSeconds(transitionTime);
-
         SceneManager.LoadScene(levelIndex);
     }
     
@@ -178,11 +155,8 @@ public class Level_Manager : MonoBehaviour
 
     public void Tutorial()
     {
-        {
-            setTutorialControls();
-            StartCoroutine(StartTutorial());
-            
-        }
+        setTutorialControls();
+        StartCoroutine(StartTutorial());
     }
 
     public void winTutorial(int sendingTutorialLevel)
@@ -195,7 +169,6 @@ public class Level_Manager : MonoBehaviour
     IEnumerator startTutorialWin()
     {
         yield return new WaitForSeconds(2);
-      //  print("AAAAASomething happened");
         SceneManager.LoadScene(12);
     }
     
@@ -209,14 +182,12 @@ public class Level_Manager : MonoBehaviour
     IEnumerator startTutorialLose()
     {
         yield return new WaitForSeconds(2);
-      //  print("AAAAASomething happened");
         SceneManager.LoadScene(23);
     }
     
     IEnumerator StartTutorial()
     {
         yield return new WaitForSeconds(5);
-      //  print("AAAAASomething happened");
         SceneManager.LoadScene(13);
     }
 
@@ -224,9 +195,9 @@ public class Level_Manager : MonoBehaviour
     {
         StartCoroutine(StartcontinueTutorial());
     }
+
     IEnumerator StartcontinueTutorial()
     {
-        // transition.SetTrigger("Start");
         var nextScene = oldTutorialLevel +1;
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene(nextScene);
@@ -237,26 +208,21 @@ public class Level_Manager : MonoBehaviour
         StartCoroutine(StartreplayTutorial());
     }
 
-        IEnumerator StartreplayTutorial()
+    IEnumerator StartreplayTutorial()
     {
-        // transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(2);
-
-         SceneManager.LoadScene(oldTutorialLevel);
+        SceneManager.LoadScene(oldTutorialLevel);
     }
     
     public void NextTurtorialLevel()
     {
         StartCoroutine(LoadNextTutorialLevel());
     }
-        IEnumerator LoadNextTutorialLevel()
+    
+    IEnumerator LoadNextTutorialLevel()
     {
         var nextScene = oldTutorialLevel +2;
-        // transition.SetTrigger("Start");
-
         yield return new WaitForSeconds(2);
-
         SceneManager.LoadScene(nextScene);
     }
 
@@ -267,7 +233,6 @@ public class Level_Manager : MonoBehaviour
         setPrefsBrute1();
         setPrefsPump1();
         setPrefsSat2();
-
     }
 
 //================= Character Selection P1 =====================
@@ -347,19 +312,19 @@ public class Level_Manager : MonoBehaviour
     }
 }
 
-[Serializable]
-public class Scene
-{
-    public string name;
-    public int sceneNumber;
-    public bool startTheGame;
+// [Serializable]
+// public class Scene
+// {
+//     public string name;
+//     public int sceneNumber;
+//     public bool startTheGame;
 
-    public int playersInParty;
-    public int playersReady;
-}
+//     public int playersInParty;
+//     public int playersReady;
+// }
 
-[Serializable]
-public class SceneUpdate
-{
-    public Scene levelmanager;
-}
+// [Serializable]
+// public class SceneUpdate
+// {
+//     public Scene levelmanager;
+// }

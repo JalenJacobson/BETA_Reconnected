@@ -21,7 +21,6 @@ public class Lose_Conditions : MonoBehaviour
     public List<Player> botsScripts;
     public GameObject bot;
     private int currentScene;
-    // public int deadBots;
 
 
     void Start()
@@ -60,7 +59,6 @@ public class Lose_Conditions : MonoBehaviour
         foreach(GameObject bot in bots)
         {
             botsScripts.Add(bot.GetComponent<Player>());
-            
         }
     }
 
@@ -78,7 +76,6 @@ public class Lose_Conditions : MonoBehaviour
         {
             allBotsDead = true;
         }
-
     }
 
     public IEnumerator countDown()

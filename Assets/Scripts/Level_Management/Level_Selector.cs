@@ -15,9 +15,6 @@ public class Level_Selector : MonoBehaviour
 
     public GameObject[] bots;
     public int finishedBots = 0;
-    // public List<Player> botsScripts;
-    // public GameObject bot;
-    
 
     void Start()
     {
@@ -26,7 +23,6 @@ public class Level_Selector : MonoBehaviour
         bots = GameObject.FindGameObjectsWithTag("Bot");
         Lights = GameObject.Find("Lights");
         Winlights = Lights.GetComponent<LevelWin>(); 
-        // getBotScripts();
     }
 
     void OnTriggerEnter(Collider other)
@@ -36,29 +32,20 @@ public class Level_Selector : MonoBehaviour
         {
             finishedBots++;
             other.gameObject.SetActive(false);
-            // other.SendMessage("deactivate");
         }
-        // other.gameObject.transform.position = transform.TransformPoint(hoverPosition);
-        // toggleNodeFixPosition(other.gameObject);
-        // StartCoroutine(ExecuteAfterTime(.5f, other.gameObject));
     }
 
     void Update()
     {
-        
         if(finishedBots >= bots.Length)
         {
             Winlights.Win();
             LevelManager_script.winTutorial(currentScene);
-        }
-        
+        }   
     }
     
-
-
     IEnumerator ExecuteAfterTime(float time, GameObject node)
     {
         yield return new WaitForSeconds(time);
     }  
-
 }

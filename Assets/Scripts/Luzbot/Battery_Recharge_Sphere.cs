@@ -5,25 +5,13 @@ using UnityEngine;
 public class Battery_Recharge_Sphere : MonoBehaviour
 {
     public GameObject touching;
-
     public List<GameObject> touchingBots;
-
-    public void Start()
-    {
-
-    }
 
     void OnTriggerEnter(Collider other)
     {
         var characterName = other.name;
         if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName == "IdleLuz")
         {
-            // if(touching == null)
-            // {
-            //     touching = other.gameObject; 
-            // }
-
-            // touching.SendMessage("restoreHealth");
             touchingBots.Add(other.gameObject);
         }
         

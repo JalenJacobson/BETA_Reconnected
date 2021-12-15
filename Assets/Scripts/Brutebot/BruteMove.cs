@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class BruteMove : Player
 {
-    // public float moveSpeed = 5;
-    //public float rotateSpeed = 10;
-    // public Animator anim;
-    // public GameObject TimerBarBrute;
-    // TimeBarBrute TimerBar_Script;
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
-
 
     void Awake()
      {
@@ -29,13 +23,7 @@ public class BruteMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
-        // startPos = new Vector3(-180, 0.77f, -111f);
         transform.position = startPos;
-        // TimerBar_Script = TimerBarBrute.GetComponent<TimeBarBrute>();
-        // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
-        // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
-        // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
-        // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
     }
 
     void getControls()
@@ -75,29 +63,16 @@ public class BruteMove : Player
         }
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        // sendPos();
     }
 
     void Update()
     {
         if(inWater == true)
         {
-            print("brute in water");
-            if(touchingAirBubble == true)
+            if(!touchingAirBubble)
             {
-                // DangerState.text = "Danger State: Short Circuit - Delayed";
-                // setConsoleDangerField("Circuit Field", blueCircuitField);
-                // setConsoleDangerState("Short Circuit - Delayed", greenConsole);
-               // TimerBar_Script.enterbluewall();
-            }
-            else
-            {
-                // DangerState.text = "Danger State: Short Circuit - Danger";
-                // setConsoleDangerField("Circuit Field", blueCircuitField);
-                // setConsoleDangerState("Short Circuit - Danger", redDanger);
                 drowning();
             }
-            
         }
 
         if(breathRemaining <= 0f)
@@ -114,13 +89,11 @@ public class BruteMove : Player
         {
             batteryDead = false;
         }
-
         healthBar.setHealth(currentHealth);
     }
+
     public override void drowning()
     {
-        // print("drowning");
-        // TimerBar_Script.timerStart();
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
@@ -128,25 +101,21 @@ public class BruteMove : Player
     }
     public override void waterExit()
     {
-        // resetConsoleDangerState();
-        // DangerField.text = "Danger Area: None";
-        // resetConsoleDangerField();
-        // TimerBar_Script.timerStop();
         inWater = false;
         breathRemaining = 5f;
     }
-       public void Lift()
-   {
+    public void Lift()
+    {
         anim.Play("Push");
-   }
-      public void Drop()
-   {
+    }
+    public void Drop()
+    {
         anim.Play("BruteWalk");
-   }
-         public void Activate()
-   {
+    }
+    public void Activate()
+    {
         anim.Play("Slam");
-   }
+    }
 
     public void death()
     {

@@ -29,10 +29,10 @@ public class Claw : MonoBehaviour
         moveAxisHorizontal = PlayerPrefs.GetString("GearAxisHorizontal");
         moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");;
 
-            if (direction != Vector3.zero)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            }
+            // if (direction != Vector3.zero)
+            // {
+            //     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+            // }
     }
 
     void Start () 

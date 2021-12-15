@@ -13,12 +13,6 @@ public class BruteTriggerCube : MonoBehaviour
     public Vector3 liftPos;
     public bool lifting;
 
-
-
-
-    // public GameObject TimerBarBrute;
-    // TimeBarBrute TimerBarBrute_Script;
-
     public string playerNumber;
     public string connectKey;
     public string activateKey;
@@ -26,17 +20,15 @@ public class BruteTriggerCube : MonoBehaviour
     public string special;
 
     void Awake()
-     {
+    {
         playerNumber = PlayerPrefs.GetString("BrutePlayerNumber");
         getControls();
-     }
+    }
 
     void Start()
     {
         BruteMove_Script = Brute.GetComponent<BruteMove>();
         liftPos = new Vector3(0.0f, -0.5f, -1.0f);
-
-        // TimerBarBrute_Script = TimerBarBrute.GetComponent<TimeBarBrute>();
     }
 
     public void getControls()
@@ -67,11 +59,10 @@ public class BruteTriggerCube : MonoBehaviour
         var characterName = other.name;
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" ||characterName.Contains("Brute"))
         {
-            if(touching == null || touching.name.Contains("BatteryUI"))
+            if(touching == null)
             {
                 touching = other.gameObject; 
             }
- 
         }
         else if(other.name.Contains("BatteryUI"))
         {
@@ -103,10 +94,6 @@ public class BruteTriggerCube : MonoBehaviour
         {
             batteryTouching = null;
         }
-        else if(other.name.Contains("Push"))
-        {
-           BruteMove_Script.anim.Play("BruteWalk");
-        } 
      }
 
      
@@ -127,10 +114,8 @@ public class BruteTriggerCube : MonoBehaviour
                     drop();
                     BruteMove_Script.Drop();   
                 }
-            }
-            
+            }   
         }
-
         if(Input.GetKeyDown(activateKey))
         {
             Activate();
@@ -155,24 +140,20 @@ public class BruteTriggerCube : MonoBehaviour
         
     }
 
-     public void drop()
-     {
+    public void drop()
+    {
         lifting = false;
         touching.SendMessage("toggleIsBeingCarried");
-          
-     }
+    }
     
     public void lift() 
     {
         if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
         {
             lifting = true;
-            // AnimArms_Script.Lift();
-            touching.SendMessage("toggleIsBeingCarried");
-            
+            touching.SendMessage("toggleIsBeingCarried"); 
         }
     }
-
 }
 
 

@@ -16,7 +16,7 @@ public class Hole : MonoBehaviour
 
   public void OnTriggerEnter(Collider other)
   {
-    // if(!fireActive) return;
+    print(other.gameObject.name);
     if(holeActive)
     {
       if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
