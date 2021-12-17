@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public Lose_Conditions lose_condition_script;
 
     public bool batteryDead;
+    public bool isDying = false;
 
     void Start()
     {
@@ -136,6 +137,7 @@ public class Player : MonoBehaviour
         breathRemaining = 5f;
         yield return new WaitForSeconds(2);
         fixPosition = !fixPosition;
+        isDying = false;
     }
     public virtual void waterExit()
     {

@@ -13,7 +13,7 @@ public class Tutorial_Cube : MonoBehaviour
 
     void Start()
     {
-        tutorialText = GameObject.Find("Tutorial").GetComponent<Text>();;
+        tutorialText = GameObject.Find("Tutorial").GetComponent<Text>();
     }
 
     public void OnTriggerEnter(Collider other)

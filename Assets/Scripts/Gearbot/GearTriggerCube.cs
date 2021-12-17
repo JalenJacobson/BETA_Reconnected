@@ -68,7 +68,7 @@ public class GearTriggerCube : MonoBehaviour
         if(other.name.Contains("Gear") || other.name.Contains("BatteryUI"))
         {
             touching = other.gameObject;
-            touching.SendMessage("toggleBotTouching");
+            // touching.SendMessage("toggleBotTouching");
         }
             
     }
@@ -86,7 +86,7 @@ public class GearTriggerCube : MonoBehaviour
      {
 
             touching = null;
-            touching.SendMessage("toggleBotTouching");
+            // touching.SendMessage("toggleBotTouching");
             // Bubble_Script.actionBubbleStop();
             // Light_Script.actionBubbleStop();
             // Circle_Script.actionBubbleStop();
@@ -117,8 +117,9 @@ public class GearTriggerCube : MonoBehaviour
      public void Activate()
      {
          
-        if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers"))
+        if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers") || touching.name.Contains("Rotator"))
         {
+            print(touching.name);
             var connectMessage = connected ? "disconnect" : "connect";
             print(connectMessage);
             connected = !connected; 

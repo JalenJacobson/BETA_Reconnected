@@ -133,7 +133,12 @@ public class GearMove : Player
 
     public void death()
     {
-        StartCoroutine(returnToStart("Dead"));
+        if(!isDying)
+        {
+            isDying = true;
+            StartCoroutine(returnToStart("Dead"));
+        }
+        
     }
 
     //  public void restoreHealth()

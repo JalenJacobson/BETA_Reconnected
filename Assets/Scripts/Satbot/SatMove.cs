@@ -156,7 +156,12 @@ public class SatMove : Player
 
     public void death()
     {
-        StartCoroutine(returnToStart("DeadSat"));
+        if(!isDying)
+        {
+            isDying = true;
+            StartCoroutine(returnToStart("DeadSat"));
+        }
+        
     }
 
     // public void restoreHealth()

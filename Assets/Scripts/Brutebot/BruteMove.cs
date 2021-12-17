@@ -119,6 +119,11 @@ public class BruteMove : Player
 
     public void death()
     {
-        StartCoroutine(returnToStart("DeadBrute"));
+        if(!isDying)
+        {
+            isDying = true;
+            StartCoroutine(returnToStart("DeadBrute"));
+        }
+        
     }
 }

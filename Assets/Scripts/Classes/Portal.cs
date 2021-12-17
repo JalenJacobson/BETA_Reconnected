@@ -11,6 +11,7 @@ public class Portal : MonoBehaviour
     public bool canPortal = true;
     public bool portalIsActive = false;
     public Animator anim;
+    public bool twoWayPortal = false;
 
     void Start() 
     {
@@ -46,7 +47,8 @@ public class Portal : MonoBehaviour
         var characterName = other.name;
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute"))
         {
-            canPortal = true;
+            if(!twoWayPortal) return;
+            else StartCoroutine(twoWayPortalReactivate());
         }
 
     }
@@ -59,5 +61,11 @@ public class Portal : MonoBehaviour
     public void makeActive()
     {
         portalIsActive = true;
+    }
+
+    public IEnumerator twoWayPortalReactivate()
+    {
+        yield return new WaitForSeconds(1);
+        canPortal = true;
     }
 }

@@ -5,6 +5,8 @@ using UnityEngine;
 public class Claw : MonoBehaviour
 {
     public GameObject ClawTriggerCube;
+    // public GameObject Camera;
+    public TwoPlayerCameraFollow CameraFollow_Script;
     public Vector3 ClawTriggerPos;
     public Animator anim;
     public float speed;
@@ -23,16 +25,17 @@ public class Claw : MonoBehaviour
 
     public GameObject touching = null;
 
+    public bool sentCameraConnecteMessage = false;
+    public bool sentCameraDisconnecteMessage = false;
+    public bool sentCameraLiftConnecteMessage = false;
+    public bool sentCameraLiftDisconnecteMessage = false;
+
 
     void Awake()
     {
         moveAxisHorizontal = PlayerPrefs.GetString("GearAxisHorizontal");
-        moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");;
-
-            // if (direction != Vector3.zero)
-            // {
-            //     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            // }
+        moveAxisVertical = PlayerPrefs.GetString("GearAxisVertical");
+        // Camera = GameObject.FindGameObjectWithTag("MainCamera");
     }
 
     void Start () 
@@ -40,6 +43,7 @@ public class Claw : MonoBehaviour
         anim = GetComponent<Animator>();
         ClawTriggerPos = new Vector3(0.0f, -0.5f, -1.0f);
         liftPos = new Vector3(0.0f, -0.04f, 0.0f);
+        CameraFollow_Script = GameObject.Find("TwoPlayerCameraFollow").GetComponent<TwoPlayerCameraFollow>();
     }
 
     void FixedUpdate()
@@ -47,15 +51,23 @@ public class Claw : MonoBehaviour
         if(clawConnected == true)
         {
             Movement();
+            callCameraFollow();
+            
+        }
+        else if(!clawConnected)
+        {
+            callCameraUnfollow();
         }
         if(lifting)
         {
             touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
             touching.GetComponent<Rigidbody>().isKinematic = true;
+            callCameraFollowLift();
         }
         else if(!lifting)
         {
             touching.GetComponent<Rigidbody>().isKinematic = false;
+            callCameraFollowUnlift();
         }
            
         
@@ -110,4 +122,43 @@ public class Claw : MonoBehaviour
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         // sendPos();
     }
+
+    public void callCameraFollow()
+    {
+        if(!sentCameraConnecteMessage)
+        {
+            sentCameraConnecteMessage = true;
+            sentCameraDisconnecteMessage = false;
+            CameraFollow_Script.followObject(liftPoint, "Gears");
+        }
+    }
+    public void callCameraUnfollow()
+    {
+        if(!sentCameraDisconnecteMessage)
+        {
+            sentCameraDisconnecteMessage = true;
+            sentCameraConnecteMessage = false;
+            CameraFollow_Script.unfollowObject();
+        }
+    }
+    public void callCameraFollowLift()
+    {
+        if(!sentCameraLiftConnecteMessage)
+        {
+            sentCameraLiftConnecteMessage = true;
+            sentCameraLiftDisconnecteMessage = false;
+            CameraFollow_Script.clawCarrying = true;
+        }
+    }
+    public void callCameraFollowUnlift()
+    {
+        if(!sentCameraLiftDisconnecteMessage)
+        {
+            sentCameraLiftDisconnecteMessage = true;
+            sentCameraLiftConnecteMessage = false;
+            CameraFollow_Script.clawCarrying = false;
+        }
+    }
+
+    
  }

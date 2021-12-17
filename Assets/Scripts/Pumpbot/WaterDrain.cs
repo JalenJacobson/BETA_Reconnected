@@ -4,26 +4,37 @@ using UnityEngine;
 
 public class WaterDrain : MonoBehaviour
 {
-   public Animator anim;
-
+    public float drainTimeDelta = 30f;
+    public Vector3 waterDrainLocation;
+    public GameObject water;
+    public bool waterDrainActive = false;
+    public bool alreadyDraining = false;
+    public GameObject targetWaterDrain;
  // Use this for initialization
     void Start () 
     {
-        anim = GetComponent<Animator>();
+       
     }
  
  // Update is called once per frame
     void Update () 
     {
-
+        if(waterDrainActive)
+        {
+            print(waterDrainLocation.x);
+            print(waterDrainLocation.y);
+            print(waterDrainLocation.z);
+            water.transform.position = Vector3.MoveTowards(water.transform.position, targetWaterDrain.transform.position, drainTimeDelta);
+        }
     }
 
-    public void drainWater()
+    public void Activate()
     {
-        anim.Play("WaterDrain");
+        waterDrainActive = true;
     }
-        public void refillWater()
+    
+    public void refillWater()
     {
-        anim.Play("refill");
+        
     }
 }

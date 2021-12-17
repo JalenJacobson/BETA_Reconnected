@@ -5,23 +5,71 @@ using UnityEngine;
 public class TwoPlayerCameraFollow : MonoBehaviour
 {
     public Camera cam;
+    public GameObject camera;
     public GameObject[] bots;
     public Transform bot1;
     public Transform bot2;
 
     public float zoomInMax = 35f;
     public float zoomOutMax = 45f;
+    public float damping = 1;
+    Vector3 offset;
+    public bool clawCarrying = false;
+    public Vector3 desiredAngle;
+
 
     void Start()
     {
         bots = GameObject.FindGameObjectsWithTag("Bot");
-        bot1 = bots[0].GetComponent<Transform>();
-        bot2 = bots[1].GetComponent<Transform>();
+        getObjectsToFollow(bots);
+        print(camera.transform.eulerAngles.y);
+        desiredAngle = camera.transform.eulerAngles;
+    }
+
+    void getObjectsToFollow(GameObject[] objectsToFollow)
+    {
+        bot1 = objectsToFollow[0].GetComponent<Transform>();
+        bot2 = objectsToFollow[1].GetComponent<Transform>();
+    }
+
+    void LateUpdate()
+    {
+        
+
+        // else FixedCameraFollowSmooth(cam, bot1, bot2);
+    }
+
+    void FixedUpdate()
+    {
+        if(clawCarrying)
+        {
+            thirdPersonFollow();
+        }
+        else FixedCameraFollowSmooth(cam, bot1, bot2);
     }
 
     void Update()
     {
-        FixedCameraFollowSmooth(cam, bot1, bot2);
+        
+    }
+
+    public void thirdPersonFollow()
+    {
+        var target = getThirdPersonTarget();
+        offset = new Vector3(0, 20f, -15f);
+        float followTimeDelta = 0.1f;
+        Vector3 cameraDestination = target.transform.position + offset;
+        
+        
+        // camera.transform.position = target.transform.position + offset;
+        camera.transform.position = Vector3.Slerp(camera.transform.position, cameraDestination, followTimeDelta);
+         
+        camera.transform.LookAt(target.transform);
+
+        if ((cameraDestination - camera.transform.position).magnitude <= 0.05f)
+        {
+            camera.transform.position = cameraDestination;
+        }
     }
 
     public void FixedCameraFollowSmooth(Camera cam, Transform t1, Transform t2)
@@ -32,8 +80,8 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         Vector3 midpoint = (t1.position + t2.position) / 2f;
  
         float distance = (t1.position - t2.position).magnitude;
- 
-     
+
+        camera.transform.eulerAngles = desiredAngle;
         Vector3 cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
     
         if(cameraDestination.y < zoomInMax)
@@ -56,5 +104,37 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         {
             cam.transform.position = cameraDestination;
         }
+    }
+
+    public void followObject(GameObject pointToFollow, string botToReplace)
+    {
+        var newObjectsToFollow = new GameObject[2];
+        newObjectsToFollow[0] = pointToFollow;
+        foreach(GameObject bot in bots)
+        {
+            if(bot.gameObject.name != botToReplace)
+            {
+                newObjectsToFollow[1] = bot;
+            }
+        }
+        getObjectsToFollow(newObjectsToFollow);
+    }
+
+    public void unfollowObject()
+    {
+        getObjectsToFollow(bots);
+    }
+
+    public GameObject getThirdPersonTarget()
+    {
+        var liftedBot = new GameObject();
+        foreach(GameObject bot in bots)
+        {
+            if(bot.gameObject.name != "Gears")
+            {
+                liftedBot = bot;
+            }
+        }
+        return liftedBot;
     }
 }

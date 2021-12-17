@@ -33,7 +33,7 @@ public class PumpMove : Player
         name = "Pump";
         currentHealth = maxHealth;
         pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
-        transform.position = startPos;
+        // transform.position = startPos;
         anim = GetComponent<Animator>();
         healthBar.setHealth(maxHealth);  
         lose_condition = GameObject.Find("Lose_Conditions");
@@ -123,7 +123,12 @@ public class PumpMove : Player
 
     public void death()
     {
-        StartCoroutine(returnToStart("DeadPump"));
+        if(!isDying)
+        {
+            isDying = true;
+            StartCoroutine(returnToStart("DeadPump"));
+        }
+        
     }
 
     // public void BlueWallOpen()

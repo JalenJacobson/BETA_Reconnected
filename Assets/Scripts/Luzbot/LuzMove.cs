@@ -140,7 +140,12 @@ public class LuzMove : Player
 
     public void death()
     {
-        StartCoroutine(returnToStart("DeadLuz"));
+        if(!isDying)
+        {
+            isDying = true;
+            StartCoroutine(returnToStart("DeadLuz"));
+        }
+        
     }
 
     // public void restoreHealth()
