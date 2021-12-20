@@ -513,7 +513,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4745034928668335334}
-  m_LocalRotation: {x: -0, y: -0, z: 0.0069939652, w: 0.99997556}
+  m_LocalRotation: {x: 0.002674966, y: 0.3826741, z: 0.0064579393, w: 0.92385703}
   m_LocalPosition: {x: -153.6, y: 25.4, z: -102.2}
   m_LocalScale: {x: 215.1878, y: 215.1878, z: 215.1878}
   m_Children:
@@ -534,7 +534,7 @@ Transform:
   - {fileID: 3706140144249149394}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.801}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0.801}
 --- !u!54 &5555376992962699777
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -543,13 +543,13 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4745034928668335334}
   serializedVersion: 2
-  m_Mass: 0.1
-  m_Drag: 0
+  m_Mass: 80
+  m_Drag: 2
   m_AngularDrag: 5
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 4
+  m_Constraints: 116
   m_CollisionDetection: 0
 --- !u!65 &5555376992962699805
 BoxCollider:
@@ -596,6 +596,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ClawTriggerCube: {fileID: 5555376994500356922}
+  CameraFollow_Script: {fileID: 0}
   ClawTriggerPos: {x: 0, y: 0, z: 0}
   anim: {fileID: 0}
   speed: 7
@@ -611,6 +612,10 @@ MonoBehaviour:
   liftPos: {x: 0, y: -0.04, z: 0}
   liftPoint: {fileID: 6476812948753209271}
   touching: {fileID: 0}
+  sentCameraConnecteMessage: 0
+  sentCameraDisconnecteMessage: 0
+  sentCameraLiftConnecteMessage: 0
+  sentCameraLiftDisconnecteMessage: 0
 --- !u!1 &5449170015274147527
 GameObject:
   m_ObjectHideFlags: 0
