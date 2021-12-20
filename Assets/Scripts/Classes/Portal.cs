@@ -65,7 +65,7 @@ public class Portal : MonoBehaviour
 
     public IEnumerator twoWayPortalReactivate()
     {
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(3);
         canPortal = true;
     }
 }
