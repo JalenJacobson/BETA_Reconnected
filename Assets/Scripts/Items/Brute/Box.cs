@@ -2,24 +2,97 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Box : Box_Base
+public class Box : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public Vector3 boxPos;
+    public GameObject Brute;
+    public bool isBeingCarried = false;
+    public string size = "small";
+
+    public Vector3 directionx;
+    public Vector3 directionz;
+    public Vector3 direction;
+    public string moveAxisHorizontal;
+    public string moveAxisVertical;
+    public float moveSpeed = 4;
+    public Rigidbody rb;
+    
+    void Awake()
+    {
+        moveAxisHorizontal = PlayerPrefs.GetString("BruteAxisHorizontal");
+        moveAxisVertical = PlayerPrefs.GetString("BruteAxisVertical");
+    }
+    
     void Start()
     {
-        //assign name in editor
-        // print(name);
-        BruteMove_Script = Brute.GetComponent<Player>();
+        rb = GetComponent<Rigidbody>();
+        Brute = GameObject.Find("Brute");
+        moveSpeed = 4f;
+        getBoxSize();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // activeBox = BruteMove_Script.isLocalPlayer;
-        // if(activeBox == true)
+        if(isBeingCarried)
+        {
+            // transform.position = Brute.transform.position + boxPos;
+            // GetComponent<Rigidbody>().useGravity = false;
+            MovementX();
+        }
+        else if(!isBeingCarried)
+        {
+        //    GetComponent<Rigidbody>().useGravity = true; 
+        }
+    }
+
+     public void toggleIsBeingCarried()
+    {
+        if(!isBeingCarried)
+        {
+            gameObject.AddComponent<FixedJoint>();
+            gameObject.GetComponent<FixedJoint>().connectedBody=Brute.GetComponent<Rigidbody>();
+            isBeingCarried = true;
+        }
+        else if(isBeingCarried)
+        {
+            isBeingCarried = false;  
+            Destroy(gameObject.GetComponent<FixedJoint>());
+        }
+    }
+
+    public void getBoxSize()
+    {
+        if(size == "small")
+        {
+            boxPos = new Vector3(0f, 0f, .03f);
+        }
+        if(size == "medium")
+        {
+            boxPos = new Vector3(-7.5f, 0f, 0f);
+        }
+        if(size == "large")
+        {
+            boxPos = new Vector3(0f, 0f, .06f);
+        }
+    }
+
+    void MovementX()
+    {
+
+        print("should move x");
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
+
+        directionx = new Vector3(horizontalMove, 0.0f, 0.0f);
+
+        // if (direction != Vector3.zero)
         // {
-        //     sendBox();
+        //     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+            
         // }
+
+        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * directionx);
+        // sendPos();
     }
 }
 

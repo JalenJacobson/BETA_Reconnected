@@ -16,6 +16,7 @@ public class GearMove : Player
      {
         playerNumber = PlayerPrefs.GetString("GearPlayerNumber");
         getControls();
+        Brute = GameObject.Find("Brute");
      }
 
     void Start()
@@ -26,6 +27,7 @@ public class GearMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
+        
         // startPos = new Vector3(47f, 1.44f, -231f);
         // transform.position = startPos;
         // TimerBar_Script = TimerBarGear.GetComponent<TimeBarGear>();

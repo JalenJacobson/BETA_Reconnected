@@ -56,7 +56,7 @@ public class BruteMove : Player
 
         direction = new Vector3(horizontalMove, 0.0f, verticalMove);
 
-        if (direction != Vector3.zero)
+        if (!fixRotation && direction != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
             currentHealth = currentHealth - .05f;

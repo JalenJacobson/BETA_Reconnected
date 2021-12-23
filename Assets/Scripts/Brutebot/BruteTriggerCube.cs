@@ -11,6 +11,7 @@ public class BruteTriggerCube : MonoBehaviour
     public GameObject batteryTouching = null;
     public bool canLift = false;
     public Vector3 liftPos;
+    
     public bool lifting;
 
     public string playerNumber;
@@ -70,7 +71,8 @@ public class BruteTriggerCube : MonoBehaviour
         }
         else if(other.name.Contains("Push"))
         {
-           BruteMove_Script.anim.Play("Push");
+            touching = other.gameObject;
+            BruteMove_Script.anim.Play("Push");
         }  
         
     }
@@ -102,7 +104,7 @@ public class BruteTriggerCube : MonoBehaviour
     {   
         if(Input.GetKeyDown(special))
         {
-            if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
+            if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump" || touching.name.Contains("Push"))
             {
                 if(!lifting)
                 {
@@ -144,6 +146,7 @@ public class BruteTriggerCube : MonoBehaviour
     {
         lifting = false;
         touching.SendMessage("toggleIsBeingCarried");
+        BruteMove_Script.fixRotation = false;
     }
     
     public void lift() 
@@ -152,6 +155,13 @@ public class BruteTriggerCube : MonoBehaviour
         {
             lifting = true;
             touching.SendMessage("toggleIsBeingCarried"); 
+        }
+        if(touching.name.Contains("Push"))
+        {
+            
+            lifting = true;
+            BruteMove_Script.fixRotation = true;
+            touching.SendMessage("toggleIsBeingCarried");
         }
     }
 }

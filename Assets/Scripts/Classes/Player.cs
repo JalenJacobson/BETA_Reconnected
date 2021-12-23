@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public Vector3 liftPos;
     public Vector3 direction;
     public bool fixPosition = false;
+    public bool fixRotation = false;
     public Vector3 startPos;
     public float breathRemaining = 5f;
     public bool touchingAirBubble = false;
@@ -80,8 +81,11 @@ public class Player : MonoBehaviour
 
     public void toggleFixPosition()
     {
-        print("togglefixpos");
         fixPosition = !fixPosition;
+    }
+    public void toggleFixRotation()
+    {
+        fixRotation = !fixRotation;
     }
 
     public void toggleIsBeingCarried()
