@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     public string name;
     public GameObject Brute;
     public Vector3 liftPos;
-    public Vector3 direction;
+    public Vector3 directionRotate;
+    public Vector3 directionMove;
     public bool fixPosition = false;
     public bool fixRotation = false;
     public Vector3 startPos;

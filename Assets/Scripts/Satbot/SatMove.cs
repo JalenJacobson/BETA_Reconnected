@@ -72,24 +72,26 @@ public class SatMove : Player
 
     public override void Movement()
     {
-        // if(currentHealth > 0)
-        // {
-            float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-            float verticalMove = Input.GetAxis(moveAxisVertical);
+        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        float verticalMove = Input.GetAxis(moveAxisVertical);
 
-            direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+        directionRotate = new Vector3(horizontalMove, 0.0f, verticalMove);
+        directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
+        
+        rb.velocity = directionMove;
 
-            if (direction != Vector3.zero)
-            {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-                currentHealth = currentHealth - .05f;
-                Rails_Script.rails();
-            }
+        if (!fixRotation && directionRotate != Vector3.zero)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
+            currentHealth = currentHealth - .05f;
+            Rails_Script.rails();
+        }
 
-            rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        // }
-        // sendPos();
+        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        
     }
+
+    
 
     void Update()
     {

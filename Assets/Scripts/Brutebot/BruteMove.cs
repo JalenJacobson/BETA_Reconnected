@@ -54,15 +54,18 @@ public class BruteMove : Player
         float horizontalMove = Input.GetAxis(moveAxisHorizontal);
         float verticalMove = Input.GetAxis(moveAxisVertical);
 
-        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+        directionRotate = new Vector3(horizontalMove, 0.0f, verticalMove);
+        directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
+        rb.velocity = directionMove;
 
-        if (!fixRotation && direction != Vector3.zero)
+        if (!fixRotation && directionRotate != Vector3.zero)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
             currentHealth = currentHealth - .05f;
         }
 
-        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        
     }
 
     void Update()

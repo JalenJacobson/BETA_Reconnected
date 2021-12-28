@@ -51,12 +51,14 @@ public class Box : MonoBehaviour
         {
             gameObject.AddComponent<FixedJoint>();
             gameObject.GetComponent<FixedJoint>().connectedBody=Brute.GetComponent<Rigidbody>();
+            rb.isKinematic = false;
             isBeingCarried = true;
         }
         else if(isBeingCarried)
         {
             isBeingCarried = false;  
             Destroy(gameObject.GetComponent<FixedJoint>());
+            rb.isKinematic = true;
         }
     }
 

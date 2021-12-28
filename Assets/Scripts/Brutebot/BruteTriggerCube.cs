@@ -82,6 +82,7 @@ public class BruteTriggerCube : MonoBehaviour
         if(other.name.Contains("Push"))
         {
            BruteMove_Script.anim.Play("BruteWalk");
+           touching = null;
         } 
         var characterName = other.name;    
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("Brute"))
@@ -131,8 +132,8 @@ public class BruteTriggerCube : MonoBehaviour
         {
             if(touching.name.Contains("Doors"))
             {
-            touching.SendMessage("Activate");
-            BruteMove_Script.Activate();
+                touching.SendMessage("Activate");
+                BruteMove_Script.Activate();
             }
         }
         if(batteryTouching)
