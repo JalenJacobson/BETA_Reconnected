@@ -14,6 +14,8 @@ public class TwoPlayerCameraFollow : MonoBehaviour
     public float zoomOutMax = 45f;
     public float damping = 1;
     Vector3 offset;
+    public Vector3 stationaryCameraPosition;
+    public bool stationaryCamera;
     public bool clawCarrying = false;
     public Vector3 desiredAngle;
 
@@ -41,9 +43,10 @@ public class TwoPlayerCameraFollow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if(clawCarrying)
+        if(stationaryCamera) return;
+        if(!stationaryCamera && clawCarrying)
         {
-            thirdPersonFollow();
+            thirdPersonFollow("Gears");
         }
         else FixedCameraFollowSmooth(cam, bot1, bot2);
     }
@@ -53,9 +56,14 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         
     }
 
-    public void thirdPersonFollow()
+    // public void stationaryCamera()
+    // {
+
+    // }
+
+    public void thirdPersonFollow(string objectToIgnore)
     {
-        var target = getThirdPersonTarget();
+        var target = getThirdPersonTarget(objectToIgnore);
         offset = new Vector3(0, 20f, -15f);
         float followTimeDelta = 0.1f;
         Vector3 cameraDestination = target.transform.position + offset;
@@ -125,12 +133,12 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         getObjectsToFollow(bots);
     }
 
-    public GameObject getThirdPersonTarget()
+    public GameObject getThirdPersonTarget(string objectToIgnore)
     {
         var liftedBot = new GameObject();
         foreach(GameObject bot in bots)
         {
-            if(bot.gameObject.name != "Gears")
+            if(bot.gameObject.name != objectToIgnore)
             {
                 liftedBot = bot;
             }

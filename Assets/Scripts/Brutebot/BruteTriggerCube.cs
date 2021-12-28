@@ -130,10 +130,10 @@ public class BruteTriggerCube : MonoBehaviour
     {
         if(touching)
         {
-            if(touching.name.Contains("Doors"))
+            if(touching.name.Contains("Doors") || touching.name.Contains("Button"))
             {
-                touching.SendMessage("Activate");
                 BruteMove_Script.Activate();
+                touching.SendMessage("Activate");
             }
         }
         if(batteryTouching)
