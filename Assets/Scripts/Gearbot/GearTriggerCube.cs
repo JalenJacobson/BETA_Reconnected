@@ -123,7 +123,16 @@ public class GearTriggerCube : MonoBehaviour
             var connectMessage = connected ? "disconnect" : "connect";
             print(connectMessage);
             connected = !connected; 
-            Gears.transform.position = touching.transform.TransformPoint(connectPos);
+            // Gears.transform.position = touching.transform.TransformPoint(connectPos);
+            if(connected)
+            {
+                Gears.gameObject.AddComponent<FixedJoint>();
+                Gears.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
+            }
+            else if(!connected)
+            {
+                Destroy(Gears.gameObject.GetComponent<FixedJoint>());
+            }
             GearMove_Script.toggleFixPosition();
             touching.SendMessage("toggleBotConnected");
             // print("CONNECTED To Claw");

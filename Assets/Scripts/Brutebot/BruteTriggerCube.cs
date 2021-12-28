@@ -71,8 +71,11 @@ public class BruteTriggerCube : MonoBehaviour
         }
         else if(other.name.Contains("Push"))
         {
-            touching = other.gameObject;
-            BruteMove_Script.anim.Play("Push");
+            if(touching == null)
+            {
+                touching = other.gameObject;
+                BruteMove_Script.anim.Play("Push");
+            }
         }  
         
     }
@@ -81,8 +84,12 @@ public class BruteTriggerCube : MonoBehaviour
      { 
         if(other.name.Contains("Push"))
         {
-           BruteMove_Script.anim.Play("BruteWalk");
-           touching = null;
+            if(!lifting)
+            {
+                BruteMove_Script.anim.Play("BruteWalk");
+                touching = null;
+            }
+           
         } 
         var characterName = other.name;    
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("Brute"))
@@ -162,6 +169,7 @@ public class BruteTriggerCube : MonoBehaviour
             
             lifting = true;
             BruteMove_Script.fixRotation = true;
+            
             touching.SendMessage("toggleIsBeingCarried");
         }
     }

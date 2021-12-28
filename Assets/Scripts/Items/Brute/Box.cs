@@ -6,6 +6,7 @@ public class Box : MonoBehaviour
 {
     public Vector3 boxPos;
     public GameObject Brute;
+    public BruteMove BruteMove_Script;
     public bool isBeingCarried = false;
     public string size = "small";
 
@@ -16,6 +17,9 @@ public class Box : MonoBehaviour
     public string moveAxisVertical;
     public float moveSpeed = 4;
     public Rigidbody rb;
+
+    // public Vector3 boxFallLocation;
+    // public float boxFallTimeDelta = 30f;
     
     void Awake()
     {
@@ -27,6 +31,7 @@ public class Box : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Brute = GameObject.Find("Brute");
+        BruteMove_Script = Brute.GetComponent<BruteMove>();
         moveSpeed = 4f;
         getBoxSize();
     }
@@ -95,6 +100,25 @@ public class Box : MonoBehaviour
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * directionx);
         // sendPos();
+    }
+
+    public void boxFall()
+    {
+        StartCoroutine(boxFallTime()); 
+    }
+
+    IEnumerator boxFallTime()
+    {
+        BruteMove_Script.fixRotation = true;
+        BruteMove_Script.fixPosition = true;
+        rb.isKinematic = false;
+        isBeingCarried = false;
+        Destroy(gameObject.GetComponent<FixedJoint>());
+        // transform.position = Vector3.MoveTowards(transform.position, targetBoxFall.transform.position, drainTimeDelta);
+        yield return new WaitForSeconds(1f);
+        BruteMove_Script.fixRotation = false;
+        BruteMove_Script.fixPosition = false;
+        
     }
 }
 
