@@ -119,12 +119,15 @@ public class BruteTriggerCube : MonoBehaviour
                     lift();
                     BruteMove_Script.Lift();
                 }
-                else if(lifting)
-                {
-                    drop();
-                    BruteMove_Script.Drop();   
-                }
             }   
+        }
+        else if(Input.GetKeyUp(special))
+        {
+            if(lifting)
+            {
+                drop();
+                BruteMove_Script.Drop();   
+            }
         }
         if(Input.GetKeyDown(activateKey))
         {

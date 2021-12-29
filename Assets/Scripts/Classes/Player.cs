@@ -49,15 +49,15 @@ public class Player : MonoBehaviour
             Movement();
         }
 
-        if(isBeingCarried)
-        {
-            transform.position = Brute.transform.TransformPoint(liftPos);
-            GetComponent<Rigidbody>().useGravity = false;
-        }
-        else if(!isBeingCarried)
-        {
-           GetComponent<Rigidbody>().useGravity = true; 
-        }
+        // if(isBeingCarried)
+        // {
+        //     transform.position = Brute.transform.TransformPoint(liftPos);
+        //     GetComponent<Rigidbody>().useGravity = false;
+        // }
+        // else if(!isBeingCarried)
+        // {
+        //    GetComponent<Rigidbody>().useGravity = true; 
+        // }
     }
     void Update()
     {
@@ -93,11 +93,19 @@ public class Player : MonoBehaviour
     {
         if(!isBeingCarried)
         {
+            
+            GetComponent<Rigidbody>().useGravity = false;
             isBeingCarried = !isBeingCarried; 
+            transform.position = Brute.transform.TransformPoint(liftPos);
+            gameObject.AddComponent<FixedJoint>();
+            gameObject.GetComponent<FixedJoint>().connectedBody=Brute.GetComponent<Rigidbody>();
+            
         }
         else if(isBeingCarried)
         {
-                isBeingCarried = !isBeingCarried;  
+                isBeingCarried = !isBeingCarried; 
+                Destroy(gameObject.GetComponent<FixedJoint>());
+                GetComponent<Rigidbody>().useGravity = true;  
         }
     }
 
