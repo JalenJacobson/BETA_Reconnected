@@ -28,7 +28,7 @@ public class MoveNode : Player
     virtual public void Start()
     {
         name = "Node";
-        startPos = new Vector3(-143.47f, 4.22f, -895.7f);
+        startPos = new Vector3(-1482.761f, 81f, -1024.285f);
         transform.position = startPos;
     }
 
