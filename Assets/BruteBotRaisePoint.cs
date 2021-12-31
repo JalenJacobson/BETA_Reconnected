@@ -7,10 +7,11 @@ public class BruteBotRaisePoint : MonoBehaviour
 
     public GameObject touching = null;
     public float force = 20f;
+    public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
-        
+     anim = GetComponent<Animator>();   
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,6 +26,7 @@ public class BruteBotRaisePoint : MonoBehaviour
                 touching = other.gameObject; 
             }  
         }
+        anim.Play("BruteSpringLoad");
         
     }
 
@@ -45,6 +47,7 @@ public class BruteBotRaisePoint : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         var touchingRigidBody = touching.GetComponent<Rigidbody>();
+        anim.Play("BruteSpring");
         touchingRigidBody.AddForce(transform.up * force);
     } 
 }
