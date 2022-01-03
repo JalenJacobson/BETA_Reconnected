@@ -22,7 +22,7 @@ public class ClawTriggerCube : MonoBehaviour
     {
         // var characterName = other.name;
         // print(characterName);
-        if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump")
+        if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("MineCrawler"))
         {
             print(other.name);
             if(touching == null)
@@ -36,7 +36,7 @@ public class ClawTriggerCube : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {   
-        if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("Box"))
+        if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("Box") || other.name.Contains("MineCrawler"))
         {   
             touching = null;
             ClawMove_Script.touching = null;

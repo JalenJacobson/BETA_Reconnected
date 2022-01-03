@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,7 +43,7 @@ public class Claw : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         ClawTriggerPos = new Vector3(0.0f, -0.5f, -1.0f);
-        liftPos = new Vector3(0.0f, -0.04f, 0.0f);
+        liftPos = new Vector3(0.0f, -0.03f, 0.0f);
         CameraFollow_Script = GameObject.Find("TwoPlayerCameraFollow").GetComponent<TwoPlayerCameraFollow>();
     }
 
@@ -57,6 +58,7 @@ public class Claw : MonoBehaviour
         else if(!clawConnected)
         {
             callCameraUnfollow();
+            touching.SendMessage("isNotBeingCarried");
         }
         if(lifting)
         {
@@ -91,6 +93,7 @@ public class Claw : MonoBehaviour
             clawCarrying = false;
             anim.Play("ClawOpen");
             lifting = false;
+            touching.SendMessage("isNotBeingCarried");
             // This needs to be an animation of the claw opening
         }
         
@@ -101,6 +104,7 @@ public class Claw : MonoBehaviour
         anim.Play("ClawClose");
         yield return new WaitForSeconds(.3f);
         lifting = true;
+        touching.SendMessage("IsBeingCarried");
         yield return new WaitForSeconds(.25f);
         anim.Play("ClawPickUp");
         // touching.GetComponent<Rigidbody>().isKinematic = true;
