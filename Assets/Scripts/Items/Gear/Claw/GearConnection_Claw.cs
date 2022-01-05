@@ -7,6 +7,9 @@ public class GearConnection_Claw : CDI_Class
 
     public GameObject Claw;
     public Claw ClawMove_Script;
+
+    public List<GameObject> ClawBoundries;
+    public List<ClawBoundries> ClawBoundries_Scripts;
     // public Claw ClawDrop_Script;
 
     
@@ -14,6 +17,7 @@ public class GearConnection_Claw : CDI_Class
     {
         anim = GetComponent<Animator>();
         ClawMove_Script = Claw.GetComponent<Claw>();
+        getClawBoundriesScripts();
         // ClawDrop_Script = Claw.GetComponent<Claw>();
     }
 
@@ -21,6 +25,14 @@ public class GearConnection_Claw : CDI_Class
     void Update()
     {
         
+    }
+    public void getClawBoundriesScripts()
+    {
+        foreach(GameObject ClawBoundries in ClawBoundries)
+        {
+            var ClawBoundries_Script = ClawBoundries.GetComponent<ClawBoundries>();
+            ClawBoundries_Scripts.Add(ClawBoundries_Script);
+        }
     }
     
     public void Activate()
@@ -35,7 +47,12 @@ public class GearConnection_Claw : CDI_Class
     {
         anim.Play("ActivateGearBox");
         ClawMove_Script.clawConnected = true;
-        ClawMove_Script.anim.Play("Claw"); 
+        ClawMove_Script.anim.Play("Claw");
+
+        foreach(ClawBoundries ClawBoundries_Script in ClawBoundries_Scripts)
+        {
+        ClawBoundries_Script.clawConnected = true;
+        } 
         // ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;
         // ClawDrop_Script.clawDrop = !ClawDrop_Script.clawDrop;
 
@@ -55,6 +72,11 @@ public class GearConnection_Claw : CDI_Class
         else if(ClawMove_Script.lifting == false)
         {
         ClawMove_Script.anim.Play("ClawEnd");
+        }
+
+        foreach(ClawBoundries ClawBoundries_Script in ClawBoundries_Scripts)
+        {
+        ClawBoundries_Script.clawConnected = false;
         }
          
         // ClawBoundry_Script.clawConnected = !ClawBoundry_Script.clawConnected;

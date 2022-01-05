@@ -17,7 +17,7 @@ public class ClawBoundries : MonoBehaviour
         {
          anim.Play("ClawBoundries");   
         }
-        if(clawConnected = false)
+        if(clawConnected == false)
         {
          anim.Play("ClawBoundriesClose");   
         }
