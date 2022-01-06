@@ -138,6 +138,11 @@ public class Player : MonoBehaviour
         touchingAirBubble = false;
     }
 
+    public void changeStartPos(Vector3 newStartPos)
+    {
+        startPos = newStartPos;
+    }
+
     public IEnumerator returnToStart(string deathAnimation)
     {
         print(deathAnimation);
