@@ -37,6 +37,8 @@ public class ClawTriggerCube : MonoBehaviour
     {   
         if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("Box") || other.name.Contains("MineCrawler"))
         {   
+            if(ClawMove_Script.clawCarrying) return;
+            print(other.name);
             touching = null;
             ClawMove_Script.touching = null;
         }
