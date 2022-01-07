@@ -99,6 +99,15 @@ public class Level_Manager : MonoBehaviour
         print(sceneToGoTo);
         SceneManager.LoadScene(sceneToGoTo);
     }
+    public void loadStoryMode()
+    {
+        StartCoroutine(LoadStoryMode());
+    }
+    IEnumerator LoadStoryMode()
+    {
+        yield return new WaitForSeconds(5);
+        SceneManager.LoadScene(24);
+    }
     
     public void loadLevelSelectLevel()
     {

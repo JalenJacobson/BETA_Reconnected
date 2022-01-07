@@ -83,7 +83,7 @@ public class Claw : MonoBehaviour
 
     public void Activate()
     {
-        if(!clawCarrying && touching)
+        if(!clawCarrying && touching && !lifting)
         {
             clawCarrying = true;
             StartCoroutine(clawPickUp());
@@ -94,6 +94,7 @@ public class Claw : MonoBehaviour
             anim.Play("ClawOpen");
             lifting = false;
             touching.SendMessage("isNotBeingCarried");
+            touching.SendMessage("Explode");
             // This needs to be an animation of the claw opening
         }
         
@@ -151,7 +152,7 @@ public class Claw : MonoBehaviour
         {
             sentCameraLiftConnecteMessage = true;
             sentCameraLiftDisconnecteMessage = false;
-            CameraFollow_Script.clawCarrying = true;
+           // CameraFollow_Script.clawCarrying = true;
         }
     }
     public void callCameraFollowUnlift()
@@ -160,7 +161,7 @@ public class Claw : MonoBehaviour
         {
             sentCameraLiftDisconnecteMessage = true;
             sentCameraLiftConnecteMessage = false;
-            CameraFollow_Script.clawCarrying = false;
+          //  CameraFollow_Script.clawCarrying = false;
         }
     }
 

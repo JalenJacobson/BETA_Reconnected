@@ -18,6 +18,7 @@ public class Box : MonoBehaviour
     public float moveSpeed = 4;
     public Rigidbody rb;
     public Animator anim;
+    public GameObject touching = null;
 
     // public Vector3 boxFallLocation;
     // public float boxFallTimeDelta = 30f;
@@ -61,7 +62,13 @@ public class Box : MonoBehaviour
             rb.isKinematic = false;
             isBeingCarried = true;
         }
-        else if(isBeingCarried)
+        else if(isBeingCarried && touching)
+        {  
+            rb.isKinematic = false;
+            isBeingCarried = false;  
+            Destroy(gameObject.GetComponent<FixedJoint>());
+        }
+        else if(isBeingCarried && touching == null)
         {
             isBeingCarried = false;  
             Destroy(gameObject.GetComponent<FixedJoint>());
@@ -109,12 +116,18 @@ public class Box : MonoBehaviour
         StartCoroutine(boxFallTime()); 
     }
 
-        void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if(other.name == "BoxTrigger")
+        // var characterName = other.name;
+        if(other.name.Contains("BoxTrigger"))
         {
-          anim.Play("BoxFall"); 
+            print(other.name);
+            if(touching == null)
+            {
+                touching = other.gameObject; 
+            }  
         }
+        
     }
 
     IEnumerator boxFallTime()

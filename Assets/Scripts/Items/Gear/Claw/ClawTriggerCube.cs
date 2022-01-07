@@ -22,10 +22,10 @@ public class ClawTriggerCube : MonoBehaviour
     {
         // var characterName = other.name;
         if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("MineCrawler"))
-        {
-            print(other.name);
+        {       
             if(touching == null)
             {
+                print(other.name);
                 touching = other.gameObject; 
                 ClawMove_Script.touching = other.gameObject;
             }  

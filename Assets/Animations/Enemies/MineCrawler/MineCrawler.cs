@@ -6,6 +6,7 @@ public class MineCrawler : MonoBehaviour
 {
     public Animator anim;
     public bool isBeingCarried;
+    public bool Explode;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,8 +18,11 @@ public class MineCrawler : MonoBehaviour
     {
         if(isBeingCarried == true)
         {
-            anim.Play("Scramble");            
-            
+            anim.Play("Scramble");              
+        }
+        if(Explode == true)
+        {
+            anim.Play("Explode");              
         }   
     }
     void OnTriggerEnter(Collider other)
@@ -43,6 +47,7 @@ public class MineCrawler : MonoBehaviour
     public void isNotBeingCarried()
     {
         isBeingCarried = false;
+
     }
 
 }
