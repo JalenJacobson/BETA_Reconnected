@@ -21,7 +21,6 @@ public class ClawTriggerCube : MonoBehaviour
     void OnTriggerStay(Collider other)
     {
         // var characterName = other.name;
-        // print(characterName);
         if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("MineCrawler"))
         {
             print(other.name);
