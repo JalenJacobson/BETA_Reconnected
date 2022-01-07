@@ -10,7 +10,15 @@ public class Spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       InvokeRepeating ("Spawn", spawnTime, spawnTime); 
+        
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name == "Gears")
+        {
+            InvokeRepeating ("Spawn", spawnTime, spawnTime);
+        }
     }
 
     // Update is called once per frame

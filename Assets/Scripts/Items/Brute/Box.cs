@@ -17,6 +17,7 @@ public class Box : MonoBehaviour
     public string moveAxisVertical;
     public float moveSpeed = 4;
     public Rigidbody rb;
+    public Animator anim;
 
     // public Vector3 boxFallLocation;
     // public float boxFallTimeDelta = 30f;
@@ -34,6 +35,7 @@ public class Box : MonoBehaviour
         BruteMove_Script = Brute.GetComponent<BruteMove>();
         moveSpeed = 4f;
         getBoxSize();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -105,6 +107,14 @@ public class Box : MonoBehaviour
     public void boxFall()
     {
         StartCoroutine(boxFallTime()); 
+    }
+
+        void OnTriggerEnter(Collider other)
+    {
+        if(other.name == "BoxTrigger")
+        {
+          anim.Play("BoxFall"); 
+        }
     }
 
     IEnumerator boxFallTime()
