@@ -134,6 +134,10 @@ public class SatTriggerCube : MonoBehaviour
          {
              Activate();
          }
+         if(touching != null && Input.GetButtonDown("activate"))
+         {
+            Activate();
+         }
      }
 
     void DownloadToken()

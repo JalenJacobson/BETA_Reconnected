@@ -75,6 +75,11 @@ public class LuzTriggerCube : MonoBehaviour
             Activate();
             PowerScript.Play();
         }
+        if(touching != null && Input.GetButtonDown("activate"))
+        {
+            Activate();
+            PowerScript.Play();
+        }
     }
 
     public void Activate()

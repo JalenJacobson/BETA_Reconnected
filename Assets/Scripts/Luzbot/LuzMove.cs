@@ -109,6 +109,11 @@ public class LuzMove : Player
             anim.Play("Recharge");
             currentHealth = currentHealth - 10f;
         }
+        if (Input.GetButtonDown("special"))
+        {
+            anim.Play("Recharge");
+            currentHealth = currentHealth - 10f;
+        }
 
         healthBar.setHealth(currentHealth);
     }

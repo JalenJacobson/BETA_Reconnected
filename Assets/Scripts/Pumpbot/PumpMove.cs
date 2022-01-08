@@ -88,7 +88,7 @@ public class PumpMove : Player
 
     void Update()
     {
-        if(inWater == true && Input.GetKeyDown(special))
+        if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown("special"))
         {
             if(bubbleOpen == false)
             {

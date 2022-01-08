@@ -135,6 +135,10 @@ public class SatMove : Player
         {
             MiniMap_Script.MiniMapToggle();
         }
+        if (Input.GetButtonDown("special"))
+        {
+            MiniMap_Script.MiniMapToggle();
+        }
     }
 
     public override void drowning()

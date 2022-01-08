@@ -112,6 +112,14 @@ public class GearTriggerCube : MonoBehaviour
         {
             touching.SendMessage("Activate", ErrorMessage);
         }
+        if(touching != null && Input.GetButtonDown("activate"))
+        {
+            Activate();
+        }
+        if(connected && Input.GetButtonDown("special"))
+        {
+            touching.SendMessage("Activate", ErrorMessage);
+        }
      }
 
      public void Activate()

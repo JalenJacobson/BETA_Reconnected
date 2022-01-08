@@ -110,7 +110,7 @@ public class BruteTriggerCube : MonoBehaviour
 
     void Update()
     {   
-        if(Input.GetKeyDown(special))
+        if(Input.GetKeyDown(special) || Input.GetButtonDown("special"))
         {
             if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump" || touching.name.Contains("Push"))
             {
@@ -121,7 +121,7 @@ public class BruteTriggerCube : MonoBehaviour
                 }
             }   
         }
-        else if(Input.GetKeyUp(special))
+        else if(Input.GetKeyUp(special) || Input.GetButtonUp("special"))
         {
             if(lifting)
             {
@@ -130,6 +130,10 @@ public class BruteTriggerCube : MonoBehaviour
             }
         }
         if(Input.GetKeyDown(activateKey))
+        {
+            Activate();
+        }
+        if(Input.GetButtonDown("activate"))
         {
             Activate();
         }

@@ -136,6 +136,10 @@ public class PumpTriggerCube : MonoBehaviour
          {
              Activate();
          }
+        if(touching != null && Input.GetButtonDown("activate"))
+        {
+            Activate();
+        }
      }
 
     //      public void Reactivate()
