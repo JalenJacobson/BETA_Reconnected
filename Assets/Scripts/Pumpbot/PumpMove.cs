@@ -19,6 +19,7 @@ public class PumpMove : Player
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string special;
+    public string specialController;
     public bool bubbleOpen;
     public string playerNumber;
 
@@ -47,12 +48,14 @@ public class PumpMove : Player
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
             special = "space";
+            specialController = "special1";
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
             moveAxisVertical = "VerticalPlayer2";  
-            special = "return"; 
+            special = "return";
+            specialController = "special2"; 
         }
     }
 
@@ -78,7 +81,7 @@ public class PumpMove : Player
         if (!fixRotation && directionRotate != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-            currentHealth = currentHealth - .05f;
+            currentHealth = currentHealth - .02f;
             anim.Play("PumpWalk");
         }
 
@@ -88,7 +91,7 @@ public class PumpMove : Player
 
     void Update()
     {
-        if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown("special"))
+        if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown(specialController))
         {
             if(bubbleOpen == false)
             {

@@ -30,6 +30,10 @@ public class ClawTriggerCube : MonoBehaviour
                 ClawMove_Script.touching = other.gameObject;
             }  
         }
+        if(ClawMove_Script.clawConnected == true && other.name == "IdleLuz" ||ClawMove_Script.clawConnected == true && other.name == "Brute" ||ClawMove_Script.clawConnected == true && other.name == "SatBot" ||ClawMove_Script.clawConnected == true && other.name == "Pump")
+        {
+            ClawMove_Script.callCameraFollowLift();
+        }
         
     }
 

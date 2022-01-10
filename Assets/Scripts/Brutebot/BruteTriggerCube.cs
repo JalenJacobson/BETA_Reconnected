@@ -19,6 +19,8 @@ public class BruteTriggerCube : MonoBehaviour
     public string activateKey;
     public string disconnectKey;
     public string special;
+    public string activateController;
+    public string specialController;
 
     void Awake()
     {
@@ -40,6 +42,8 @@ public class BruteTriggerCube : MonoBehaviour
             disconnectKey = "b";
             connectKey = "c";
             special = "space";
+            activateController = "activate1";
+            specialController = "special1";
         }
         else if(playerNumber == "P2")
         {
@@ -47,6 +51,8 @@ public class BruteTriggerCube : MonoBehaviour
             disconnectKey = "l";
             connectKey = "j";
             special = "return";
+            activateController = "activate2";
+            specialController = "special2";
         }
     }
 
@@ -110,7 +116,7 @@ public class BruteTriggerCube : MonoBehaviour
 
     void Update()
     {   
-        if(Input.GetKeyDown(special) || Input.GetButtonDown("special"))
+        if(Input.GetKeyDown(special) || Input.GetButtonDown(specialController))
         {
             if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump" || touching.name.Contains("Push"))
             {
@@ -119,9 +125,9 @@ public class BruteTriggerCube : MonoBehaviour
                     lift();
                     BruteMove_Script.Lift();
                 }
-            }   
+            }
         }
-        else if(Input.GetKeyUp(special) || Input.GetButtonUp("special"))
+        else if(Input.GetKeyUp(special) || Input.GetButtonUp(specialController))
         {
             if(lifting)
             {
@@ -132,10 +138,15 @@ public class BruteTriggerCube : MonoBehaviour
         if(Input.GetKeyDown(activateKey))
         {
             Activate();
+            BruteMove_Script.Sprint(); 
         }
-        if(Input.GetButtonDown("activate"))
+        if(Input.GetButtonDown(activateController))
         {
             Activate();
+            if (lifting == false && touching == null)
+            {
+            BruteMove_Script.Sprint();
+            } 
         }
 
     }

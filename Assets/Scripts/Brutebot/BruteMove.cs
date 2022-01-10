@@ -129,4 +129,10 @@ public class BruteMove : Player
         }
         
     }
+    public void Sprint()
+    {
+        anim.Play("BruteSprint");
+        StartCoroutine(BotSprint());
+    }
+
 }

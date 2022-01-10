@@ -9,6 +9,7 @@ public class LuzMove : Player
     public string playerNumber;
     // public Animator anim;
     public string special;
+    public string specialController;
 
 
     void Awake()
@@ -40,12 +41,14 @@ public class LuzMove : Player
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
             special = "space";
+            specialController = "special1";
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
             moveAxisVertical = "VerticalPlayer2";
-            special = "return";   
+            special = "return";
+            specialController = "special2";   
         }
     }
 
@@ -109,7 +112,7 @@ public class LuzMove : Player
             anim.Play("Recharge");
             currentHealth = currentHealth - 10f;
         }
-        if (Input.GetButtonDown("special"))
+        if (Input.GetButtonDown(specialController))
         {
             anim.Play("Recharge");
             currentHealth = currentHealth - 10f;

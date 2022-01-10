@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
 
     void FixedUpdate()
     {
+        directionMove = Vector3.zero;
         if (fixPosition == false && currentHealth > 0){
             Movement();
         }
@@ -169,5 +170,12 @@ public class Player : MonoBehaviour
         {
             currentHealth+= 0.05f;
         }
+    }
+        public IEnumerator BotSprint()
+    {
+        moveSpeed = 15;
+        yield return new WaitForSeconds(.3f);
+        moveSpeed = 7;
+        yield return new WaitForSeconds(4);
     }
 }

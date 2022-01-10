@@ -27,6 +27,8 @@ public class SatTriggerCube : MonoBehaviour
     public string activateKey;
     public string disconnectKey;
     public string special;
+    public string activateController;
+    public string specialController;
 
     void Awake()
      {
@@ -47,6 +49,8 @@ public class SatTriggerCube : MonoBehaviour
             disconnectKey = "b";
             connectKey = "c";
             special = "space";
+            activateController = "activate1";
+            specialController = "special1";
         }
         else if(playerNumber == "P2")
         {
@@ -54,6 +58,8 @@ public class SatTriggerCube : MonoBehaviour
             disconnectKey = "l";
             connectKey = "j";
             special = "return";
+            activateController = "activate2";
+            specialController = "special2";
         }
     }
 
@@ -134,7 +140,7 @@ public class SatTriggerCube : MonoBehaviour
          {
              Activate();
          }
-         if(touching != null && Input.GetButtonDown("activate"))
+         if(touching != null && Input.GetButtonDown(activateController))
          {
             Activate();
          }

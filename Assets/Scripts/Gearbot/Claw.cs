@@ -64,7 +64,7 @@ public class Claw : MonoBehaviour
         {
             touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
             touching.GetComponent<Rigidbody>().isKinematic = true;
-            callCameraFollowLift();
+            //callCameraFollowLift();
         }
         else if(!lifting)
         {
@@ -152,7 +152,7 @@ public class Claw : MonoBehaviour
         {
             sentCameraLiftConnecteMessage = true;
             sentCameraLiftDisconnecteMessage = false;
-           // CameraFollow_Script.clawCarrying = true;
+            CameraFollow_Script.clawCarrying = true;
         }
     }
     public void callCameraFollowUnlift()
@@ -161,7 +161,7 @@ public class Claw : MonoBehaviour
         {
             sentCameraLiftDisconnecteMessage = true;
             sentCameraLiftConnecteMessage = false;
-          //  CameraFollow_Script.clawCarrying = false;
+            CameraFollow_Script.clawCarrying = false;
         }
     }
 

@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour
 {
      public GameObject[] objects;                // The prefab to be spawned.
      public float spawnTime = 6f;            // How long between each spawn.
-     private Vector3 spawnPosition;
+     public Vector3 spawnPosition;
     // Start is called before the first frame update
     void Start()
     {

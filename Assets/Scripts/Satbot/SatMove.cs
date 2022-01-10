@@ -22,6 +22,7 @@ public class SatMove : Player
     public GameObject MiniMap_Manager;
     public MiniMap MiniMap_Script;
     public string special;
+    public string specialController;
 
     
 
@@ -61,12 +62,14 @@ public class SatMove : Player
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
             special = "space";
+            specialController = "special1";
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
             moveAxisVertical = "VerticalPlayer2";
-            special = "return";   
+            special = "return";
+            specialController = "special2";   
         }
     }
 
@@ -83,7 +86,7 @@ public class SatMove : Player
         if (!fixRotation && directionRotate != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-            currentHealth = currentHealth - .05f;
+            currentHealth = currentHealth - .02f;
             Rails_Script.rails();
         }
 
@@ -135,7 +138,7 @@ public class SatMove : Player
         {
             MiniMap_Script.MiniMapToggle();
         }
-        if (Input.GetButtonDown("special"))
+        if (Input.GetButtonDown(specialController))
         {
             MiniMap_Script.MiniMapToggle();
         }

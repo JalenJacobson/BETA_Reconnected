@@ -28,6 +28,8 @@ public class GearTriggerCube : MonoBehaviour
     public string special;
 
     public string connectMessage;
+    public string activateController;
+    public string specialController;
 
     void Awake()
      {
@@ -53,6 +55,8 @@ public class GearTriggerCube : MonoBehaviour
             disconnectKey = "b";
             connectKey = "c";
             special = "space";
+            activateController = "activate1";
+            specialController = "special1";
         }
         else if(playerNumber == "P2")
         {
@@ -60,6 +64,8 @@ public class GearTriggerCube : MonoBehaviour
             disconnectKey = "l";
             connectKey = "j";
             special = "return";
+            activateController = "activate2";
+            specialController = "special2";
         }
     }
 
@@ -112,11 +118,11 @@ public class GearTriggerCube : MonoBehaviour
         {
             touching.SendMessage("Activate", ErrorMessage);
         }
-        if(touching != null && Input.GetButtonDown("activate"))
+        if(touching != null && Input.GetButtonDown(activateController))
         {
             Activate();
         }
-        if(connected && Input.GetButtonDown("special"))
+        if(connected && Input.GetButtonDown(specialController))
         {
             touching.SendMessage("Activate", ErrorMessage);
         }

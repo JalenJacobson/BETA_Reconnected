@@ -10,6 +10,7 @@ public class GearMove : Player
     public string moveAxisVertical;
     public string playerNumber;
     public float StartHealth = 100;
+    
     // public Animator anim;
 
     void Awake()
@@ -17,6 +18,7 @@ public class GearMove : Player
         playerNumber = PlayerPrefs.GetString("GearPlayerNumber");
         getControls();
         Brute = GameObject.Find("Brute");
+
      }
 
     void Start()
@@ -61,10 +63,11 @@ public class GearMove : Player
         directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
         rb.velocity = directionMove;
 
+
         if (!fixRotation && directionRotate != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-            currentHealth = currentHealth - .05f;
+            currentHealth = currentHealth - .02f;
         }
 
         // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
