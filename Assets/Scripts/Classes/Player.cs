@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     {
         startPos = new Vector3(47f, 1.29f, -246f);
         transform.position = startPos;
+        Input.GetJoystickNames();
     }
 
     void FixedUpdate()
