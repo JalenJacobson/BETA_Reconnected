@@ -33,7 +33,8 @@ public class ForceGate : IDI_Base
 
     public void forceGateDown()
     {
-        StartCoroutine(forceGateDownSequence());
+        // StartCoroutine(forceGateDownSequence());
+        anim.Play("ForceGateDown");
     }
 
     public IEnumerator forceGateDownSequence()
