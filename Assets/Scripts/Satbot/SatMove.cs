@@ -126,6 +126,7 @@ public class SatMove : Player
         if(currentHealth <= 0)
         {
             batteryDead = true;
+            anim.Play("SatDeadBattery");
         }
         else if(currentHealth > 0)
         {
@@ -142,6 +143,19 @@ public class SatMove : Player
         {
             MiniMap_Script.MiniMapToggle();
         }
+    }
+    public void HealBattery()
+    {
+        //if(currentHealth <= 0)
+            //{
+                StartCoroutine(Heal());
+            //}    
+    }
+    IEnumerator Heal()
+    {
+        anim.Play("SatHealBattery");
+        yield return new WaitForSeconds(2f);
+        anim.Play("Idle");
     }
 
     public override void drowning()

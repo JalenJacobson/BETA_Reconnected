@@ -67,7 +67,7 @@ public class GearMove : Player
         if (!fixRotation && directionRotate != Vector3.zero)
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-            currentHealth = currentHealth - .02f;
+            currentHealth = currentHealth - .05f;
         }
 
         // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
@@ -107,6 +107,7 @@ public class GearMove : Player
         if(currentHealth <= 0)
         {
             batteryDead = true;
+            anim.Play("GearDeadBattery");
         }
         else if(currentHealth > 0)
         {
@@ -114,6 +115,19 @@ public class GearMove : Player
         }
 
         healthBar.setHealth(currentHealth);
+    }
+        public void HealBattery()
+    {
+        //if(currentHealth <= 0)
+            //{
+                StartCoroutine(Heal());
+            //}    
+    }
+    IEnumerator Heal()
+    {
+        anim.Play("GearHealBattery");
+        yield return new WaitForSeconds(2f);
+        anim.Play("Idle0");
     }
     public override void drowning()
     {

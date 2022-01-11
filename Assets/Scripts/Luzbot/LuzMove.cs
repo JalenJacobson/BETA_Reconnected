@@ -101,22 +101,25 @@ public class LuzMove : Player
         if(currentHealth <= 0)
         {
             batteryDead = true;
+            anim.Play("LuzDeadBattery");
         }
         else if(currentHealth > 0)
         {
             batteryDead = false;
+
+            if (Input.GetKeyDown(special))
+            {
+                anim.Play("Recharge");
+                currentHealth = currentHealth - 10f;
+            }
+            if (Input.GetButtonDown(specialController))
+            {
+                anim.Play("Recharge");
+                currentHealth = currentHealth - 10f;
+            }
         }
         
-        if (Input.GetKeyDown(special))
-        {
-            anim.Play("Recharge");
-            currentHealth = currentHealth - 10f;
-        }
-        if (Input.GetButtonDown(specialController))
-        {
-            anim.Play("Recharge");
-            currentHealth = currentHealth - 10f;
-        }
+
 
         healthBar.setHealth(currentHealth);
     }

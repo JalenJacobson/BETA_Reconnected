@@ -138,7 +138,10 @@ public class BruteTriggerCube : MonoBehaviour
         if(Input.GetKeyDown(activateKey))
         {
             Activate();
-            BruteMove_Script.Sprint(); 
+            if (lifting == false && touching == null)
+            {
+            BruteMove_Script.Sprint();
+            } 
         }
         if(Input.GetButtonDown(activateController))
         {

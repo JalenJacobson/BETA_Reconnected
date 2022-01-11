@@ -59,7 +59,7 @@ public class BruteMove : Player
         if(directionMove != Vector3.zero)
         {
             rb.velocity = directionMove;
-            currentHealth = currentHealth - .02f;
+            currentHealth = currentHealth - .03f;
         }
 
         if (!fixRotation && directionRotate != Vector3.zero)
@@ -90,6 +90,7 @@ public class BruteMove : Player
         if(currentHealth <= 0)
         {
             batteryDead = true;
+            anim.Play("BruteDeadBattery");
         }
         else if(currentHealth > 0)
         {

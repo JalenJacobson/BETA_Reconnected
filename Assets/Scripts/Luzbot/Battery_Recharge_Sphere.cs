@@ -34,6 +34,7 @@ public class Battery_Recharge_Sphere : MonoBehaviour
             {
                 bot.SendMessage("restoreHealth");
                 touchingBots.Remove(bot);
+                bot.SendMessage("HealBattery");
             }
         }
     }
