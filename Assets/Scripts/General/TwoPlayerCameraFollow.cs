@@ -44,11 +44,11 @@ public class TwoPlayerCameraFollow : MonoBehaviour
     void FixedUpdate()
     {
         if(stationaryCamera) return;
-        if(!stationaryCamera && clawCarrying)
-        {
-            thirdPersonFollow("Gears");
-        }
-        else FixedCameraFollowSmooth(cam, bot1, bot2);
+        // else if(clawCarrying && !stationaryCamera)
+        // {
+        //     thirdPersonFollow("Gears");
+        // }
+        else if(!stationaryCamera) FixedCameraFollowSmooth(cam, bot1, bot2);
     }
 
     void Update()
@@ -56,10 +56,30 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         
     }
 
-    // public void stationaryCamera()
-    // {
+    public void lookAtObject(GameObject target)
+    {
+        StartCoroutine(lookAtObjectSequence(target));
+    }
 
-    // }
+    public IEnumerator lookAtObjectSequence(GameObject target)
+    {
+        stationaryCamera = true;
+        if(stationaryCamera){
+            offset = new Vector3(0.0f, 0.1f, -0.05f);
+            float followTimeDelta = 0.1f;
+            Vector3 cameraDestination = target.transform.TransformPoint(offset);
+            camera.transform.position = Vector3.Slerp(camera.transform.position, cameraDestination, followTimeDelta);
+            camera.transform.LookAt(target.transform);
+            if ((cameraDestination - camera.transform.position).magnitude <= 0.05f)
+            {
+                camera.transform.position = cameraDestination;
+            }
+        }
+        
+        yield return new WaitForSeconds(3f);
+        stationaryCamera = false;
+         yield return null;
+    }
 
     public void thirdPersonFollow(string objectToIgnore)
     {

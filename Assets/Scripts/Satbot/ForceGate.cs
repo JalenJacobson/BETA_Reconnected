@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class ForceGate : IDI_Base
 {
-   public Animator anim;
+    public Animator anim;
+    public TwoPlayerCameraFollow CameraFollow_Script;
 
-    // Use this for initialization
+    void Awake()
+    {
+        CameraFollow_Script = GameObject.Find("TwoPlayerCameraFollow").GetComponent<TwoPlayerCameraFollow>();
+    }
+    
     void Start () 
     {
         anim = GetComponent<Animator>();
@@ -18,7 +23,6 @@ public class ForceGate : IDI_Base
        // sendState();
     }
  
-    // Update is called once per frame
     void Update () 
     {
        if(active)
@@ -29,6 +33,13 @@ public class ForceGate : IDI_Base
 
     public void forceGateDown()
     {
+        StartCoroutine(forceGateDownSequence());
+    }
+
+    public IEnumerator forceGateDownSequence()
+    {
+        CameraFollow_Script.lookAtObject(gameObject);
+        yield return new WaitForSeconds(1f);
         anim.Play("ForceGateDown");
     }
 }
