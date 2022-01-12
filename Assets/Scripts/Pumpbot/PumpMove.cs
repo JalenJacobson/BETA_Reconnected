@@ -115,6 +115,11 @@ public class PumpMove : Player
         {
             batteryDead = false;
         }
+
+        if(isBeingCarried == true)
+        {
+          anim.Play("PumpBeingCarried");  
+        }
     }
 
     public void waterEnter()

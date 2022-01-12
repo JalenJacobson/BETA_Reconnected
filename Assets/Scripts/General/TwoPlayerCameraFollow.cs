@@ -89,7 +89,7 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         Vector3 cameraDestination = target.transform.position + offset;
         
         
-        // camera.transform.position = target.transform.position + offset;
+        camera.transform.position = target.transform.position + offset;
         camera.transform.position = Vector3.Slerp(camera.transform.position, cameraDestination, followTimeDelta);
          
         camera.transform.LookAt(target.transform);

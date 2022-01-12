@@ -6,6 +6,8 @@ public class PumpTriggerCube : MonoBehaviour
 {
     public GameObject Pump;
     PumpMove PumpMove_Script;
+    public GameObject Connector;
+    public PumpConnector ConnectionScript;
     
     public bool connected = false;
     public Vector3 connectPos;
@@ -50,6 +52,7 @@ public class PumpTriggerCube : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ConnectionScript = Connector.GetComponent<PumpConnector>();
         PumpMove_Script = Pump.GetComponent<PumpMove>();
         // Bubble_Script = ActionPump.GetComponent<ActionPump>();
         // Bubble_Script2 = ActionPump2.GetComponent<ActionPump2>();
@@ -109,6 +112,11 @@ public class PumpTriggerCube : MonoBehaviour
         {
              touching = other.gameObject;
         }
+        if(other.name.Contains("ConnectionBox"))
+        {
+             touching = other.gameObject;
+             ConnectionScript.touching = other.gameObject;
+        }
     }
 
      void OnTriggerExit(Collider other)
@@ -124,6 +132,7 @@ public class PumpTriggerCube : MonoBehaviour
             // PumpMove_Script.BlueWallClose();
             // CancelButton_Script.CancelStop();
             // Bubble_Script2.actionBubble2Stop();
+            ConnectionScript.touching = null;
         }
 
      }
@@ -146,6 +155,14 @@ public class PumpTriggerCube : MonoBehaviour
         {
             Activate();
         }
+        if(touching == null && Input.GetKeyDown(activateKey))
+        {
+            SnapBack();   
+        }
+        if(touching == null && Input.GetButtonDown(activateController))
+        {
+            SnapBack();   
+        }
      }
 
     //      public void Reactivate()
@@ -157,6 +174,13 @@ public class PumpTriggerCube : MonoBehaviour
      public void Activate()
      {
              touching.SendMessage("Activate");
+             ConnectionScript.SendMessage("Connect");
+
+     }
+
+     public void SnapBack()
+     {
+       ConnectionScript.SendMessage("SnapHoseBack");  
      }
     public void Activatefire()
      {
