@@ -6,6 +6,7 @@ public class ForceGate : IDI_Base
 {
     public Animator anim;
     public TwoPlayerCameraFollow CameraFollow_Script;
+    public bool activated = false;
 
     void Awake()
     {
@@ -25,16 +26,17 @@ public class ForceGate : IDI_Base
  
     void Update () 
     {
-       if(active)
+       if(active && !activated)
        {
            forceGateDown();
+           activated = true;
        } 
     }
 
     public void forceGateDown()
     {
-        // StartCoroutine(forceGateDownSequence());
-        anim.Play("ForceGateDown");
+        StartCoroutine(forceGateDownSequence());
+        // anim.Play("ForceGateDown");
     }
 
     public IEnumerator forceGateDownSequence()

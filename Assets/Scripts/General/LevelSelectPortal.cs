@@ -11,8 +11,9 @@ public class LevelSelectPortal : MonoBehaviour
     public bool sentCameraDisconnecteMessage = false;
     public GameObject lookPoint;
     public Vector3 lookPos;
-    public Vector3 desiredAngle;
-    public Vector3 oldAngle;
+    public Quaternion desiredAngle;
+    public Quaternion defaultAngle;
+    public Quaternion oldAngle;
     // Start is called before the first frame update
     void Start()
     {
@@ -41,7 +42,7 @@ public class LevelSelectPortal : MonoBehaviour
         sentCameraConnecteMessage = true;
         sentCameraDisconnecteMessage = false;
         CameraFollow_Script.followObject(lookPoint, "Screen");
-        CameraFollow_Script.desiredAngle = desiredAngle;
+        CameraFollow_Script.defaultAngle = defaultAngle;
     }
 
     public void OnTriggerExit(Collider other)
@@ -53,6 +54,6 @@ public class LevelSelectPortal : MonoBehaviour
         sentCameraDisconnecteMessage = true;
         sentCameraConnecteMessage = false;
         CameraFollow_Script.unfollowObject();
-        CameraFollow_Script.desiredAngle = oldAngle;
+        CameraFollow_Script.defaultAngle = oldAngle;
     }
 }

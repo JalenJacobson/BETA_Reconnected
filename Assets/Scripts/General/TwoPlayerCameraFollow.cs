@@ -17,15 +17,19 @@ public class TwoPlayerCameraFollow : MonoBehaviour
     public Vector3 stationaryCameraPosition;
     public bool stationaryCamera;
     public bool clawCarrying = false;
-    public Vector3 desiredAngle;
+    public Quaternion defaultAngle;
+    private GameObject objectToLookAt;
+    public bool lookingAtObject;
 
+    void Awake()
+    {
+        defaultAngle = camera.transform.rotation;
+    }
 
     void Start()
     {
         bots = GameObject.FindGameObjectsWithTag("Bot");
         getObjectsToFollow(bots);
-        print(camera.transform.eulerAngles.y);
-        desiredAngle = camera.transform.eulerAngles;
     }
 
     void getObjectsToFollow(GameObject[] objectsToFollow)
@@ -34,20 +38,14 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         bot2 = objectsToFollow[1].GetComponent<Transform>();
     }
 
-    void LateUpdate()
-    {
-        
-
-        // else FixedCameraFollowSmooth(cam, bot1, bot2);
-    }
-
     void FixedUpdate()
     {
-        if(stationaryCamera) return;
-        // else if(clawCarrying && !stationaryCamera)
-        // {
-        //     thirdPersonFollow("Gears");
-        // }
+        // if(stationaryCamera) return;
+        if(clawCarrying && !stationaryCamera)
+        {
+            thirdPersonFollow("Gears");
+        }
+        else if(stationaryCamera && lookingAtObject) lookingAtItem(objectToLookAt);
         else if(!stationaryCamera) FixedCameraFollowSmooth(cam, bot1, bot2);
     }
 
@@ -58,41 +56,37 @@ public class TwoPlayerCameraFollow : MonoBehaviour
 
     public void lookAtObject(GameObject target)
     {
+        stationaryCamera = true;
         StartCoroutine(lookAtObjectSequence(target));
     }
 
     public IEnumerator lookAtObjectSequence(GameObject target)
     {
-        stationaryCamera = true;
-        if(stationaryCamera){
-            offset = new Vector3(0.0f, 0.1f, -0.05f);
-            float followTimeDelta = 0.1f;
-            Vector3 cameraDestination = target.transform.TransformPoint(offset);
-            camera.transform.position = Vector3.Slerp(camera.transform.position, cameraDestination, followTimeDelta);
-            camera.transform.LookAt(target.transform);
-            if ((cameraDestination - camera.transform.position).magnitude <= 0.05f)
-            {
-                camera.transform.position = cameraDestination;
-            }
-        }
-        
-        yield return new WaitForSeconds(3f);
+        objectToLookAt = target;
+        lookingAtObject = true;
+        yield return new WaitForSeconds(2.5f);
         stationaryCamera = false;
-         yield return null;
+        lookingAtObject = false;
+    }
+
+    public void lookingAtItem(GameObject target)
+    {
+        offset = new Vector3(0.0f, 0.1f, -0.05f);
+        float followTimeDelta = 0.1f;
+        Vector3 cameraDestination = target.transform.TransformPoint(offset);
+        camera.transform.position = Vector3.Slerp(camera.transform.position, cameraDestination, followTimeDelta);
+        camera.transform.rotation = Quaternion.Slerp( camera.transform.rotation, Quaternion.LookRotation( target.transform.position - camera.transform.position ), followTimeDelta );
     }
 
     public void thirdPersonFollow(string objectToIgnore)
     {
         var target = getThirdPersonTarget(objectToIgnore);
-        offset = new Vector3(0, 20f, -15f);
-        float followTimeDelta = 0.1f;
+        offset = new Vector3(0, 30f, -20f);
+        float followTimeDelta = .05f;
         Vector3 cameraDestination = target.transform.position + offset;
         
-        
-        camera.transform.position = target.transform.position + offset;
         camera.transform.position = Vector3.Slerp(camera.transform.position, cameraDestination, followTimeDelta);
-         
-        camera.transform.LookAt(target.transform);
+        camera.transform.rotation = Quaternion.Slerp( camera.transform.rotation, Quaternion.LookRotation( target.transform.position - camera.transform.position ), followTimeDelta ); 
 
         if ((cameraDestination - camera.transform.position).magnitude <= 0.05f)
         {
@@ -104,12 +98,10 @@ public class TwoPlayerCameraFollow : MonoBehaviour
     {
         float zoomFactor = 1.2f;
         float followTimeDelta = 0.1f;
-
         Vector3 midpoint = (t1.position + t2.position) / 2f;
- 
         float distance = (t1.position - t2.position).magnitude;
+        camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, defaultAngle, followTimeDelta );
 
-        camera.transform.eulerAngles = desiredAngle;
         Vector3 cameraDestination = midpoint - cam.transform.forward * distance * zoomFactor;
     
         if(cameraDestination.y < zoomInMax)
