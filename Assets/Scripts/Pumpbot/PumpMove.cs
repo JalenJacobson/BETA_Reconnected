@@ -22,6 +22,7 @@ public class PumpMove : Player
     public string specialController;
     public bool bubbleOpen;
     public string playerNumber;
+    
 
     void Awake()
      {
@@ -125,6 +126,14 @@ public class PumpMove : Player
     public void waterEnter()
     {
         inWater = true;
+    }
+    public void waterDrain()
+    {
+        anim.Play("PumpWaterHose");
+    }
+    public void pumpBlow()
+    {
+        anim.Play("PumpBlowingHose");
     }
     public void waterExit()
     {

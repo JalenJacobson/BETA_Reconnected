@@ -28,7 +28,7 @@ public class WaterDrain : MonoBehaviour
         }
     }
 
-    public void Activate()
+    public void waterDrain()
     {
         waterDrainActive = true;
     }

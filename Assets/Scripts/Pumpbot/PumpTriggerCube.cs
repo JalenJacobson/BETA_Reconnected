@@ -41,6 +41,7 @@ public class PumpTriggerCube : MonoBehaviour
     public string special;
     public string activateController;
     public string specialController;
+    public bool connectedBox = false;
 
     void Awake()
      {
@@ -117,6 +118,10 @@ public class PumpTriggerCube : MonoBehaviour
              touching = other.gameObject;
              ConnectionScript.touching = other.gameObject;
         }
+        if(other.name.Contains("Drain"))
+        {
+           touching = other.gameObject; 
+        }
     }
 
      void OnTriggerExit(Collider other)
@@ -151,6 +156,14 @@ public class PumpTriggerCube : MonoBehaviour
          {
              Activate();
          }
+         if(touching != null && connectedBox == true && Input.GetKeyDown(special))
+         {
+             pumpSpecial();
+         }
+        if(touching == null && connectedBox == true && Input.GetKeyDown(special))
+         {
+             pumpBlow();
+         }
         if(touching != null && Input.GetButtonDown(activateController))
         {
             Activate();
@@ -176,6 +189,15 @@ public class PumpTriggerCube : MonoBehaviour
              touching.SendMessage("Activate");
              ConnectionScript.SendMessage("Connect");
 
+     }
+    public void pumpSpecial()
+     {
+             touching.SendMessage("waterDrain");
+             PumpMove_Script.waterDrain();
+     }
+    public void pumpBlow()
+     {
+             PumpMove_Script.pumpBlow();
      }
 
      public void SnapBack()

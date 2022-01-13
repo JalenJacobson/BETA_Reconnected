@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PumpConnector : MonoBehaviour
 {
+    public GameObject PumpTriggerCube;
+    public PumpTriggerCube PumpTrigger_Script;
     public GameObject Pump;
     public GameObject Connector;
     public bool connected = false;
@@ -15,7 +17,9 @@ public class PumpConnector : MonoBehaviour
     void Awake()
     {
     Connector = GameObject.Find("Connector");
+    PumpTriggerCube = GameObject.Find("PumpTriggerCube");
     Pump = GameObject.Find("Pump");
+    PumpTrigger_Script = PumpTriggerCube.GetComponent<PumpTriggerCube>();
     }
     void Start()
     { 
@@ -27,10 +31,12 @@ public class PumpConnector : MonoBehaviour
         if(connected == true)
         {
             Connector.transform.SetParent(touching.transform);
+            PumpTrigger_Script.connectedBox = true;
         }
         else if(connected != true)
         {
             Connector.transform.SetParent(Pump.transform);
+            PumpTrigger_Script.connectedBox = false;
         }
 
         float step = speed * Time.deltaTime;
