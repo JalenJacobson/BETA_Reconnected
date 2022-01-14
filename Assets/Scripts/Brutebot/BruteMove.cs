@@ -7,11 +7,15 @@ public class BruteMove : Player
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string playerNumber;
+    public GameObject BruteTriggerCube;
+    public BruteTriggerCube BruteTrigger_Script;
 
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("BrutePlayerNumber");
         getControls();
+        BruteTriggerCube = GameObject.Find("BruteTriggerCube");
+        BruteTrigger_Script = BruteTriggerCube.GetComponent<BruteTriggerCube>();
      }
 
     void Start()
@@ -83,7 +87,8 @@ public class BruteMove : Player
 
         if(breathRemaining <= 0f)
         {
-            StartCoroutine(returnToStart("DeadBrute"));
+            // StartCoroutine(returnToStart("DeadBrute"));
+            death();
             waterExit();
         }
 
@@ -129,6 +134,10 @@ public class BruteMove : Player
         if(!isDying)
         {
             isDying = true;
+            if(BruteTrigger_Script.lifting)
+            {
+                BruteTrigger_Script.drop();
+            }
             StartCoroutine(returnToStart("DeadBrute"));
         }
         

@@ -173,9 +173,15 @@ public class BruteTriggerCube : MonoBehaviour
 
     public void drop()
     {
+        
         lifting = false;
         touching.SendMessage("toggleIsBeingCarried");
         BruteMove_Script.fixRotation = false;
+        print("AABBAA" + BruteMove_Script.isDying);
+        if(BruteMove_Script.isDying)
+        {
+            touching = null;
+        }
     }
     
     public void lift() 

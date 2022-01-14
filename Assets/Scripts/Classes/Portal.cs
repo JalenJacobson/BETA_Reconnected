@@ -29,15 +29,14 @@ public class Portal : MonoBehaviour
         anim.Play("PortalActive");
     }
 
-    void OnTriggerStay(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         var characterName = other.name;
         if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute") || characterName.Contains("Push"))
         {
            if(portalIsActive && canPortal)
            {
-               other_portal_script.cantPortal();
-               other.transform.position = sendToLocation;
+               portalTransport(other.gameObject);
            }
         }
     }
@@ -50,7 +49,29 @@ public class Portal : MonoBehaviour
             if(!twoWayPortal) return;
             else StartCoroutine(twoWayPortalReactivate());
         }
+        else if(characterName.Contains("Push"))
+        {
+            if(!canPortal)
+            {
+                other.GetComponent<Rigidbody>().isKinematic = true;
+            }
+            
+        }
 
+    }
+
+    public void portalTransport(GameObject target)
+    {
+        if(target.name.Contains("Push"))
+        {
+            target.SendMessage("boxInPortal");
+        }
+        // else
+        // {
+            other_portal_script.cantPortal();
+            target.transform.position = sendToLocation;
+            target.GetComponent<Rigidbody>().isKinematic = false;
+        // }
     }
 
     public void cantPortal()

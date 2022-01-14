@@ -6,7 +6,9 @@ public class Box : MonoBehaviour
 {
     public Vector3 boxPos;
     public GameObject Brute;
+    public GameObject BruteTriggerCube;
     public BruteMove BruteMove_Script;
+    public BruteTriggerCube BruteTrigger_Script;
     public bool isBeingCarried = false;
     public string size = "small";
 
@@ -33,7 +35,9 @@ public class Box : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         Brute = GameObject.Find("Brute");
+        BruteTriggerCube = GameObject.Find("BruteTriggerCube");
         BruteMove_Script = Brute.GetComponent<BruteMove>();
+        BruteTrigger_Script = BruteTriggerCube.GetComponent<BruteTriggerCube>();
         moveSpeed = 4f;
         getBoxSize();
         anim = GetComponent<Animator>();
@@ -90,6 +94,11 @@ public class Box : MonoBehaviour
         {
             boxPos = new Vector3(0f, 0f, .06f);
         }
+    }
+
+    public void boxInPortal()
+    {
+        BruteTrigger_Script.drop();
     }
 
     void MovementX()
