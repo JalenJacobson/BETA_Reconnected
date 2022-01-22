@@ -73,8 +73,8 @@ public class PumpTriggerCube : MonoBehaviour
         if(playerNumber == "P1")
         {
             activateKey = "v";
-            disconnectKey = "b";
-            connectKey = "c";
+            // disconnectKey = "b";
+            // connectKey = "c";
             special = "space";
             activateController = "activate1";
             specialController = "special1";
@@ -82,8 +82,8 @@ public class PumpTriggerCube : MonoBehaviour
         else if(playerNumber == "P2")
         {
             activateKey = "k";
-            disconnectKey = "l";
-            connectKey = "j";
+            // disconnectKey = "l";
+            // connectKey = "j";
             special = "return";
             activateController = "activate2";
             specialController = "special2";
@@ -144,14 +144,14 @@ public class PumpTriggerCube : MonoBehaviour
 
      void Update()
      {
-         if(touching != null && Input.GetKeyDown(connectKey))
-         {
-             Connect();
-         }
-         if(touching != null && Input.GetKeyDown(disconnectKey))
-         {
-             Disconnect();
-         }
+        //  if(touching != null && Input.GetKeyDown(connectKey))
+        //  {
+        //      Connect();
+        //  }
+        //  if(touching != null && Input.GetKeyDown(disconnectKey))
+        //  {
+        //      Disconnect();
+        //  }
          if(touching != null && Input.GetKeyDown(activateKey))
          {
              Activate();
@@ -192,8 +192,11 @@ public class PumpTriggerCube : MonoBehaviour
      }
     public void pumpSpecial()
      {
+            if(touching.name.Contains("Drainage"))
+            {         
              touching.SendMessage("waterDrain");
              PumpMove_Script.waterDrain();
+            }
      }
     public void pumpBlow()
      {
@@ -204,32 +207,32 @@ public class PumpTriggerCube : MonoBehaviour
      {
        ConnectionScript.SendMessage("SnapHoseBack");  
      }
-    public void Activatefire()
-     {
-             touching.SendMessage("Activate2");
-     }
-    public void Deactivatefire()
-     {
-             touching.SendMessage("Activate3");
-     }
+    // public void Activatefire()
+    //  {
+    //          touching.SendMessage("Activate2");
+    //  }
+    // public void Deactivatefire()
+    //  {
+    //          touching.SendMessage("Activate3");
+    //  }
 
-    public void Connect()
-    {
-        if(!connected)
-        {
-             connected = true;  
-            PumpMove_Script.toggleFixPosition();
-        }
+    // public void Connect()
+    // {
+    //     if(!connected)
+    //     {
+    //          connected = true;  
+    //         PumpMove_Script.toggleFixPosition();
+    //     }
        
-    }
+    // }
      
-    public void Disconnect()
-    {   
-        if(connected)
-        {
-            connected = false;  
-            PumpMove_Script.toggleFixPosition(); 
-        }
-        else return;  
-    }
+    // public void Disconnect()
+    // {   
+    //     if(connected)
+    //     {
+    //         connected = false;  
+    //         PumpMove_Script.toggleFixPosition(); 
+    //     }
+    //     else return;  
+    // }
 }
