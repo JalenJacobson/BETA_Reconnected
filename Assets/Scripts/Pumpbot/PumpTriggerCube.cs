@@ -42,6 +42,7 @@ public class PumpTriggerCube : MonoBehaviour
     public string activateController;
     public string specialController;
     public bool connectedBox = false;
+    public GameObject connectedBoxName = null;
 
     void Awake()
      {
@@ -144,95 +145,69 @@ public class PumpTriggerCube : MonoBehaviour
 
      void Update()
      {
-        //  if(touching != null && Input.GetKeyDown(connectKey))
-        //  {
-        //      Connect();
-        //  }
-        //  if(touching != null && Input.GetKeyDown(disconnectKey))
-        //  {
-        //      Disconnect();
-        //  }
-         if(touching != null && Input.GetKeyDown(activateKey))
+   
+         if(Input.GetKeyDown(activateKey))
          {
              Activate();
          }
-         if(touching != null && connectedBox == true && Input.GetKeyDown(special))
+         if(Input.GetKeyDown(special))
          {
              pumpSpecial();
          }
-        if(touching == null && connectedBox == true && Input.GetKeyDown(special))
-         {
-             pumpBlow();
-         }
+    
         if(touching != null && Input.GetButtonDown(activateController))
         {
             Activate();
         }
-        if(touching == null && Input.GetKeyDown(activateKey))
-        {
-            SnapBack();   
-        }
+    
         if(touching == null && Input.GetButtonDown(activateController))
         {
             SnapBack();   
         }
      }
 
-    //      public void Reactivate()
-    //  {
-    //         Bubble_Script.actionBubbleStart();
-    //         Light_Script.actionBubbleStart();
-    //         Circle_Script.actionBubbleStart();
-    //  }
      public void Activate()
      {
-             touching.SendMessage("Activate");
-             ConnectionScript.SendMessage("Connect");
+        if(touching != null && !connectedBox)
+        {
+            touching.SendMessage("Activate");
+            ConnectionScript.SendMessage("Connect");
+            connectedBoxName = touching;
+        } 
+        else if(touching == null && connectedBox)
+        {
+            SnapBack();
+            connectedBoxName = null;
+        }
+             
 
      }
     public void pumpSpecial()
      {
-            if(touching.name.Contains("Drainage"))
-            {         
-             touching.SendMessage("waterDrain");
-             PumpMove_Script.waterDrain();
+            if(connectedBoxName.name.Contains("Drain"))
+            {      
+                if(touching.name.Contains("Drainage")) 
+                {
+                    touching.SendMessage("waterDrain");
+                    PumpMove_Script.waterDrain();
+                }    
             }
-     }
-    public void pumpBlow()
-     {
-             PumpMove_Script.pumpBlow();
+            else if(connectedBoxName.name.Contains("Air"))
+            {
+                PumpMove_Script.pumpBlow();
+            }
+            else if(connectedBoxName.name.Contains("Fire"))
+            {
+                // fire animation
+            }
+            else if(connectedBoxName.name.Contains("Gas"))
+            {
+                // Gas animation
+            }
      }
 
      public void SnapBack()
      {
        ConnectionScript.SendMessage("SnapHoseBack");  
      }
-    // public void Activatefire()
-    //  {
-    //          touching.SendMessage("Activate2");
-    //  }
-    // public void Deactivatefire()
-    //  {
-    //          touching.SendMessage("Activate3");
-    //  }
-
-    // public void Connect()
-    // {
-    //     if(!connected)
-    //     {
-    //          connected = true;  
-    //         PumpMove_Script.toggleFixPosition();
-    //     }
-       
-    // }
-     
-    // public void Disconnect()
-    // {   
-    //     if(connected)
-    //     {
-    //         connected = false;  
-    //         PumpMove_Script.toggleFixPosition(); 
-    //     }
-    //     else return;  
-    // }
 }

@@ -146,13 +146,16 @@ public class SatMove : Player
     }
     public void HealBattery()
     {
-        //if(currentHealth <= 0)
-            //{
+        print(currentHealth);
+        if(currentHealth <= 0)
+            {
                 StartCoroutine(Heal());
-            //}    
+            }    
     }
+
     IEnumerator Heal()
     {
+
         anim.Play("SatHealBattery");
         yield return new WaitForSeconds(2f);
         anim.Play("Idle");

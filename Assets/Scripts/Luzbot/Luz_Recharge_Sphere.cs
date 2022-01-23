@@ -39,9 +39,9 @@ public class Luz_Recharge_Sphere : MonoBehaviour
         {
             foreach (var bot in touchingBots)
             {
+                bot.SendMessage("HealBattery");
                 bot.SendMessage("restoreHealth");
                 touchingBots.Remove(bot);
-                bot.SendMessage("HealBattery");
             }
         }
     }
