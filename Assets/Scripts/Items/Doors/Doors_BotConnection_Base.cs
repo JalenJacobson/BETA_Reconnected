@@ -13,6 +13,9 @@ public class Doors_BotConnection_Base : CDI_Class
     void Start()
     {
         Doors_script = Doors.GetComponent<Doors>();
+        quickLookObject = Doors;
+        quickLookObjectOffset = new Vector3(-12f, 12f, 0f);
+        quickLookWhenActivated = true;
         anim = GetComponent<Animator>();
     }
 
@@ -48,8 +51,29 @@ public class Doors_BotConnection_Base : CDI_Class
  
         }  
     }
-    public void Activate()
-    {   
+    
+    // public void Activate()
+    // {   
+    //     Active = true;      
+    
+    //     if(!alreadyActivated)
+    //     {
+    //         alreadyActivated = true;
+    //         Doors_script.Activate();
+    //         anim.Play("ButtonActive");
+    //         anim.Play("PumpActivate");
+    //         anim.Play("SatDoorActivate");
+    //         anim.Play("LuzDoorActivate");
+    //     }
+    // }
+
+    void Activate()
+    {
+        StartCoroutine(activateItemSequence());
+    }
+
+    public override void activateItem()
+    {
         Active = true;      
     
         if(!alreadyActivated)

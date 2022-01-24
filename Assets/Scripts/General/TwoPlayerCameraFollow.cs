@@ -19,6 +19,7 @@ public class TwoPlayerCameraFollow : MonoBehaviour
     public bool clawCarrying = false;
     public Quaternion defaultAngle;
     private GameObject objectToLookAt;
+    private Vector3 objectToLookAtOffset;
     public bool lookingAtObject;
 
     void Awake()
@@ -45,7 +46,7 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         {
             thirdPersonFollow("Gears");
         }
-        else if(stationaryCamera && lookingAtObject) lookingAtItem(objectToLookAt);
+        else if(stationaryCamera && lookingAtObject) lookingAtItem(objectToLookAt, objectToLookAtOffset);
         else if(!stationaryCamera) FixedCameraFollowSmooth(cam, bot1, bot2);
     }
 
@@ -54,24 +55,26 @@ public class TwoPlayerCameraFollow : MonoBehaviour
         
     }
 
-    public void lookAtObject(GameObject target)
+    public void lookAtObject(GameObject target, Vector3 offset)
     {
         stationaryCamera = true;
-        StartCoroutine(lookAtObjectSequence(target));
+        StartCoroutine(lookAtObjectSequence(target, offset));
     }
 
-    public IEnumerator lookAtObjectSequence(GameObject target)
+    public IEnumerator lookAtObjectSequence(GameObject target, Vector3 offset)
     {
         objectToLookAt = target;
+        objectToLookAtOffset = offset;
         lookingAtObject = true;
         yield return new WaitForSeconds(2.5f);
         stationaryCamera = false;
         lookingAtObject = false;
     }
 
-    public void lookingAtItem(GameObject target)
+    public void lookingAtItem(GameObject target, Vector3 targetOffset)
     {
-        offset = new Vector3(0.0f, 0.1f, -0.05f);
+        // offset = new Vector3(0.0f, 0.1f, -0.05f);
+        offset = targetOffset;
         float followTimeDelta = 0.1f;
         Vector3 cameraDestination = target.transform.TransformPoint(offset);
         camera.transform.position = Vector3.Slerp(camera.transform.position, cameraDestination, followTimeDelta);
