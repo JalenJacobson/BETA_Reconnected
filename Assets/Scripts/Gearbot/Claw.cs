@@ -26,8 +26,8 @@ public class Claw : MonoBehaviour
 
     public GameObject touching = null;
 
-    public bool sentCameraConnecteMessage = false;
-    public bool sentCameraDisconnecteMessage = false;
+    // public bool sentCameraConnecteMessage = false;
+    // public bool sentCameraDisconnecteMessage = false;
     public bool sentCameraLiftConnecteMessage = false;
     public bool sentCameraLiftDisconnecteMessage = false;
 
@@ -52,19 +52,17 @@ public class Claw : MonoBehaviour
         if(clawConnected == true)
         {
             Movement();
-            callCameraFollow();
-            
+            // callCameraFollow();
         }
         else if(!clawConnected)
         {
-            callCameraUnfollow();
+            // callCameraUnfollow();
             touching.SendMessage("isNotBeingCarried");
         }
         if(lifting)
         {
             touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
             touching.GetComponent<Rigidbody>().isKinematic = true;
-            //callCameraFollowLift();
         }
         else if(!lifting)
         {
@@ -95,7 +93,6 @@ public class Claw : MonoBehaviour
             lifting = false;
             touching.SendMessage("isNotBeingCarried");
             touching.SendMessage("Explode");
-            // This needs to be an animation of the claw opening
         }
         
     }
@@ -128,24 +125,24 @@ public class Claw : MonoBehaviour
         // sendPos();
     }
 
-    public void callCameraFollow()
-    {
-        if(!sentCameraConnecteMessage)
-        {
-            sentCameraConnecteMessage = true;
-            sentCameraDisconnecteMessage = false;
-            CameraFollow_Script.followObject(liftPoint, "Gears");
-        }
-    }
-    public void callCameraUnfollow()
-    {
-        if(!sentCameraDisconnecteMessage)
-        {
-            sentCameraDisconnecteMessage = true;
-            sentCameraConnecteMessage = false;
-            CameraFollow_Script.unfollowObject();
-        }
-    }
+    // public void callCameraFollow()
+    // {
+    //     if(!sentCameraConnecteMessage)
+    //     {
+    //         sentCameraConnecteMessage = true;
+    //         sentCameraDisconnecteMessage = false;
+    //         CameraFollow_Script.followObject(liftPoint, "Gears");
+    //     }
+    // }
+    // public void callCameraUnfollow()
+    // {
+    //     if(!sentCameraDisconnecteMessage)
+    //     {
+    //         sentCameraDisconnecteMessage = true;
+    //         sentCameraConnecteMessage = false;
+    //         CameraFollow_Script.unfollowObject();
+    //     }
+    // }
     public void callCameraFollowLift()
     {
         if(!sentCameraLiftConnecteMessage)

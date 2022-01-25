@@ -2,37 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pump_Gasconnection : MonoBehaviour
+public class Pump_Gasconnection : CDI_Class
 {
-    public Animator anim;
-    // IDI's
-    // public GameObject Fire;
-    // Fire firestop_Script;
-    // public GameObject Fire_1;
-    // Fire firestop2_Script;
-    // public GameObject Fire_2;
-    // Fire firestop3_Script;
-
+    // public Animator anim;
     public List<GameObject> fires;
     public List<Fire> fire_Scripts;
     public float TimeDeactivated = 5;
 
+    
 
-
-    // Start is called before the first frame update
     public void Start()
     {
-         anim = GetComponent<Animator>();
-        // firestop_Script = Fire.GetComponent<Fire>();
-        // firestop2_Script = Fire_1.GetComponent<Fire>();
-        // firestop3_Script = Fire_2.GetComponent<Fire>();
+        anim = GetComponent<Animator>();
+        //with multiple fires it may be best to set quickLookObject and quickLookOffset manually in the inspector to ensure view is correct
+        quickLookObject = fires[0];
+        // quickLookObjectOffset = new Vector3(0.0f, .3f, -.2f);
+        quickLookWhenActivated = true;
         getFireScripts();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void getFireScripts()
@@ -44,28 +30,34 @@ public class Pump_Gasconnection : MonoBehaviour
         }
     }
 
-    public void Activate()
+    // public void Activate()
+    // {
+    //     StartCoroutine(ValveBoxSequence());
+    //     foreach(Fire fire_Script in fire_Scripts)
+    //     {
+    //         fire_Script.Activate();
+    //     }
+    // }
+    
+    public IEnumerator ValveBoxSequence()
+    {
+        anim.Play("ActivateValveBox");
+        yield return new WaitForSeconds(TimeDeactivated);
+        anim.Play("DeactivateValveBox");
+    }
+
+    void Activate()
+    {
+        StartCoroutine(activateItemSequence());
+    }
+
+    public override void activateItem()
     {
         StartCoroutine(ValveBoxSequence());
-    //    firestop_Script.deactivateFire(); 
-    //    firestop2_Script.deactivateFire(); 
-    //    firestop3_Script.deactivateFire(); 
         foreach(Fire fire_Script in fire_Scripts)
         {
             fire_Script.Activate();
         }
     }
-      public IEnumerator ValveBoxSequence()
-  {
-    anim.Play("ActivateValveBox");
-    yield return new WaitForSeconds(TimeDeactivated);
-    anim.Play("DeactivateValveBox");
-  }
-
-    public void Deactivate()
-    {
-        // firestop_Script.Play();
-        // firestop2_Script.Play();
-        // firestop3_Script.Play();
-    }
+    
 }
