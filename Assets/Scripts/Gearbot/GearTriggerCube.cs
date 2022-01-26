@@ -130,6 +130,7 @@ public class GearTriggerCube : MonoBehaviour
 
      public void Activate()
      {
+          GearMove_Script.Activate();
          
         if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers") || touching.name.Contains("Rotator"))
         {

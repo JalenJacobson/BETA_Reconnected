@@ -160,6 +160,11 @@ public class GearMove : Player
         
     }
 
+    public void Activate()
+    {
+        anim.Play("Gears");
+    }
+
     //  public void restoreHealth()
     // {
     //     currentHealth = maxHealth;
