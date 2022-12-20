@@ -74,8 +74,8 @@ public class PumpTriggerCube : MonoBehaviour
         if(playerNumber == "P1")
         {
             activateKey = "v";
-            // disconnectKey = "b";
-            // connectKey = "c";
+            disconnectKey = "b";
+            connectKey = "c";
             special = "space";
             activateController = "activate1";
             specialController = "special1";
@@ -83,8 +83,8 @@ public class PumpTriggerCube : MonoBehaviour
         else if(playerNumber == "P2")
         {
             activateKey = "k";
-            // disconnectKey = "l";
-            // connectKey = "j";
+            disconnectKey = "l";
+            connectKey = "j";
             special = "return";
             activateController = "activate2";
             specialController = "special2";
@@ -153,17 +153,17 @@ public class PumpTriggerCube : MonoBehaviour
          if(Input.GetKeyDown(special))
          {
              pumpSpecial();
-         }
-    
-        if(touching != null && Input.GetButtonDown(activateController))
-        {
-            Activate();
         }
     
-        if(touching == null && Input.GetButtonDown(activateController))
-        {
-            SnapBack();   
-        }
+        //if(touching != null && Input.GetButtonDown(activateController))
+        //{
+        //    Activate();
+        //}
+    
+        //if(touching == null && Input.GetButtonDown(activateController))
+        //{
+        //    SnapBack();   
+        //}
      }
 
      public void Activate()

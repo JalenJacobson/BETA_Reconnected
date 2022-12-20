@@ -4,26 +4,33 @@ using UnityEngine;
 
 public class HiddenRoomLuz : MonoBehaviour
 {
+public Animator anim;
     // Start is called before the first frame update
     void Start()
     {
- GetComponent<MeshRenderer>().enabled = true;       
-    }
-    void OnTriggerStay(Collider other)
-    {
-    var characterName = other.name;
-    if(characterName == "IdleLuz"){
-    
- GetComponent<MeshRenderer>().enabled = false;
-    }
-    }
-        void OnTriggerExit(Collider other)
-    {
-GetComponent<MeshRenderer>().enabled = true;        
+ anim = GetComponent<Animator>();                   
     }
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+    var characterName = other.name;
+    if(characterName == "IdleLuz")
+    {
+        anim.Play("LightRoom");
+    }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+    var characterName = other.name;
+    if(characterName == "IdleLuz")
+    {
+        anim.Play("DarkenRoom");
+    }
     }
 }

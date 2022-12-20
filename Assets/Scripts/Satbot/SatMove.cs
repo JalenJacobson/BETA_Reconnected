@@ -19,8 +19,8 @@ public class SatMove : Player
 
     public float StartHealth = 100;
 
-    public GameObject MiniMap_Manager;
-    public MiniMap MiniMap_Script;
+   // public GameObject MiniMap_Manager;
+   // public MiniMap MiniMap_Script;
     public string special;
     public string specialController;
 
@@ -37,7 +37,7 @@ public class SatMove : Player
 
     void Start()
     {
-        MiniMap_Script = MiniMap_Manager.GetComponent<MiniMap>();
+        //MiniMap_Script = MiniMap_Manager.GetComponent<MiniMap>();
         anim = GetComponent<Animator>(); 
         name = "Sat";
         Rails_Script = Rails.GetComponent<SatBotAnim>();
@@ -144,14 +144,14 @@ public class SatMove : Player
 
         healthBar.setHealth(currentHealth);
 
-        if (Input.GetKeyDown(special))
-        {
-            MiniMap_Script.MiniMapToggle();
-        }
-        if (Input.GetButtonDown(specialController))
-        {
-            MiniMap_Script.MiniMapToggle();
-        }
+        //if (Input.GetKeyDown(special))
+        //{
+        //    MiniMap_Script.MiniMapToggle();
+       // }
+        //if (Input.GetButtonDown(specialController))
+        //{
+        //    MiniMap_Script.MiniMapToggle();
+       // }
     }
     public void HealBattery()
     {
