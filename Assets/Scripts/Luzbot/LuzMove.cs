@@ -15,7 +15,7 @@ public class LuzMove : Player
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("LuzPlayerNumber");
-        getControls();
+        
      }
 
     void Start()
@@ -29,14 +29,23 @@ public class LuzMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(-180f, .5f, -98.5f);
         transform.position = startPos;
+        getControls();
         // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
         // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
         // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
     }
 
+    public override void setCurrentPlayer(int player)
+    {
+        controllingPlayer = player;
+        playerNumber = "P" + player.ToString();
+        getControls();
+    }
+
     void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";

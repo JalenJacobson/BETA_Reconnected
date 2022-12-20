@@ -245,6 +245,9 @@ public class Level_Manager : MonoBehaviour
     }
 
 //================= Character Selection P1 =====================
+    
+    
+    
     public void setPrefsGear1()
     {
         PlayerPrefs.SetString("GearPlayerNumber", "P1");

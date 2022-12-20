@@ -13,7 +13,7 @@ public class BruteMove : Player
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("BrutePlayerNumber");
-        getControls();
+        
         BruteTriggerCube = GameObject.Find("BruteTriggerCube");
         BruteTrigger_Script = BruteTriggerCube.GetComponent<BruteTriggerCube>();
      }
@@ -28,11 +28,20 @@ public class BruteMove : Player
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         transform.position = startPos;
+        getControls();
+    }
+
+    public override void setCurrentPlayer(int player)
+    {
+        controllingPlayer = player;
+        playerNumber = "P" + player.ToString();
+        getControls();
     }
 
     void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
@@ -42,6 +51,11 @@ public class BruteMove : Player
             moveAxisHorizontal = "HorizontalPlayer2";
             moveAxisVertical = "VerticalPlayer2";   
         }
+    }
+
+    public void toggleToNext()
+    {
+
     }
     
     public override void highGravityEnter ()

@@ -27,11 +27,12 @@ public class PumpMove : Player
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("PumpPlayerNumber");
-        getControls();
+        
      }
 
     void Start()
     {   
+        getControls();
         name = "Pump";
         currentHealth = maxHealth;
         pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
@@ -42,9 +43,17 @@ public class PumpMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();      
     }
 
+    public override void setCurrentPlayer(int player)
+    {
+        controllingPlayer = player;
+        playerNumber = "P" + player.ToString();
+        getControls();
+    }
+
     void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";

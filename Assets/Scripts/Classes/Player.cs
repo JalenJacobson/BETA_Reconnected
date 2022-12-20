@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public Vector3 directionMove;
     public bool fixPosition = false;
     public bool fixRotation = false;
+    public int controllingPlayer = 0;
     public Vector3 startPos;
     public float breathRemaining = 5f;
     public bool touchingAirBubble = false;
@@ -47,7 +48,7 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         directionMove = Vector3.zero;
-        if (fixPosition == false && currentHealth > 0){
+        if (fixPosition == false && currentHealth > 0 && controllingPlayer !=0){
             Movement();
         }
 
@@ -61,6 +62,12 @@ public class Player : MonoBehaviour
         //    GetComponent<Rigidbody>().useGravity = true; 
         // }
     }
+
+    public virtual void setCurrentPlayer(int player)
+    {
+        return;
+    }
+
     void Update()
     {
         if(inWater)

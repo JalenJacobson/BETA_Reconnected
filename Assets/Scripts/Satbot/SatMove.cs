@@ -32,7 +32,7 @@ public class SatMove : Player
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("SatPlayerNumber");
-        getControls();
+        
      }
 
     void Start()
@@ -45,6 +45,7 @@ public class SatMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
+        getControls();
         // startPos = new Vector3(58f, 1.3f, -230f);
         // transform.position = startPos;
         
@@ -55,9 +56,17 @@ public class SatMove : Player
         // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
     }
 
+    public override void setCurrentPlayer(int player)
+    {
+        controllingPlayer = player;
+        playerNumber = "P" + player.ToString();
+        getControls();
+    }
+
     void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";

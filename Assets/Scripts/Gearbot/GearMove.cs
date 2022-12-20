@@ -16,7 +16,7 @@ public class GearMove : Player
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("GearPlayerNumber");
-        getControls();
+        
         Brute = GameObject.Find("Brute");
 
      }
@@ -29,6 +29,7 @@ public class GearMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
+        getControls();
         
         // startPos = new Vector3(47f, 1.44f, -231f);
         // transform.position = startPos;
@@ -39,10 +40,17 @@ public class GearMove : Player
         // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
     }
 
+    public override void setCurrentPlayer(int player)
+    {
+        controllingPlayer = player;
+        playerNumber = "P" + player.ToString();
+        getControls();
+    }
+
     void getControls()
     {
-        print(playerNumber);
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
