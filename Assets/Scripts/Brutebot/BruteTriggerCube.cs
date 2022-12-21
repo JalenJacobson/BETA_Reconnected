@@ -25,18 +25,20 @@ public class BruteTriggerCube : MonoBehaviour
     void Awake()
     {
         playerNumber = PlayerPrefs.GetString("BrutePlayerNumber");
-        getControls();
+        
     }
 
     void Start()
     {
         BruteMove_Script = Brute.GetComponent<BruteMove>();
         liftPos = new Vector3(0.0f, -0.5f, -1.0f);
+        getControls();
     }
 
     public void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             activateKey = "v";
             disconnectKey = "b";

@@ -34,7 +34,7 @@ public class GearTriggerCube : MonoBehaviour
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("GearPlayerNumber");
-        getControls();
+        
      }
     
 
@@ -44,12 +44,13 @@ public class GearTriggerCube : MonoBehaviour
         connectPos = new Vector3(-0.01f, 0.005f, -0.003f);
         // Bubble_Script = ActionBubbles.GetComponent<BubbleScript>();
         // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
-        
+        getControls();
     }
 
     public void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             activateKey = "v";
             disconnectKey = "b";

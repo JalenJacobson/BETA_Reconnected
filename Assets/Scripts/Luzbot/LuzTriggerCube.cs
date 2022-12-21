@@ -30,18 +30,20 @@ public class LuzTriggerCube : MonoBehaviour
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("LuzPlayerNumber");
-        getControls();
+        
      }
 
     void Start()
     {
         LuzMove_Script = IdleLuz.GetComponent<LuzMove>();
         PowerScript = IdleLuz.GetComponent<ActivatePower>();
+        getControls();
     }
 
     public void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             activateKey = "v";
             disconnectKey = "b";

@@ -33,17 +33,19 @@ public class SatTriggerCube : MonoBehaviour
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("SatPlayerNumber");
-        getControls();
+        
      }
 
-    void Start(){
+    void Start()
+    {
         SatMove_Script = SatBot.GetComponent<SatMove>();
-
+        getControls();
     }
 
     public void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             activateKey = "v";
             disconnectKey = "b";

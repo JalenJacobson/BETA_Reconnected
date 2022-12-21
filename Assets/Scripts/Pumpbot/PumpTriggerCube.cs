@@ -47,7 +47,7 @@ public class PumpTriggerCube : MonoBehaviour
     void Awake()
      {
         playerNumber = PlayerPrefs.GetString("PumpPlayerNumber");
-        getControls();
+        
      }
 
 
@@ -67,11 +67,13 @@ public class PumpTriggerCube : MonoBehaviour
         // CancelButton2_Script = Cancel2.GetComponent<CancelButton>();
         BlueWall_Script = BlueWall.GetComponent<BlueWall>();
         anim = GetComponent<Animator>();
+        getControls();
     }
 
     public void getControls()
     {
-        if(playerNumber == "P1")
+        if(playerNumber == "P0") return;
+        else if(playerNumber == "P1")
         {
             activateKey = "v";
             disconnectKey = "b";
