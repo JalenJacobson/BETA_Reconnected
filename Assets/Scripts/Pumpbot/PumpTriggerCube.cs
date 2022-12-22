@@ -148,11 +148,11 @@ public class PumpTriggerCube : MonoBehaviour
      void Update()
      {
    
-         if(Input.GetKeyDown(activateKey))
+         if(touching != null && Input.GetKeyDown(activateKey))
          {
              Activate();
          }
-         if(Input.GetKeyDown(special))
+         if(touching != null && Input.GetKeyDown(special))
          {
              pumpSpecial();
         }

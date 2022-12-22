@@ -8,8 +8,8 @@ public class LuzMove : Player
     public string moveAxisVertical;
     public string playerNumber;
     // public Animator anim;
-    public string special;
-    public string specialController;
+    public string special = "v";
+    public string specialController = "v";
 
 
     void Awake()

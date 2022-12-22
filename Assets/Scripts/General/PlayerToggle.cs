@@ -49,11 +49,11 @@ public class PlayerToggle : MonoBehaviour
     public void selectStartingBots()
     {
         //at some point this will take the starting bots from a player select screen. for now it will just start with brute and luz;
-        player1 = 0;
-        player2 = 1;
+        player1 = 1;
+        player2 = 0;
         resetAllPrefs();
-        PlayerPrefs.SetString("LuzPlayerNumber", "P1");
-        PlayerPrefs.SetString("BrutePlayerNumber", "P2");
+        PlayerPrefs.SetString("BrutePlayerNumber", "P1");
+        PlayerPrefs.SetString("LuzPlayerNumber", "P2");
         moveScripts[player1].controllingPlayer = 1;
         moveScripts[player2].controllingPlayer = 2;
     }
