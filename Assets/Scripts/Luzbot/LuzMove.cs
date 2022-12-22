@@ -116,7 +116,7 @@ public class LuzMove : Player
         {
             batteryDead = false;
 
-            if (Input.GetKeyDown(special))
+            if (controllingPlayer !=0 && Input.GetKeyDown(special))
             {
                 anim.Play("Recharge");
                 currentHealth = currentHealth - 10f;

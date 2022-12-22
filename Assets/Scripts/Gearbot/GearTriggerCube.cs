@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GearTriggerCube : MonoBehaviour
+public class GearTriggerCube : TriggerCubeBase
 {
     public GameObject Gears;
     GearMove GearMove_Script;
@@ -16,20 +16,22 @@ public class GearTriggerCube : MonoBehaviour
     public GameObject touching = null;
     public Vector3 connectPos;
 
+    // public int controllingPlayer = 0;
+
     // public GameObject ActionBubbles;
     // BubbleScript Bubble_Script;
     // public Color blueCircuitField;
     // public Color redDanger;
 
-    public string playerNumber;
-    public string connectKey;
-    public string activateKey;
-    public string disconnectKey;
-    public string special;
+    // public string playerNumber;
+    // public string connectKey;
+    // public string activateKey;
+    // public string disconnectKey;
+    // public string special;
 
-    public string connectMessage;
-    public string activateController;
-    public string specialController;
+    // public string connectMessage;
+    // public string activateController;
+    // public string specialController;
 
     void Awake()
      {
@@ -47,28 +49,35 @@ public class GearTriggerCube : MonoBehaviour
         getControls();
     }
 
-    public void getControls()
-    {
-        if(playerNumber == "P0") return;
-        else if(playerNumber == "P1")
-        {
-            activateKey = "v";
-            disconnectKey = "b";
-            connectKey = "c";
-            special = "space";
-            activateController = "activate1";
-            specialController = "special1";
-        }
-        else if(playerNumber == "P2")
-        {
-            activateKey = "k";
-            disconnectKey = "l";
-            connectKey = "j";
-            special = "return";
-            activateController = "activate2";
-            specialController = "special2";
-        }
-    }
+    // public void getControls()
+    // {
+    //     if(playerNumber == "P0") return;
+    //     else if(playerNumber == "P1")
+    //     {
+    //         activateKey = "v";
+    //         disconnectKey = "b";
+    //         connectKey = "c";
+    //         special = "space";
+    //         activateController = "activate1";
+    //         specialController = "special1";
+    //     }
+    //     else if(playerNumber == "P2")
+    //     {
+    //         activateKey = "k";
+    //         disconnectKey = "l";
+    //         connectKey = "j";
+    //         special = "return";
+    //         activateController = "activate2";
+    //         specialController = "special2";
+    //     }
+    // }
+
+    // public void setCurrentPlayer(int player)
+    // {
+    //     controllingPlayer = player;
+    //     playerNumber = "P" + player.ToString();
+    //     getControls();
+    // }
 
     void OnTriggerEnter(Collider other)
     {

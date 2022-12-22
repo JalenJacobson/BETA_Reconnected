@@ -8,6 +8,7 @@ public class PlayerToggle : MonoBehaviour
     public GameObject[] botsInitial;
     public List<GameObject> bots;
     public List<Player> moveScripts;
+    public List<TriggerCubeBase> triggerScripts;
 
     public int player1;
     public int player2;
@@ -22,6 +23,14 @@ public class PlayerToggle : MonoBehaviour
         foreach (GameObject botInitial in botsInitial)
         {
             moveScripts.Add(botInitial.GetComponent<Player>());
+        }
+        foreach (GameObject botInitial in botsInitial)
+        {
+            Transform parentTrans = botInitial.transform;
+            Transform childTrans = parentTrans.Find("TriggerCube");
+            GameObject triggerCube = childTrans.gameObject;
+            TriggerCubeBase triggerCubeScript = triggerCube.GetComponent<TriggerCubeBase>();
+            triggerScripts.Add(triggerCubeScript);
         }
         print(moveScripts[0]);
         selectStartingBots();
@@ -89,6 +98,7 @@ public class PlayerToggle : MonoBehaviour
         if(moveScripts[player1].controllingPlayer == 0)
         {
            moveScripts[player1].setCurrentPlayer(1); 
+           triggerScripts[player1].setCurrentPlayer(1); 
            return;
         }
         else if (moveScripts[player1].controllingPlayer != 0)
@@ -121,6 +131,7 @@ public class PlayerToggle : MonoBehaviour
         if(moveScripts[player2].controllingPlayer == 0)
         {
            moveScripts[player2].setCurrentPlayer(2); 
+           triggerScripts[player2].setCurrentPlayer(2); 
            return;
         }
         else if (moveScripts[player2].controllingPlayer != 0)
