@@ -15,9 +15,9 @@ public class Pump_Gasconnection : CDI_Class
     {
         anim = GetComponent<Animator>();
         //with multiple fires it may be best to set quickLookObject and quickLookOffset manually in the inspector to ensure view is correct
-        quickLookObject = fires[0];
+        //quickLookObject = fires[0];
         // quickLookObjectOffset = new Vector3(0.0f, .3f, -.2f);
-        quickLookWhenActivated = true;
+        //quickLookWhenActivated = true;
         getFireScripts();
     }
 

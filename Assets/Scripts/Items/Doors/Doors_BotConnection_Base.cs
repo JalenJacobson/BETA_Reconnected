@@ -13,9 +13,9 @@ public class Doors_BotConnection_Base : CDI_Class
     void Start()
     {
         Doors_script = Doors.GetComponent<Doors>();
-        quickLookObject = Doors;
-        quickLookObjectOffset = new Vector3(-12f, 12f, 0f);
-        quickLookWhenActivated = true;
+        //quickLookObject = Doors;
+        //quickLookObjectOffset = new Vector3(-12f, 12f, 0f);
+        //quickLookWhenActivated = true;
         anim = GetComponent<Animator>();
     }
 

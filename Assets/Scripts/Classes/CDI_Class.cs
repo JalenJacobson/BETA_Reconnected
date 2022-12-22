@@ -11,22 +11,22 @@ public class CDI_Class : MonoBehaviour
     public bool botTouching = false;
     public bool botConnected = false;
 
-    public TwoPlayerCameraFollow CameraFollow_Script;
-    public GameObject quickLookObject;
-    public Vector3 quickLookObjectOffset;
-    public bool quickLookWhenActivated;
-    public bool followWhenActivated;
+    //public TwoPlayerCameraFollow CameraFollow_Script;
+    //public GameObject quickLookObject;
+    //public Vector3 quickLookObjectOffset;
+    //public bool quickLookWhenActivated;
+    //public bool followWhenActivated;
     public string botToIgnore;
-    public GameObject liftPoint;
+    //public GameObject liftPoint;
 
-    public bool sentCameraConnecteMessage = false;
-    public bool sentCameraDisconnecteMessage = false;
-    public bool sentCameraLiftConnecteMessage = false;
-    public bool sentCameraLiftDisconnecteMessage = false;
+    // public bool sentCameraConnecteMessage = false;
+    // public bool sentCameraDisconnecteMessage = false;
+    // public bool sentCameraLiftConnecteMessage = false;
+    // public bool sentCameraLiftDisconnecteMessage = false;
 
     public void Awake()
     {
-      CameraFollow_Script = GameObject.Find("TwoPlayerCameraFollow").GetComponent<TwoPlayerCameraFollow>();
+      //CameraFollow_Script = GameObject.Find("TwoPlayerCameraFollow").GetComponent<TwoPlayerCameraFollow>();
     }
 
     public void toggleBotTouching()
@@ -54,32 +54,32 @@ public class CDI_Class : MonoBehaviour
 
     public IEnumerator activateItemSequence()
     {
-        if(quickLookWhenActivated && quickLookObject != null)
-        {
-          CameraFollow_Script.lookAtObject(quickLookObject, quickLookObjectOffset);
-        }
+        // if(quickLookWhenActivated && quickLookObject != null)
+        // {
+        //   CameraFollow_Script.lookAtObject(quickLookObject, quickLookObjectOffset);
+        // }
         yield return new WaitForSeconds(1f);
         activateItem();
     }
     
-    public void callCameraFollow()
-    {
-        if(!sentCameraConnecteMessage)
-        {
-            sentCameraConnecteMessage = true;
-            sentCameraDisconnecteMessage = false;
-            CameraFollow_Script.followObject(liftPoint, botToIgnore);
-        }
-    }
-    public void callCameraUnfollow()
-    {
-        if(!sentCameraDisconnecteMessage)
-        {
-            sentCameraDisconnecteMessage = true;
-            sentCameraConnecteMessage = false;
-            CameraFollow_Script.unfollowObject();
-        }
-    }
+    // public void callCameraFollow()
+    // {
+    //     if(!sentCameraConnecteMessage)
+    //     {
+    //         sentCameraConnecteMessage = true;
+    //         sentCameraDisconnecteMessage = false;
+    //         CameraFollow_Script.followObject(liftPoint, botToIgnore);
+    //     }
+    // }
+    // public void callCameraUnfollow()
+    // {
+    //     if(!sentCameraDisconnecteMessage)
+    //     {
+    //         sentCameraDisconnecteMessage = true;
+    //         sentCameraConnecteMessage = false;
+    //         CameraFollow_Script.unfollowObject();
+    //     }
+    // }
 
     //cdi class calls camera follow, then calls item activate. it just needs an item to send for the camera to follow and an offset and then an overriden item activate function in each CDI child
 }

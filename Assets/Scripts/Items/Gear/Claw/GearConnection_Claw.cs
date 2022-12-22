@@ -49,7 +49,7 @@ public class GearConnection_Claw : CDI_Class
 
     public void connect()
     {
-        callCameraFollow();
+        //callCameraFollow();
         anim.Play("ActivateGearBox");
         ClawMove_Script.clawConnected = true;
         ClawMove_Script.anim.Play("Claw");
@@ -62,7 +62,7 @@ public class GearConnection_Claw : CDI_Class
 
     public void disconnect()
     {
-        callCameraUnfollow();
+        //callCameraUnfollow();
         anim.Play("DeactivateGearBox");
         ClawMove_Script.clawConnected = false;
         if(ClawMove_Script.lifting)

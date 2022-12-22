@@ -16,9 +16,9 @@ public class ActivatePortals : CDI_Class
     {
         portala_script = PortalA.GetComponent<Portal>();
         portalb_script = PortalB.GetComponent<Portal>();
-        quickLookObject = PortalA;
-        quickLookObjectOffset = new Vector3(0.0f, 15f, -2f);
-        quickLookWhenActivated = true;
+        //quickLookObject = PortalA;
+        //quickLookObjectOffset = new Vector3(0.0f, 15f, -2f);
+        //quickLookWhenActivated = true;
         anim = GetComponent<Animator>(); 
     }
 

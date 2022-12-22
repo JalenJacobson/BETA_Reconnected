@@ -12,20 +12,20 @@ public class Gear_Connection_Crawler : CDI_Class
     {
         anim = GetComponent<Animator>();
         StandMove_Script = Stand.GetComponent<Gear_Crawler>();
-        liftPoint = Stand;
+        //liftPoint = Stand;
         botToIgnore = "Gears";
     }
 
     void connect()
     {
-        callCameraFollow();
+        //callCameraFollow();
         anim.Play("ActivateGearBox");
         StandMove_Script.standConnected = true;
     }
 
     void disconnect()
     {
-        callCameraUnfollow();
+        //callCameraUnfollow();
         anim.Play("DeactivateGearBox");
         StandMove_Script.standConnected = false;
     }
