@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BruteMove : Player
 {
@@ -9,6 +10,8 @@ public class BruteMove : Player
     public string playerNumber;
     public GameObject BruteTriggerCube;
     public BruteTriggerCube BruteTrigger_Script;
+    public Image P1Circle;
+    public Image P2Circle;
 
     void Awake()
      {
@@ -29,6 +32,8 @@ public class BruteMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         transform.position = startPos;
         getControls();
+        //P1Circle.spriteRenderer = GetComponent<SpriteRenderer>
+        //P2Circle.spriteRenderer = GetComponent<SpriteRenderer>
     }
 
     public override void setCurrentPlayer(int player)
@@ -40,16 +45,24 @@ public class BruteMove : Player
 
     void getControls()
     {
-        if(playerNumber == "P0") return;
+        if(playerNumber == "P0")
+        {
+            P1Circle.enabled = false;
+            P2Circle.enabled = false;
+        }
         else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
+            P1Circle.enabled = true;
+            P2Circle.enabled = false;
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
-            moveAxisVertical = "VerticalPlayer2";   
+            moveAxisVertical = "VerticalPlayer2";
+            P1Circle.enabled = false;
+            P2Circle.enabled = true;   
         }
     }
 
@@ -91,6 +104,7 @@ public class BruteMove : Player
 
     void Update()
     {
+
         if(inWater == true)
         {
             if(!touchingAirBubble)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GearMove : Player
 {
@@ -10,6 +11,8 @@ public class GearMove : Player
     public string moveAxisVertical;
     public string playerNumber;
     public float StartHealth = 100;
+    public Image P1Circle;
+    public Image P2Circle;
     
     // public Animator anim;
 
@@ -49,16 +52,24 @@ public class GearMove : Player
 
     void getControls()
     {
-        if(playerNumber == "P0") return;
+        if(playerNumber == "P0")
+        {
+            P1Circle.enabled = false;
+            P2Circle.enabled = false;
+        }
         else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
+            P1Circle.enabled = true;
+            P2Circle.enabled = false;
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
-            moveAxisVertical = "VerticalPlayer2";   
+            moveAxisVertical = "VerticalPlayer2";
+            P1Circle.enabled = false;
+            P2Circle.enabled = true;   
         }
     }
 

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PumpMove : Player
 {
@@ -22,6 +23,8 @@ public class PumpMove : Player
     public string specialController;
     public bool bubbleOpen;
     public string playerNumber;
+    public Image P1Circle;
+    public Image P2Circle;
     
 
     void Awake()
@@ -52,13 +55,19 @@ public class PumpMove : Player
 
     void getControls()
     {
-        if(playerNumber == "P0") return;
+        if(playerNumber == "P0")
+        {
+            P1Circle.enabled = false;
+            P2Circle.enabled = false;
+        }
         else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
             special = "space";
             specialController = "special1";
+            P1Circle.enabled = true;
+            P2Circle.enabled = false;
         }
         else if(playerNumber == "P2")
         {
@@ -66,6 +75,8 @@ public class PumpMove : Player
             moveAxisVertical = "VerticalPlayer2";  
             special = "return";
             specialController = "special2"; 
+            P1Circle.enabled = false;
+            P2Circle.enabled = true;  
         }
     }
 

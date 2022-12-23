@@ -5,14 +5,14 @@ using UnityEngine;
 public class GearAnim : MonoBehaviour
 {
    public Animator anim;
-    public AudioSource mySound;
+   // public AudioSource mySound;
     
 
  // Use this for initialization
  void Start () {
         anim = GetComponent<Animator>();
         var audioClip = Resources.Load<AudioClip>("GearBotAudio");  //Load the AudioClip from the Resources Folder
-        mySound.clip = audioClip;
+       // mySound.clip = audioClip;
  }
  
  // Update is called once per frame
@@ -24,7 +24,7 @@ public class GearAnim : MonoBehaviour
         }
         if (Input.GetKeyDown("z"))
         {
-        mySound.Play();
+       // mySound.Play();
 
         }
     }

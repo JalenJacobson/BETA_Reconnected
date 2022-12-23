@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SatMove : Player
 {
@@ -23,6 +24,8 @@ public class SatMove : Player
    // public MiniMap MiniMap_Script;
     public string special;
     public string specialController;
+    public Image P1Circle;
+    public Image P2Circle;
 
     
 
@@ -65,20 +68,28 @@ public class SatMove : Player
 
     void getControls()
     {
-        if(playerNumber == "P0") return;
+        if(playerNumber == "P0")
+        {
+            P1Circle.enabled = false;
+            P2Circle.enabled = false;
+        }
         else if(playerNumber == "P1")
         {
             moveAxisHorizontal = "Horizontal";
             moveAxisVertical = "Vertical";
             special = "space";
             specialController = "special1";
+            P1Circle.enabled = true;
+            P2Circle.enabled = false;
         }
         else if(playerNumber == "P2")
         {
             moveAxisHorizontal = "HorizontalPlayer2";
             moveAxisVertical = "VerticalPlayer2";
             special = "return";
-            specialController = "special2";   
+            specialController = "special2";
+            P1Circle.enabled = false;
+            P2Circle.enabled = true;    
         }
     }
 

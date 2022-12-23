@@ -79,6 +79,9 @@ public class PlayerToggle : MonoBehaviour
     public void togglePlayer1()
     {
         moveScripts[player1].controllingPlayer = 0;
+        resetAllPrefs();
+        moveScripts[player1].setCurrentPlayer(0);
+        triggerScripts[player1].setCurrentPlayer(0);
         checkAndSelectPlayer1();
     }
 
@@ -112,6 +115,9 @@ public class PlayerToggle : MonoBehaviour
     public void togglePlayer2()
     {
         moveScripts[player2].controllingPlayer = 0;
+        resetAllPrefs();
+        moveScripts[player2].setCurrentPlayer(0);
+        triggerScripts[player2].setCurrentPlayer(0);
         checkAndSelectPlayer2();
     }
 

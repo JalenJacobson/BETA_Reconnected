@@ -156,15 +156,6 @@ public class PumpTriggerCube : TriggerCubeBase
 
      void Update()
      {
-   
-         if(Input.GetKeyDown(activateKey))
-         {
-             Activate();
-         }
-         if(Input.GetKeyDown(special))
-         {
-             pumpSpecial();
-        }
     
         //if(touching != null && Input.GetButtonDown(activateController))
         //{
