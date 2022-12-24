@@ -157,38 +157,28 @@ public class PumpTriggerCube : TriggerCubeBase
      void Update()
      {
     
-        //if(touching != null && Input.GetButtonDown(activateController))
-        //{
-        //    Activate();
-        //}
-    
-        //if(touching == null && Input.GetButtonDown(activateController))
-        //{
-        //    SnapBack();   
-        //}
+        if(touching != null && Input.GetKeyDown(activateKey))
+        {
+           Activate();
+        }
+        if(touching != null && Input.GetKeyDown(special))
+        {
+           pumpSpecial();
+        }
+        if(touching == null && connectedBox && Input.GetKeyDown(activateKey))
+        {
+           SnapBack();
+        }
      }
 
      public void Activate()
      {
-        if(touching != null && !connectedBox)
+        if(touching.name.Contains("ConnectionBox") && !connectedBox)
         {
-            touching.SendMessage("Activate");
             ConnectionScript.SendMessage("Connect");
             connectedBoxName = touching;
         }
-        // else if(touching != null && connectedBox)
-        // {
-        //     touching.SendMessage("Activate");
-        //     ConnectionScript.SendMessage("Connect");
-        //     connectedBoxName = touching;
-        // } 
-        else if(touching == null && connectedBox)
-        {
-            SnapBack();
-            connectedBoxName = null;
-        }
-             
-
+        else touching.SendMessage("Activate");
      }
     public void pumpSpecial()
      {
