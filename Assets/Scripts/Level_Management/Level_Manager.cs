@@ -8,7 +8,7 @@ using System.Text;
 
 public class Level_Manager : MonoBehaviour
 {
-    public int sceneToGoTo;
+    public int sceneToGoTo = -1;
     public Animator transition;
     public float transitionTime = 1f;
     public static int oldTutorialLevel;
@@ -17,15 +17,14 @@ public class Level_Manager : MonoBehaviour
 
     public async void Start()
     {
-        sceneToGoTo = 1;
-        print(oldTutorialLevel);
+        sceneToGoTo = -1;
     }
 
     void Update()
     {
-        if(Input.GetKeyDown("u"))
+        if(sceneToGoTo != -1 && Input.GetKeyDown("u"))
         {
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(sceneToGoTo);
         }
     }
        
