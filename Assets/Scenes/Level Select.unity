@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44434407, g: 0.4938081, b: 0.5731605, a: 1}
+  m_IndirectSpecularColor: {r: 0.4443446, g: 0.4938084, b: 0.57316136, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -740,9 +740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6027d82e46f54cf0be6420cd5976e9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Node: {fileID: 499876958}
-  NodeMove_Script: {fileID: 0}
-  rotationSpeed: 10
 --- !u!4 &289221511
 Transform:
   m_ObjectHideFlags: 0
@@ -1039,8 +1036,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level_Manager: {fileID: 0}
+  Lights: {fileID: 0}
   newScene: 3
-  hoverPosition: {x: 0, y: 10, z: 0}
+  bots: []
+  finishedBots: 0
 --- !u!1001 &421332990
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1326,18 +1325,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 586480560}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &486609888 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2929252283123773951, guid: aaa2c939c0359ac4dbce3f49e8b90252,
-    type: 3}
-  m_PrefabInstance: {fileID: 586480560}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 45977bbae16431c46a013576a1aea384, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &499876958
 GameObject:
   m_ObjectHideFlags: 0
@@ -1373,28 +1360,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 70
-  rotateSpeed: 15
+  directionMove: {x: 0, y: 0, z: 0}
   rb: {fileID: 499876966}
-  toggleSelected: 1
-  blueWall: 0
-  isLocalPlayer: 1
-  isBeingCarried: 0
-  name: 
-  Brute: {fileID: 0}
-  liftPos: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}
-  fixPosition: 0
-  startPos: {x: 0, y: 0, z: 0}
-  breathRemaining: 5
-  touchingAirBubble: 0
-  inWater: 0
-  DangerField: {fileID: 0}
-  DangerState: {fileID: 0}
-  orangeGravityField: {r: 0, g: 0, b: 0, a: 0}
-  greenConsole: {r: 0, g: 0, b: 0, a: 0}
-  blueCircuitField: {r: 0, g: 0, b: 0, a: 0}
-  redDanger: {r: 0, g: 0, b: 0, a: 0}
-  joystick: {fileID: 486609888}
+  moveAxisHorizontal: 
+  moveAxisVertical: 
 --- !u!135 &499876960
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1866,7 +1835,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 53539a49a400a4e4db558c679120f7b0,
+      objectReference: {fileID: 21300000, guid: 5b56d9fa0e8bd6e409ed188db38a692c,
         type: 3}
     - target: {fileID: 2929252283123773937, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -2002,6 +1971,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Fixed Joystick
+      objectReference: {fileID: 0}
+    - target: {fileID: 2929252283123773939, guid: aaa2c939c0359ac4dbce3f49e8b90252,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2929252285020697096, guid: aaa2c939c0359ac4dbce3f49e8b90252,
         type: 3}
@@ -6485,7 +6459,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1929705343
 Transform:
   m_ObjectHideFlags: 0
