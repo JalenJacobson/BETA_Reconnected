@@ -105,13 +105,17 @@ public class Level_Manager : MonoBehaviour
     IEnumerator LoadStoryMode()
     {
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(25);
+        SceneManager.LoadScene(5);
     }
     
     public void loadLevelSelectLevel()
     {
-        sceneToGoTo = 2;
-        SceneManager.LoadScene(sceneToGoTo);
+        StartCoroutine(loadLevelSelectLevelSelect());
+    }
+    IEnumerator loadLevelSelectLevelSelect()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene(2);
     }
     
     public void loadGameOverLevel()
@@ -177,7 +181,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator startTutorialWin()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(12);
+        SceneManager.LoadScene(3);
     }
     
     public void loseTutorial(int sendingTutorialLevel)
@@ -206,9 +210,8 @@ public class Level_Manager : MonoBehaviour
 
     IEnumerator StartcontinueTutorial()
     {
-        var nextScene = oldTutorialLevel +1;
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(nextScene);
+        SceneManager.LoadScene(2);
     }
 
     public void replayTutorial()
