@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4443446, g: 0.4938084, b: 0.57316136, a: 1}
+  m_IndirectSpecularColor: {r: 0.44434407, g: 0.4938081, b: 0.5731605, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -282,6 +282,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
         type: 3}
+      propertyPath: LevelNumber
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
+        type: 3}
       propertyPath: sceneToGoTo
       value: 7
       objectReference: {fileID: 0}
@@ -502,6 +507,52 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 84e4034bdc151294b97e0d253849572f, type: 3}
+--- !u!1 &80941276
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 80941278}
+  - component: {fileID: 80941277}
+  m_Layer: 0
+  m_Name: LevelSelectPortal_Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &80941277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80941276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 39c700a39c59443e9802fa65c998a028, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LevelSelectPortals: []
+  LevelSelector_Scripts: []
+  highestLevelComplete: 0
+--- !u!4 &80941278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 80941276}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -52.594177, y: 82.620895, z: -892.7759}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 56
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &96625784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -657,6 +708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelSelectPortal (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
+        type: 3}
+      propertyPath: LevelNumber
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
         type: 3}
@@ -823,6 +879,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
         type: 3}
+      propertyPath: LevelNumber
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
+        type: 3}
       propertyPath: sceneToGoTo
       value: 9
       objectReference: {fileID: 0}
@@ -983,6 +1044,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelSelectPortal (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
+        type: 3}
+      propertyPath: LevelNumber
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
         type: 3}
@@ -2667,6 +2733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: LevelSelectPortal (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
+        type: 3}
+      propertyPath: LevelNumber
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
         type: 3}
@@ -5430,6 +5501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
         type: 3}
+      propertyPath: LevelNumber
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
+        type: 3}
       propertyPath: sceneToGoTo
       value: 12
       objectReference: {fileID: 0}
@@ -6290,8 +6366,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
         type: 3}
+      propertyPath: LevelNumber
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2812767522394145153, guid: e7bbc4b9e64574e2aaed5356cdd8e60d,
+        type: 3}
       propertyPath: sceneToGoTo
-      value: 6
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e7bbc4b9e64574e2aaed5356cdd8e60d, type: 3}

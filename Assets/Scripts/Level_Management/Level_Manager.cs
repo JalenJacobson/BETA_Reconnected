@@ -14,18 +14,34 @@ public class Level_Manager : MonoBehaviour
     public static int oldTutorialLevel;
     public string levelValuePlayerOne = "";
     public string levelValuePlayerTwo = "";
+    
 
     public async void Start()
     {
         sceneToGoTo = -1;
+        
     }
 
     void Update()
     {
-        if(sceneToGoTo != -1 && Input.GetKeyDown("u"))
+        // if(sceneToGoTo != -1 && Input.GetKeyDown("u"))
+        // {
+        //     SceneManager.LoadScene(sceneToGoTo);
+        // }
+    }
+
+    public void loadSceneFromLevelSelect(int sceneToGoToFromPortal, bool availableFromPortal)
+    {
+        if(availableFromPortal)
         {
-            SceneManager.LoadScene(sceneToGoTo);
+            SceneManager.LoadScene(sceneToGoToFromPortal);
         }
+        else
+        {
+            print("level is locked");
+            // we can put some UI here that will tell player they need to unlock level if we want
+            return;
+        }    
     }
        
     public void Back()
@@ -181,7 +197,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator startTutorialWin()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("1_WinScreen");
     }
     
     public void loseTutorial(int sendingTutorialLevel)
@@ -211,7 +227,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator StartcontinueTutorial()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Level_Select");
     }
 
     public void replayTutorial()

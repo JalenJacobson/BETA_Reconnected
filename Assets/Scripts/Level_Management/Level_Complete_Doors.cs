@@ -16,6 +16,8 @@ public class Level_Complete_Doors : MonoBehaviour
     public GameObject[] bots;
     public int finishedBots = 0;
 
+    public Scene scene;
+
     void Start()
     {
         LevelManager_script = Level_Manager.GetComponent<Level_Manager>();
@@ -23,6 +25,8 @@ public class Level_Complete_Doors : MonoBehaviour
         bots = GameObject.FindGameObjectsWithTag("Bot");
         Lights = GameObject.Find("Lights");
         Winlights = Lights.GetComponent<LevelWin>(); 
+        scene = SceneManager.GetActiveScene();
+        print("BUILD INDEX " + scene.buildIndex);
     }
 
     void OnTriggerEnter(Collider other)
@@ -39,6 +43,7 @@ public class Level_Complete_Doors : MonoBehaviour
     {
         if(finishedBots >= bots.Length)
         {
+            PlayerPrefs.SetInt("highestLevelComplete", scene.buildIndex);
             Winlights.Win();
             LevelManager_script.winTutorial(currentScene);
         }   
