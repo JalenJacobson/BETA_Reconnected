@@ -71,6 +71,6 @@ public class PauseMenu : MonoBehaviour
     public void mainMenu()
     {
         Time.timeScale = 1f;
-        Level_Manager_Script.returnToMainMenu();
+        Level_Manager_Script.loadLevelSelectLevel();
     }
 }
