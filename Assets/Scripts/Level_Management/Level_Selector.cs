@@ -31,10 +31,26 @@ public class Level_Selector : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         nodeEntered = true;
+        if(available == false)
+        {
+            anim.Play("Level_Locked_Indicator");
+        }
+        // else if(available == true)
+        // {
+        //     anim.Play("Level_Available_Indicator");
+        // }
     }
     void OnTriggerExit(Collider other)
     {
         nodeEntered = false;
+        if(available == false)
+        {
+            anim.Play("Level_Locked");
+        }
+        // else if(available == true)
+        // {
+        //     anim.Play("Level_Available");
+        // }
     }
 
     public void levelAvailable()
@@ -46,6 +62,7 @@ public class Level_Selector : MonoBehaviour
     {
         // change color to blue
         won = true;
+        available = true;
     }
 
     void Update()
@@ -55,14 +72,21 @@ public class Level_Selector : MonoBehaviour
             LevelManager_Script.loadSceneFromLevelSelect(sceneToGoTo, available);
         }
 
-        if(available == true)
+        if(available && nodeEntered == true)
+        {
+            anim.Play("Level_Available_Indicator");
+        }
+
+        else if(won == false && available == true && nodeEntered == false)
         {
             anim.Play("Level_Available");
         }
-        if(won == true)
+
+        else if(won && available == true && nodeEntered == false)
         {
             anim.Play("Level_Won");
         }
+
     }
 
     
