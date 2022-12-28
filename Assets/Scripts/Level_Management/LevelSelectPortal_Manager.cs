@@ -12,8 +12,7 @@ public class LevelSelectPortal_Manager : MonoBehaviour
 
     void Awake()
     {
-        // PlayerPrefs.SetInt("highestLevelComplete", 0);
-        highestLevelComplete = PlayerPrefs.GetInt("highestLevelComplete");
+        //PlayerPrefs.SetInt("highestLevelComplete", 0);
         LevelSelectPortals = GameObject.FindGameObjectsWithTag("LevelSelect_Portal");
         foreach(GameObject portal in LevelSelectPortals)
         {
@@ -23,11 +22,19 @@ public class LevelSelectPortal_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        highestLevelComplete = PlayerPrefs.GetInt("highestLevelComplete");
+
+        print("highest" + highestLevelComplete);
+
         foreach(Level_Selector level in LevelSelector_Scripts)
         {
-            if(level.LevelNumber <= highestLevelComplete + 1)
+            if(level.LevelNumber == highestLevelComplete + 1)
             {
                 level.levelAvailable();
+            }
+            else if(level.LevelNumber <= highestLevelComplete)
+            {
+                level.levelWon();
             }
             else
             {

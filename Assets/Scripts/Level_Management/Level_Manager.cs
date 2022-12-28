@@ -121,7 +121,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator LoadStoryMode()
     {
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene(5);
+        SceneManager.LoadScene("HackingRoom");
     }
     
     public void loadLevelSelectLevel()
@@ -131,7 +131,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator loadLevelSelectLevelSelect()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("Level_Select");
     }
     
     public void loadGameOverLevel()
