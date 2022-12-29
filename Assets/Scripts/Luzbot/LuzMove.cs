@@ -74,11 +74,12 @@ public class LuzMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
+        //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        //float verticalMove = Input.GetAxis(moveAxisVertical);
 
-        directionRotate = new Vector3(horizontalMove, 0.0f, verticalMove);
-        directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
+        directionRotate = new Vector3(moveInputValue.x, 0.0f, moveInputValue.y);
+        directionMove = new Vector3(moveInputValue.x * moveSpeed, rb.velocity.y, moveInputValue.y * moveSpeed);
+        print("WORKED!!!!" + moveInputValue.y);
         rb.velocity = directionMove;
 
         if (!fixRotation && directionRotate != Vector3.zero)
@@ -90,6 +91,25 @@ public class LuzMove : Player
         // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         
     }
+
+    // public override void Movement()
+    // {
+    //     float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+    //     float verticalMove = Input.GetAxis(moveAxisVertical);
+
+    //     directionRotate = new Vector3(horizontalMove, 0.0f, verticalMove);
+    //     directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
+    //     rb.velocity = directionMove;
+
+    //     if (!fixRotation && directionRotate != Vector3.zero)
+    //     {
+    //         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
+    //         currentHealth = currentHealth - .01f;
+    //     }
+
+    //     // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        
+    // }
 
      void Update()
     {

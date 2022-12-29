@@ -32,6 +32,7 @@ public class BruteMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         transform.position = startPos;
         getControls();
+        //string[] GetJoystickNames();
         //P1Circle.spriteRenderer = GetComponent<SpriteRenderer>
         //P2Circle.spriteRenderer = GetComponent<SpriteRenderer>
     }
@@ -82,11 +83,11 @@ public class BruteMove : Player
 
     public override void Movement()
     {
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
+        //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        //float verticalMove = Input.GetAxis(moveAxisVertical);
 
-        directionRotate = new Vector3(horizontalMove, 0.0f, verticalMove);
-        directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
+        directionRotate = new Vector3(moveInputValue.x, 0.0f, moveInputValue.y);
+        directionMove = new Vector3(moveInputValue.x * moveSpeed, rb.velocity.y, moveInputValue.y * moveSpeed);
         if(directionMove != Vector3.zero)
         {
             rb.velocity = directionMove;
