@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using System.Net.Http;
 using System;
 using System.Text;
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour
     public bool batteryDead;
     public bool isDying = false;
 
+    private Vector2 moveInputValue;
+
     void Start()
     {
         startPos = new Vector3(47f, 1.29f, -246f);
@@ -61,6 +64,12 @@ public class Player : MonoBehaviour
         // {
         //    GetComponent<Rigidbody>().useGravity = true; 
         // }
+    }
+
+    private void OnMove(InputValue value)
+    {
+        moveInputValue = value.Get<Vector2>();
+        print(moveInputValue);
     }
 
     public virtual void setCurrentPlayer(int player)
