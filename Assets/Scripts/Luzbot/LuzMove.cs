@@ -72,13 +72,13 @@ public class LuzMove : Player
         }
     }
 
-    public override void Movement()
+    public override void Movement(float x, float y)
     {
         //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
         //float verticalMove = Input.GetAxis(moveAxisVertical);
 
-        directionRotate = new Vector3(moveInputValue.x, 0.0f, moveInputValue.y);
-        directionMove = new Vector3(moveInputValue.x * moveSpeed, rb.velocity.y, moveInputValue.y * moveSpeed);
+        directionRotate = new Vector3(x, 0.0f, y);
+        directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
         print("WORKED!!!!" + moveInputValue.y);
         rb.velocity = directionMove;
 

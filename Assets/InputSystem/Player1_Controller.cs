@@ -1,30 +1,54 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
-public class Player1_Controller : Player
+public class Player1_Controller : MonoBehaviour
 {
-    public string moveAxisHorizontal;
-    public string moveAxisVertical;
-    //public string playerNumber;
-    // Start is called before the first frame update
+    public GameObject PlayerToggle;
+    public PlayerToggle PlayerToggle_Script;
+    public GameObject BotControlling;
+    public Player BotControlling_Script;
+    public TriggerCubeBase TriggerCube_Script;
+    public int BotControlling_Index;
+
+    public Vector2 moveInputValue;
+
+    public float x;
+    public float y;
+    
     
         void Awake()
      {
-        //playerNumber = PlayerPrefs.GetString("PlayerPlayerNumber");
+        PlayerToggle = GameObject.Find("PlayerToggle");
+        PlayerToggle_Script = PlayerToggle.GetComponent<PlayerToggle>();
      }
     
     void Start()
     {
-        anim = GetComponent<Animator>();
-        name = "Player1";
-        moveSpeed = 10f;
-        currentHealth = maxHealth;
-        healthBar.setHealth(maxHealth);
-        lose_condition = GameObject.Find("Lose_Conditions");
-        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
-        transform.position = startPos;
-        getControls(); 
+        // BotControllingIndex should come from character select as a player prefs
+        getNewBot();
+
+    }
+
+    public void getNewBot()
+    {
+        BotControlling = PlayerToggle_Script.bots[0];
+        BotControlling_Script = PlayerToggle_Script.moveScripts[0];
+        TriggerCube_Script = PlayerToggle_Script.triggerScripts[0];
+    }
+
+    private void OnMove(InputValue value)
+    {
+        moveInputValue = value.Get<Vector2>();
+        print("GAMER" + Gamepad.current.displayName);
+        x = moveInputValue.x;
+        y = moveInputValue.y;
+    }
+
+    public void FixedUpdate()
+    {
+        BotControlling_Script.Movement(x, y);
     }
 
     // Update is called once per frame
@@ -33,39 +57,5 @@ public class Player1_Controller : Player
         
     }
 
-    public override void setCurrentPlayer(int player)
-    {
-        controllingPlayer = player;
-        //playerNumber = "P" + player.ToString();
-        getControls();
-    }
-
-    void getControls()
-    {
-        moveAxisHorizontal = "Horizontal";
-        moveAxisVertical = "Vertical";
-    }
-
-
-    public override void Movement()
-    {
-        //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        //float verticalMove = Input.GetAxis(moveAxisVertical);
-
-        directionRotate = new Vector3(moveInputValue.x, 0.0f, moveInputValue.y);
-        directionMove = new Vector3(moveInputValue.x * moveSpeed, rb.velocity.y, moveInputValue.y * moveSpeed);
-        if(directionMove != Vector3.zero)
-        {
-            rb.velocity = directionMove;
-            currentHealth = currentHealth - .03f;
-        }
-
-        if (!fixRotation && directionRotate != Vector3.zero)
-        {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-        }
-
-        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        
-    }
+    
 }

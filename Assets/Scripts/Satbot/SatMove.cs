@@ -93,13 +93,13 @@ public class SatMove : Player
         }
     }
 
-    public override void Movement()
+    public override void Movement(float x, float y)
     {
         float horizontalMove = Input.GetAxis(moveAxisHorizontal);
         float verticalMove = Input.GetAxis(moveAxisVertical);
 
-        directionRotate = new Vector3(horizontalMove, 0.0f, verticalMove);
-        directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
+        directionRotate = new Vector3(x, 0.0f, y);
+        directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
         
         rb.velocity = directionMove;
 
