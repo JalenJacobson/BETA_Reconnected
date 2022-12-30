@@ -67,7 +67,7 @@ public class Level_Selector : MonoBehaviour
 
     void Update()
     {
-        if(nodeEntered && Input.GetKeyDown("u"))
+        if(nodeEntered && Input.GetKeyDown("u") || Input.GetButtonDown("activate1"))
         {
             LevelManager_Script.loadSceneFromLevelSelect(sceneToGoTo, available);
         }
