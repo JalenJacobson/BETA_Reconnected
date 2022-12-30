@@ -9,6 +9,7 @@ public class PlayerToggle : MonoBehaviour
     public List<GameObject> bots;
     public List<Player> moveScripts;
     public List<TriggerCubeBase> triggerScripts;
+    
 
     public int player1;
     public int player2;
@@ -36,6 +37,8 @@ public class PlayerToggle : MonoBehaviour
         selectStartingBots();
     }
 
+    
+
     void Start()
     {
         
@@ -44,16 +47,9 @@ public class PlayerToggle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown("g"))
-        {
-            togglePlayer1();
-        }
-        else if(Input.GetKeyDown("h"))
-        {
-            togglePlayer2();
-        }
 
     }
+
 
     public void selectStartingBots()
     {
@@ -81,75 +77,25 @@ public class PlayerToggle : MonoBehaviour
         PlayerPrefs.SetString("SatPlayerNumber", "P0");
     }
 
-    public void togglePlayer1()
+    public int getAvailableBotIndex()
     {
-        moveScripts[player1].controllingPlayer = 0;
-        resetAllPrefs();
-        moveScripts[player1].setCurrentPlayer(0);
-        triggerScripts[player1].setCurrentPlayer(0);
-        checkAndSelectPlayer1();
+        var avaiableBotIndex = checkAndSelect();
+        return avaiableBotIndex;
     }
 
-    public void checkAndSelectPlayer1()
-    {
-        print("AAAXXX" + moveScripts.Count);
-        print(player1);
-        if (player1 < moveScripts.Count - 1)
-        {
-            player1++;
-        }
-        else if (player1 == moveScripts.Count - 1)
-        {
-            player1 = 0;
-        }
-        
-        if(moveScripts[player1].controllingPlayer == 0)
-        {
-           moveScripts[player1].setCurrentPlayer(1); 
-           triggerScripts[player1].setCurrentPlayer(1); 
-           return;
-        }
-        else if (moveScripts[player1].controllingPlayer != 0)
-        {
-            
-            checkAndSelectPlayer1();
-        }
 
+    public int checkAndSelect()
+    {
+        for(var i = 0; i <= moveScripts.Count - 1; i++)
+        {
+            if(moveScripts[i].available)
+            {
+                return i;
+            }
+            else return -1;
+        }
+        return -1;
     }
 
-    public void togglePlayer2()
-    {
-        moveScripts[player2].controllingPlayer = 0;
-        resetAllPrefs();
-        moveScripts[player2].setCurrentPlayer(0);
-        triggerScripts[player2].setCurrentPlayer(0);
-        checkAndSelectPlayer2();
-    }
-
-    public void checkAndSelectPlayer2()
-    {
-        print("AAAXXX" + moveScripts.Count);
-        print(player2);
-        if (player2 < moveScripts.Count - 1)
-        {
-            player2++;
-        }
-        else if (player2 == moveScripts.Count - 1)
-        {
-            player2 = 0;
-        }
-        
-        if(moveScripts[player2].controllingPlayer == 0)
-        {
-           moveScripts[player2].setCurrentPlayer(2); 
-           triggerScripts[player2].setCurrentPlayer(2); 
-           return;
-        }
-        else if (moveScripts[player2].controllingPlayer != 0)
-        {
-            
-            checkAndSelectPlayer2();
-        }
-
-    }
+    
 }

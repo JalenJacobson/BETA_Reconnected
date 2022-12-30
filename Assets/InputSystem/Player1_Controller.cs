@@ -10,7 +10,8 @@ public class Player1_Controller : MonoBehaviour
     public GameObject BotControlling;
     public Player BotControlling_Script;
     public TriggerCubeBase TriggerCube_Script;
-    public int BotControlling_Index;
+    public int availableBot;
+    public Player oldBotControlling;
 
     public Vector2 moveInputValue;
 
@@ -34,10 +35,20 @@ public class Player1_Controller : MonoBehaviour
 
     public void getNewBot()
     {
-        print("NEWBOT");
-        BotControlling = PlayerToggle_Script.bots[0];
-        BotControlling_Script = PlayerToggle_Script.moveScripts[0];
-        TriggerCube_Script = PlayerToggle_Script.triggerScripts[0];
+        if(BotControlling != null)
+        {
+            oldBotControlling = BotControlling_Script;
+            BotControlling = null;
+            BotControlling_Script = null;
+            TriggerCube_Script = null;
+        }
+        availableBot = PlayerToggle_Script.getAvailableBotIndex();
+        BotControlling = PlayerToggle_Script.bots[availableBot];
+        BotControlling_Script = PlayerToggle_Script.moveScripts[availableBot];
+        TriggerCube_Script = PlayerToggle_Script.triggerScripts[availableBot];
+        BotControlling_Script.available = false;
+        oldBotControlling.available = true;
+        oldBotControlling = null;
     }
 
     private void OnMove(InputValue value)

@@ -42,6 +42,8 @@ public class Player : MonoBehaviour
     public Vector2 moveInputValue;
     public string[] Controllers;
 
+    public bool available = true;
+
     void Start()
     {
         startPos = new Vector3(47f, 1.29f, -246f);
