@@ -173,7 +173,7 @@ public class Level_Manager : MonoBehaviour
 
         yield return new WaitForSeconds(transitionTime);
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("Hero Select 1");
     }
 
 

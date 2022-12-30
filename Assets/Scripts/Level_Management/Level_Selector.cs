@@ -65,9 +65,19 @@ public class Level_Selector : MonoBehaviour
         available = true;
     }
 
+    private void gotoLevel()
+     {
+        print("NEXTLEVEL");
+
+        if(nodeEntered && available)
+        {
+            LevelManager_Script.loadSceneFromLevelSelect(sceneToGoTo, available);
+        }
+     }
+
     void Update()
     {
-        if(nodeEntered && Input.GetKeyDown("u"))
+        if(nodeEntered && available && Input.GetKeyDown("u"))
         {
             LevelManager_Script.loadSceneFromLevelSelect(sceneToGoTo, available);
         }

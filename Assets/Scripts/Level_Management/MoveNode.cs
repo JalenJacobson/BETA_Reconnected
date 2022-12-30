@@ -6,6 +6,8 @@ using UnityEngine.InputSystem;
 
 public class MoveNode : MonoBehaviour
 {
+    public GameObject touching = null;     
+
     public float moveSpeed = 10;
     public float rotateSpeed = 10;
     public Vector3 directionMove;
@@ -16,6 +18,7 @@ public class MoveNode : MonoBehaviour
     public string moveAxisVertical;
     public bool fixRotation = false;
     public Vector3 startPos;
+    public bool nodeEntered = false;
 
     public Vector2 moveInputValue;
 
@@ -53,5 +56,34 @@ public class MoveNode : MonoBehaviour
     {
         moveInputValue = value.Get<Vector2>();
         print("GAMER" + Gamepad.current.displayName);
+    }
+
+    private void OnSubmit()
+     {
+        print("NEXTLEVEL");
+
+        if(nodeEntered == true)
+        {  
+        touching.SendMessage("gotoLevel");
+        }
+     }
+
+    void OnTriggerEnter(Collider other)
+    {
+        nodeEntered = true;
+
+        if(other.name.Contains("LevelSelectPortal"))
+      {
+        touching = other.gameObject; 
+      }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        nodeEntered = false;
+
+        if(other.name.Contains("LevelSelectPortal"))
+      {
+        touching = null; 
+      }
     }
 }
