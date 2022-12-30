@@ -74,6 +74,7 @@ public class LuzMove : Player
 
     public override void Movement(float x, float y)
     {
+        print("LUZ is moving" + x + y);
         //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
         //float verticalMove = Input.GetAxis(moveAxisVertical);
 

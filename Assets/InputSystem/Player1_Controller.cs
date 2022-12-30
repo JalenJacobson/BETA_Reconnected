@@ -22,17 +22,19 @@ public class Player1_Controller : MonoBehaviour
      {
         PlayerToggle = GameObject.Find("PlayerToggle");
         PlayerToggle_Script = PlayerToggle.GetComponent<PlayerToggle>();
+        getNewBot();
      }
     
     void Start()
     {
         // BotControllingIndex should come from character select as a player prefs
-        getNewBot();
+        
 
     }
 
     public void getNewBot()
     {
+        print("NEWBOT");
         BotControlling = PlayerToggle_Script.bots[0];
         BotControlling_Script = PlayerToggle_Script.moveScripts[0];
         TriggerCube_Script = PlayerToggle_Script.triggerScripts[0];
@@ -44,11 +46,12 @@ public class Player1_Controller : MonoBehaviour
         print("GAMER" + Gamepad.current.displayName);
         x = moveInputValue.x;
         y = moveInputValue.y;
+        BotControlling_Script.Movement(x, y);
     }
 
     public void FixedUpdate()
     {
-        BotControlling_Script.Movement(x, y);
+        
     }
 
     // Update is called once per frame
