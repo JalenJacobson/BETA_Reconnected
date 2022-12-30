@@ -92,7 +92,7 @@ public class PlayerToggle : MonoBehaviour
             {
                 return i;
             }
-            else return -1;
+            else continue;
         }
         return -1;
     }

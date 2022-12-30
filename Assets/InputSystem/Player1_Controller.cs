@@ -60,6 +60,12 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_Script.Movement(x, y);
     }
 
+     private void OnToggle()
+     {
+        print("TOGGLING WORKED");
+        getNewBot();
+     }
+
     public void FixedUpdate()
     {
         
