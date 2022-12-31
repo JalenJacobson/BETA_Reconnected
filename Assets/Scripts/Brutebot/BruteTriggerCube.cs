@@ -174,12 +174,13 @@ public class BruteTriggerCube : TriggerCubeBase
                 lift();
                 BruteMove_Script.Lift();
             }
+            else if(lifting)
+            {
+                drop();
+                BruteMove_Script.Drop();   
+            }
         }
-        else if(lifting)
-        {
-            drop();
-            BruteMove_Script.Drop();   
-        }
+        
         else 
         {
             return;
