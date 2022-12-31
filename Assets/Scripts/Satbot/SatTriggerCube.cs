@@ -109,11 +109,11 @@ public class SatTriggerCube : TriggerCubeBase
      void OnTriggerExit(Collider other)
      {
         // touching.SendMessage("toggleBotBoth");
-        touching = null;
-        touchingToken = null;
+        
         if(other.name.Contains("Sat"))
         {
-
+            touching = null;
+            touchingToken = null;
         }
         else if(other.name.Contains("BatteryUI"))
         {
@@ -137,24 +137,14 @@ public class SatTriggerCube : TriggerCubeBase
 
             }      
         }
-
-        if(touching != null && Input.GetKeyDown(connectKey))
-         {
-             Connect();
-         }
-         if(touching != null && Input.GetKeyDown(disconnectKey))
-         {
-             Disconnect();
-         }
-
-         if(touching != null && Input.GetKeyDown(activateKey))
-         {
-             Activate();
-         }
-         if(touching != null && Input.GetButtonDown(activateController))
-         {
-            Activate();
-         }
+        //  if(touching != null && Input.GetKeyDown(activateKey))
+        //  {
+        //      Activate();
+        //  }
+        //  if(touching != null && Input.GetButtonDown(activateController))
+        //  {
+        //     Activate();
+        //  }
      }
 
     void DownloadToken()
@@ -173,7 +163,7 @@ public class SatTriggerCube : TriggerCubeBase
         print("downloaded expiring");
     }
 
-    public void Activate()
+    public override void Activate()
      {
         if(touching.name.Contains("Download"))
         {
@@ -193,57 +183,17 @@ public class SatTriggerCube : TriggerCubeBase
         {
             if(token == touchingToken)
             {
-                if(touching.name.Contains("Endgame"))
-                {
-                    touching.SendMessage("Activate", "endGame");
-                    token = "0";
-                    // ErrorMessage.text = "Token Uploaded";
-                    tokenExpire = false;
-                }
-                else
-                {
-                    touching.SendMessage("Activate", "forceGate");
-                    token = "0";
-                    // ErrorMessage.text = "Token Uploaded";
-                    tokenExpire = false;
-                }
-            }
-            else
-            {
-
+                touching.SendMessage("Activate", "forceGate");
+                token = "0";
+                tokenExpire = false;
             }
         }
-        // else if(touching.name.Contains("Portal")) 
-        // {
-        //     touching.SendMessage("Activate");
-        // }
-        // else if(touching.name.Contains("Doors"))
-        // {
-        //     touching.SendMessage("Activate");
-        // }
         else touching.SendMessage("Activate");
              
      }
 
-    public void Connect()
-    {
-        if(!connected)
-        {
-            connected = !connected;  
-            SatMove_Script.toggleFixPosition();
-            touching.SendMessage("toggleBotConnected");
-        }
-        else return;
-    }
-     
-    public void Disconnect()
-    {
-        if(connected)
-        {
-            connected = false;  
-            SatMove_Script.toggleFixPosition();
-            touching.SendMessage("toggleBotConnected");
-        }   
-        else return; 
-    }
+     public override void Special()
+     {
+        //put functionality to control camera here.
+     }
 }

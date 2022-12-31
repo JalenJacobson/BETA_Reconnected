@@ -102,6 +102,7 @@ public class LuzTriggerCube : TriggerCubeBase
     public void Activate()
     {
         touching.SendMessage("Activate");
+        PowerScript.Play();
     }
     
     public void Special()
