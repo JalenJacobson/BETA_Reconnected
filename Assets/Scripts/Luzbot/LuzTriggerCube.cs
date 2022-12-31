@@ -99,13 +99,13 @@ public class LuzTriggerCube : TriggerCubeBase
         // }
     }
 
-    public void Activate()
+    public override void Activate()
     {
         touching.SendMessage("Activate");
         PowerScript.Play();
     }
     
-    public void Special()
+    public override void Special()
     {
         LuzMove_Script.Recharge();
     }
