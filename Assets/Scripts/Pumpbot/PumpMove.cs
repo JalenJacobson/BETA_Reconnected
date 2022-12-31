@@ -35,7 +35,7 @@ public class PumpMove : Player
 
     void Start()
     {   
-        getControls();
+       // getControls();
         name = "Pump";
         currentHealth = maxHealth;
         pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
@@ -50,35 +50,35 @@ public class PumpMove : Player
     {
         controllingPlayer = player;
         playerNumber = "P" + player.ToString();
-        getControls();
+        //getControls();
     }
 
-    void getControls()
-    {
-        if(playerNumber == "P0")
-        {
-            P1Circle.enabled = false;
-            P2Circle.enabled = false;
-        }
-        else if(playerNumber == "P1")
-        {
-            moveAxisHorizontal = "Horizontal";
-            moveAxisVertical = "Vertical";
-            special = "space";
-            specialController = "special1";
-            P1Circle.enabled = true;
-            P2Circle.enabled = false;
-        }
-        else if(playerNumber == "P2")
-        {
-            moveAxisHorizontal = "HorizontalPlayer2";
-            moveAxisVertical = "VerticalPlayer2";  
-            special = "return";
-            specialController = "special2"; 
-            P1Circle.enabled = false;
-            P2Circle.enabled = true;  
-        }
-    }
+    // void getControls()
+    // {
+    //     if(playerNumber == "P0")
+    //     {
+    //         P1Circle.enabled = false;
+    //         P2Circle.enabled = false;
+    //     }
+    //     else if(playerNumber == "P1")
+    //     {
+    //         moveAxisHorizontal = "Horizontal";
+    //         moveAxisVertical = "Vertical";
+    //         special = "space";
+    //         specialController = "special1";
+    //         P1Circle.enabled = true;
+    //         P2Circle.enabled = false;
+    //     }
+    //     else if(playerNumber == "P2")
+    //     {
+    //         moveAxisHorizontal = "HorizontalPlayer2";
+    //         moveAxisVertical = "VerticalPlayer2";  
+    //         special = "return";
+    //         specialController = "special2"; 
+    //         P1Circle.enabled = false;
+    //         P2Circle.enabled = true;  
+    //     }
+    // }
 
     // void FixedUpdate()
     // {
@@ -110,19 +110,19 @@ public class PumpMove : Player
 
     void Update()
     {
-        if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown(specialController))
-        {
-            if(bubbleOpen == false)
-            {
-                pumpBlueWall_script.Play();
-                bubbleOpen = true;
-            }
-            else if(bubbleOpen == true)
-            {
-                pumpBlueWall_script.Stop();
-                bubbleOpen = false;
-            }
-        }
+        // if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown(specialController))
+        // {
+        //     if(bubbleOpen == false)
+        //     {
+        //         pumpBlueWall_script.Play();
+        //         bubbleOpen = true;
+        //     }
+        //     else if(bubbleOpen == true)
+        //     {
+        //         pumpBlueWall_script.Stop();
+        //         bubbleOpen = false;
+        //     }
+        // }
         healthBar.setHealth(currentHealth);
 
         if(currentHealth <= 0)

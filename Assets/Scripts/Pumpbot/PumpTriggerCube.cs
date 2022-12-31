@@ -157,21 +157,21 @@ public class PumpTriggerCube : TriggerCubeBase
      void Update()
      {
     
-        if(touching != null && Input.GetKeyDown(activateKey))
-        {
-           Activate();
-        }
-        if(touching != null && Input.GetKeyDown(special))
-        {
-           pumpSpecial();
-        }
-        if(touching == null && connectedBox && Input.GetKeyDown(activateKey))
-        {
-           SnapBack();
-        }
+        // if(touching != null && Input.GetKeyDown(activateKey))
+        // {
+        //    Activate();
+        // }
+        // if(touching != null && Input.GetKeyDown(special))
+        // {
+        //    pumpSpecial();
+        // }
+        // if(touching == null && connectedBox && Input.GetKeyDown(activateKey))
+        // {
+        //    SnapBack();
+        // }
      }
 
-     public void Activate()
+     public override void Activate()
      {
         if(touching)
         {
@@ -189,7 +189,7 @@ public class PumpTriggerCube : TriggerCubeBase
         
      }
 
-    public void pumpSpecial()
+    public override void Special()
     {
         PumpMove_Script.openBubble();
         if(connectedBoxName)
