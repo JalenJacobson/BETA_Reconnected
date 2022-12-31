@@ -189,7 +189,8 @@ public class LuzMove : Player
 
     public void Recharge()
     {
-
+        anim.Play("Recharge");
+        currentHealth = currentHealth - 10f;
     }
 
     public void death()

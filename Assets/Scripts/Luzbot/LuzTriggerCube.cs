@@ -39,7 +39,7 @@ public class LuzTriggerCube : TriggerCubeBase
     {
         LuzMove_Script = IdleLuz.GetComponent<LuzMove>();
         PowerScript = IdleLuz.GetComponent<ActivatePower>();
-        getControls();
+        // getControls();
     }
 
     // public void getControls()
@@ -87,24 +87,25 @@ public class LuzTriggerCube : TriggerCubeBase
 
     void Update()
     {
-        if(touching != null && Input.GetKeyDown(activateKey))
-        {
-            Activate();
-            PowerScript.Play();
-        }
-        if(touching != null && Input.GetButtonDown(activateController))
-        {
-            Activate();
-            PowerScript.Play();
-        }
+        // if(touching != null && Input.GetKeyDown(activateKey))
+        // {
+        //     Activate();
+        //     PowerScript.Play();
+        // }
+        // if(touching != null && Input.GetButtonDown(activateController))
+        // {
+        //     Activate();
+        //     PowerScript.Play();
+        // }
     }
 
     public void Activate()
     {
         touching.SendMessage("Activate");
     }
-    public void Deactivate()
+    
+    public void Special()
     {
-        touching.SendMessage("Deactivate", ErrorMessage);
+        LuzMove_Script.Recharge();
     }
 }
