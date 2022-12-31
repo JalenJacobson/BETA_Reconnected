@@ -10,7 +10,7 @@ using System.Text;
 public class Player : MonoBehaviour
 {
     public float moveSpeed = 10;
-    public float rotateSpeed = 10;
+    public float rotateSpeed = 20;
     public Rigidbody rb;
     public bool toggleSelected;
     public healthBar healthBar;
@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     public string[] Controllers;
 
     public bool available = true;
+    public bool ActivateCircle = false;
 
     void Start()
     {
@@ -79,6 +80,16 @@ public class Player : MonoBehaviour
     {
         return;
     }
+
+    public void ToggleCircle()
+        {
+            ActivateCircle = true; 
+        }
+
+    public void ToggleCircleOff()
+        {
+             ActivateCircle = false;
+        }
 
     void Update()
     {

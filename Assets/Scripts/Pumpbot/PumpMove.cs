@@ -110,6 +110,15 @@ public class PumpMove : Player
 
     void Update()
     {
+
+        if(ActivateCircle)
+        {
+            P1Circle.enabled = true;
+        }
+        else if(!ActivateCircle)
+        {
+            P1Circle.enabled = false;
+        }
         // if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown(specialController))
         // {
         //     if(bubbleOpen == false)
@@ -140,6 +149,16 @@ public class PumpMove : Player
           anim.Play("PumpBeingCarried");  
         }
     }
+
+        // public void ToggleCircle()
+        // {
+        //     P1Circle.enabled = true;  
+        // }
+
+        // public void ToggleCircleOff()
+        // {
+        //     P1Circle.enabled = false;  
+        // }
 
     public void openBubble()
     {

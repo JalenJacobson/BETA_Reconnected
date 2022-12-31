@@ -96,6 +96,15 @@ public class GearMove : Player
 
     void Update()
     {
+        if(ActivateCircle)
+        {
+            P1Circle.enabled = true;
+        }
+        else if(!ActivateCircle)
+        {
+            P1Circle.enabled = false;
+        }
+
         if(inWater == true)
         {
             if(touchingAirBubble == true)
@@ -167,6 +176,16 @@ public class GearMove : Player
         breathRemaining = 5f;
     }
 
+
+    // public void ToggleCircle()
+    //     {
+    //         P1Circle.enabled = true;  
+    //     }
+
+    //     public void ToggleCircleOff()
+    //     {
+    //         P1Circle.enabled = false;  
+    //     }
 
     public void death()
     {

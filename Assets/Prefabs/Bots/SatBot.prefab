@@ -52,7 +52,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195281855478128985}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -783,7 +783,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2905228982081107651}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -2136,6 +2136,9 @@ MonoBehaviour:
   lose_condition_script: {fileID: 0}
   batteryDead: 0
   isDying: 0
+  moveInputValue: {x: 0, y: 0}
+  Controllers: []
+  available: 1
   Rails: {fileID: 7135977554303709444}
   moveAxisHorizontal: 
   moveAxisVertical: 
@@ -6863,15 +6866,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b3fd0ec4e7a978a40bc6d2db59dde28c, type: 3}
---- !u!1 &7135977554303709444 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3fd0ec4e7a978a40bc6d2db59dde28c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8055105846576925781}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7513065669082917822 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b3fd0ec4e7a978a40bc6d2db59dde28c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8055105846576925781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7135977554303709444 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b3fd0ec4e7a978a40bc6d2db59dde28c,
     type: 3}
   m_PrefabInstance: {fileID: 8055105846576925781}
   m_PrefabAsset: {fileID: 0}

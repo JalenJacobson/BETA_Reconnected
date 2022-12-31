@@ -31,7 +31,7 @@ public class BruteMove : Player
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         transform.position = startPos;
-        getControls();
+        //getControls();
         //string[] GetJoystickNames();
         //P1Circle.spriteRenderer = GetComponent<SpriteRenderer>
         //P2Circle.spriteRenderer = GetComponent<SpriteRenderer>
@@ -41,31 +41,41 @@ public class BruteMove : Player
     {
         controllingPlayer = player;
         playerNumber = "P" + player.ToString();
-        getControls();
+        //getControls();
     }
 
-    void getControls()
-    {
-        if(playerNumber == "P0")
-        {
-            P1Circle.enabled = false;
-            P2Circle.enabled = false;
-        }
-        else if(playerNumber == "P1")
-        {
-            moveAxisHorizontal = "Horizontal";
-            moveAxisVertical = "Vertical";
-            P1Circle.enabled = true;
-            P2Circle.enabled = false;
-        }
-        else if(playerNumber == "P2")
-        {
-            moveAxisHorizontal = "HorizontalPlayer2";
-            moveAxisVertical = "VerticalPlayer2";
-            P1Circle.enabled = false;
-            P2Circle.enabled = true;   
-        }
-    }
+    // void getControls()
+    // {
+    //     if(playerNumber == "P0")
+    //     {
+    //         P1Circle.enabled = false;
+    //         P2Circle.enabled = false;
+    //     }
+    //     else if(playerNumber == "P1")
+    //     {
+    //         moveAxisHorizontal = "Horizontal";
+    //         moveAxisVertical = "Vertical";
+    //         P1Circle.enabled = true;
+    //         P2Circle.enabled = false;
+    //     }
+    //     else if(playerNumber == "P2")
+    //     {
+    //         moveAxisHorizontal = "HorizontalPlayer2";
+    //         moveAxisVertical = "VerticalPlayer2";
+    //         P1Circle.enabled = false;
+    //         P2Circle.enabled = true;   
+    //     }
+    // }
+
+    // public void ToggleCircle()
+    // {
+    //   P1Circle.enabled = true;  
+    // }
+
+    // public void ToggleCircleOff()
+    // {
+    //   P1Circle.enabled = false;  
+    // }
 
     public void toggleToNext()
     {
@@ -105,6 +115,14 @@ public class BruteMove : Player
 
     void Update()
     {
+        if(ActivateCircle)
+        {
+            P1Circle.enabled = true;
+        }
+        else if(!ActivateCircle)
+        {
+            P1Circle.enabled = false;
+        }
 
         if(inWater == true)
         {

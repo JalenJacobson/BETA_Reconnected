@@ -114,6 +114,14 @@ public class LuzMove : Player
 
      void Update()
     {
+        if(ActivateCircle == true)
+        {
+            P1Circle.enabled = true;
+        }
+        else if(ActivateCircle == false)
+        {
+            P1Circle.enabled = false;
+        }
 
         if(inWater == true)
         {
@@ -176,6 +184,16 @@ public class LuzMove : Player
         breathRemaining = .1f;
         touchingAirBubble = true;
     }
+
+        // public void ToggleCircle()
+        // {
+        //     P1Circle.enabled = true;  
+        // }
+
+        // public void ToggleCircleOff()
+        // {
+        //     P1Circle.enabled = false;  
+        // }
 
     public override void waterExit()
     {

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject PauseMenuUI;
     public AudioSource Music;
     public int currentScene;
+    public GameObject pauseFirstButton;
     
     void Awake()
     {
@@ -32,18 +34,23 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        if(!needsPauseMenu) return;
-        if(Input.GetKeyDown(KeyCode.Escape)) 
-        {
-            if(gameIsPaused)
-            {
-               resume();
-            }
-            else if(!gameIsPaused)
-            {    
-               pause();
-            }
-        }
+        // if(!needsPauseMenu) return;
+        // if(Input.GetKeyDown(KeyCode.Escape)) 
+        // {
+        //     if(gameIsPaused)
+        //     {
+        //        resume();
+        //     }
+        //     else if(!gameIsPaused)
+        //     {    
+        //        pause();
+        //     }
+        // }
+    }
+
+    public void PlayerPause()
+    {
+        pause();
     }
 
     public void resume()
@@ -60,6 +67,8 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 0f;
         gameIsPaused = true;
         Music.volume = .24f;
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(pauseFirstButton);
     }
 
     public void replay()

@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class Player1_Controller : MonoBehaviour
 {
+    public GameObject PauseMenuUi;
+    public PauseMenu PauseMenu_Script;
     public GameObject PlayerToggle;
     public PlayerToggle PlayerToggle_Script;
     public GameObject BotControlling;
@@ -14,6 +18,8 @@ public class Player1_Controller : MonoBehaviour
     public GameObject oldBotControlling;
     public Player oldBotControlling_Script;
     public TriggerCubeBase oldTriggerCube_Script;
+
+    
 
     public Vector2 moveInputValue;
 
@@ -25,6 +31,8 @@ public class Player1_Controller : MonoBehaviour
      {
         PlayerToggle = GameObject.Find("PlayerToggle");
         PlayerToggle_Script = PlayerToggle.GetComponent<PlayerToggle>();
+        PauseMenuUi = GameObject.Find("PauseGame");
+        PauseMenu_Script = PauseMenuUi.GetComponent<PauseMenu>();
         getNewBot();
      }
     
@@ -39,6 +47,7 @@ public class Player1_Controller : MonoBehaviour
     {
         if(BotControlling != null)
         {
+            BotControlling_Script.ToggleCircleOff();
             oldBotControlling = BotControlling;
             oldBotControlling_Script = BotControlling_Script;
             oldTriggerCube_Script = TriggerCube_Script;
@@ -54,12 +63,14 @@ public class Player1_Controller : MonoBehaviour
         PlayerToggle_Script.moveScripts.Remove(BotControlling_Script);
         PlayerToggle_Script.triggerScripts.Remove(TriggerCube_Script);
         BotControlling_Script.available = false;
+        BotControlling_Script.ToggleCircle();
     
         oldBotControlling_Script.available = true;
         PlayerToggle_Script.bots.Add(oldBotControlling);
         PlayerToggle_Script.moveScripts.Add(oldBotControlling_Script);
         PlayerToggle_Script.triggerScripts.Add(oldTriggerCube_Script);
         oldBotControlling = null;
+        
     }
 
     private void OnMove(InputValue value)
@@ -86,6 +97,11 @@ public class Player1_Controller : MonoBehaviour
         print("TOGGLING WORKED");
         getNewBot();
      }
+
+     private void OnPause()
+    {
+        PauseMenu_Script.PlayerPause();
+    }
 
     public void FixedUpdate()
     {
