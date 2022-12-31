@@ -26,6 +26,15 @@ public class TriggerCubeBase : MonoBehaviour
         
     }
 
+    public virtual void Activate()
+    {
+        
+    }
+    public virtual void Special()
+    {
+
+    }
+
     public virtual void setCurrentPlayer(int player)
     {
         controllingPlayer = player;

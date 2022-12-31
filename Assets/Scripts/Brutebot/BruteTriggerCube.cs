@@ -165,7 +165,7 @@ public class BruteTriggerCube : TriggerCubeBase
 
     }
 
-    public void Special()
+    public override void Special()
     {
         if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
         {
@@ -187,7 +187,7 @@ public class BruteTriggerCube : TriggerCubeBase
         }
     }
 
-    public void Activate()
+    public override void Activate()
     {
         if(touching)
         {
