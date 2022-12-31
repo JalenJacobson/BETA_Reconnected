@@ -32,7 +32,7 @@ public class GearMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
-        getControls();
+       // getControls();
         
         // startPos = new Vector3(47f, 1.44f, -231f);
         // transform.position = startPos;
@@ -47,31 +47,31 @@ public class GearMove : Player
     {
         controllingPlayer = player;
         playerNumber = "P" + player.ToString();
-        getControls();
+        //getControls();
     }
 
-    void getControls()
-    {
-        if(playerNumber == "P0")
-        {
-            P1Circle.enabled = false;
-            P2Circle.enabled = false;
-        }
-        else if(playerNumber == "P1")
-        {
-            moveAxisHorizontal = "Horizontal";
-            moveAxisVertical = "Vertical";
-            P1Circle.enabled = true;
-            P2Circle.enabled = false;
-        }
-        else if(playerNumber == "P2")
-        {
-            moveAxisHorizontal = "HorizontalPlayer2";
-            moveAxisVertical = "VerticalPlayer2";
-            P1Circle.enabled = false;
-            P2Circle.enabled = true;   
-        }
-    }
+    // void getControls()
+    // {
+    //     if(playerNumber == "P0")
+    //     {
+    //         P1Circle.enabled = false;
+    //         P2Circle.enabled = false;
+    //     }
+    //     else if(playerNumber == "P1")
+    //     {
+    //         moveAxisHorizontal = "Horizontal";
+    //         moveAxisVertical = "Vertical";
+    //         P1Circle.enabled = true;
+    //         P2Circle.enabled = false;
+    //     }
+    //     else if(playerNumber == "P2")
+    //     {
+    //         moveAxisHorizontal = "HorizontalPlayer2";
+    //         moveAxisVertical = "VerticalPlayer2";
+    //         P1Circle.enabled = false;
+    //         P2Circle.enabled = true;   
+    //     }
+    // }
 
     public override void Movement(float x, float y)
     {

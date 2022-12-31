@@ -57,7 +57,7 @@ public class Claw : MonoBehaviour
         else if(!clawConnected)
         {
             // callCameraUnfollow();
-            touching.SendMessage("isNotBeingCarried");
+            //touching.SendMessage("isNotBeingCarried");
         }
         if(lifting)
         {

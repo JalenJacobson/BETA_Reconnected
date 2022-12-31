@@ -46,7 +46,7 @@ public class GearTriggerCube : TriggerCubeBase
         connectPos = new Vector3(-0.01f, 0.005f, -0.003f);
         // Bubble_Script = ActionBubbles.GetComponent<BubbleScript>();
         // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
-        getControls();
+        //getControls();
     }
 
     // public void getControls()
@@ -120,25 +120,25 @@ public class GearTriggerCube : TriggerCubeBase
         //     Disconnect();
         // }
 
-        if(touching != null && Input.GetKeyDown(activateKey))
-        {
-            Activate();
-        }
-        if(connected && Input.GetKeyDown(special))
-        {
-            touching.SendMessage("Activate", ErrorMessage);
-        }
-        if(touching != null && Input.GetButtonDown(activateController))
-        {
-            Activate();
-        }
-        if(connected && Input.GetButtonDown(specialController))
-        {
-            touching.SendMessage("Activate", ErrorMessage);
-        }
-     }
+    //     if(touching != null && Input.GetKeyDown(activateKey))
+    //     {
+    //         Activate();
+    //     }
+    //     if(connected && Input.GetKeyDown(special))
+    //     {
+    //         touching.SendMessage("Activate", ErrorMessage);
+    //     }
+    //     if(touching != null && Input.GetButtonDown(activateController))
+    //     {
+    //         Activate();
+    //     }
+    //     if(connected && Input.GetButtonDown(specialController))
+    //     {
+    //         touching.SendMessage("Activate", ErrorMessage);
+    //     }
+      }
 
-     public void Activate()
+     public override void Activate()
      {
           GearMove_Script.Activate();
          
