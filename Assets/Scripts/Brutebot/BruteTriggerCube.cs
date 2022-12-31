@@ -127,42 +127,64 @@ public class BruteTriggerCube : TriggerCubeBase
 
     void Update()
     {   
-        if(Input.GetKeyDown(special) || Input.GetButtonDown(specialController))
-        {
-            if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump" || touching.name.Contains("Push"))
-            {
-                if(!lifting)
-                {
-                    lift();
-                    BruteMove_Script.Lift();
-                }
-            }
-        }
-        else if(Input.GetKeyUp(special) || Input.GetButtonUp(specialController))
-        {
-            if(lifting)
-            {
-                drop();
-                BruteMove_Script.Drop();   
-            }
-        }
-        if(Input.GetKeyDown(activateKey))
-        {
-            Activate();
-            if (lifting == false && touching == null)
-            {
-            BruteMove_Script.Sprint();
-            } 
-        }
-        if(Input.GetButtonDown(activateController))
-        {
-            Activate();
-            if (lifting == false && touching == null)
-            {
-            BruteMove_Script.Sprint();
-            } 
-        }
+        // if(Input.GetKeyDown(special) || Input.GetButtonDown(specialController))
+        // {
+        //     if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump" || touching.name.Contains("Push"))
+        //     {
+        //         if(!lifting)
+        //         {
+        //             lift();
+        //             BruteMove_Script.Lift();
+        //         }
+        //     }
+        // }
+        // else if(Input.GetKeyUp(special) || Input.GetButtonUp(specialController))
+        // {
+        //     if(lifting)
+        //     {
+        //         drop();
+        //         BruteMove_Script.Drop();   
+        //     }
+        // }
+        // if(Input.GetKeyDown(activateKey))
+        // {
+        //     Activate();
+        //     if (lifting == false && touching == null)
+        //     {
+        //         BruteMove_Script.Sprint();
+        //     } 
+        // }
+        // if(Input.GetButtonDown(activateController))
+        // {
+        //     Activate();
+        //     if (lifting == false && touching == null)
+        //     {
+        //     BruteMove_Script.Sprint();
+        //     } 
+        // }
 
+    }
+
+    public void Special()
+    {
+        if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
+        {
+            if(!lifting)
+            {
+                lift();
+                BruteMove_Script.Lift();
+            }
+        }
+        else if(lifting)
+        {
+            drop();
+            BruteMove_Script.Drop();   
+        }
+        else 
+        {
+            return;
+            // it could play a buzzer noise or something to show that the button cant do anything beause he isn't connected.
+        }
     }
 
     public void Activate()
@@ -202,14 +224,14 @@ public class BruteTriggerCube : TriggerCubeBase
             lifting = true;
             touching.SendMessage("toggleIsBeingCarried"); 
         }
-        if(touching.name.Contains("Push"))
-        {
+        // if(touching.name.Contains("Push"))
+        // {
             
-            lifting = true;
-            BruteMove_Script.fixRotation = true;
+        //     lifting = true;
+        //     BruteMove_Script.fixRotation = true;
             
-            touching.SendMessage("toggleIsBeingCarried");
-        }
+        //     touching.SendMessage("toggleIsBeingCarried");
+        // }
     }
 }
 

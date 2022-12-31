@@ -71,6 +71,16 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_Script.Movement(x, y);
     }
 
+    private void OnSubmit()
+    {
+        TriggerCube_Script.Activate();
+    }
+
+    private void OnSpecial()
+    {
+        TriggerCube_Script.Special();
+    }
+
      private void OnToggle()
      {
         print("TOGGLING WORKED");
