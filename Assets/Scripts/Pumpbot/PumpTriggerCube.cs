@@ -173,15 +173,27 @@ public class PumpTriggerCube : TriggerCubeBase
 
      public void Activate()
      {
-        if(touching.name.Contains("ConnectionBox") && !connectedBox)
+        if(touching)
         {
-            ConnectionScript.SendMessage("Connect");
-            connectedBoxName = touching;
+            if(touching.name.Contains("ConnectionBox") && !connectedBox)
+            {
+                ConnectionScript.SendMessage("Connect");
+                connectedBoxName = touching;
+            }
+            else touching.SendMessage("Activate");
         }
-        else touching.SendMessage("Activate");
+        else if(touching == null && connectedBox)
+        {
+           SnapBack();
+        }
+        
      }
+
     public void pumpSpecial()
-     {
+    {
+        PumpMove_Script.openBubble();
+        if(connectedBoxName)
+        {
             if(connectedBoxName.name.Contains("Drain"))
             {      
                 if(touching.name.Contains("Drainage")) 
@@ -202,6 +214,7 @@ public class PumpTriggerCube : TriggerCubeBase
             {
                 // Gas animation
             }
+        }
      }
 
      public void SnapBack()

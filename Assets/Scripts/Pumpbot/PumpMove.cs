@@ -141,6 +141,25 @@ public class PumpMove : Player
         }
     }
 
+    public void openBubble()
+    {
+        if(inWater == true)
+        {
+            if(bubbleOpen == false)
+            {
+                pumpBlueWall_script.Play();
+                bubbleOpen = true;
+            }
+            else if(bubbleOpen == true)
+            {
+                pumpBlueWall_script.Stop();
+                bubbleOpen = false;
+            }
+        }
+        else return;
+    }
+    
+
     public void waterEnter()
     {
         inWater = true;
