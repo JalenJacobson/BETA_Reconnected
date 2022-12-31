@@ -264,8 +264,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 9.70803, y: 1.8565453, z: 1.9801571}
-  m_Center: {x: -4.1800575, y: 0.13950722, z: 0.06092319}
+  m_Size: {x: 9.70803, y: 3.5926008, z: 1.9801571}
+  m_Center: {x: -4.1800575, y: 0.20518243, z: 0.06092319}
 --- !u!114 &1700811232648763306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,7 +443,7 @@ Rigidbody:
   m_Drag: 2
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 118
   m_CollisionDetection: 0
@@ -467,14 +467,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7624590829250159961}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a975743bf1cd40b5b4a884dbcadcfcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boxPos: {x: 0, y: 0, z: 0}
   Brute: {fileID: 0}
+  BruteTriggerCube: {fileID: 0}
   BruteMove_Script: {fileID: 0}
+  BruteTrigger_Script: {fileID: 0}
   isBeingCarried: 0
   size: large
   directionx: {x: 0, y: 0, z: 0}
@@ -484,6 +486,8 @@ MonoBehaviour:
   moveAxisVertical: 
   moveSpeed: 4
   rb: {fileID: 0}
+  anim: {fileID: 0}
+  touching: {fileID: 0}
 --- !u!1 &7714572921939525277
 GameObject:
   m_ObjectHideFlags: 0
