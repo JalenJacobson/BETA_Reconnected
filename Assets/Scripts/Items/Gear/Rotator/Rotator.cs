@@ -23,12 +23,12 @@ public class Rotator : MonoBehaviour
         }
     }
 
-    void Movement()
+    public void Movement(float x, float y)
     {
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        if (horizontalMove != 0)
+        
+        if (x != 0)
         {
-            transform.Rotate(0, horizontalMove * rotateSpeed, 0, Space.World);   
+            transform.Rotate(0, x * rotateSpeed, 0, Space.World);   
         }
     }
 }

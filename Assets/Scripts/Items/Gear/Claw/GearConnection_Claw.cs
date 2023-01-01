@@ -5,8 +5,8 @@ using UnityEngine;
 public class GearConnection_Claw : CDI_Class
 {
 
-    public GameObject Claw;
-    public Claw ClawMove_Script;
+    public GameObject gizmo;
+    public Claw gizmoMove_Script;
 
     // public GameObject liftPoint;
 
@@ -18,7 +18,7 @@ public class GearConnection_Claw : CDI_Class
     void Start()
     {
         anim = GetComponent<Animator>();
-        ClawMove_Script = Claw.GetComponent<Claw>();
+        gizmoMove_Script = gizmo.GetComponent<Claw>();
         getClawBoundriesScripts();
         botToIgnore = "Gears";
         // liftPoint = GameObject.Find("pGear1");
@@ -38,10 +38,15 @@ public class GearConnection_Claw : CDI_Class
             ClawBoundries_Scripts.Add(ClawBoundries_Script);
         }
     }
+
+    public void setGizmoInTriggerCube(GearTriggerCube triggerScript)
+    {
+      triggerScript.gizmoClaw_Script = gizmoMove_Script;
+    }
     
     public void Activate()
     {
-        ClawMove_Script.Activate();
+        gizmoMove_Script.Activate();
         
         // ClawBoundry_Script.Activate();
         // ClawDrop_Script.Activate();
@@ -51,8 +56,8 @@ public class GearConnection_Claw : CDI_Class
     {
         //callCameraFollow();
         anim.Play("ActivateGearBox");
-        ClawMove_Script.clawConnected = true;
-        ClawMove_Script.anim.Play("Claw");
+        gizmoMove_Script.clawConnected = true;
+        gizmoMove_Script.anim.Play("Claw");
 
         foreach(ClawBoundries ClawBoundries_Script in ClawBoundries_Scripts)
         {
@@ -64,17 +69,17 @@ public class GearConnection_Claw : CDI_Class
     {
         //callCameraUnfollow();
         anim.Play("DeactivateGearBox");
-        ClawMove_Script.clawConnected = false;
-        if(ClawMove_Script.lifting)
+        gizmoMove_Script.clawConnected = false;
+        if(gizmoMove_Script.lifting)
         {
-            ClawMove_Script.touching.GetComponent<Rigidbody>().useGravity = true;
-            ClawMove_Script.lifting = false;
-            ClawMove_Script.clawCarrying = false;
-            ClawMove_Script.anim.Play("ClawDrop");
+            gizmoMove_Script.touching.GetComponent<Rigidbody>().useGravity = true;
+            gizmoMove_Script.lifting = false;
+            gizmoMove_Script.clawCarrying = false;
+            gizmoMove_Script.anim.Play("ClawDrop");
         }
-        else if(ClawMove_Script.lifting == false)
+        else if(gizmoMove_Script.lifting == false)
         {
-            ClawMove_Script.anim.Play("ClawEnd");
+            gizmoMove_Script.anim.Play("ClawEnd");
         }
 
         foreach(ClawBoundries ClawBoundries_Script in ClawBoundries_Scripts)

@@ -94,7 +94,7 @@ public class Gear_Crawler : MonoBehaviour
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * directionz);
         // sendPos();
     }
-    void Movement()
+    public void Movement(float x, float y)
     {
         float horizontalMove = Input.GetAxis(moveAxisHorizontal);
         float verticalMove = Input.GetAxis(moveAxisVertical);

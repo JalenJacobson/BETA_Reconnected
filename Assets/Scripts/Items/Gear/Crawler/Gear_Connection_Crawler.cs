@@ -5,28 +5,33 @@ using UnityEngine;
 public class Gear_Connection_Crawler : CDI_Class
 {
 
-    public GameObject Stand;
-    public Gear_Crawler StandMove_Script;
+    public GameObject gizmo;
+    public Gear_Crawler gizmoMove_Script;
     
     void Start()
     {
         anim = GetComponent<Animator>();
-        StandMove_Script = Stand.GetComponent<Gear_Crawler>();
+        gizmoMove_Script = gizmo.GetComponent<Gear_Crawler>();
         //liftPoint = Stand;
         botToIgnore = "Gears";
+    }
+
+    public void setGizmoInTriggerCube(GearTriggerCube triggerScript)
+    {
+      triggerScript.gizmoGear_Crawler_Script = gizmoMove_Script;
     }
 
     void connect()
     {
         //callCameraFollow();
         anim.Play("ActivateGearBox");
-        StandMove_Script.standConnected = true;
+        gizmoMove_Script.standConnected = true;
     }
 
     void disconnect()
     {
         //callCameraUnfollow();
         anim.Play("DeactivateGearBox");
-        StandMove_Script.standConnected = false;
+        gizmoMove_Script.standConnected = false;
     }
 }

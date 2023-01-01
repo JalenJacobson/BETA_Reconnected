@@ -16,6 +16,13 @@ public class GearTriggerCube : TriggerCubeBase
     public GameObject touching = null;
     public Vector3 connectPos;
 
+    public Claw gizmoClaw_Script = null;
+    public Rotator gizmoRotator_Script = null;
+    public Gear_Crawler gizmoGear_Crawler_Script = null;
+    
+
+    public Vector2 moveInputValues;
+
     // public int controllingPlayer = 0;
 
     // public GameObject ActionBubbles;
@@ -109,6 +116,28 @@ public class GearTriggerCube : TriggerCubeBase
 
      }
 
+     void FixedUpdate()
+     {
+        if(connected)
+        {
+            moveInputValues = GearMove_Script.moveInputValue;
+            if(gizmoClaw_Script != null)
+            {
+                gizmoClaw_Script.Movement(moveInputValues.x, moveInputValues.y);
+            }
+            else if(gizmoRotator_Script != null)
+            {
+                gizmoRotator_Script.Movement(moveInputValues.x, moveInputValues.y);
+            }
+            if(gizmoGear_Crawler_Script != null)
+            {
+                gizmoGear_Crawler_Script.Movement(moveInputValues.x, moveInputValues.y);
+            }
+            
+            
+        }
+     }
+
      void Update()
      {
         // if(touching != null && Input.GetKeyDown(connectKey))
@@ -120,10 +149,10 @@ public class GearTriggerCube : TriggerCubeBase
         //     Disconnect();
         // }
 
-    //     if(touching != null && Input.GetKeyDown(activateKey))
-    //     {
-    //         Activate();
-    //     }
+        if(touching != null && Input.GetKeyDown("p"))
+        {
+            Activate();
+        }
     //     if(connected && Input.GetKeyDown(special))
     //     {
     //         touching.SendMessage("Activate", ErrorMessage);
@@ -150,17 +179,28 @@ public class GearTriggerCube : TriggerCubeBase
             {
                 Gears.gameObject.AddComponent<FixedJoint>();
                 Gears.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
+                touching.SendMessage("setGizmoInTriggerCube", gameObject.GetComponent<GearTriggerCube>());
             }
             else if(!connected)
             {
                 Destroy(Gears.gameObject.GetComponent<FixedJoint>());
+                setGizmoToNull();
             }
             GearMove_Script.toggleFixPosition();
+            
             touching.SendMessage("toggleBotConnected");
             touching.SendMessage(connectMessage);
         }   
         else touching.SendMessage("Activate", ErrorMessage);
             
      }
+
+    public void setGizmoToNull()
+    {
+        gizmoClaw_Script = null;
+        gizmoRotator_Script = null;
+        gizmoGear_Crawler_Script = null;
+    }
+     
     
 }

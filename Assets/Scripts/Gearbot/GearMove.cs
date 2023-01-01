@@ -13,6 +13,9 @@ public class GearMove : Player
     public float StartHealth = 100;
     public Image P1Circle;
     public Image P2Circle;
+
+    public bool gizmoConnected = false;
+    public Vector2 moveInputValues;
     
     // public Animator anim;
 
@@ -75,18 +78,24 @@ public class GearMove : Player
 
     public override void Movement(float x, float y)
     {
-        
-
-        directionRotate = new Vector3(x, 0.0f, y);
-        directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
-        rb.velocity = directionMove;
-
-
-        if (!fixRotation && directionRotate != Vector3.zero)
+        if(!gizmoConnected)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-            currentHealth = currentHealth - .05f;
+            directionRotate = new Vector3(x, 0.0f, y);
+            directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
+            rb.velocity = directionMove;
+
+
+            if (!fixRotation && directionRotate != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
+                currentHealth = currentHealth - .05f;
+            }
         }
+        else if(gizmoConnected)
+        {
+            moveInputValues = new Vector2(x,y);
+        }
+        
 
         // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         

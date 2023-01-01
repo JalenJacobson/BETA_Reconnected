@@ -21,6 +21,7 @@ public class Claw : MonoBehaviour
     public bool lifting = false;
     public bool clawCarrying = false;
     public Vector3 liftPos;
+    public Vector3 directionMove;
 
     public GameObject liftPoint;
 
@@ -51,7 +52,7 @@ public class Claw : MonoBehaviour
     {
         if(clawConnected == true)
         {
-            Movement();
+            // Movement();
             // callCameraFollow();
         }
         else if(!clawConnected)
@@ -108,21 +109,10 @@ public class Claw : MonoBehaviour
         // touching.GetComponent<Rigidbody>().isKinematic = true;
     }
 
-    void Movement()
+    public void Movement(float x, float y)
     {
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
-
-        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
-
-        // if (direction != Vector3.zero)
-        // {
-        //     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            
-        // }
-
-        rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        // sendPos();
+        directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
+        rb.velocity = directionMove;
     }
 
     // public void callCameraFollow()

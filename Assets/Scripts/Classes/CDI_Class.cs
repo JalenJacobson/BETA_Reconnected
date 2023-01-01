@@ -11,6 +11,8 @@ public class CDI_Class : MonoBehaviour
     public bool botTouching = false;
     public bool botConnected = false;
 
+    // public MonoBehaviour gizmoMove_Script;
+
     //public TwoPlayerCameraFollow CameraFollow_Script;
     //public GameObject quickLookObject;
     //public Vector3 quickLookObjectOffset;
@@ -61,6 +63,8 @@ public class CDI_Class : MonoBehaviour
         yield return new WaitForSeconds(1f);
         activateItem();
     }
+
+    
     
     // public void callCameraFollow()
     // {
