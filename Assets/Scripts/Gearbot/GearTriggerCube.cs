@@ -138,6 +138,15 @@ public class GearTriggerCube : TriggerCubeBase
         }
      }
 
+     public void Special()
+     {
+        if(gizmoClaw_Script != null)
+        {
+            gizmoClaw_Script.Activate();
+        }
+     }
+     
+
      void Update()
      {
         // if(touching != null && Input.GetKeyDown(connectKey))
