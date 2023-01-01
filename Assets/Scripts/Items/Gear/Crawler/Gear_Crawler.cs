@@ -39,18 +39,7 @@ public class Gear_Crawler : MonoBehaviour
         if(standConnected)
         {
             anim.Play("GearStandActivate");
-            if(xMove && zMove)
-            {
-                //Movement();
-            }
-            else if(xMove)
-            {
-                MovementX();
-            }
-            else if(zMove)
-            {
-                MovementZ();
-            }
+            
         }
         else if(standConnected == false)
         {
@@ -59,31 +48,23 @@ public class Gear_Crawler : MonoBehaviour
           
     }
 
-    void MovementX()
+    void MovementX(float x, float y)
     {
 
-        print("should move x");
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
+        
 
-        directionx = new Vector3(horizontalMove, 0.0f, 0.0f);
+        directionx = new Vector3(x, 0.0f, 0.0f);
 
-        // if (direction != Vector3.zero)
-        // {
-        //     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(direction), rotateSpeed * Time.deltaTime);
-            
-        // }
+        
 
         rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * directionx);
         // sendPos();
     }
-    void MovementZ()
+    void MovementZ(float x, float y)
     {
-        print("should move z");
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
+        
 
-        directionz = new Vector3(0.0f, 0.0f, verticalMove);
+        directionz = new Vector3(0.0f, 0.0f, y);
 
         // if (direction != Vector3.zero)
         // {
@@ -96,10 +77,22 @@ public class Gear_Crawler : MonoBehaviour
     }
     public void Movement(float x, float y)
     {
-        float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        float verticalMove = Input.GetAxis(moveAxisVertical);
+        
+            if(xMove)
+            {
+                MovementX(x, y);
+            }
+            else if(zMove)
+            {
+                MovementZ(x, y);
+            }
+            else 
+            {
+                direction = new Vector3(x, 0.0f, y);
+                rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+            }
 
-        direction = new Vector3(horizontalMove, 0.0f, verticalMove);
+        
 
         // if (direction != Vector3.zero)
         // {
@@ -107,7 +100,7 @@ public class Gear_Crawler : MonoBehaviour
             
         // }
 
-            rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+            
         
         
         // sendPos();
