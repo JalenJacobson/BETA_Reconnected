@@ -138,8 +138,9 @@ public class GearTriggerCube : TriggerCubeBase
         }
      }
 
-     public void Special()
+     public override void Special()
      {
+        print("CALL SPECIAL");
         if(gizmoClaw_Script != null)
         {
             gizmoClaw_Script.Activate();

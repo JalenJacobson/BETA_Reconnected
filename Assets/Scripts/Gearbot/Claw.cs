@@ -82,6 +82,7 @@ public class Claw : MonoBehaviour
 
     public void Activate()
     {
+        print("SHOULD ACTIVATE");
         if(!clawCarrying && touching && !lifting)
         {
             clawCarrying = true;
