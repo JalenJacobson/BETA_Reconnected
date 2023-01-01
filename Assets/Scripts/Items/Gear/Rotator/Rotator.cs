@@ -19,7 +19,7 @@ public class Rotator : MonoBehaviour
     {
         if(RotatorConnected)
         {
-            Movement();
+           // Movement();
         }
     }
 

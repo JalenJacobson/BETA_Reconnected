@@ -209,6 +209,7 @@ public class GearMove : Player
     public void Activate()
     {
         anim.Play("Gears");
+        gizmoConnected = !gizmoConnected;
     }
 
     //  public void restoreHealth()

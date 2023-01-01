@@ -120,7 +120,7 @@ public class GearTriggerCube : TriggerCubeBase
      {
         if(connected)
         {
-            moveInputValues = GearMove_Script.moveInputValue;
+            moveInputValues = GearMove_Script.moveInputValues;
             if(gizmoClaw_Script != null)
             {
                 gizmoClaw_Script.Movement(moveInputValues.x, moveInputValues.y);
@@ -149,10 +149,10 @@ public class GearTriggerCube : TriggerCubeBase
         //     Disconnect();
         // }
 
-        if(touching != null && Input.GetKeyDown("p"))
-        {
-            Activate();
-        }
+        // if(touching != null && Input.GetKeyDown("p"))
+        // {
+        //     Activate();
+        // }
     //     if(connected && Input.GetKeyDown(special))
     //     {
     //         touching.SendMessage("Activate", ErrorMessage);

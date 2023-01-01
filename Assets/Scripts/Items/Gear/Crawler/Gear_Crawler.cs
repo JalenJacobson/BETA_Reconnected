@@ -41,7 +41,7 @@ public class Gear_Crawler : MonoBehaviour
             anim.Play("GearStandActivate");
             if(xMove && zMove)
             {
-                Movement();
+                //Movement();
             }
             else if(xMove)
             {
