@@ -24,10 +24,17 @@ public class Level_Manager : MonoBehaviour
 
     void Update()
     {
-        // if(sceneToGoTo != -1 && Input.GetKeyDown("u"))
-        // {
-        //     SceneManager.LoadScene(sceneToGoTo);
-        // }
+        if(Input.GetKeyDown("u"))
+        {
+            print(SceneManager.GetActiveScene());
+            SceneManager.LoadScene("Level_Select");
+        }
+        if(Input.GetKeyDown("p"))
+        {
+            
+            SceneManager.LoadScene(1);
+        }
+       
     }
 
     public void loadSceneFromLevelSelect(int sceneToGoToFromPortal, bool availableFromPortal)

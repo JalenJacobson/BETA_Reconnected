@@ -29,17 +29,46 @@ public class Player1_Controller : MonoBehaviour
     
         void Awake()
      {
+
+        GameObject[] playerControllers = GameObject.FindGameObjectsWithTag("PlayerController");
+
+        if (playerControllers.Length > 1)
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+        // gameObject.SetActive(true);
+     }
+
+    public void getScripts()
+    {
         PlayerToggle = GameObject.Find("PlayerToggle");
         PlayerToggle_Script = PlayerToggle.GetComponent<PlayerToggle>();
         PauseMenuUi = GameObject.Find("PauseGame");
         PauseMenu_Script = PauseMenuUi.GetComponent<PauseMenu>();
-        getNewBot();
-     }
+    }
+
+    void OnEnable()
+    {
+        print("onEnable called");
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        print("Onsceneloaded" + scene.name);
+        print(mode);
+        if(scene.name == "Level1")
+        {
+            getScripts();
+            getNewBot();
+        }
+    }
     
     void Start()
     {
-        // BotControllingIndex should come from character select as a player prefs
-        
+        // BotControllingIndex should come from character select as a player pref
+        getNewBot();
 
     }
 

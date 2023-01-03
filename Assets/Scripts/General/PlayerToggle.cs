@@ -6,6 +6,7 @@ public class PlayerToggle : MonoBehaviour
 {
 
     public GameObject[] botsInitial;
+    public List<GameObject> sortedBots;
     public List<GameObject> bots;
     public List<Player> moveScripts;
     public List<TriggerCubeBase> triggerScripts;
@@ -17,6 +18,7 @@ public class PlayerToggle : MonoBehaviour
     void Awake()
     {
         botsInitial = GameObject.FindGameObjectsWithTag("Bot");
+        // botsInitial = Array.Sort(botsInitial, (a,b) => a.name.CompareTo(b.name));
         foreach (GameObject botInitial in botsInitial)
         {
             bots.Add(botInitial);
