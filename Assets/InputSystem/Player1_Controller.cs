@@ -18,7 +18,7 @@ public class Player1_Controller : MonoBehaviour
     public GameObject oldBotControlling;
     public Player oldBotControlling_Script;
     public TriggerCubeBase oldTriggerCube_Script;
-
+    public string startingBot;
     
 
     public Vector2 moveInputValue;
@@ -32,7 +32,7 @@ public class Player1_Controller : MonoBehaviour
 
         GameObject[] playerControllers = GameObject.FindGameObjectsWithTag("PlayerController");
 
-        if (playerControllers.Length > 1)
+        if (playerControllers.Length > 6)
         {
             Destroy(gameObject);
         }
@@ -53,6 +53,11 @@ public class Player1_Controller : MonoBehaviour
         print("onEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
+    void OnDisable()
+    {
+        print("onEnable called");
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
@@ -61,14 +66,14 @@ public class Player1_Controller : MonoBehaviour
         if(scene.name.Contains("Level"))
         {
             getScripts();
-            getNewBot();
+            // getNewBot();
         }
     }
     
     void Start()
     {
         // BotControllingIndex should come from character select as a player pref
-        getNewBot();
+        // getNewBot();
 
     }
 

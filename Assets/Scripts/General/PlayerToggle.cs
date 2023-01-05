@@ -10,6 +10,8 @@ public class PlayerToggle : MonoBehaviour
     public List<GameObject> bots;
     public List<Player> moveScripts;
     public List<TriggerCubeBase> triggerScripts;
+    public GameObject[] playersGameObject;
+    public List<Player1_Controller> playersScripts;
     
 
     public int player1;
@@ -17,8 +19,14 @@ public class PlayerToggle : MonoBehaviour
     
     void Awake()
     {
+        playersGameObject = GameObject.FindGameObjectsWithTag("PlayerController");
+        foreach(GameObject player in playersGameObject)
+        {
+            playersScripts.Add(player.GetComponent<Player1_Controller>());
+        }
+
         botsInitial = GameObject.FindGameObjectsWithTag("Bot");
-        // botsInitial = Array.Sort(botsInitial, (a,b) => a.name.CompareTo(b.name));
+        
         foreach (GameObject botInitial in botsInitial)
         {
             bots.Add(botInitial);
@@ -36,14 +44,14 @@ public class PlayerToggle : MonoBehaviour
             triggerScripts.Add(triggerCubeScript);
         }
         print(moveScripts[0]);
-        selectStartingBots();
+        
     }
 
     
 
     void Start()
     {
-        
+        setStartingBots();
     }
 
     // Update is called once per frame
@@ -52,32 +60,28 @@ public class PlayerToggle : MonoBehaviour
 
     }
 
-
-    public void selectStartingBots()
+    public void setStartingBots()
     {
-        //at some point this will take the starting bots from a player select screen. for now it will just start with brute and luz;
-        player1 = 1;
-        player2 = 0;
-        // resetAllPrefs();
-        // PlayerPrefs.SetString("BrutePlayerNumber", "P1");
-        // PlayerPrefs.SetString("LuzPlayerNumber", "P2");
-        // moveScripts[player1].controllingPlayer = 1;
-        // moveScripts[player2].controllingPlayer = 2;
-
-        moveScripts[player1].setCurrentPlayer(1);
-        triggerScripts[player1].setCurrentPlayer(1);
-        moveScripts[player2].setCurrentPlayer(2);
-        triggerScripts[player2].setCurrentPlayer(2);
+        foreach(Player1_Controller playerScript in playersScripts)
+        {
+            print("StartingBot" + playerScript.startingBot);
+            for(var i = 0; i <= bots.Count - 1; i++)
+            {
+                if(bots[i].name.Contains(playerScript.startingBot))
+                {
+                    playerScript.BotControlling = bots[i];
+                    playerScript.BotControlling_Script = moveScripts[i];
+                    playerScript.TriggerCube_Script = triggerScripts[i];
+                    bots.Remove(bots[i]);
+                    moveScripts.Remove(moveScripts[i]);
+                    triggerScripts.Remove(triggerScripts[i]);
+                }
+                else continue;
+            }
+        //    return;
+        }
     }
-
-    public void resetAllPrefs()
-    {
-        PlayerPrefs.SetString("GearPlayerNumber", "P0");
-        PlayerPrefs.SetString("LuzPlayerNumber", "P0");
-        PlayerPrefs.SetString("BrutePlayerNumber", "P0");
-        PlayerPrefs.SetString("PumpPlayerNumber", "P0");
-        PlayerPrefs.SetString("SatPlayerNumber", "P0");
-    }
+    
 
     public int getAvailableBotIndex()
     {
