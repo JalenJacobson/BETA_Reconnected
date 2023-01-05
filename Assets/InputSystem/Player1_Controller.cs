@@ -58,7 +58,7 @@ public class Player1_Controller : MonoBehaviour
     {
         print("Onsceneloaded" + scene.name);
         print(mode);
-        if(scene.name == "Level1")
+        if(scene.name.Contains("Level"))
         {
             getScripts();
             getNewBot();
