@@ -11,6 +11,8 @@ public class HeroSelectPlayer : MonoBehaviour
     public bool isSelected;
     public bool isLocalPlayer;
     public bool isUp;
+
+    public bool available = true;
     // Start is called before the first frame update
     void Start()
     {

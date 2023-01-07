@@ -10,7 +10,8 @@ public class Player1_Controller : MonoBehaviour
     public GameObject PauseMenuUi;
     public PauseMenu PauseMenu_Script;
     public GameObject PlayerToggle;
-    public PlayerToggle PlayerToggle_Script;
+    
+    public Player_Toggle_LevelSelect Player_Toggle_LevelSelect_Script;
     public GameObject BotControlling;
     public Player BotControlling_Script;
     public TriggerCubeBase TriggerCube_Script;
@@ -19,12 +20,22 @@ public class Player1_Controller : MonoBehaviour
     public Player oldBotControlling_Script;
     public TriggerCubeBase oldTriggerCube_Script;
     public string startingBot;
+
+    public bool firstInstantiation = true;
     
 
     public Vector2 moveInputValue;
 
     public float x;
     public float y;
+
+    public PlayerToggle PlayerToggle_Script;
+    public GameObject Player_Toggle_LevelSelect;
+    public GameObject BotControlling_LevelSelect;
+    public HeroSelectPlayer BotControlling_LevelSelect_Script;
+    public GameObject oldBotControlling_LevelSelect;
+    public HeroSelectPlayer oldBotControlling_LevelSelect_Script;
+    public int levelSelect_Bot_Index;
     
     
         void Awake()
@@ -72,9 +83,92 @@ public class Player1_Controller : MonoBehaviour
     
     void Start()
     {
-        // BotControllingIndex should come from character select as a player pref
-        // getNewBot();
+        if(firstInstantiation)
+        {
+            Player_Toggle_LevelSelect = GameObject.Find("Player_Toggle_LevelSelect");
+            Player_Toggle_LevelSelect_Script = Player_Toggle_LevelSelect.GetComponent<Player_Toggle_LevelSelect>();
+            getLevelSelectBot();
+            firstInstantiation = false;
+        }
+    }
 
+    public void getLevelSelectBot()
+    {
+        if(BotControlling_LevelSelect != null)
+        {
+            // BotControlling_LevelSelect_Script.ToggleCircleOff();
+            oldBotControlling_LevelSelect = BotControlling_LevelSelect;
+            oldBotControlling_LevelSelect_Script = BotControlling_LevelSelect_Script;
+            BotControlling_LevelSelect = null;
+            BotControlling_LevelSelect_Script = null;
+            
+        }
+        availableBot = Player_Toggle_LevelSelect_Script.getAvailableBotIndex();
+        levelSelect_Bot_Index = availableBot;
+        BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
+        BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
+        startingBot = BotControlling_LevelSelect.name;
+        
+        BotControlling_LevelSelect_Script.available = false;
+        // BotControlling_LevelSelect_Script.ToggleCircle();
+    
+        oldBotControlling_LevelSelect_Script.available = true;
+
+        oldBotControlling_LevelSelect = null;
+        
+    }
+
+    public void getLevelSelectBot_Next()
+    {
+        if(BotControlling_LevelSelect != null)
+        {
+            // BotControlling_LevelSelect_Script.ToggleCircleOff();
+            oldBotControlling_LevelSelect = BotControlling_LevelSelect;
+            oldBotControlling_LevelSelect_Script = BotControlling_LevelSelect_Script;
+            BotControlling_LevelSelect = null;
+            BotControlling_LevelSelect_Script = null;
+            
+        }
+        availableBot = Player_Toggle_LevelSelect_Script.getNextAvailableBotIndex(levelSelect_Bot_Index);
+        // if(availableBot == -1) return;
+        levelSelect_Bot_Index = availableBot;
+        BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
+        BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
+        startingBot = BotControlling_LevelSelect.name;
+        
+        BotControlling_LevelSelect_Script.available = false;
+        // BotControlling_LevelSelect_Script.ToggleCircle();
+    
+        oldBotControlling_LevelSelect_Script.available = true;
+
+        oldBotControlling_LevelSelect = null;
+        
+    }
+    public void getLevelSelectBot_Previous()
+    {
+        if(BotControlling_LevelSelect != null)
+        {
+            // BotControlling_LevelSelect_Script.ToggleCircleOff();
+            oldBotControlling_LevelSelect = BotControlling_LevelSelect;
+            oldBotControlling_LevelSelect_Script = BotControlling_LevelSelect_Script;
+            BotControlling_LevelSelect = null;
+            BotControlling_LevelSelect_Script = null;
+            
+        }
+        availableBot = Player_Toggle_LevelSelect_Script.getPreviousAvailableBotIndex(levelSelect_Bot_Index);
+        // if(availableBot == -1) return;
+        levelSelect_Bot_Index = availableBot;
+        BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
+        BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
+        startingBot = BotControlling_LevelSelect.name;
+        
+        BotControlling_LevelSelect_Script.available = false;
+        // BotControlling_LevelSelect_Script.ToggleCircle();
+    
+        oldBotControlling_LevelSelect_Script.available = true;
+
+        oldBotControlling_LevelSelect = null;
+        
     }
 
     public void getNewBot()
@@ -145,7 +239,14 @@ public class Player1_Controller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown("q"))
+        {
+            getLevelSelectBot_Next();
+        }
+        if(Input.GetKeyDown("w"))
+        {
+            getLevelSelectBot_Previous();
+        }
     }
 
     
