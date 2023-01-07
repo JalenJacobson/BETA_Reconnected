@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4443446, g: 0.4938084, b: 0.57316136, a: 1}
+  m_IndirectSpecularColor: {r: 0.44434407, g: 0.4938081, b: 0.5731605, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -560,6 +560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 62349f3c98d878c48a88a154c6710d3a,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bot
       objectReference: {fileID: 0}
     - target: {fileID: 2509802017764886665, guid: 62349f3c98d878c48a88a154c6710d3a,
         type: 3}
@@ -2584,6 +2589,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b2834cb37e7a3374d83ae2a04488dc78,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bot
+      objectReference: {fileID: 0}
     - target: {fileID: 3600967432716015473, guid: b2834cb37e7a3374d83ae2a04488dc78,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -3334,6 +3344,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 3fc6363c10c99fb49a8e4f00ce37e0ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bot
       objectReference: {fileID: 0}
     - target: {fileID: 5126787617410169719, guid: 3fc6363c10c99fb49a8e4f00ce37e0ab,
         type: 3}
@@ -5511,6 +5526,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c67b68699a5bb3f47836a5fd62edf9d6,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bot
+      objectReference: {fileID: 0}
     - target: {fileID: 4253280567622488715, guid: c67b68699a5bb3f47836a5fd62edf9d6,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -6008,7 +6028,7 @@ PrefabInstance:
     - target: {fileID: 74484140252336572, guid: 57f27608b3a8ef44aabc479c51f86a1e,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8591992866496724526, guid: 57f27608b3a8ef44aabc479c51f86a1e,
         type: 3}
@@ -7135,6 +7155,7 @@ MonoBehaviour:
   isSelected: 0
   isLocalPlayer: 0
   isUp: 0
+  available: 1
   PumpSelectButton: {fileID: 0}
   Pump: {fileID: 0}
   anim: {fileID: 0}
@@ -8312,6 +8333,7 @@ MonoBehaviour:
   isSelected: 0
   isLocalPlayer: 0
   isUp: 0
+  available: 1
   SatSelectButton: {fileID: 0}
   SatBot: {fileID: 0}
   anim: {fileID: 0}
@@ -8799,6 +8821,7 @@ MonoBehaviour:
   isSelected: 0
   isLocalPlayer: 0
   isUp: 0
+  available: 1
   LuzSelectButton: {fileID: 0}
   Luz: {fileID: 0}
   anim: {fileID: 0}
@@ -9533,6 +9556,7 @@ MonoBehaviour:
   isSelected: 0
   isLocalPlayer: 0
   isUp: 0
+  available: 1
   GearsSelectButton: {fileID: 0}
   Gears: {fileID: 0}
   anim: {fileID: 0}
@@ -12342,6 +12366,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 02c2ba418f9df66478aac30f56ab6a33,
+        type: 3}
+      propertyPath: m_TagString
+      value: Bot
+      objectReference: {fileID: 0}
     - target: {fileID: 1790868808166937211, guid: 02c2ba418f9df66478aac30f56ab6a33,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -12734,6 +12763,56 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 46.549004, y: -25.708002, z: 84.54401}
+--- !u!1 &2053429028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2053429030}
+  - component: {fileID: 2053429029}
+  m_Layer: 0
+  m_Name: Player_Toggle_LevelSelect
+  m_TagString: PlayerController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2053429029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053429028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a5f30cf3aadb4d2998486bb775d260f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bots:
+  - {fileID: 919132149137789085}
+  - {fileID: 919132149480783412}
+  - {fileID: 919132148830739449}
+  - {fileID: 919132147794512123}
+  - {fileID: 919132148623166643}
+  selectScripts: []
+--- !u!4 &2053429030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2053429028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.56, y: -6.43, z: 126.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 28
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2059865723
 GameObject:
   m_ObjectHideFlags: 0
@@ -13421,6 +13500,7 @@ MonoBehaviour:
   isSelected: 0
   isLocalPlayer: 0
   isUp: 0
+  available: 1
   BruteSelectButton: {fileID: 0}
   Brute: {fileID: 0}
   anim: {fileID: 0}
@@ -13441,6 +13521,11 @@ PrefabInstance:
         type: 3}
       propertyPath: timeRemaining
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 953004390260217478, guid: 568bf262978ed427ea0ea2a5449542d9,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1230182418186178008, guid: 568bf262978ed427ea0ea2a5449542d9,
         type: 3}
