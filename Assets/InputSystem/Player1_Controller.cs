@@ -36,6 +36,7 @@ public class Player1_Controller : MonoBehaviour
     public GameObject oldBotControlling_LevelSelect;
     public HeroSelectPlayer oldBotControlling_LevelSelect_Script;
     public int levelSelect_Bot_Index;
+    public MoveNode Node_Move_Script;
     
     
         void Awake()
@@ -76,8 +77,15 @@ public class Player1_Controller : MonoBehaviour
         print(mode);
         if(scene.name.Contains("Level"))
         {
+            firstInstantiation = false;
             getScripts();
             // getNewBot();
+        }
+        else if(scene.name == "Map_Select")
+        {
+            firstInstantiation = false;
+            BotControlling = GameObject.Find("Node");
+            Node_Move_Script = BotControlling.GetComponent<MoveNode>();
         }
     }
     
@@ -88,7 +96,7 @@ public class Player1_Controller : MonoBehaviour
             Player_Toggle_LevelSelect = GameObject.Find("Player_Toggle_LevelSelect");
             Player_Toggle_LevelSelect_Script = Player_Toggle_LevelSelect.GetComponent<Player_Toggle_LevelSelect>();
             getLevelSelectBot();
-            firstInstantiation = false;
+           // firstInstantiation = false;
         }
     }
 
@@ -207,12 +215,31 @@ public class Player1_Controller : MonoBehaviour
         print("GAMER" + Gamepad.current.displayName);
         x = moveInputValue.x;
         y = moveInputValue.y;
-        BotControlling_Script.Movement(x, y);
+
+        if(firstInstantiation)
+        {
+            if(x >= .95)
+            {
+                getLevelSelectBot_Next();
+            }
+            else if(x <= -.95)
+            {
+                getLevelSelectBot_Previous();
+            }
+        }
+        else if(!firstInstantiation)
+        {
+            if(BotControlling_Script != null) BotControlling_Script.Movement(x, y);
+            if(Node_Move_Script != null)  Node_Move_Script.Movement(x, y);
+        }
+        
+        
     }
 
     private void OnSubmit()
     {
-        TriggerCube_Script.Activate();
+       if(TriggerCube_Script != null) TriggerCube_Script.Activate();
+       if(Node_Move_Script != null)  Node_Move_Script.Submit();
     }
 
     private void OnSpecial()

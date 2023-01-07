@@ -32,17 +32,22 @@ public class MoveNode : MonoBehaviour
     void FixedUpdate()
     {
         directionMove = Vector3.zero;
-        Movement();
+        //Movement();
 
     }
 
-    public void Movement()
+    public void Movement(float x, float y)
     {
-        directionRotate = new Vector3(moveInputValue.x, 0.0f, moveInputValue.y);
-        directionMove = new Vector3(moveInputValue.x * moveSpeed, rb.velocity.y, moveInputValue.y * moveSpeed);
+      print("NODE MOVE SCRIPT" + x);
+        //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
+        //float verticalMove = Input.GetAxis(moveAxisVertical);
+
+        directionRotate = new Vector3(x, 0.0f, y);
+        directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
         if(directionMove != Vector3.zero)
         {
             rb.velocity = directionMove;
+            //currentHealth = currentHealth - .03f;
         }
 
         if (!fixRotation && directionRotate != Vector3.zero)
@@ -50,15 +55,17 @@ public class MoveNode : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
         }
 
+        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        
     }
 
-    private void OnMove(InputValue value)
-    {
-        moveInputValue = value.Get<Vector2>();
-        print("GAMER" + Gamepad.current.displayName);
-    }
+    // private void OnMove(InputValue value)
+    // {
+    //     moveInputValue = value.Get<Vector2>();
+    //     print("GAMER" + Gamepad.current.displayName);
+    // }
 
-    private void OnSubmit()
+    public void Submit()
      {
         print("NEXTLEVEL");
 

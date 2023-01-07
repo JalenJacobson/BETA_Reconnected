@@ -27,7 +27,7 @@ public class Level_Manager : MonoBehaviour
         if(Input.GetKeyDown("u"))
         {
             print(SceneManager.GetActiveScene());
-            SceneManager.LoadScene("Level_Select");
+            SceneManager.LoadScene("Map_Select");
         }
         if(Input.GetKeyDown("p"))
         {
@@ -138,7 +138,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator loadLevelSelectLevelSelect()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.LoadScene("Level_Select");
+        SceneManager.LoadScene("Map_Select");
     }
     
     public void loadGameOverLevel()
@@ -234,7 +234,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator StartcontinueTutorial()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Level_Select");
+        SceneManager.LoadScene("Map_Select");
     }
 
     public void replayTutorial()
