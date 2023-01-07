@@ -42,8 +42,6 @@ public class PumpSelect : HeroSelectPlayer
    public void Up()
    {
        anim.Play("PumpSelectUp");
-       
-
    }
    public void Down()
    {

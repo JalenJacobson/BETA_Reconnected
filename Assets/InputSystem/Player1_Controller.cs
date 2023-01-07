@@ -81,6 +81,12 @@ public class Player1_Controller : MonoBehaviour
             getScripts();
             // getNewBot();
         }
+        else if(scene.name == "HackingRoom")
+        {
+            firstInstantiation = false;
+            BotControlling = GameObject.Find("Node");
+            Node_Move_Script = BotControlling.GetComponent<MoveNode>();
+        }
         else if(scene.name == "Map_Select")
         {
             firstInstantiation = false;
