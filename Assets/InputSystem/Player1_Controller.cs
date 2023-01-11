@@ -226,18 +226,18 @@ public class Player1_Controller : MonoBehaviour
         x = moveInputValue.x;
         y = moveInputValue.y;
 
-        if(firstInstantiation)
-        {
-            if(x >= .95)
-            {
-                getLevelSelectBot_Next();
-            }
-            else if(x <= -.95)
-            {
-                getLevelSelectBot_Previous();
-            }
-        }
-        else if(!firstInstantiation)
+        // if(firstInstantiation)
+        // {
+        //     if(x >= .95)
+        //     {
+        //         getLevelSelectBot_Next();
+        //     }
+        //     else if(x <= -.95)
+        //     {
+        //         getLevelSelectBot_Previous();
+        //     }
+        // }
+        if(!firstInstantiation)
         {
             if(BotControlling_Script != null) BotControlling_Script.Movement(x, y);
             if(Node_Move_Script != null)  Node_Move_Script.Movement(x, y);

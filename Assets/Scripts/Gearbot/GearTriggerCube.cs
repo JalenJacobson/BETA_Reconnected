@@ -179,6 +179,7 @@ public class GearTriggerCube : TriggerCubeBase
 
      public override void Activate()
      {
+        //if(touching) return;
           GearMove_Script.Activate();
          
         if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers") || touching.name.Contains("Rotator"))
@@ -197,6 +198,7 @@ public class GearTriggerCube : TriggerCubeBase
                 setGizmoToNull();
             }
             GearMove_Script.toggleFixPosition();
+            GearMove_Script.Gizmo();
             
             touching.SendMessage("toggleBotConnected");
             touching.SendMessage(connectMessage);

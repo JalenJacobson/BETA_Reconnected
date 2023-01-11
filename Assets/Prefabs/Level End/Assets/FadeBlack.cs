@@ -20,4 +20,18 @@ public class FadeBlack : MonoBehaviour
     {
         anim.Play("FadeBlack");
     }
+
+    public void Fade()
+    {
+        anim.Play("Fade");
+    }
+
+    public void FadeMenuStart()
+    {
+        anim.Play("FadeMenuStart");
+    }
+    public void FadeMenuEnd()
+    {
+        anim.Play("FadeMenuEnd");
+    }
 }

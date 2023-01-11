@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class Menu_navigator : MonoBehaviour
 {
-    public GameObject gametypeFirstButton, warningFirstButton, botselectFirstButton;
+    public GameObject gametypeFirstButton, warningFirstButton, botselectFirstButton, readyToStart;
     // Start is called before the first frame update
     void Start()
     {
@@ -34,5 +34,11 @@ public class Menu_navigator : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(botselectFirstButton);
+    }
+
+    public void ReadytoStart()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        EventSystem.current.SetSelectedGameObject(readyToStart);
     }
 }
