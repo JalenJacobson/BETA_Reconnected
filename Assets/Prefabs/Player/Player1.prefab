@@ -99,7 +99,7 @@ MonoBehaviour:
   PauseMenuUi: {fileID: 0}
   PauseMenu_Script: {fileID: 0}
   PlayerToggle: {fileID: 0}
-  PlayerToggle_Script: {fileID: 0}
+  Player_Toggle_LevelSelect_Script: {fileID: 0}
   BotControlling: {fileID: 0}
   BotControlling_Script: {fileID: 0}
   TriggerCube_Script: {fileID: 0}
@@ -107,9 +107,19 @@ MonoBehaviour:
   oldBotControlling: {fileID: 0}
   oldBotControlling_Script: {fileID: 0}
   oldTriggerCube_Script: {fileID: 0}
+  startingBot: 
+  firstInstantiation: 1
   moveInputValue: {x: 0, y: 0}
   x: 0
   y: 0
+  PlayerToggle_Script: {fileID: 0}
+  Player_Toggle_LevelSelect: {fileID: 0}
+  BotControlling_LevelSelect: {fileID: 0}
+  BotControlling_LevelSelect_Script: {fileID: 0}
+  oldBotControlling_LevelSelect: {fileID: 0}
+  oldBotControlling_LevelSelect_Script: {fileID: 0}
+  levelSelect_Bot_Index: 0
+  Node_Move_Script: {fileID: 0}
 --- !u!114 &1991163674301792989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4788365818354676382
 RectTransform:
   m_ObjectHideFlags: 0

@@ -242,6 +242,16 @@ public class Player1_Controller : MonoBehaviour
         
     }
 
+    private void OnChangeRight()
+    {
+        getLevelSelectBot_Next();
+    }
+
+    private void OnChangeLeft()
+    {
+        getLevelSelectBot_Previous();
+    }
+
     private void OnSubmit()
     {
        if(TriggerCube_Script != null) TriggerCube_Script.Activate();

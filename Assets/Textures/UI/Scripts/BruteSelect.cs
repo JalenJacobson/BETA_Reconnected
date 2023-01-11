@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BruteSelect : HeroSelectPlayer
 {
@@ -9,6 +10,7 @@ public class BruteSelect : HeroSelectPlayer
    public Animator anim;
     // public bool displayBubble = false;
     public GameObject touching = null;
+    public Image P1Circle;
 
     // public GameObject Level_Manager;
     // public Level_Manager Level_Manager_Script;
@@ -28,13 +30,21 @@ public class BruteSelect : HeroSelectPlayer
  // Update is called once per frame
     void Update()
     {
-        if(!isUp && isSelected)
+        // if(!isUp && isSelected)
+        // {
+        //     bruteUp();
+        // }
+        // else if(isUp && !isSelected)
+        // {
+        //     bruteDown();
+        // }
+        if(available == true)
         {
-            bruteUp();
+            P1Circle.enabled = false;
         }
-        else if(isUp && !isSelected)
+        else if(available == false)
         {
-            bruteDown();
+            P1Circle.enabled = true;
         }
     }
     

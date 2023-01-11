@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PumpSelect : HeroSelectPlayer
 {
@@ -9,6 +10,7 @@ public class PumpSelect : HeroSelectPlayer
     public Animator anim;
     // public bool displayBubble = false;
     public GameObject touching = null;
+    public Image P1Circle;
 
     // public GameObject Level_Manager;
     // public Level_Manager Level_Manager_Script;
@@ -29,13 +31,21 @@ public class PumpSelect : HeroSelectPlayer
  // Update is called once per frame
     void Update()
     {
-        if(!isUp && isSelected)
+        // if(!isUp && isSelected)
+        // {
+        //     pumpUp();
+        // }
+        // else if(isUp && !isSelected)
+        // {
+        //     pumpDown();
+        // }
+        if(available == true)
         {
-            pumpUp();
+            P1Circle.enabled = false;
         }
-        else if(isUp && !isSelected)
+        else if(available == false)
         {
-            pumpDown();
+            P1Circle.enabled = true;
         }
     }
     

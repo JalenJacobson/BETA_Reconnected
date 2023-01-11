@@ -217,7 +217,7 @@ public class Level_Manager : MonoBehaviour
     IEnumerator startTutorialLose()
     {
         yield return new WaitForSeconds(2);
-        SceneManager.LoadScene(23);
+        SceneManager.LoadScene("1_LoseScreen");
     }
     
     IEnumerator StartTutorial()

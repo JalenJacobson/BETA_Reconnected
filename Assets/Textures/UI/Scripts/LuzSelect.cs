@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LuzSelect : HeroSelectPlayer
 {
@@ -9,6 +10,7 @@ public class LuzSelect : HeroSelectPlayer
    public Animator anim;
     // public bool displayBubble = false;
     public GameObject touching = null;
+    public Image P1Circle;
 
     // public GameObject Level_Manager;
     // public Level_Manager Level_Manager_Script;
@@ -28,13 +30,21 @@ public class LuzSelect : HeroSelectPlayer
  // Update is called once per frame
     void Update()
     {
-        if(!isUp && isSelected)
+        // if(!isUp && isSelected)
+        // {
+        //     luzUp();
+        // }
+        // else if(isUp && !isSelected)
+        // {
+        //     luzDown();
+        // }
+        if(available == true)
         {
-            luzUp();
+            P1Circle.enabled = false;
         }
-        else if(isUp && !isSelected)
+        else if(available == false)
         {
-            luzDown();
+            P1Circle.enabled = true;
         }
     }
     
