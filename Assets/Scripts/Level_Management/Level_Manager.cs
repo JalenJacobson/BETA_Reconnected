@@ -32,7 +32,7 @@ public class Level_Manager : MonoBehaviour
         if(Input.GetKeyDown("p"))
         {
             
-            SceneManager.LoadScene(1);
+            SceneManager.LoadScene(2);
         }
        
     }

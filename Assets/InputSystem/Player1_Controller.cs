@@ -125,8 +125,12 @@ public class Player1_Controller : MonoBehaviour
         
         BotControlling_LevelSelect_Script.available = false;
         // BotControlling_LevelSelect_Script.ToggleCircle();
-    
-        oldBotControlling_LevelSelect_Script.available = true;
+
+        if(oldBotControlling_LevelSelect_Script)
+        {
+            oldBotControlling_LevelSelect_Script.available = true;
+        }
+        
 
         oldBotControlling_LevelSelect = null;
         
