@@ -27,6 +27,11 @@ public class SatMove : Player
     public Image P1Circle;
     public Image P2Circle;
 
+    public GameObject MoveCamera;
+    public MoveCamera MoveCamera_Script;
+
+    public bool controllingCamera = false;
+
     
 
     // public float currentHealth ;
@@ -48,15 +53,8 @@ public class SatMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
-        //getControls();
-        // startPos = new Vector3(58f, 1.3f, -230f);
-        // transform.position = startPos;
-        
-        // TimerBar_Script = TimerBarSat.GetComponent<TimeBarSat>();
-        // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
-        // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
-        // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
-        // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
+        MoveCamera = GameObject.Find("CinemachineCamera");
+        MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
     }
 
     public override void setCurrentPlayer(int player)
@@ -99,14 +97,22 @@ public class SatMove : Player
         directionRotate = new Vector3(x, 0.0f, y);
         directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
         
-        rb.velocity = directionMove;
-
-        if (!fixRotation && directionRotate != Vector3.zero)
+        if(!controllingCamera)
         {
-            transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-            currentHealth = currentHealth - .02f;
-            Rails_Script.rails();
+            rb.velocity = directionMove;
+
+            if (!fixRotation && directionRotate != Vector3.zero)
+            {
+                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
+                currentHealth = currentHealth - .02f;
+                Rails_Script.rails();
+            }
         }
+        else if(controllingCamera)
+        {
+            MoveCamera_Script.rb.velocity = directionMove;
+        }
+        
 
         // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         

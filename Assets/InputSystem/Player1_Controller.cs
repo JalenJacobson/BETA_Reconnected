@@ -246,18 +246,18 @@ public class Player1_Controller : MonoBehaviour
         
     }
 
-    private void OnCameraMove(InputValue value)
-    {
-        moveInputValue = value.Get<Vector2>();
-        print("GAMER" + Gamepad.current.displayName);
-        x = moveInputValue.x;
-        y = moveInputValue.y;
+    // private void OnCameraMove(InputValue value)
+    // {
+    //     moveInputValue = value.Get<Vector2>();
+    //     print("GAMER" + Gamepad.current.displayName);
+    //     x = moveInputValue.x;
+    //     y = moveInputValue.y;
 
-        if(!firstInstantiation)
-        {
-            if(BotControlling_Script != null) BotControlling_Script.Movement(x, y);
-        }
-    }
+    //     if(!firstInstantiation)
+    //     {
+    //         if(BotControlling_Script != null) BotControlling_Script.Movement(x, y);
+    //     }
+    // }
 
     private void OnSubmit()
     {
