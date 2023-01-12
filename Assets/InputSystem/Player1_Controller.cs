@@ -246,14 +246,17 @@ public class Player1_Controller : MonoBehaviour
         
     }
 
-    private void OnChangeRight()
+    private void OnCameraMove(InputValue value)
     {
-        getLevelSelectBot_Next();
-    }
+        moveInputValue = value.Get<Vector2>();
+        print("GAMER" + Gamepad.current.displayName);
+        x = moveInputValue.x;
+        y = moveInputValue.y;
 
-    private void OnChangeLeft()
-    {
-        getLevelSelectBot_Previous();
+        if(!firstInstantiation)
+        {
+            if(BotControlling_Script != null) BotControlling_Script.Movement(x, y);
+        }
     }
 
     private void OnSubmit()
@@ -264,7 +267,8 @@ public class Player1_Controller : MonoBehaviour
 
     private void OnSpecial()
     {
-        TriggerCube_Script.Special();
+        print("Special WORKED");
+        if(TriggerCube_Script != null) TriggerCube_Script.Special();
     }
 
      private void OnToggle()
@@ -294,6 +298,15 @@ public class Player1_Controller : MonoBehaviour
         {
             getLevelSelectBot_Previous();
         }
+    }
+        private void OnChangeRight()
+    {
+        getLevelSelectBot_Next();
+    }
+
+    private void OnChangeLeft()
+    {
+        getLevelSelectBot_Previous();
     }
 
     

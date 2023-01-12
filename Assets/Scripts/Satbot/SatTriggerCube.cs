@@ -14,6 +14,9 @@ public class SatTriggerCube : TriggerCubeBase
     public bool connected = false;
     public Vector3 connectPos;
     public string token;
+
+    public GameObject MoveCamera;
+    public MoveCamera MoveCamera_Script;
     
     public bool tokenExpire = false;
     public float tokenExpireTime;
@@ -42,6 +45,7 @@ public class SatTriggerCube : TriggerCubeBase
     {
         SatMove_Script = SatBot.GetComponent<SatMove>();
         getControls();
+        MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
     }
 
     // public void getControls()
@@ -192,8 +196,8 @@ public class SatTriggerCube : TriggerCubeBase
              
      }
 
-     public override void Special()
-     {
-        //put functionality to control camera here.
-     }
+    //  public override void CameraMove(float x, float y)
+    //  {
+    //     MoveCamera_Script.Movement(moveInputValues.x, moveInputValues.y);
+    //  }
 }
