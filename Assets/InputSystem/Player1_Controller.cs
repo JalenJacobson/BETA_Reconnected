@@ -62,12 +62,12 @@ public class Player1_Controller : MonoBehaviour
 
     void OnEnable()
     {
-        print("onEnable called");
+        //print("onEnable called");
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     void OnDisable()
     {
-        print("onEnable called");
+        //print("onEnable called");
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
@@ -222,7 +222,7 @@ public class Player1_Controller : MonoBehaviour
     private void OnMove(InputValue value)
     {
         moveInputValue = value.Get<Vector2>();
-        print("GAMER" + Gamepad.current.displayName);
+        //print("GAMER" + Gamepad.current.displayName);
         x = moveInputValue.x;
         y = moveInputValue.y;
 
@@ -267,13 +267,13 @@ public class Player1_Controller : MonoBehaviour
 
     private void OnSpecial()
     {
-        print("Special WORKED");
+        //print("Special WORKED");
         if(TriggerCube_Script != null) TriggerCube_Script.Special();
     }
 
      private void OnToggle()
      {
-        print("TOGGLING WORKED");
+        //print("TOGGLING WORKED");
         getNewBot();
      }
 

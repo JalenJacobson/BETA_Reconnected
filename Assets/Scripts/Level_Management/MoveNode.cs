@@ -38,7 +38,7 @@ public class MoveNode : MonoBehaviour
 
     public void Movement(float x, float y)
     {
-      print("NODE MOVE SCRIPT" + x);
+      //print("NODE MOVE SCRIPT" + x);
         //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
         //float verticalMove = Input.GetAxis(moveAxisVertical);
 
