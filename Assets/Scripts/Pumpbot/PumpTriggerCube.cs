@@ -43,6 +43,7 @@ public class PumpTriggerCube : TriggerCubeBase
     // public string specialController;
     public bool connectedBox = false;
     public GameObject connectedBoxName = null;
+    public GameObject[] PumpHelp_Icons;
 
     // public int controllingPlayer = 0;
 
@@ -69,7 +70,8 @@ public class PumpTriggerCube : TriggerCubeBase
         // CancelButton2_Script = Cancel2.GetComponent<CancelButton>();
         BlueWall_Script = BlueWall.GetComponent<BlueWall>();
         anim = GetComponent<Animator>();
-        getControls();
+        PumpHelp_Icons = GameObject.FindGameObjectsWithTag("PumpHelpIcon");
+        //getControls();
     }
 
     // public void getControls()
@@ -221,4 +223,22 @@ public class PumpTriggerCube : TriggerCubeBase
      {
        ConnectionScript.SendMessage("SnapHoseBack");  
      }
+
+     public override void HelpIcon()
+     {
+        StartCoroutine(StartHelpIcon());
+     }
+     
+     IEnumerator StartHelpIcon()
+    {
+
+        foreach(GameObject HelpIconCanvas in PumpHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+            yield return new WaitForSeconds(5f);
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        
+        
+    }
 }

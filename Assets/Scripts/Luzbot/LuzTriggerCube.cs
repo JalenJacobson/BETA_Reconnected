@@ -20,6 +20,7 @@ public class LuzTriggerCube : TriggerCubeBase
 
     public Text Connection;
     public Text ErrorMessage;
+    public GameObject[] LuzHelp_Icons;
 
     // public string playerNumber;
     // public string connectKey;
@@ -39,6 +40,7 @@ public class LuzTriggerCube : TriggerCubeBase
     {
         LuzMove_Script = IdleLuz.GetComponent<LuzMove>();
         PowerScript = IdleLuz.GetComponent<ActivatePower>();
+        LuzHelp_Icons = GameObject.FindGameObjectsWithTag("LuzHelpIcon");
         // getControls();
     }
 
@@ -108,5 +110,23 @@ public class LuzTriggerCube : TriggerCubeBase
     public override void Special()
     {
         LuzMove_Script.Recharge();
+    }
+
+    public override void HelpIcon()
+     {
+        StartCoroutine(StartHelpIcon());
+     }
+     
+     IEnumerator StartHelpIcon()
+    {
+
+        foreach(GameObject HelpIconCanvas in LuzHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+            yield return new WaitForSeconds(5f);
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        
+        
     }
 }

@@ -14,6 +14,7 @@ public class SatTriggerCube : TriggerCubeBase
     public bool connected = false;
     public Vector3 connectPos;
     public string token;
+    public GameObject[] SatHelp_Icons;
 
     
     
@@ -43,7 +44,8 @@ public class SatTriggerCube : TriggerCubeBase
     void Start()
     {
         SatMove_Script = SatBot.GetComponent<SatMove>();
-        getControls();
+        SatHelp_Icons = GameObject.FindGameObjectsWithTag("SatHelpIcon");
+        //getControls();
         
     }
 
@@ -199,4 +201,25 @@ public class SatTriggerCube : TriggerCubeBase
      {
         SatMove_Script.controllingCamera = !SatMove_Script.controllingCamera;
      }
+
+     public override void HelpIcon()
+     {
+        StartCoroutine(StartHelpIcon());
+     }
+     
+     IEnumerator StartHelpIcon()
+    {
+
+        foreach(GameObject HelpIconCanvas in SatHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+        }
+        yield return new WaitForSeconds(5f);
+        foreach(GameObject HelpIconCanvas in SatHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+               
+    }
+     
 }

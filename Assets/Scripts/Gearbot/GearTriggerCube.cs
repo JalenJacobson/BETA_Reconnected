@@ -22,6 +22,7 @@ public class GearTriggerCube : TriggerCubeBase
     
 
     public Vector2 moveInputValues;
+    public GameObject[] GearHelp_Icons;
 
     // public int controllingPlayer = 0;
 
@@ -51,6 +52,7 @@ public class GearTriggerCube : TriggerCubeBase
     {
         GearMove_Script = Gears.GetComponent<GearMove>();
         connectPos = new Vector3(-0.01f, 0.005f, -0.003f);
+        GearHelp_Icons = GameObject.FindGameObjectsWithTag("GearHelpIcon");
         // Bubble_Script = ActionBubbles.GetComponent<BubbleScript>();
         // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
         //getControls();
@@ -212,6 +214,24 @@ public class GearTriggerCube : TriggerCubeBase
         gizmoClaw_Script = null;
         gizmoRotator_Script = null;
         gizmoGear_Crawler_Script = null;
+    }
+
+   public override void HelpIcon()
+     {
+        StartCoroutine(StartHelpIcon());
+     }
+     
+     IEnumerator StartHelpIcon()
+    {
+
+        foreach(GameObject HelpIconCanvas in GearHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+            yield return new WaitForSeconds(5f);
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        
+        
     }
      
     

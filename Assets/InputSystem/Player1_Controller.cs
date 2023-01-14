@@ -247,6 +247,12 @@ public class Player1_Controller : MonoBehaviour
         
     }
 
+    private void OnHelpIcon()
+    {
+        if(TriggerCube_Script != null) TriggerCube_Script.HelpIcon();   
+    }
+    
+
     // private void OnCameraMove(InputValue value)
     // {
     //     moveInputValue = value.Get<Vector2>();

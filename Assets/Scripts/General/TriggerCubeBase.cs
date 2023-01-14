@@ -35,6 +35,11 @@ public class TriggerCubeBase : MonoBehaviour
     {
 
     }
+    public virtual void HelpIcon()
+    {
+
+    }
+    
 
     public virtual void setCurrentPlayer(int player)
     {

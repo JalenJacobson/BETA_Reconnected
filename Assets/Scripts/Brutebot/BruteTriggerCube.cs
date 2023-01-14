@@ -11,6 +11,7 @@ public class BruteTriggerCube : TriggerCubeBase
     public GameObject batteryTouching = null;
     public bool canLift = false;
     public Vector3 liftPos;
+    public GameObject[] BruteHelp_Icons;
 
     // public int controllingPlayer = 0;
     
@@ -34,7 +35,8 @@ public class BruteTriggerCube : TriggerCubeBase
     {
         BruteMove_Script = Brute.GetComponent<BruteMove>();
         liftPos = new Vector3(0.0f, -0.5f, -1.0f);
-        getControls();
+        BruteHelp_Icons = GameObject.FindGameObjectsWithTag("BruteHelpIcon");
+        //getControls();
     }
 
     // public override void getControls()
@@ -233,6 +235,23 @@ public class BruteTriggerCube : TriggerCubeBase
             
         //     touching.SendMessage("toggleIsBeingCarried");
         // }
+    }
+    public override void HelpIcon()
+     {
+        StartCoroutine(StartHelpIcon());
+     }
+     
+     IEnumerator StartHelpIcon()
+    {
+
+        foreach(GameObject HelpIconCanvas in BruteHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+            yield return new WaitForSeconds(5f);
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        
+        
     }
 }
 
