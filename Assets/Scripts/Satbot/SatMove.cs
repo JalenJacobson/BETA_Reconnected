@@ -24,8 +24,8 @@ public class SatMove : Player
    // public MiniMap MiniMap_Script;
     public string special;
     public string specialController;
-    public Image P1Circle;
-    public Image P2Circle;
+    // public Image P1Circle;
+    // public Image P2Circle;
 
     public GameObject MoveCamera;
     public MoveCamera MoveCamera_Script;
@@ -132,14 +132,14 @@ public class SatMove : Player
     void Update()
     {
 
-        if(ActivateCircle)
-        {
-            P1Circle.enabled = true;
-        }
-        else if(!ActivateCircle)
-        {
-            P1Circle.enabled = false;
-        }
+        // if(ActivateCircle)
+        // {
+        //     P1Circle.enabled = true;
+        // }
+        // else if(!ActivateCircle)
+        // {
+        //     P1Circle.enabled = false;
+        // }
 
 
         if(inWater == true)

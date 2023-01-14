@@ -11,8 +11,8 @@ public class LuzMove : Player
     // public Animator anim;
     // public string special = "v";
     // public string specialController = "v";
-    public Image P1Circle;
-    public Image P2Circle;
+    // public Image P1Circle;
+    // public Image P2Circle;
 
 
     void Awake()
@@ -114,14 +114,14 @@ public class LuzMove : Player
 
      void Update()
     {
-        if(ActivateCircle == true)
-        {
-            P1Circle.enabled = true;
-        }
-        else if(ActivateCircle == false)
-        {
-            P1Circle.enabled = false;
-        }
+        // if(ActivateCircle == true)
+        // {
+        //     P1Circle.enabled = true;
+        // }
+        // else if(ActivateCircle == false)
+        // {
+        //     P1Circle.enabled = false;
+        // }
 
         if(inWater == true)
         {

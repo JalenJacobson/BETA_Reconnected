@@ -10,8 +10,8 @@ public class BruteMove : Player
     public string playerNumber;
     public GameObject BruteTriggerCube;
     public BruteTriggerCube BruteTrigger_Script;
-    public Image P1Circle;
-    public Image P2Circle;
+    // public Image P1Circle;
+    // public Image P2Circle;
 
     void Awake()
      {
@@ -115,14 +115,14 @@ public class BruteMove : Player
 
     void Update()
     {
-        if(ActivateCircle)
-        {
-            P1Circle.enabled = true;
-        }
-        else if(!ActivateCircle)
-        {
-            P1Circle.enabled = false;
-        }
+        // if(ActivateCircle)
+        // {
+        //     P1Circle.enabled = true;
+        // }
+        // else if(!ActivateCircle)
+        // {
+        //     P1Circle.enabled = false;
+        // }
 
         if(inWater == true)
         {

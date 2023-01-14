@@ -11,8 +11,8 @@ public class GearMove : Player
     public string moveAxisVertical;
     public string playerNumber;
     public float StartHealth = 100;
-    public Image P1Circle;
-    public Image P2Circle;
+    // public Image P1Circle;
+    // public Image P2Circle;
 
     public bool gizmoConnected = false;
     public Vector2 moveInputValues;
@@ -105,14 +105,14 @@ public class GearMove : Player
 
     void Update()
     {
-        if(ActivateCircle)
-        {
-            P1Circle.enabled = true;
-        }
-        else if(!ActivateCircle)
-        {
-            P1Circle.enabled = false;
-        }
+        // if(ActivateCircle)
+        // {
+        //     P1Circle.enabled = true;
+        // }
+        // else if(!ActivateCircle)
+        // {
+        //     P1Circle.enabled = false;
+        // }
 
         if(inWater == true)
         {

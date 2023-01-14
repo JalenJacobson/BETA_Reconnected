@@ -23,8 +23,8 @@ public class PumpMove : Player
     public string specialController;
     public bool bubbleOpen;
     public string playerNumber;
-    public Image P1Circle;
-    public Image P2Circle;
+    // public Image P1Circle;
+    // public Image P2Circle;
     
 
     void Awake()
@@ -111,14 +111,14 @@ public class PumpMove : Player
     void Update()
     {
 
-        if(ActivateCircle)
-        {
-            P1Circle.enabled = true;
-        }
-        else if(!ActivateCircle)
-        {
-            P1Circle.enabled = false;
-        }
+        // if(ActivateCircle)
+        // {
+        //     P1Circle.enabled = true;
+        // }
+        // else if(!ActivateCircle)
+        // {
+        //     P1Circle.enabled = false;
+        // }
         // if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown(specialController))
         // {
         //     if(bubbleOpen == false)
