@@ -45,6 +45,8 @@ public class Player : MonoBehaviour
     public bool available = true;
     public bool ActivateCircle = false;
 
+    public List<Image> circles;
+
     void Start()
     {
         startPos = new Vector3(47f, 1.29f, -246f);
@@ -81,15 +83,20 @@ public class Player : MonoBehaviour
         return;
     }
 
-    public void ToggleCircle()
-        {
-            ActivateCircle = true; 
-        }
+    public void makeUnavailable(int playerIndex)
+    {
+        circles[playerIndex].enabled = true;
+        available = false; 
+    }
 
-    public void ToggleCircleOff()
+     public void makeAvailable()
+    {
+        foreach(Image circle in circles)
         {
-             ActivateCircle = false;
+            circle.enabled = false;
         }
+        available = true;
+    }
 
     void Update()
     {

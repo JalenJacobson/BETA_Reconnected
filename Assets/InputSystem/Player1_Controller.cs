@@ -37,10 +37,12 @@ public class Player1_Controller : MonoBehaviour
     public HeroSelectPlayer oldBotControlling_LevelSelect_Script;
     public int levelSelect_Bot_Index;
     public MoveNode Node_Move_Script;
+
+    public int playerIndex;
     
     
-        void Awake()
-     {
+    void Awake()
+    {
 
         GameObject[] playerControllers = GameObject.FindGameObjectsWithTag("PlayerController");
 
@@ -50,7 +52,8 @@ public class Player1_Controller : MonoBehaviour
         }
         DontDestroyOnLoad(gameObject);
         // gameObject.SetActive(true);
-     }
+        playerIndex = gameObject.GetComponent<PlayerInput>().playerIndex;
+    }
 
     public void getScripts()
     {
@@ -193,7 +196,6 @@ public class Player1_Controller : MonoBehaviour
     {
         if(BotControlling != null)
         {
-            BotControlling_Script.ToggleCircleOff();
             oldBotControlling = BotControlling;
             oldBotControlling_Script = BotControlling_Script;
             oldTriggerCube_Script = TriggerCube_Script;
@@ -208,10 +210,9 @@ public class Player1_Controller : MonoBehaviour
         PlayerToggle_Script.bots.Remove(BotControlling);
         PlayerToggle_Script.moveScripts.Remove(BotControlling_Script);
         PlayerToggle_Script.triggerScripts.Remove(TriggerCube_Script);
-        BotControlling_Script.available = false;
-        BotControlling_Script.ToggleCircle();
+        BotControlling_Script.makeUnavailable(playerIndex);
     
-        oldBotControlling_Script.available = true;
+        oldBotControlling_Script.makeAvailable();
         PlayerToggle_Script.bots.Add(oldBotControlling);
         PlayerToggle_Script.moveScripts.Add(oldBotControlling_Script);
         PlayerToggle_Script.triggerScripts.Add(oldTriggerCube_Script);
