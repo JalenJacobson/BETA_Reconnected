@@ -23,8 +23,7 @@ public class LuzSelect : HeroSelectPlayer
         isUp = false;
         isLocalPlayer = false;
         isSelected = false;
-        sendState();
-        // Level_Manager_Script = Level_Manager.GetComponent<Level_Manager>();
+        
  }
  
  // Update is called once per frame
@@ -73,7 +72,6 @@ public class LuzSelect : HeroSelectPlayer
     {
         isLocalPlayer = !isLocalPlayer;
         isSelected = !isSelected;
-        sendState();
     }
 
     public void luzUp()

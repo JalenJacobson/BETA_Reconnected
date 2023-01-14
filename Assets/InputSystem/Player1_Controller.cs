@@ -126,12 +126,12 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
         startingBot = BotControlling_LevelSelect.name;
         
-        BotControlling_LevelSelect_Script.available = false;
+        BotControlling_LevelSelect_Script.makeUnavailable(playerIndex);
         // BotControlling_LevelSelect_Script.ToggleCircle();
 
         if(oldBotControlling_LevelSelect_Script)
         {
-            oldBotControlling_LevelSelect_Script.available = true;
+            oldBotControlling_LevelSelect_Script.makeAvailable();
         }
         
 
@@ -157,10 +157,10 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
         startingBot = BotControlling_LevelSelect.name;
         
-        BotControlling_LevelSelect_Script.available = false;
+        BotControlling_LevelSelect_Script.makeUnavailable(playerIndex);
         // BotControlling_LevelSelect_Script.ToggleCircle();
     
-        oldBotControlling_LevelSelect_Script.available = true;
+        oldBotControlling_LevelSelect_Script.makeAvailable();
 
         oldBotControlling_LevelSelect = null;
         
@@ -183,10 +183,10 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
         startingBot = BotControlling_LevelSelect.name;
         
-        BotControlling_LevelSelect_Script.available = false;
+        BotControlling_LevelSelect_Script.makeUnavailable(playerIndex);
         // BotControlling_LevelSelect_Script.ToggleCircle();
     
-        oldBotControlling_LevelSelect_Script.available = true;
+        oldBotControlling_LevelSelect_Script.makeAvailable();
 
         oldBotControlling_LevelSelect = null;
         

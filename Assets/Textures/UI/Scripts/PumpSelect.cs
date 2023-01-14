@@ -74,7 +74,6 @@ public class PumpSelect : HeroSelectPlayer
     {
         isLocalPlayer = !isLocalPlayer;
         isSelected = !isSelected;
-        sendState();
     }
 
     public void pumpUp()

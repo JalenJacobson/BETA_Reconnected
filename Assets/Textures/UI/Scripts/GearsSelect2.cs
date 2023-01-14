@@ -18,7 +18,7 @@ public class GearsSelect2 : HeroSelectPlayer
         isUp = false;
         isLocalPlayer = false;
         isSelected = false;
-        sendState();
+        
  }
  
  // Update is called once per frame
@@ -61,7 +61,6 @@ public class GearsSelect2 : HeroSelectPlayer
     {
         isLocalPlayer = !isLocalPlayer;
         isSelected = !isSelected;
-        sendState();
     }
 
     public void gearsUp()

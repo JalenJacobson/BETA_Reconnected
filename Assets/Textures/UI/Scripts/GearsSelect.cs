@@ -25,8 +25,7 @@ public class GearsSelect : HeroSelectPlayer
         isUp = false;
         isLocalPlayer = false;
         isSelected = false;
-        sendState();
-        // Level_Manager_Script = Level_Manager.GetComponent<Level_Manager>();
+        
  }
  
  // Update is called once per frame
@@ -76,7 +75,6 @@ public class GearsSelect : HeroSelectPlayer
     {
         isLocalPlayer = !isLocalPlayer;
         isSelected = !isSelected;
-        sendState();
     }
 
     public void gearsUp()

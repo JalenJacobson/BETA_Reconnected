@@ -17,36 +17,19 @@ public class SatSelect : HeroSelectPlayer
 
 
  // Use this for initialization
- void Start () {
+    void Start () 
+    {
         anim = GetComponent<Animator>();
         name = "Sat";
         isUp = false;
         isLocalPlayer = false;
         isSelected = false;
-        sendState();
-        // Level_Manager_Script = Level_Manager.GetComponent<Level_Manager>();
- }
+    }
  
  // Update is called once per frame
     void Update()
     {
-        // if(!isUp && isSelected)
-        // {
-        //     satUp();
-        // }
-        // else if(isUp && !isSelected)
-        // {
-        //     satDown();
-        // }
-
-        if(available == true)
-        {
-            P1Circle.enabled = false;
-        }
-        else if(available == false)
-        {
-            P1Circle.enabled = true;
-        }
+       
     }
     
    public void Up()
@@ -76,7 +59,6 @@ public class SatSelect : HeroSelectPlayer
     {
         isLocalPlayer = !isLocalPlayer;
         isSelected = !isSelected;
-        sendState();
     }
 
     public void satUp()

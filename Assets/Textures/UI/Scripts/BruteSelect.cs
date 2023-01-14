@@ -72,7 +72,6 @@ public class BruteSelect : HeroSelectPlayer
     {
         isLocalPlayer = !isLocalPlayer;
         isSelected = !isSelected;
-        sendState();
     }
 
     public void bruteUp()
