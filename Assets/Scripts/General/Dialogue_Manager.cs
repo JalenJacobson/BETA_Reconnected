@@ -11,5 +11,10 @@ public class Dialogue_Manager : MonoBehaviour
         sentences = new Queue<string>();
     }
 
+    public void startDialogue(Dialogue dialogue)
+    {
+        print("starting conversation with" + dialogue.name);
+    }
+
     
 }
