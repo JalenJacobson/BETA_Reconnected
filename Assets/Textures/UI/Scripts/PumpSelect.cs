@@ -31,22 +31,7 @@ public class PumpSelect : HeroSelectPlayer
  // Update is called once per frame
     void Update()
     {
-        // if(!isUp && isSelected)
-        // {
-        //     pumpUp();
-        // }
-        // else if(isUp && !isSelected)
-        // {
-        //     pumpDown();
-        // }
-        if(available == true)
-        {
-            P1Circle.enabled = false;
-        }
-        else if(available == false)
-        {
-            P1Circle.enabled = true;
-        }
+        
     }
     
    public void Up()

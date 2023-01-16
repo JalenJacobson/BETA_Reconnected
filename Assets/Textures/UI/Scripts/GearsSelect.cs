@@ -31,22 +31,7 @@ public class GearsSelect : HeroSelectPlayer
  // Update is called once per frame
     void Update()
     {
-        // if(!isUp && isSelected)
-        // {
-        //     gearsUp();
-        // }
-        // else if(isUp && !isSelected)
-        // {
-        //     gearsDown();
-        // }
-        if(available == true)
-        {
-            P1Circle.enabled = false;
-        }
-        else if(available == false)
-        {
-            P1Circle.enabled = true;
-        }
+       
     }
     
    public void Up()

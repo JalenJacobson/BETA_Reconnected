@@ -29,22 +29,7 @@ public class LuzSelect : HeroSelectPlayer
  // Update is called once per frame
     void Update()
     {
-        // if(!isUp && isSelected)
-        // {
-        //     luzUp();
-        // }
-        // else if(isUp && !isSelected)
-        // {
-        //     luzDown();
-        // }
-        if(available == true)
-        {
-            P1Circle.enabled = false;
-        }
-        else if(available == false)
-        {
-            P1Circle.enabled = true;
-        }
+        
     }
     
    public void Up()

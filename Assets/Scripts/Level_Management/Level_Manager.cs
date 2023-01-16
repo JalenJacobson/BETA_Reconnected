@@ -129,6 +129,7 @@ public class Level_Manager : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene("HackingRoom");
+        PlayerPrefs.SetInt("highestLevelComplete", 0);
     }
     
     public void loadLevelSelectLevel()
