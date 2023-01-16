@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player_Toggle_LevelSelect : MonoBehaviour
 {
     // public GameObject[] botsInitial;
     public List<GameObject> bots;
     public List<HeroSelectPlayer> selectScripts;
+
+    public List<Image> Bubbles;
 
     void Awake()
     {

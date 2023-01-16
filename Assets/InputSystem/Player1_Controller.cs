@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -39,6 +40,7 @@ public class Player1_Controller : MonoBehaviour
     public MoveNode Node_Move_Script;
 
     public int playerIndex;
+    public BotSelect bubbleControlling;
     
     
     void Awake()
@@ -104,6 +106,7 @@ public class Player1_Controller : MonoBehaviour
         {
             Player_Toggle_LevelSelect = GameObject.Find("Player_Toggle_LevelSelect");
             Player_Toggle_LevelSelect_Script = Player_Toggle_LevelSelect.GetComponent<Player_Toggle_LevelSelect>();
+            bubbleControlling = Player_Toggle_LevelSelect_Script.Bubbles[playerIndex].GetComponent<BotSelect>();
             getLevelSelectBot();
            // firstInstantiation = false;
         }
@@ -125,7 +128,7 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
         startingBot = BotControlling_LevelSelect.name;
-        
+        bubbleControlling.anim.Play(startingBot);
         BotControlling_LevelSelect_Script.makeUnavailable(playerIndex);
         // BotControlling_LevelSelect_Script.ToggleCircle();
 
@@ -156,7 +159,7 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
         startingBot = BotControlling_LevelSelect.name;
-        
+        bubbleControlling.anim.Play(startingBot);
         BotControlling_LevelSelect_Script.makeUnavailable(playerIndex);
         // BotControlling_LevelSelect_Script.ToggleCircle();
     
@@ -182,7 +185,7 @@ public class Player1_Controller : MonoBehaviour
         BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
         startingBot = BotControlling_LevelSelect.name;
-        
+        bubbleControlling.anim.Play(startingBot);
         BotControlling_LevelSelect_Script.makeUnavailable(playerIndex);
         // BotControlling_LevelSelect_Script.ToggleCircle();
     

@@ -21,30 +21,7 @@ public class BotSelect : MonoBehaviour
 
     }
 
-public void Sat()
-   {
-       anim.Play("SelectSat");
-   }
-
-public void Brute()
-   {
-       anim.Play("SelectBrute");
-   }
-
-public void Gears()
-   {
-       anim.Play("SelectGears");
-   } 
-
-public void Luz()
-   {
-       anim.Play("SelectLuz");
-   }
-
-public void Pump()
-   {
-       anim.Play("SelectPump");
-   }  
+ 
 
    public void Stop()
    {
