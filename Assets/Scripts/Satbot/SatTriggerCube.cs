@@ -193,6 +193,10 @@ public class SatTriggerCube : TriggerCubeBase
                 tokenExpire = false;
             }
         }
+        else if(touching.name.Contains("Grava"))
+        {
+            
+        }
         else touching.SendMessage("Activate");
              
      }
