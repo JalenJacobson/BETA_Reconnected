@@ -236,7 +236,8 @@ public class BruteTriggerCube : TriggerCubeBase
         //     touching.SendMessage("toggleIsBeingCarried");
         // }
     }
-    public override void HelpIcon()
+     
+   public override void HelpIcon()
      {
         StartCoroutine(StartHelpIcon());
      }
@@ -247,11 +248,13 @@ public class BruteTriggerCube : TriggerCubeBase
         foreach(GameObject HelpIconCanvas in BruteHelp_Icons)
         {
             HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
-            yield return new WaitForSeconds(5f);
+        }
+        yield return new WaitForSeconds(5f);
+        foreach(GameObject HelpIconCanvas in BruteHelp_Icons)
+        {
             HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
         }
-        
-        
+               
     }
 }
 
