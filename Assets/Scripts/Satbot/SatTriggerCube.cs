@@ -214,6 +214,7 @@ public class SatTriggerCube : TriggerCubeBase
             else if(!connected)
             {
                 Destroy(SatBot.gameObject.GetComponent<FixedJoint>());
+                touching.SendMessage("disconnect");
                 setGravaToNull();
             }
             SatMove_Script.connectGrava();

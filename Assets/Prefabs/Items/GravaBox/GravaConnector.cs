@@ -22,19 +22,14 @@ public class GravaConnector : CDI_Class
     public void setGravaInTriggerCube(SatTriggerCube triggerScript)
     {
       triggerScript.GravaRotator_Script = GravaRotator_Script;
+      GravaRotator_Script.ActivateAnim();
     }
 
-     public void connect()
-    {
-        //anim.Play("ActivateGearBox");
-        GravaRotator_Script.RotatorConnected = true;
-
-    }
 
     public void disconnect()
     {
         //anim.Play("DeactivateGearBox");
-        GravaRotator_Script.RotatorConnected = false;
+        GravaRotator_Script.DeactivateAnim();
         
     }
 }

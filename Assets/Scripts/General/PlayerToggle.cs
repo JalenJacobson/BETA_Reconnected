@@ -72,6 +72,7 @@ public class PlayerToggle : MonoBehaviour
                     playerScript.BotControlling = bots[i];
                     playerScript.BotControlling_Script = moveScripts[i];
                     playerScript.TriggerCube_Script = triggerScripts[i];
+                    moveScripts[i].makeUnavailable(playerScript.playerIndex);
                     bots.Remove(bots[i]);
                     moveScripts.Remove(moveScripts[i]);
                     triggerScripts.Remove(triggerScripts[i]);
