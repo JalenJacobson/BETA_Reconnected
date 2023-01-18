@@ -138,7 +138,7 @@ public class Level_Manager : MonoBehaviour
     }
     IEnumerator loadLevelSelectLevelSelect()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         SceneManager.LoadScene("Map_Select");
     }
     
