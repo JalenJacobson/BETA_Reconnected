@@ -216,9 +216,21 @@ public class GearTriggerCube : TriggerCubeBase
         gizmoGear_Crawler_Script = null;
     }
 
-   public override void HelpIcon()
+     public override void enableHelpIcon()
      {
-        StartCoroutine(StartHelpIcon());
+        foreach(GameObject HelpIconCanvas in GearHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+        }
+        //StartCoroutine(StartHelpIcon());
+     }
+     public override void enableHelpIconStop()
+     {
+        foreach(GameObject HelpIconCanvas in GearHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        //StartCoroutine(StartHelpIcon());
      }
      
      IEnumerator StartHelpIcon()

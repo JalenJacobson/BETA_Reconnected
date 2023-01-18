@@ -35,7 +35,11 @@ public class TriggerCubeBase : MonoBehaviour
     {
 
     }
-    public virtual void HelpIcon()
+    public virtual void enableHelpIcon()
+    {
+
+    }
+    public virtual void enableHelpIconStop()
     {
 
     }

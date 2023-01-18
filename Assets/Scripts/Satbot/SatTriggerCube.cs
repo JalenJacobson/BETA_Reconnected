@@ -15,6 +15,7 @@ public class SatTriggerCube : TriggerCubeBase
     public Vector3 connectPos;
     public string token;
     public GameObject[] SatHelp_Icons;
+    public GravaRotator GravaRotator_Script = null;
 
     
     
@@ -152,6 +153,14 @@ public class SatTriggerCube : TriggerCubeBase
         //  }
      }
 
+    //  void FixedUpdate()
+    //  {
+    //     if(connected)
+    //     {
+    //       GravaRotator_Script.Movement(moveInputValues.x, moveInputValues.y);
+    //     }
+    //  }
+
     void DownloadToken()
     {
         var downloadTokenScript = touching.GetComponent<Sat_Download_1>();
@@ -195,7 +204,7 @@ public class SatTriggerCube : TriggerCubeBase
         }
         else if(touching.name.Contains("Grava"))
         {
-            
+            connected = !connected; 
         }
         else touching.SendMessage("Activate");
              
@@ -206,9 +215,21 @@ public class SatTriggerCube : TriggerCubeBase
         SatMove_Script.controllingCamera = !SatMove_Script.controllingCamera;
      }
 
-     public override void HelpIcon()
+     public override void enableHelpIcon()
      {
-        StartCoroutine(StartHelpIcon());
+        foreach(GameObject HelpIconCanvas in SatHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+        }
+        //StartCoroutine(StartHelpIcon());
+     }
+     public override void enableHelpIconStop()
+     {
+        foreach(GameObject HelpIconCanvas in SatHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        //StartCoroutine(StartHelpIcon());
      }
      
      IEnumerator StartHelpIcon()

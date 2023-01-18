@@ -237,11 +237,22 @@ public class BruteTriggerCube : TriggerCubeBase
         // }
     }
      
-   public override void HelpIcon()
+     public override void enableHelpIcon()
      {
-        StartCoroutine(StartHelpIcon());
+        foreach(GameObject HelpIconCanvas in BruteHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+        }
+        //StartCoroutine(StartHelpIcon());
      }
-     
+     public override void enableHelpIconStop()
+     {
+        foreach(GameObject HelpIconCanvas in BruteHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        //StartCoroutine(StartHelpIcon());
+     }
      IEnumerator StartHelpIcon()
     {
 

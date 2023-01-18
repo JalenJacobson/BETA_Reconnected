@@ -250,9 +250,17 @@ public class Player1_Controller : MonoBehaviour
         
     }
 
-    private void OnHelpIcon()
+    private void OnHelpIcon(InputValue value)
     {
-        if(TriggerCube_Script != null) TriggerCube_Script.HelpIcon();   
+        if(value.isPressed && TriggerCube_Script != null)
+        {
+            TriggerCube_Script.enableHelpIcon();  
+        }
+        if(!value.isPressed && TriggerCube_Script != null)
+        {
+            TriggerCube_Script.enableHelpIconStop();  
+        }
+         
     }
     
 

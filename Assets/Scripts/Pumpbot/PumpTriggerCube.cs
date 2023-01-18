@@ -224,9 +224,21 @@ public class PumpTriggerCube : TriggerCubeBase
        ConnectionScript.SendMessage("SnapHoseBack");  
      }
 
-     public override void HelpIcon()
+       public override void enableHelpIcon()
      {
-        StartCoroutine(StartHelpIcon());
+        foreach(GameObject HelpIconCanvas in PumpHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = true;
+        }
+        //StartCoroutine(StartHelpIcon());
+     }
+     public override void enableHelpIconStop()
+     {
+        foreach(GameObject HelpIconCanvas in PumpHelp_Icons)
+        {
+            HelpIconCanvas.GetComponent<Canvas> ().enabled = false;
+        }
+        //StartCoroutine(StartHelpIcon());
      }
      
      IEnumerator StartHelpIcon()
