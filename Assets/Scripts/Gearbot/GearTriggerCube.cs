@@ -181,7 +181,7 @@ public class GearTriggerCube : TriggerCubeBase
 
      public override void Activate()
      {
-        //if(touching) return;
+        if(!touching) return;
           GearMove_Script.Activate();
          
         if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers") || touching.name.Contains("Rotator"))

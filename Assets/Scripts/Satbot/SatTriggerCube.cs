@@ -17,6 +17,8 @@ public class SatTriggerCube : TriggerCubeBase
     public GameObject[] SatHelp_Icons;
     public GravaRotator GravaRotator_Script = null;
 
+    public Vector2 moveInputValues;
+
     
     
     public bool tokenExpire = false;
@@ -143,23 +145,20 @@ public class SatTriggerCube : TriggerCubeBase
 
             }      
         }
-        //  if(touching != null && Input.GetKeyDown(activateKey))
-        //  {
-        //      Activate();
-        //  }
-        //  if(touching != null && Input.GetButtonDown(activateController))
-        //  {
-        //     Activate();
-        //  }
      }
 
-    //  void FixedUpdate()
-    //  {
-    //     if(connected)
-    //     {
-    //       GravaRotator_Script.Movement(moveInputValues.x, moveInputValues.y);
-    //     }
-    //  }
+     void FixedUpdate()
+     {
+        moveInputValues = SatMove_Script.moveInputValues;
+        if(connected)
+        {
+            if(GravaRotator_Script != null)
+            {
+                GravaRotator_Script.Movement(moveInputValues.x, moveInputValues.y);
+            }
+            
+        }
+     }
 
     void DownloadToken()
     {
@@ -204,11 +203,30 @@ public class SatTriggerCube : TriggerCubeBase
         }
         else if(touching.name.Contains("Grava"))
         {
+            var connectMessage = connected ? "disconnect" : "connect";
             connected = !connected; 
+            if(connected)
+            {
+                SatBot.gameObject.AddComponent<FixedJoint>();
+                SatBot.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
+                touching.SendMessage("setGravaInTriggerCube", gameObject.GetComponent<SatTriggerCube>());
+            }
+            else if(!connected)
+            {
+                Destroy(SatBot.gameObject.GetComponent<FixedJoint>());
+                setGravaToNull();
+            }
+            SatMove_Script.connectGrava();
+            
         }
         else touching.SendMessage("Activate");
              
      }
+
+    void setGravaToNull()
+    {
+        GravaRotator_Script = null;
+    }
 
      public override void Special()
      {

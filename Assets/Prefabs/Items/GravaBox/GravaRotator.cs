@@ -12,15 +12,12 @@ public class GravaRotator : MonoBehaviour
 
     void Awake()
     {
-        moveAxisHorizontal = PlayerPrefs.GetString("SatAxisHorizontal");
+       
     }
 
     void Update()
     {
-        if(RotatorConnected)
-        {
-           // Movement();
-        }
+        
     }
 
     public void Movement(float x, float y)

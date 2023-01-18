@@ -18,6 +18,11 @@ public class GravaConnector : CDI_Class
     {
         
     }
+    
+    public void setGravaInTriggerCube(SatTriggerCube triggerScript)
+    {
+      triggerScript.GravaRotator_Script = GravaRotator_Script;
+    }
 
      public void connect()
     {

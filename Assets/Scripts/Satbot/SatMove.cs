@@ -27,10 +27,13 @@ public class SatMove : Player
     // public Image P1Circle;
     // public Image P2Circle;
 
+    public Vector2 moveInputValues;
+
     public GameObject MoveCamera;
     public MoveCamera MoveCamera_Script;
 
     public bool controllingCamera = false;
+    public bool gravaConnected = false;
 
     
 
@@ -99,14 +102,22 @@ public class SatMove : Player
         
         if(!controllingCamera)
         {
-            rb.velocity = directionMove;
-
-            if (!fixRotation && directionRotate != Vector3.zero)
+            if(!gravaConnected)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-                currentHealth = currentHealth - .02f;
-                Rails_Script.rails();
+                rb.velocity = directionMove;
+
+                if (!fixRotation && directionRotate != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
+                    currentHealth = currentHealth - .02f;
+                    Rails_Script.rails();
+                }
             }
+            else if(gravaConnected)
+            {
+                moveInputValues = new Vector2(x,y);
+            }
+            
         }
         else if(controllingCamera)
         {
@@ -232,6 +243,11 @@ public class SatMove : Player
             StartCoroutine(returnToStart("DeadSat"));
         }
         
+    }
+
+    public void connectGrava()
+    {
+        gravaConnected = !gravaConnected;
     }
 
     // public void restoreHealth()
