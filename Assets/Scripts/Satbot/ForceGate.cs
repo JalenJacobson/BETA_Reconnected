@@ -5,12 +5,12 @@ using UnityEngine;
 public class ForceGate : IDI_Base
 {
     public Animator anim;
-    public TwoPlayerCameraFollow CameraFollow_Script;
+    //public TwoPlayerCameraFollow CameraFollow_Script;
     public bool activated = false;
 
     void Awake()
     {
-        CameraFollow_Script = GameObject.Find("TwoPlayerCameraFollow").GetComponent<TwoPlayerCameraFollow>();
+        //CameraFollow_Script = GameObject.Find("TwoPlayerCameraFollow").GetComponent<TwoPlayerCameraFollow>();
     }
     
     void Start () 

@@ -7,6 +7,8 @@ public class LevelSelectPortal_Manager : MonoBehaviour
 
     public GameObject[] LevelSelectPortals;
     public List<Level_Selector> LevelSelector_Scripts;
+    public GameObject forcegate_gate;
+    public ForceGate forcegate_script;
 
     public int highestLevelComplete;
 
@@ -22,6 +24,7 @@ public class LevelSelectPortal_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        forcegate_script = forcegate_gate.GetComponent<ForceGate>();
         highestLevelComplete = PlayerPrefs.GetInt("highestLevelComplete");
 
         print("highest" + highestLevelComplete);
@@ -46,6 +49,10 @@ public class LevelSelectPortal_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(highestLevelComplete == 6)
+        {
+            forcegate_script.toggleActive();
+        }
         
     }
 }
