@@ -6,10 +6,12 @@ public class GravaConnector : CDI_Class
 {
     public GameObject GravaRotator;
     public GravaRotator GravaRotator_Script;
+    public Animator Gravaanim;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        Gravaanim = GetComponent<Animator>();
         GravaRotator_Script = GravaRotator.GetComponent<GravaRotator>();
     }
 
@@ -23,6 +25,7 @@ public class GravaConnector : CDI_Class
     {
       triggerScript.GravaRotator_Script = GravaRotator_Script;
       GravaRotator_Script.ActivateAnim();
+      anim.Play("PortalBoxActive");
     }
 
 

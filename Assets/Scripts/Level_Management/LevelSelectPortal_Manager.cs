@@ -49,7 +49,7 @@ public class LevelSelectPortal_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(highestLevelComplete == 6)
+        if(highestLevelComplete == 1)
         {
             forcegate_script.toggleActive();
         }
