@@ -13,12 +13,6 @@ public class Player_Toggle_LevelSelect : MonoBehaviour
 
     void Awake()
     {
-        // botsInitial = GameObject.FindGameObjectsWithTag("Bot");
-        
-        // foreach (GameObject botInitial in botsInitial)
-        // {
-        //     bots.Add(botInitial);
-        // }
         foreach (GameObject bot in bots)
         {
             selectScripts.Add(bot.GetComponent<HeroSelectPlayer>());
@@ -60,6 +54,7 @@ public class Player_Toggle_LevelSelect : MonoBehaviour
     public int getNextAvailableBotIndex(int currentBotIndex)
     {
         var availableBotIndex_LevelSelect = checkAndSelect_LevelSelect_Next(currentBotIndex);
+        print(availableBotIndex_LevelSelect);
         return availableBotIndex_LevelSelect;
 
     }
@@ -75,17 +70,9 @@ public class Player_Toggle_LevelSelect : MonoBehaviour
             }
             else continue;
         }
+        
         return tryIndex;
 
-        // if(selectScripts[newIndex].available)
-        // {
-        //     return newIndex;
-        // }
-        // else if(!selectScripts[newIndex].available) 
-        // {
-        //     checkAndSelect_LevelSelect_Next(newIndex);
-        // }
-        // else return -1;
     }
 
     public int getPreviousAvailableBotIndex(int currentBotIndex)
@@ -93,7 +80,7 @@ public class Player_Toggle_LevelSelect : MonoBehaviour
        
         var availableBotIndex_LevelSelect = checkAndSelect_LevelSelect_Previous(currentBotIndex);
         
-        
+        print(availableBotIndex_LevelSelect);
         return availableBotIndex_LevelSelect;
 
     }
