@@ -154,7 +154,7 @@ public class Player1_Controller : MonoBehaviour
             
         }
         availableBot = Player_Toggle_LevelSelect_Script.getNextAvailableBotIndex(levelSelect_Bot_Index);
-        // if(availableBot == -1) return;
+        if(availableBot == levelSelect_Bot_Index) return;
         levelSelect_Bot_Index = availableBot;
         BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
@@ -180,7 +180,7 @@ public class Player1_Controller : MonoBehaviour
             
         }
         availableBot = Player_Toggle_LevelSelect_Script.getPreviousAvailableBotIndex(levelSelect_Bot_Index);
-        // if(availableBot == -1) return;
+        if(availableBot == levelSelect_Bot_Index) return;
         levelSelect_Bot_Index = availableBot;
         BotControlling_LevelSelect = Player_Toggle_LevelSelect_Script.bots[availableBot];
         BotControlling_LevelSelect_Script = Player_Toggle_LevelSelect_Script.selectScripts[availableBot];
