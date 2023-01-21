@@ -67,8 +67,11 @@ public class Claw : MonoBehaviour
         }
         else if(!lifting)
         {
-            touching.GetComponent<Rigidbody>().isKinematic = false;
-            callCameraFollowUnlift();
+            if(touching != null)
+            {
+                touching.GetComponent<Rigidbody>().isKinematic = false;
+            }
+            
         }
            
         
@@ -82,6 +85,7 @@ public class Claw : MonoBehaviour
 
     public void Activate()
     {
+        if(touching == null) return;
         print("SHOULD ACTIVATE");
         if(!clawCarrying && touching && !lifting)
         {
@@ -93,8 +97,8 @@ public class Claw : MonoBehaviour
             clawCarrying = false;
             anim.Play("ClawOpen");
             lifting = false;
-            touching.SendMessage("isNotBeingCarried");
-            touching.SendMessage("Explode");
+            //touching.SendMessage("isNotBeingCarried");
+            //touching.SendMessage("Explode");
         }
         
     }
@@ -104,7 +108,7 @@ public class Claw : MonoBehaviour
         anim.Play("ClawClose");
         yield return new WaitForSeconds(.3f);
         lifting = true;
-        touching.SendMessage("IsBeingCarried");
+        //touching.SendMessage("IsBeingCarried");
         yield return new WaitForSeconds(.25f);
         anim.Play("ClawPickUp");
         // touching.GetComponent<Rigidbody>().isKinematic = true;

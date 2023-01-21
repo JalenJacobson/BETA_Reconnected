@@ -42,45 +42,16 @@ public class LuzMove : Player
     {
         controllingPlayer = player;
         playerNumber = "P" + player.ToString();
-        //getControls();
+        
     }
 
-    // void getControls()
-    // {
-    //     if(playerNumber == "P0")
-    //     {
-    //         P1Circle.enabled = false;
-    //         P2Circle.enabled = false;
-    //     }
-    //     else if(playerNumber == "P1")
-    //     {
-    //         moveAxisHorizontal = "Horizontal";
-    //         moveAxisVertical = "Vertical";
-    //         special = "space";
-    //         specialController = "special1";
-    //         P1Circle.enabled = true;
-    //         P2Circle.enabled = false;
-    //     }
-    //     else if(playerNumber == "P2")
-    //     {
-    //         moveAxisHorizontal = "HorizontalPlayer2";
-    //         moveAxisVertical = "VerticalPlayer2";
-    //         special = "return";
-    //         specialController = "special2";
-    //         P1Circle.enabled = false;
-    //         P2Circle.enabled = true;   
-    //     }
-    //}
+   
 
     public override void Movement(float x, float y)
     {
-        print("LUZ is moving" + x + y);
-        //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        //float verticalMove = Input.GetAxis(moveAxisVertical);
-
         directionRotate = new Vector3(x, 0.0f, y);
         directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
-        print("WORKED!!!!" + moveInputValue.y);
+        if(currentHealth <= 0) return;
         rb.velocity = directionMove;
 
         if (!fixRotation && directionRotate != Vector3.zero)
@@ -89,53 +60,25 @@ public class LuzMove : Player
             currentHealth = currentHealth - .01f;
         }
 
-        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
+        
         
     }
 
-    // public override void Movement()
-    // {
-    //     float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-    //     float verticalMove = Input.GetAxis(moveAxisVertical);
-
-    //     directionRotate = new Vector3(horizontalMove, 0.0f, verticalMove);
-    //     directionMove = new Vector3(horizontalMove * moveSpeed, rb.velocity.y, verticalMove * moveSpeed);
-    //     rb.velocity = directionMove;
-
-    //     if (!fixRotation && directionRotate != Vector3.zero)
-    //     {
-    //         transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-    //         currentHealth = currentHealth - .01f;
-    //     }
-
-    //     // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        
-    // }
+    
 
      void Update()
     {
-        // if(ActivateCircle == true)
-        // {
-        //     P1Circle.enabled = true;
-        // }
-        // else if(ActivateCircle == false)
-        // {
-        //     P1Circle.enabled = false;
-        // }
+       
 
         if(inWater == true)
         {
             if(touchingAirBubble == true)
             {
-                // DangerState.text = "Danger State: Short Circuit - Delayed";
-                //setConsoleDangerField("Circuit Field", blueCircuitField);
-               // setConsoleDangerState("Short Circuit - Delayed", greenConsole);
+                
             }
             else
             {
-                // DangerState.text = "Danger State: Short Circuit - Danger";
-               // setConsoleDangerField("Circuit Field", blueCircuitField);
-               // setConsoleDangerState("Short Circuit - Danger", redDanger);
+                
                 drowning();
             }
             
@@ -156,16 +99,7 @@ public class LuzMove : Player
         {
             batteryDead = false;
 
-            // if (controllingPlayer !=0 && Input.GetKeyDown(special))
-            // {
-            //     anim.Play("Recharge");
-            //     currentHealth = currentHealth - 10f;
-            // }
-            // if (Input.GetButtonDown(specialController))
-            // {
-            //     anim.Play("Recharge");
-            //     currentHealth = currentHealth - 10f;
-            // }
+           
         }
         
 

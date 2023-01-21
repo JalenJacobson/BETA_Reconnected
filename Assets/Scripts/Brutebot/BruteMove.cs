@@ -98,6 +98,7 @@ public class BruteMove : Player
 
         directionRotate = new Vector3(x, 0.0f, y);
         directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
+        if(currentHealth <= 0) return;
         if(directionMove != Vector3.zero)
         {
             rb.velocity = directionMove;

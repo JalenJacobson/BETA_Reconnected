@@ -20,6 +20,7 @@ public class ClawTriggerCube : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
+        if(touching != null) return;
         // var characterName = other.name;
         if(other.name == "IdleLuz" || other.name == "Brute" || other.name == "SatBot" || other.name == "Pump" || other.name.Contains("MineCrawler"))
         {       
@@ -30,10 +31,10 @@ public class ClawTriggerCube : MonoBehaviour
                 ClawMove_Script.touching = other.gameObject;
             }  
         }
-        if(ClawMove_Script.clawConnected == true && other.name == "IdleLuz" ||ClawMove_Script.clawConnected == true && other.name == "Brute" ||ClawMove_Script.clawConnected == true && other.name == "SatBot" ||ClawMove_Script.clawConnected == true && other.name == "Pump")
-        {
-            ClawMove_Script.callCameraFollowLift();
-        }
+        // if(ClawMove_Script.clawConnected == true && other.name == "IdleLuz" ||ClawMove_Script.clawConnected == true && other.name == "Brute" ||ClawMove_Script.clawConnected == true && other.name == "SatBot" ||ClawMove_Script.clawConnected == true && other.name == "Pump")
+        // {
+        //     ClawMove_Script.callCameraFollowLift();
+        // }
         
     }
 

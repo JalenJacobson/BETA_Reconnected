@@ -78,6 +78,7 @@ public class GearMove : Player
 
     public override void Movement(float x, float y)
     {
+        if(currentHealth <= 0) return;
         if(!gizmoConnected)
         {
             directionRotate = new Vector3(x, 0.0f, y);
