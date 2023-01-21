@@ -14,7 +14,7 @@ public class LevelSelectPortal_Manager : MonoBehaviour
 
     void Awake()
     {
-        PlayerPrefs.SetInt("highestLevelComplete", 7);
+        //PlayerPrefs.SetInt("highestLevelComplete", 0);
         LevelSelectPortals = GameObject.FindGameObjectsWithTag("LevelSelect_Portal");
         foreach(GameObject portal in LevelSelectPortals)
         {
