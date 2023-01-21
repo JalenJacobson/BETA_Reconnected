@@ -24,9 +24,10 @@ public class BruteBotRaisePoint : MonoBehaviour
             if(touching == null)
             {
                 touching = other.gameObject; 
-            }  
+            } 
+            anim.Play("BruteSpringLoad"); 
         }
-        anim.Play("BruteSpringLoad");
+        
         
     }
 
