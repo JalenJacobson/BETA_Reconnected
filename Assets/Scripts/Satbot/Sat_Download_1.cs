@@ -28,7 +28,7 @@ public class Sat_Download_1 : CDI_Class
     {
         if(Active == true)
         {
-            anim.Play("DownloadActivate");
+            anim.Play("SatDoorActivate");
         }
 
     }

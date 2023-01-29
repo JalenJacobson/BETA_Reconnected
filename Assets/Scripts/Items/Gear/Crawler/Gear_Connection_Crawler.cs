@@ -31,7 +31,7 @@ public class Gear_Connection_Crawler : CDI_Class
     void disconnect()
     {
         //callCameraUnfollow();
-        anim.Play("DeactivateGearBox");
+        anim.Play("GearsSpin");
         gizmoMove_Script.standConnected = false;
     }
 }

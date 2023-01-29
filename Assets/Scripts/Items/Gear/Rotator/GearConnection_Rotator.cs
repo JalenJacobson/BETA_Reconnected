@@ -47,7 +47,7 @@ public class GearConnection_Rotator : CDI_Class
 
     public void disconnect()
     {
-        anim.Play("DeactivateGearBox");
+        anim.Play("GearsSpin");
         gizmoMove_Script.RotatorConnected = false;
         
          

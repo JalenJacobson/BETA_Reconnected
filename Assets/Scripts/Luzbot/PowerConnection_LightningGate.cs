@@ -30,8 +30,8 @@ public class PowerConnection_LightningGate : MonoBehaviour
     }
           public IEnumerator OutletSequence()
   {
-    anim.Play("ActivateOutlet");
+    anim.Play("LuzDoorActivate");
     yield return new WaitForSeconds(TimeDeactivated);
-    anim.Play("DeactivateOutlet");
+    anim.Play("LuzDoorIdle");
   }
 }

@@ -28,28 +28,28 @@ public class Doors_BotConnection_Base : CDI_Class
 
     void InfoButtons()
     {
-        if(Active == true)
-        {
-            if(botConnected)
-            {
-                anim.Play("DisconnectButton");   
-            }
-            else anim.Play("SatDoorActivate");
-        }
+        // if(Active == true)
+        // {
+        //     if(botConnected)
+        //     {
+        //         anim.Play("DisconnectButton");   
+        //     }
+        //     else anim.Play("SatDoorActivate");
+        // }
 
-        else if(!Active)
-        {
-            if(botTouching == true)
-            {
-                if(botConnected)
-                {
-                    anim.Play("Connected");
-                }
-                else anim.Play("PushC");
-            }
-            else anim.Play("DisconnectedButtons");
+        // else if(!Active)
+        // {
+        //     if(botTouching == true)r
+        //     {
+        //         if(botConnected)
+        //         {
+        //             anim.Play("Connected");
+        //         }
+        //         else anim.Play("PushC");
+        //     }
+        //     else anim.Play("DisconnectedButtons");
  
-        }  
+        // }  
     }
     
     // public void Activate()

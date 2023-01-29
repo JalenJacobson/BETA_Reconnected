@@ -31,7 +31,7 @@ public class Doors_BotConnection_Gear : CDI_Class
             {
                 anim.Play("DisconnectGearButtons");    
             }
-            else anim.Play("GearsSpin");
+            else anim.Play("ActivateGearBox");
              }
 
         else if(!Active)
@@ -59,7 +59,7 @@ public class Doors_BotConnection_Gear : CDI_Class
             anim.Play("ButtonActive");
             anim.Play("PumpActivate");
             anim.Play("SatDoorActivate");
-            anim.Play("GearsSpin");
+            anim.Play("ActivateGearBox");
         }
     }
 }

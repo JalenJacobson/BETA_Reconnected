@@ -41,9 +41,9 @@ public class Pump_Gasconnection : CDI_Class
     
     public IEnumerator ValveBoxSequence()
     {
-        anim.Play("ActivateValveBox");
+        anim.Play("PumpActivate");
         yield return new WaitForSeconds(TimeDeactivated);
-        anim.Play("DeactivateValveBox");
+        anim.Play("PumpDoorIdle");
     }
 
     void Activate()

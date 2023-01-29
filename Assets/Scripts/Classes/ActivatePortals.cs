@@ -26,7 +26,7 @@ public class ActivatePortals : CDI_Class
     void Update()
     {
        if(Active == true)
-        anim.Play("PortalBoxActive"); 
+        anim.Play("SatDoorActivate"); 
     }
 
 

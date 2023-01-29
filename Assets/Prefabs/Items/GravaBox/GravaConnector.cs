@@ -25,7 +25,7 @@ public class GravaConnector : CDI_Class
     {
       triggerScript.GravaRotator_Script = GravaRotator_Script;
       GravaRotator_Script.ActivateAnim();
-      anim.Play("PortalBoxActive");
+      anim.Play("SatDoorActivate");
     }
 
 
@@ -33,6 +33,7 @@ public class GravaConnector : CDI_Class
     {
         //anim.Play("DeactivateGearBox");
         GravaRotator_Script.DeactivateAnim();
+        anim.Play("SatDoorGreen");
         
     }
 }

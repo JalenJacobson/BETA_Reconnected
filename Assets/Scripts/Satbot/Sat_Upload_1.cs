@@ -31,7 +31,7 @@ public class Sat_Upload_1 : CDI_Class
     {
         if(Active == true)
         {
-            anim.Play("UploadActive");
+            anim.Play("SatDoorActivate");
         }
  
     }

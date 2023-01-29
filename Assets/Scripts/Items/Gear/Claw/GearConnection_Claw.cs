@@ -68,7 +68,7 @@ public class GearConnection_Claw : CDI_Class
     public void disconnect()
     {
         //callCameraUnfollow();
-        anim.Play("DeactivateGearBox");
+        anim.Play("GearsSpin");
         gizmoMove_Script.clawConnected = false;
         if(gizmoMove_Script.lifting)
         {
