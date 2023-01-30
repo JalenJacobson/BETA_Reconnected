@@ -26,6 +26,7 @@ public class Player1_Controller : MonoBehaviour
     
 
     public Vector2 moveInputValue;
+    public Vector2 moveCameraInputValue;
 
     public float x;
     public float y;
@@ -245,9 +246,15 @@ public class Player1_Controller : MonoBehaviour
         {
             if(BotControlling_Script != null) BotControlling_Script.Movement(x, y);
             if(Node_Move_Script != null)  Node_Move_Script.Movement(x, y);
-        }
-        
-        
+        } 
+    }
+
+    private void OnCameraMove(InputValue value)
+    {
+        moveCameraInputValue = value.Get<Vector2>();
+        x = moveCameraInputValue.x;
+        y = moveCameraInputValue.y;
+        if(BotControlling_Script != null) BotControlling_Script.cameraMovement(x, y);
     }
 
     private void OnHelpIcon(InputValue value)

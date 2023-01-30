@@ -120,6 +120,10 @@ public class Player : MonoBehaviour
     {
 
     }
+    public virtual void cameraMovement(float x, float y)
+    {
+
+    }
 
     public void toggleFixPosition()
     {
