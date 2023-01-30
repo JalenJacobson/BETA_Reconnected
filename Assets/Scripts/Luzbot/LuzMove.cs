@@ -27,7 +27,7 @@ public class LuzMove : Player
         name = "Luz";
         currentHealth = maxHealth;
         healthBar.setHealth(maxHealth);
-        breathRemaining = .1f;
+        breathRemaining = 1f;
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(-180f, .5f, -98.5f);
