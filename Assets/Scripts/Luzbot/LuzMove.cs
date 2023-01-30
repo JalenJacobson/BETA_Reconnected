@@ -87,7 +87,7 @@ public class LuzMove : Player
 
         if(breathRemaining <= 0f)
         {
-            returnToStart("DeadLuz");
+            death();
             waterExit();
         }
 
