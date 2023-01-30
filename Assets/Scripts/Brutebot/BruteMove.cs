@@ -31,6 +31,7 @@ public class BruteMove : Player
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         transform.position = startPos;
+        Timer.drowning(breathRemaining);
         //getControls();
         //string[] GetJoystickNames();
         //P1Circle.spriteRenderer = GetComponent<SpriteRenderer>
@@ -157,12 +158,14 @@ public class BruteMove : Player
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
+            Timer.drowning(breathRemaining);
         }
     }
     public override void waterExit()
     {
         inWater = false;
         breathRemaining = 5f;
+        Timer.drowning(breathRemaining);
     }
     public void Lift()
     {

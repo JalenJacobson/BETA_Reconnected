@@ -36,6 +36,7 @@ public class LuzMove : Player
         // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
         // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
         // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
+        Timer.drowning(breathRemaining);
     }
 
     public override void setCurrentPlayer(int player)
@@ -111,12 +112,14 @@ public class LuzMove : Player
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
+            Timer.drowning(breathRemaining);
         }
     }
     public override void pumpAirBubbleEnter()
     {
-        breathRemaining = .1f;
+        breathRemaining = 1f;
         touchingAirBubble = true;
+        Timer.drowning(breathRemaining);
     }
 
         // public void ToggleCircle()
@@ -136,7 +139,8 @@ public class LuzMove : Player
        // resetConsoleDangerField();
        // resetConsoleDangerState();
         inWater = false;
-        breathRemaining = .1f;
+        breathRemaining = 1f;
+        Timer.drowning(breathRemaining);
     }
 
     public void Recharge()

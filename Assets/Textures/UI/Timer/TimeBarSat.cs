@@ -1,18 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class TimeBarSat : MonoBehaviour
 {
-   public GameObject TimerBarSat;
-   public Animator anim;
+   //public GameObject TimerBarSat;
+   //public Animator anim;
+   public Slider slider;
+   public Image fill;
     // public bool displayBubble = false;
-    public GameObject touching = null;
+    //public GameObject touching = null;
 
 
  // Use this for initialization
  void Start () {
-        anim = GetComponent<Animator>();
+        
  }
  
  // Update is called once per frame
@@ -20,23 +23,12 @@ public class TimeBarSat : MonoBehaviour
     {
 
     }
-    
 
-   public void timerStart()
-   {
-       anim.Play("Timer");
-   }
-   public void timerStop()
-   {
-       anim.Play("NonEnterIdle");
-   }
-    public void enterbluewall()
-   {
-       anim.Play("EnterBlueWall");
-   }
-    public void exitbluewall()
-   {
-       anim.Play("Timer");
-   }
+    public void drowning(float breathRemaining)
+    {
+        slider.value = breathRemaining;
+    }
+
+   
    
 }

@@ -58,6 +58,7 @@ public class SatMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         MoveCamera = GameObject.Find("CinemachineCamera");
         MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
+        Timer.drowning(breathRemaining);
     }
 
     public override void setCurrentPlayer(int player)
@@ -223,6 +224,7 @@ public class SatMove : Player
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
+            Timer.drowning(breathRemaining);
         }
     }
 
@@ -233,6 +235,7 @@ public class SatMove : Player
         // TimerBar_Script.timerStop();
         inWater = false;
         breathRemaining = 5f;
+        Timer.drowning(breathRemaining);
     }
 
     public void death()

@@ -35,6 +35,7 @@ public class GearMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
+        Timer.drowning(breathRemaining);
        // getControls();
         
         // startPos = new Vector3(47f, 1.44f, -231f);
@@ -173,6 +174,7 @@ public class GearMove : Player
         if (breathRemaining > 0)
         {
             breathRemaining -= Time.deltaTime;
+            Timer.drowning(breathRemaining);
         }
     }
     public override void waterExit()
@@ -184,6 +186,7 @@ public class GearMove : Player
         // TimerBar_Script.timerStop();
         inWater = false;
         breathRemaining = 5f;
+        Timer.drowning(breathRemaining);
     }
 
 

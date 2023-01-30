@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     public bool inWater = false;
     public Animator anim;
 
-    public float currentHealth ;
+    public float currentHealth;
     public float maxHealth = 100f;
 
     public GameObject lose_condition;
@@ -46,6 +46,8 @@ public class Player : MonoBehaviour
     public bool ActivateCircle = false;
 
     public List<Image> circles;
+
+    public TimeBarSat Timer;
 
     void Start()
     {
