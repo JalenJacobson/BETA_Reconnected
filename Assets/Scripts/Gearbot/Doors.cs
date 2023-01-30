@@ -9,6 +9,7 @@ public class Doors : MonoBehaviour
     public int activated = 0;
 
     public GameObject[] Doors_Boxes;
+    public List<GameObject> GateIndicators;
 
 
 
@@ -19,6 +20,10 @@ public class Doors : MonoBehaviour
         
         Doors_Boxes = GameObject.FindGameObjectsWithTag("Doors_Boxes");
         toOpen = Doors_Boxes.Length;
+        for (var i = 0; i < toOpen; i++)
+        {
+            GateIndicators[i].GetComponent<Animator>().Play("IndicatorLocked");
+        }
     }
  
  // Update is called once per frame
@@ -33,6 +38,7 @@ public class Doors : MonoBehaviour
 
     public void Activate()
     {
+        GateIndicators[activated].GetComponent<Animator>().Play("IndicatorUnlocked");
         activated++;
     }
 
