@@ -36,6 +36,7 @@ public class SatMove : Player
 
     public bool controllingCamera = false;
     public bool gravaConnected = false;
+    public float cameraMoveSpeed = 10;
 
     
 
@@ -137,7 +138,7 @@ public class SatMove : Player
     {
         if(controllingCamera)
         {
-            directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
+            directionMove = new Vector3(x * cameraMoveSpeed, rb.velocity.y, y * cameraMoveSpeed);
             cameraLookatObject.GetComponent<Rigidbody>().velocity = directionMove;
         }
         
