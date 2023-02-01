@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CancelGearSelect : MonoBehaviour
 {
-    public GameObject CancelButton;
-    public GameObject Gears;
+    //public GameObject CancelButton;
+    //public GameObject Gears;
    public Animator anim;
     // public bool displayBubble = false;
-    public GameObject touching = null;
+   // public GameObject touching = null;
 
 
  // Use this for initialization

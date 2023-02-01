@@ -37,6 +37,7 @@ public class SatMove : Player
     public bool controllingCamera = false;
     public bool gravaConnected = false;
     public float cameraMoveSpeed = 10;
+    public GameObject CameraScreen;
 
     
 
@@ -205,6 +206,15 @@ public class SatMove : Player
 
         healthBar.setHealth(currentHealth);
 
+
+        if(!controllingCamera)
+        {
+            CameraScreen.GetComponent<Animator>().Play("StopControllingCamera");
+        }
+        else if(controllingCamera)
+        {
+            CameraScreen.GetComponent<Animator>().Play("ControllingCamera");
+        }
         //if (Input.GetKeyDown(special))
         //{
         //    MiniMap_Script.MiniMapToggle();

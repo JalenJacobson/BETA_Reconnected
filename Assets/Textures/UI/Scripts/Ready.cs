@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Ready : MonoBehaviour
 {
-    public GameObject ReadyButton;
+    //public GameObject ReadyButton;
    public Animator anim;
     // public bool displayBubble = false;
-    public GameObject touching = null;
+    //public GameObject touching = null;
 
 
  // Use this for initialization
