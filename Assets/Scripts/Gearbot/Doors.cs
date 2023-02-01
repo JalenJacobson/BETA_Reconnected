@@ -10,6 +10,10 @@ public class Doors : MonoBehaviour
 
     public GameObject[] Doors_Boxes;
     public List<GameObject> GateIndicators;
+    public List<GameObject> TokenIndicators;
+    public GameObject[] Tokens;
+
+    public int tokensCollected = 0;
 
 
 
@@ -24,6 +28,7 @@ public class Doors : MonoBehaviour
         {
             GateIndicators[i].GetComponent<Animator>().Play("IndicatorLocked");
         }
+        Tokens = GameObject.FindGameObjectsWithTag("Token");
     }
  
  // Update is called once per frame
@@ -40,6 +45,11 @@ public class Doors : MonoBehaviour
     {
         GateIndicators[activated].GetComponent<Animator>().Play("IndicatorUnlocked");
         activated++;
+    }
+    public void CollectToken()
+    {
+        TokenIndicators[tokensCollected].GetComponent<Animator>().Play("TokenCollectedUI");
+        tokensCollected++;
     }
 
     
