@@ -20,7 +20,7 @@ public class Hole : MonoBehaviour
 
     if(holeActive)
     {
-      if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat") || other.name.Contains("Push"))
+      if(other.name == "Gears" || other.name == "Brute" || other.name == "IdleLuz" || other.name == "Pump" || other.name == "SatBot" || other.name.Contains("Push"))
       {
         print(other.gameObject.name);
         other.gameObject.SendMessage("death");
