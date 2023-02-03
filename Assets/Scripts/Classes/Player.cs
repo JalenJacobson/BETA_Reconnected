@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
 
     public virtual void highGravityEnter ()
     {
-        moveSpeed = 1;
+        moveSpeed = 2;
     }
     public virtual void highGravityExit ()
     {

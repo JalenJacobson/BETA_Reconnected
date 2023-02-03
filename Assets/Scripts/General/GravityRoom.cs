@@ -5,7 +5,7 @@ using UnityEngine;
 public class GravityRoom : MonoBehaviour
 {
 
-     void OnTriggerEnter(Collider other)
+     void OnTriggerStay(Collider other)
      {
          var characterName = other.name;
          print(characterName);
