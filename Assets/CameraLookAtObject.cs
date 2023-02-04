@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraLookAtObject : MonoBehaviour
 {
+    public GameObject botToFollow;
     public GameObject[] botsInitial;
     public List<GameObject> bots;
 
@@ -25,7 +26,7 @@ public class CameraLookAtObject : MonoBehaviour
         if(!botToFollow) return;
         if(botToFollow)
         {
-            transform.position = botToFollow.Transform.position;
+            transform.position = botToFollow.transform.position;
         } 
     }
 
@@ -33,7 +34,7 @@ public class CameraLookAtObject : MonoBehaviour
     {
         
         selectedBot = (selectedBot + 1) % bots.Count;
-        botToFollow = bots[selectedBot]
+        botToFollow = bots[selectedBot];
     }
 
     public void followBotPrevious()
@@ -44,7 +45,7 @@ public class CameraLookAtObject : MonoBehaviour
         {
             selectedBot += bots.Count;
         }
-        botToFollow = bots[selectedBot]
+        botToFollow = bots[selectedBot];
     }
 
     

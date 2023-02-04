@@ -156,7 +156,7 @@ public class SatMove : Player
     public override void CameraLookAtChangePrevious()
     {
         if(!controllingCamera) return;
-        cameraLookatObject.followBotPrevious();
+        cameraLookatObject_Script.followBotPrevious();
     }
 
     
