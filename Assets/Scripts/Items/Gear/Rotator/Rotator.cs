@@ -8,11 +8,12 @@ public class Rotator : MonoBehaviour
     public float rotateSpeed = 2;
     public string moveAxisHorizontal;
     public Vector3 direction;
-    
+    Rigidbody m_Rigidbody;
+    Vector3 m_EulerAngleVelocity;
 
-    void Awake()
+    void Start()
     {
-        moveAxisHorizontal = PlayerPrefs.GetString("GearAxisHorizontal");
+        m_Rigidbody = GetComponent<Rigidbody>();        
     }
 
     void Update()
@@ -26,9 +27,15 @@ public class Rotator : MonoBehaviour
     public void Movement(float x, float y)
     {
         
+        // if (x != 0)
+        // {
+        //     transform.Rotate(0, x * rotateSpeed, 0, Space.World);   
+        // }
         if (x != 0)
         {
-            transform.Rotate(0, x * rotateSpeed, 0, Space.World);   
+            m_EulerAngleVelocity = new Vector3(0, x * rotateSpeed, 0); 
+            Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.fixedDeltaTime);
+            m_Rigidbody.MoveRotation(m_Rigidbody.rotation * deltaRotation); 
         }
     }
 }
