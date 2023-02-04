@@ -22,7 +22,7 @@ public class CollectToken : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-      if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
+      if(other.name == "Gears" || other.name == "Brute" || other.name == "IdleLuz" || other.name == "Pump" || other.name == "SatBot")
       {
         anim.Play("TokenCollected");
         Doors_script.CollectToken();

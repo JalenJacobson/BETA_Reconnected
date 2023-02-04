@@ -5,10 +5,14 @@ using UnityEngine;
 public class Lifter : MonoBehaviour
 {
    public Animator anim;
+   public GameObject Stand;
+   public Rigidbody Stand_Rigidbody;
+   public float force = 20f;
 
  // Use this for initialization
  void Start () {
         anim = GetComponent<Animator>();
+        Stand_Rigidbody = Stand.GetComponent<Rigidbody>(); 
  }
  
  // Update is called once per frame
@@ -23,5 +27,6 @@ public class Lifter : MonoBehaviour
     public void Activate()
     {
         anim.Play("Lifter");
+        Stand_Rigidbody.AddForce(transform.up * force);
     }
 }

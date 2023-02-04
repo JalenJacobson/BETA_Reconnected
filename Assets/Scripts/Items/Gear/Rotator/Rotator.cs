@@ -33,7 +33,7 @@ public class Rotator : MonoBehaviour
         // }
         if (x != 0)
         {
-            m_EulerAngleVelocity = new Vector3(0, x * rotateSpeed, 0); 
+            m_EulerAngleVelocity = new Vector3(0, 0, x * rotateSpeed); 
             Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.fixedDeltaTime);
             m_Rigidbody.MoveRotation(m_Rigidbody.rotation * deltaRotation); 
         }
