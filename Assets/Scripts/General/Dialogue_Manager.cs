@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Dialogue_Manager : MonoBehaviour
 {
-    private Queue<string> sentences;
+    public Queue<string> sentences;
     public Text nameText;
     public Text dialogueText;
     public GameObject Canvas;
