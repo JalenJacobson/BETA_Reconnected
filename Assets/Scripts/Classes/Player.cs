@@ -124,6 +124,14 @@ public class Player : MonoBehaviour
     {
 
     }
+    public virtual void CameraLookAtChangeNext()
+    {   
+
+    }
+    public virtual void CameraLookAtChangePrevious()
+    {
+
+    }
 
     public void toggleFixPosition()
     {

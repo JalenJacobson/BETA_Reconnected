@@ -32,6 +32,7 @@ public class SatMove : Player
     public GameObject MoveCamera;
     public MoveCamera MoveCamera_Script;
     public GameObject cameraLookatObject;
+    public CameraLookAtObject cameraLookatObject_Script;
     // public MoveCamera MoveCamera_Script;
 
     public bool controllingCamera = false;
@@ -62,6 +63,7 @@ public class SatMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         MoveCamera = GameObject.Find("CinemachineCamera");
         cameraLookatObject = GameObject.Find("LookAtObject");
+        cameraLookatObject_Script = cameraLookatObject.GetComponent<CameraLookAtObject>();
         MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
         Timer.drowning(breathRemaining);
     }
@@ -144,6 +146,20 @@ public class SatMove : Player
         }
         
     }
+
+    public override void CameraLookAtChangeNext()
+    {
+        if(!controllingCamera) return;
+        cameraLookatObject_Script.followBotNext();
+
+    }
+    public override void CameraLookAtChangePrevious()
+    {
+        if(!controllingCamera) return;
+        cameraLookatObject.followBotPrevious();
+    }
+
+    
 
         // public void ToggleCircle()
         // {

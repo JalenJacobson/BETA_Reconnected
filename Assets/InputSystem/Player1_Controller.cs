@@ -324,14 +324,37 @@ public class Player1_Controller : MonoBehaviour
             getLevelSelectBot_Previous();
         }
     }
-        private void OnChangeRight()
+    
+    private void OnChangeRight()
     {
-        getLevelSelectBot_Next();
+        if(firstInstantiation)
+        {
+            getLevelSelectBot_Next();
+        }
+        else if (BotControlling)
+        {
+            if(BotControlling.name.Contains("Sat"))
+            {
+                BotControlling_Script.CameraLookAtChangeNext();
+            }
+        }
+        
     }
 
     private void OnChangeLeft()
     {
-        getLevelSelectBot_Previous();
+        if(firstInstantiation)
+        {
+            getLevelSelectBot_Previous();
+        }
+        else if (BotControlling)
+        {
+            if(BotControlling.name.Contains("Sat"))
+            {
+                BotControlling_Script.CameraLookAtChangePrevious();
+            }
+        }
+        
     }
 
     
