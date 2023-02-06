@@ -33,6 +33,8 @@ public class SatMove : Player
     public MoveCamera MoveCamera_Script;
     public GameObject cameraLookatObject;
     public CameraLookAtObject cameraLookatObject_Script;
+    public GameObject CameraLookAtSatControl;
+
     // public MoveCamera MoveCamera_Script;
 
     public bool controllingCamera = false;
@@ -64,6 +66,7 @@ public class SatMove : Player
         MoveCamera = GameObject.Find("CinemachineCamera");
         cameraLookatObject = GameObject.Find("LookAtObject");
         cameraLookatObject_Script = cameraLookatObject.GetComponent<CameraLookAtObject>();
+        CameraLookAtSatControl = GameObject.Find("CameraLookAtSatControl");
         MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
         Timer.drowning(breathRemaining);
     }
@@ -142,7 +145,7 @@ public class SatMove : Player
         if(controllingCamera)
         {
             directionMove = new Vector3(x * cameraMoveSpeed, rb.velocity.y, y * cameraMoveSpeed);
-            cameraLookatObject.GetComponent<Rigidbody>().velocity = directionMove;
+            CameraLookAtSatControl.GetComponent<Rigidbody>().velocity = directionMove;
         }
         
     }
