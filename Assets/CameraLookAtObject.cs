@@ -10,6 +10,7 @@ public class CameraLookAtObject : MonoBehaviour
     public GameObject CameraLookAtSatControl;
     public GameObject Satbot;
     public SatMove SatMove_Script;
+    public BotSelect followIndicator;
 
     public int selectedBot = 0;
 
@@ -23,11 +24,13 @@ public class CameraLookAtObject : MonoBehaviour
     {
         CameraLookAtSatControl = GameObject.Find("CameraLookAtSatControl");
         botsInitial = GameObject.FindGameObjectsWithTag("Bot");
+        bots.Add(CameraLookAtSatControl);
+        botToFollow = CameraLookAtSatControl;
         foreach (GameObject botInitial in botsInitial)
         {
             bots.Add(botInitial);
         }
-        bots.Add(CameraLookAtSatControl);
+        
     }
 
     // Update is called once per frame
@@ -45,6 +48,7 @@ public class CameraLookAtObject : MonoBehaviour
         
         selectedBot = (selectedBot + 1) % bots.Count;
         botToFollow = bots[selectedBot];
+        followIndicator.anim.Play(botToFollow.name);
     }
 
     public void followBotPrevious()
@@ -56,6 +60,7 @@ public class CameraLookAtObject : MonoBehaviour
             selectedBot += bots.Count;
         }
         botToFollow = bots[selectedBot];
+        followIndicator.anim.Play(botToFollow.name);
     }
 
     

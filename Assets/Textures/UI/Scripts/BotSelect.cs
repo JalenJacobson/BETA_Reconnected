@@ -7,7 +7,7 @@ public class BotSelect : MonoBehaviour
     public GameObject BotSelectButton;
    public Animator anim;
     // public bool displayBubble = false;
-    public GameObject touching = null;
+   // public GameObject touching = null;
 
 
  // Use this for initialization

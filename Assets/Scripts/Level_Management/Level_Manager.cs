@@ -128,8 +128,12 @@ public class Level_Manager : MonoBehaviour
     IEnumerator LoadStoryMode()
     {
         yield return new WaitForSeconds(5);
-        SceneManager.LoadScene("HackingRoom");
+        SceneManager.LoadScene("IntroVideo");
         PlayerPrefs.SetInt("highestLevelComplete", 0);
+    }
+    public void loadStoryHackerScene()
+    {
+        SceneManager.LoadScene("HackingRoom");
     }
     
     public void loadLevelSelectLevel()
