@@ -14,7 +14,7 @@ public class Hole : MonoBehaviour
   }
 
 
-  public void OnTriggerEnter(Collider other)
+  public void OnTriggerStay(Collider other)
   {
     // print(other.gameObject.name);
 

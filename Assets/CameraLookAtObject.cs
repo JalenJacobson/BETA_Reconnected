@@ -36,7 +36,14 @@ public class CameraLookAtObject : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(!SatMove_Script.controllingCamera) return;
+        if(!SatMove_Script.controllingCamera)
+        {
+            followIndicator.anim.Play("Idle");
+        }
+        else if(SatMove_Script.controllingCamera == true)
+        {
+            followIndicator.anim.Play(botToFollow.name);  
+        }
         if(botToFollow)
         {
             transform.position = botToFollow.transform.position;
@@ -48,7 +55,7 @@ public class CameraLookAtObject : MonoBehaviour
         
         selectedBot = (selectedBot + 1) % bots.Count;
         botToFollow = bots[selectedBot];
-        followIndicator.anim.Play(botToFollow.name);
+        //followIndicator.anim.Play(botToFollow.name);
     }
 
     public void followBotPrevious()
@@ -60,7 +67,7 @@ public class CameraLookAtObject : MonoBehaviour
             selectedBot += bots.Count;
         }
         botToFollow = bots[selectedBot];
-        followIndicator.anim.Play(botToFollow.name);
+        //followIndicator.anim.Play(botToFollow.name);
     }
 
     
