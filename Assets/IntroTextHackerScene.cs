@@ -26,47 +26,47 @@ public class IntroTextHackerScene : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(2);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(5);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(2);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(3);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(3);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(3);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(3);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(5);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(7);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
     }
 
     IEnumerator goToVideo()
     {
-        yield return new WaitForSeconds(80);
+        yield return new WaitForSeconds(19);
         LevelManager_Script.loadStoryIntroVideoScene();
     }
 }
