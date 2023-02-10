@@ -32,12 +32,41 @@ public class IntroTextHackerScene : MonoBehaviour
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(2);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(2);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(4);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
     }
 
     IEnumerator goToVideo()
     {
-        yield return new WaitForSeconds(16);
+        yield return new WaitForSeconds(100);
         LevelManager_Script.loadStoryIntroVideoScene();
     }
 }
