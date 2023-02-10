@@ -24,23 +24,25 @@ public class IntroText : MonoBehaviour
 
     IEnumerator introText()
     {
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(6);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(2);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(4);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(3);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(3);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(4);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(7);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(11);
+        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
+        yield return new WaitForSeconds(9);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
     }
 

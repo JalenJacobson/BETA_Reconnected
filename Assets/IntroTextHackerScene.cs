@@ -12,6 +12,10 @@ public class IntroTextHackerScene : MonoBehaviour
     {
         LevelManager_Script = LevelManager.GetComponent<Level_Manager>();
         FindObjectOfType<Dialogue_Manager>().startDialogue(dialogue);
+    }
+
+    public void Startle()
+    {
         StartCoroutine(introText());
         StartCoroutine(goToVideo());
     }
@@ -24,7 +28,7 @@ public class IntroTextHackerScene : MonoBehaviour
 
     IEnumerator introText()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(7);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
@@ -66,7 +70,7 @@ public class IntroTextHackerScene : MonoBehaviour
 
     IEnumerator goToVideo()
     {
-        yield return new WaitForSeconds(100);
+        yield return new WaitForSeconds(103);
         LevelManager_Script.loadStoryIntroVideoScene();
     }
 }

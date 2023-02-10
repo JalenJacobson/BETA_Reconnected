@@ -21,4 +21,9 @@ public class Hacker : MonoBehaviour
     {
         anim.Play("HackerGo");
     }
+
+    public void Nudge()
+    {
+        anim.Play("Startled");
+    }
 }
