@@ -50,11 +50,11 @@ public class IntroTextHackerScene : MonoBehaviour
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(6);
+        yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
@@ -66,7 +66,7 @@ public class IntroTextHackerScene : MonoBehaviour
 
     IEnumerator goToVideo()
     {
-        yield return new WaitForSeconds(19);
+        yield return new WaitForSeconds(100);
         LevelManager_Script.loadStoryIntroVideoScene();
     }
 }
