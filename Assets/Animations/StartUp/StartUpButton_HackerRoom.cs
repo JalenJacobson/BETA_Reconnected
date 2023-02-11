@@ -8,10 +8,13 @@ public class StartUpButton_HackerRoom : MonoBehaviour
     public bool dialogueComplete;
 
     public Dialogue dialogue;
+    
+    
     // Start is called before the first frame update
     void Start()
     {
-         anim = GetComponent<Animator>();       
+         anim = GetComponent<Animator>(); 
+             
     }
 
     public void triggerDialogue()

@@ -10,11 +10,14 @@ public class Dialogue_Manager : MonoBehaviour
     public Text dialogueText;
     public GameObject Canvas;
     public Menu_navigator Canvas_Sript;
+    public AudioSource source;
+    public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
         sentences = new Queue<string>();
         Canvas_Sript = Canvas.GetComponent<Menu_navigator>();
+        source.PlayOneShot(clip);  
     }
 
     public void startDialogue(Dialogue dialogue)
@@ -33,6 +36,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+        source.PlayOneShot(clip);  
         if(sentences.Count == 0)
         {
             EndDialogue();

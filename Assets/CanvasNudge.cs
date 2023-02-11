@@ -32,4 +32,8 @@ public class CanvasNudge : MonoBehaviour
     {
         anim.Play("IntroHackerFade");
     }
+    public void InteractiveCamera()
+    {
+        anim.Play("InteractiveCameraInHackerRoom");
+    }
 }
