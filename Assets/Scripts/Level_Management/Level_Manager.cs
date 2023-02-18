@@ -27,7 +27,7 @@ public class Level_Manager : MonoBehaviour
         if(Input.GetKeyDown("u"))
         {
             print(SceneManager.GetActiveScene());
-            SceneManager.LoadScene("Map_Select");
+            SceneManager.LoadScene("1 a ToyBoxTemplate");
         }
         if(Input.GetKeyDown("p"))
         {
