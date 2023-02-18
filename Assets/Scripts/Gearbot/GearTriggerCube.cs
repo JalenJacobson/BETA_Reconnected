@@ -124,7 +124,7 @@ public class GearTriggerCube : TriggerCubeBase
 
      }
 
-     public void setGearWall(GameObject sendingGearWall)
+     public void setGearWall(bool sendingGearWall)
      {
         if(gearWall == false)
         {
@@ -214,7 +214,10 @@ public class GearTriggerCube : TriggerCubeBase
         {
             GearMove_Script.connectToWall(false);
         }
-        GearMove_Script.connectToWall(shouldConnect);
+        else if(gearWall == true)
+        {
+            GearMove_Script.connectToWall(shouldConnect);
+        }
     }
 
     public void setGizmoToNull()

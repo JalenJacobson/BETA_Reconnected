@@ -3008,6 +3008,8 @@ GameObject:
   - component: {fileID: 8616462220890553691}
   - component: {fileID: 112135260908273913}
   - component: {fileID: 8223962808583234034}
+  - component: {fileID: 3228322380074897355}
+  - component: {fileID: 1818452537377677017}
   m_Layer: 0
   m_Name: GearWall
   m_TagString: Untagged
@@ -3078,6 +3080,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85d8d4d61bc79471a8fbebb71fa9e9b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  touching: {fileID: 0}
 --- !u!65 &8223962808583234034
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3087,6 +3090,35 @@ BoxCollider:
   m_GameObject: {fileID: 8995942525335332833}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0648286, y: 7.554863, z: 4.830492}
+  m_Center: {x: 0.5324147, y: 4.3298736, z: 0.2244433}
+--- !u!54 &3228322380074897355
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995942525335332833}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!65 &1818452537377677017
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8995942525335332833}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.0648286, y: 7.554863, z: 4.830492}

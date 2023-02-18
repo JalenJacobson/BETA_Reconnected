@@ -4,20 +4,23 @@ using UnityEngine;
 
 public class GearWall : MonoBehaviour
 {
+    public GameObject touching;
+
     void OnTriggerStay(Collider other)
     {
-        if(other.name.Contains("GearTriggerCube"))
+        if(other.name.Contains("TriggerCube"))
         {
-             var touching = other.gameObject;
+             touching = other.gameObject;
              touching.SendMessage("setGearWall", true);
+             print("AAAA THIS WORKED");
         }
     }
     
     void OnTriggerExit(Collider other)
     {
-        if(other.name.Contains("GearTriggerCube"))
+        if(other.name.Contains("TriggerCube"))
         {
-             var touching = other.gameObject;
+             touching = other.gameObject;
              touching.SendMessage("wallInteraction", true);
         }
     }
