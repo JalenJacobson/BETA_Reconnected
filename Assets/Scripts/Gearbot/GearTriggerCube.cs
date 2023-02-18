@@ -15,12 +15,15 @@ public class GearTriggerCube : TriggerCubeBase
     public bool connected = false;
     public bool connectedToWall = false;
     public GameObject touching = null;
-    public bool gearWall = false;
+    // public bool gearWall = false;
     public Vector3 connectPos;
 
     public Claw gizmoClaw_Script = null;
     public Rotator gizmoRotator_Script = null;
     public Gear_Crawler gizmoGear_Crawler_Script = null;
+
+    public GameObject gearWall;
+    public List<GameObject> touchingGearWalls;
     
 
     public Vector2 moveInputValues;
@@ -97,6 +100,11 @@ public class GearTriggerCube : TriggerCubeBase
             touching = other.gameObject;
             // touching.SendMessage("toggleBotTouching");
         }
+        else if(other.name.Contains("GearWall"))
+        {
+            touchingGearWalls.Add(other.gameObject);
+            // touching.SendMessage("toggleBotTouching");
+        }
             
     }
 
@@ -113,8 +121,11 @@ public class GearTriggerCube : TriggerCubeBase
      {
             if(other.name.Contains("GearWall"))
             {
-                gearWall = false;
-
+                touchingGearWalls.Remove(other.gameObject);
+                if(touchingGearWalls.Count <= 0 )
+                {
+                    wallInteraction(false);
+                }
             }
             touching = null;
             // touching.SendMessage("toggleBotTouching");
@@ -210,14 +221,7 @@ public class GearTriggerCube : TriggerCubeBase
 
     public void wallInteraction(bool shouldConnect)
     {
-        if(gearWall == false)
-        {
-            GearMove_Script.connectToWall(false);
-        }
-        else if(gearWall == true)
-        {
-            GearMove_Script.connectToWall(shouldConnect);
-        }
+        GearMove_Script.connectToWall(shouldConnect);
     }
 
     public void setGizmoToNull()
