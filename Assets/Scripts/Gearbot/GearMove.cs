@@ -16,6 +16,8 @@ public class GearMove : Player
 
     public bool gizmoConnected = false;
     public Vector2 moveInputValues;
+
+    public bool connectedToWall = false;
     
     // public Animator anim;
 
@@ -82,25 +84,37 @@ public class GearMove : Player
         if(currentHealth <= 0) return;
         if(!gizmoConnected)
         {
-            directionRotate = new Vector3(x, 0.0f, y);
-            directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
-            rb.velocity = directionMove;
-
-
-            if (!fixRotation && directionRotate != Vector3.zero)
+            if(!connectedToWall)
             {
-                transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
-                currentHealth = currentHealth - .05f;
+                directionRotate = new Vector3(x, 0.0f, y);
+                directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
+                rb.velocity = directionMove;
+
+
+                if (!fixRotation && directionRotate != Vector3.zero)
+                {
+                    transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
+                    currentHealth = currentHealth - .05f;
+                }
             }
+            else if(connectedToWall)
+            {
+                // directionRotate = new Vector3(x, 0.0f, y);
+                directionMove = new Vector3(x * moveSpeed, y * moveSpeed, 0);
+                rb.velocity = directionMove;
+            }
+            
         }
         else if(gizmoConnected)
         {
             moveInputValues = new Vector2(x,y);
         }
-        
+    }
 
-        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
-        
+    public void connectToWall(bool triggerCubeConnected)
+    {
+        connectedToWall = triggerCubeConnected;
+        rb.useGravity = !triggerCubeConnected;
     }
         
         // sendPos();

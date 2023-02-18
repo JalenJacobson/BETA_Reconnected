@@ -13,6 +13,7 @@ public class GearTriggerCube : TriggerCubeBase
     
     public bool triggerEntered = false;
     public bool connected = false;
+    public bool connectedToWall = false;
     public GameObject touching = null;
     public Vector3 connectPos;
 
@@ -205,6 +206,11 @@ public class GearTriggerCube : TriggerCubeBase
             touching.SendMessage("toggleBotConnected");
             touching.SendMessage(connectMessage);
         }   
+        else if(touching.name.Contains("Wall"))
+        {
+            connectedToWall = !connectedToWall;
+            GearMove_Script.connectToWall(connectedToWall);
+        }
         else touching.SendMessage("Activate", ErrorMessage);
             
      }
