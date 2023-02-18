@@ -100,7 +100,7 @@ public class GearTriggerCube : TriggerCubeBase
             touching = other.gameObject;
             // touching.SendMessage("toggleBotTouching");
         }
-        else if(other.name.Contains("GearWall"))
+        else if(other.name.Contains("Wall"))
         {
             touchingGearWalls.Add(other.gameObject);
             // touching.SendMessage("toggleBotTouching");
@@ -119,7 +119,7 @@ public class GearTriggerCube : TriggerCubeBase
 
      void OnTriggerExit(Collider other)
      {
-            if(other.name.Contains("GearWall"))
+            if(other.name.Contains("Wall"))
             {
                 touchingGearWalls.Remove(other.gameObject);
                 if(touchingGearWalls.Count <= 0 )
@@ -222,6 +222,7 @@ public class GearTriggerCube : TriggerCubeBase
     public void wallInteraction(bool shouldConnect)
     {
         GearMove_Script.connectToWall(shouldConnect);
+        connectedToWall = shouldConnect;
     }
 
     public void setGizmoToNull()
