@@ -135,13 +135,13 @@ public class GearTriggerCube : TriggerCubeBase
 
      }
 
-     public void setGearWall(bool sendingGearWall)
-     {
-        if(gearWall == false)
-        {
-            gearWall = sendingGearWall;
-        }
-     }
+    //  public void setGearWall(bool sendingGearWall)
+    //  {
+    //     if(gearWall == false)
+    //     {
+    //         gearWall = sendingGearWall;
+    //     }
+    //  }
 
      void FixedUpdate()
      {
