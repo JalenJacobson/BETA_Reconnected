@@ -15,6 +15,7 @@ public class GearTriggerCube : TriggerCubeBase
     public bool connected = false;
     public bool connectedToWall = false;
     public GameObject touching = null;
+    public bool gearWall = false;
     public Vector3 connectPos;
 
     public Claw gizmoClaw_Script = null;
@@ -110,13 +111,25 @@ public class GearTriggerCube : TriggerCubeBase
 
      void OnTriggerExit(Collider other)
      {
+            if(other.name.Contains("GearWall"))
+            {
+                gearWall = false;
 
+            }
             touching = null;
             // touching.SendMessage("toggleBotTouching");
             // Bubble_Script.actionBubbleStop();
             // Light_Script.actionBubbleStop();
             // Circle_Script.actionBubbleStop();
 
+     }
+
+     public void setGearWall(GameObject sendingGearWall)
+     {
+        if(gearWall == false)
+        {
+            gearWall = sendingGearWall;
+        }
      }
 
      void FixedUpdate()
@@ -151,37 +164,17 @@ public class GearTriggerCube : TriggerCubeBase
      }
      
 
-     void Update()
-     {
-        // if(touching != null && Input.GetKeyDown(connectKey))
-        // {
-        //     Connect();
-        // }
-        // if(touching != null && Input.GetKeyDown(disconnectKey))
-        // {
-        //     Disconnect();
-        // }
-
-        // if(touching != null && Input.GetKeyDown("p"))
-        // {
-        //     Activate();
-        // }
-    //     if(connected && Input.GetKeyDown(special))
-    //     {
-    //         touching.SendMessage("Activate", ErrorMessage);
-    //     }
-    //     if(touching != null && Input.GetButtonDown(activateController))
-    //     {
-    //         Activate();
-    //     }
-    //     if(connected && Input.GetButtonDown(specialController))
-    //     {
-    //         touching.SendMessage("Activate", ErrorMessage);
-    //     }
-      }
+    void Update()
+    {
+    
+    }
 
      public override void Activate()
      {
+        if(connectedToWall)
+        {
+            wallInteraction(false);
+        }
         if(!touching) return;
           GearMove_Script.Activate();
          
@@ -209,11 +202,20 @@ public class GearTriggerCube : TriggerCubeBase
         else if(touching.name.Contains("Wall"))
         {
             connectedToWall = !connectedToWall;
-            GearMove_Script.connectToWall(connectedToWall);
+            wallInteraction(connectedToWall);
         }
         else touching.SendMessage("Activate", ErrorMessage);
             
      }
+
+    public void wallInteraction(bool shouldConnect)
+    {
+        if(gearWall == false)
+        {
+            GearMove_Script.connectToWall(false);
+        }
+        GearMove_Script.connectToWall(shouldConnect);
+    }
 
     public void setGizmoToNull()
     {
