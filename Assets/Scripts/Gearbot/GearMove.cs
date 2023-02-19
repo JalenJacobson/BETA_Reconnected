@@ -16,6 +16,7 @@ public class GearMove : Player
 
     public bool gizmoConnected = false;
     public Vector2 moveInputValues;
+    public float wallConnectionAngle;
 
     public bool connectedToWall = false;
     
@@ -111,8 +112,21 @@ public class GearMove : Player
         }
     }
 
-    public void connectToWall(bool triggerCubeConnected)
+    public void connectToWall(bool triggerCubeConnected, string XorZ)
     {
+        
+        if(XorZ == "x")
+        {
+            wallConnectionAngle = 0;
+        }
+        else if(XorZ == "z")
+        {
+            wallConnectionAngle = 270;
+        }
+        if(triggerCubeConnected)
+        {
+            transform.rotation = Quaternion.Euler(0, wallConnectionAngle, 0);
+        }
         connectedToWall = triggerCubeConnected;
         rb.useGravity = !triggerCubeConnected;
     }

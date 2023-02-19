@@ -177,7 +177,10 @@ public class GearTriggerCube : TriggerCubeBase
 
     void Update()
     {
-    
+        if(Input.GetKeyDown("b"))
+        {
+            Activate();
+        }
     }
 
      public override void Activate()
@@ -221,7 +224,13 @@ public class GearTriggerCube : TriggerCubeBase
 
     public void wallInteraction(bool shouldConnect)
     {
-        GearMove_Script.connectToWall(shouldConnect);
+        string XorZ;
+        if(touching.name.Contains("Z"))
+        {
+            XorZ = "z";
+        }
+        else XorZ = "x";
+        GearMove_Script.connectToWall(shouldConnect, XorZ);
         connectedToWall = shouldConnect;
     }
 

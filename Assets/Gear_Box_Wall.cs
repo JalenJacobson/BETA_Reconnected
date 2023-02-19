@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gear_Box_Wall : MonoBehaviour
 {
+    public string XorZ;
     // Start is called before the first frame update
     void Start()
     {
