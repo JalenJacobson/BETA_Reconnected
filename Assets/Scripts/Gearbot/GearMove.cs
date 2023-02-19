@@ -17,6 +17,8 @@ public class GearMove : Player
     public bool gizmoConnected = false;
     public Vector2 moveInputValues;
     public float wallConnectionAngle;
+    public string wallConnectionAnleString;
+    
 
     public bool connectedToWall = false;
     
@@ -100,9 +102,17 @@ public class GearMove : Player
             }
             else if(connectedToWall)
             {
-                // directionRotate = new Vector3(x, 0.0f, y);
-                directionMove = new Vector3(x * moveSpeed, y * moveSpeed, 0);
-                rb.velocity = directionMove;
+                if(wallConnectionAnleString == "x")
+                {
+                    directionMove = new Vector3(x * moveSpeed, y * moveSpeed, 0);
+                    rb.velocity = directionMove;
+                }
+                else if(wallConnectionAnleString == "z")
+                {
+                    directionMove = new Vector3(0, y * moveSpeed, x * moveSpeed);
+                    rb.velocity = directionMove;
+                }
+                
             }
             
         }
@@ -114,7 +124,7 @@ public class GearMove : Player
 
     public void connectToWall(bool triggerCubeConnected, string XorZ)
     {
-        
+        wallConnectionAnleString = XorZ;
         if(XorZ == "x")
         {
             wallConnectionAngle = 0;
