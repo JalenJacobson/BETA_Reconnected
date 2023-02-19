@@ -256,6 +256,14 @@ public class GearMove : Player
     {
         gizmoConnected = !gizmoConnected;
     }
+    public void OnWall()
+    {
+        anim.Play("OnWall");
+    }
+    public void OffWall()
+    {
+        anim.Play("Gears");
+    }
 
     //  public void restoreHealth()
     // {

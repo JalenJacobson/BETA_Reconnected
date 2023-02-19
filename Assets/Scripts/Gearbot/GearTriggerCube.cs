@@ -29,6 +29,8 @@ public class GearTriggerCube : TriggerCubeBase
     public Vector2 moveInputValues;
     public GameObject[] GearHelp_Icons;
 
+    public string XorZ;
+
     // public int controllingPlayer = 0;
 
     // public GameObject ActionBubbles;
@@ -115,6 +117,14 @@ public class GearTriggerCube : TriggerCubeBase
              touching = other.gameObject;
              // touching.sendmessage("bot_touching");
         }
+        else if(other.name.Contains("Wall"))
+        {
+            if(connectedToWall == true)
+            {
+                GearMove_Script.OnWall();
+            }
+            // touching.SendMessage("toggleBotTouching");
+        }
     }
 
      void OnTriggerExit(Collider other)
@@ -125,6 +135,7 @@ public class GearTriggerCube : TriggerCubeBase
                 if(touchingGearWalls.Count <= 0 )
                 {
                     wallInteraction(false);
+                    GearMove_Script.OffWall();
                 }
             }
             touching = null;
@@ -224,12 +235,14 @@ public class GearTriggerCube : TriggerCubeBase
 
     public void wallInteraction(bool shouldConnect)
     {
-        string XorZ;
-        if(touching.name.Contains("Z"))
+        if(touching != null)
         {
-            XorZ = "z";
+            if(touching.name.Contains("Z"))
+            {
+                XorZ = "z";
+            }
+            else XorZ = "x";
         }
-        else XorZ = "x";
         GearMove_Script.connectToWall(shouldConnect, XorZ);
         connectedToWall = shouldConnect;
     }
