@@ -228,6 +228,7 @@ public class GearTriggerCube : TriggerCubeBase
         {
             connectedToWall = !connectedToWall;
             wallInteraction(connectedToWall);
+            touching.SendMessage("Activate");
         }
         else touching.SendMessage("Activate", ErrorMessage);
             
