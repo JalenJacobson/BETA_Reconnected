@@ -11,7 +11,7 @@ public class Luz_Recharge_Sphere : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" ||characterName.Contains("Brute"))
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("LightBulb"))
         {
             // if(touching == null)
             // {
@@ -27,7 +27,7 @@ public class Luz_Recharge_Sphere : MonoBehaviour
      void OnTriggerExit(Collider other)
      { 
         var characterName = other.name;    
-        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box"))
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("LightBulb"))
         {   
                 touchingBots.Remove(other.gameObject);
         }

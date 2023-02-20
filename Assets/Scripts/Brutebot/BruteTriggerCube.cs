@@ -77,7 +77,7 @@ public class BruteTriggerCube : TriggerCubeBase
     void OnTriggerStay(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" ||characterName.Contains("Brute"))
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute") || characterName.Contains("LightBulb"))
         {
             if(touching == null)
             {
@@ -111,7 +111,7 @@ public class BruteTriggerCube : TriggerCubeBase
            
         } 
         var characterName = other.name;    
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("Brute"))
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Box") || characterName.Contains("Brute") || characterName.Contains("LightBulb"))
         {   
             if(lifting == false)
             {
@@ -169,7 +169,7 @@ public class BruteTriggerCube : TriggerCubeBase
 
     public override void Special()
     {
-        if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
+        if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump" || touching.name == "LightBulb")
         {
             if(!lifting)
             {
@@ -222,7 +222,7 @@ public class BruteTriggerCube : TriggerCubeBase
     
     public void lift() 
     {
-        if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump")
+        if(touching.name == "IdleLuz" || touching.name == "Gears" || touching.name == "SatBot" || touching.name == "Pump" || touching.name == "LightBulb")
         {
             lifting = true;
             touching.SendMessage("toggleIsBeingCarried"); 
