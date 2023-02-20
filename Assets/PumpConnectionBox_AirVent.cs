@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class PumpConnectionBox_AirVent : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    public GameObject AirVent;
+    public AirVent AirVent_Script;
+    
     void Start()
     {
-        
+        AirVent_Script = AirVent.GetComponent<AirVent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    public void Activate()
     {
-        
+        AirVent_Script.Activate();
     }
+
+    
 }

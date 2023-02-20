@@ -4,15 +4,38 @@ using UnityEngine;
 
 public class AirVent : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject touching;
+
+    public List<GameObject> touchingBots;
+
+    void OnTriggerEnter(Collider other)
     {
+        var characterName = other.name;
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "IdleLuz" || characterName.Contains("LightBulb"))
+        {
+            touchingBots.Add(other.gameObject);
+        }
         
     }
 
-    // Update is called once per frame
-    void Update()
+     void OnTriggerExit(Collider other)
+     { 
+        var characterName = other.name;    
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "IdleLuz" || characterName.Contains("LightBulb"))
+        {   
+                touchingBots.Remove(other.gameObject);
+        }
+     }
+
+
+    public void Activate()
     {
+        foreach(GameObject bot in touchingBots)
+        {
+             var touchingRigidBody = bot.GetComponent<Rigidbody>();
+             touchingRigidBody.AddForce(transform.up * force);
+             //play particle effect here
+        }
         
     }
 }
