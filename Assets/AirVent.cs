@@ -5,7 +5,7 @@ using UnityEngine;
 public class AirVent : MonoBehaviour
 {
     public GameObject touching;
-
+    public float force = 20f;
     public List<GameObject> touchingBots;
 
     void OnTriggerEnter(Collider other)
