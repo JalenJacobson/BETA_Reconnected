@@ -7,6 +7,14 @@ public class AirVent : MonoBehaviour
     public GameObject touching;
     public float force = 20f;
     public List<GameObject> touchingBots;
+    public Animator anim;
+    public ParticleSystem puff;
+
+    void Start()
+    {
+        anim = GetComponent<Animator>();
+        puff = GameObject.Find("Puff").GetComponent<ParticleSystem>();     
+    }
 
     void OnTriggerEnter(Collider other)
     {
@@ -30,10 +38,12 @@ public class AirVent : MonoBehaviour
 
     public void Activate()
     {
+        puff.Play();
         foreach(GameObject bot in touchingBots)
         {
              var touchingRigidBody = bot.GetComponent<Rigidbody>();
              touchingRigidBody.AddForce(transform.up * force);
+             
              //play particle effect here
         }
         
