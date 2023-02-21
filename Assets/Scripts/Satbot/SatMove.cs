@@ -69,6 +69,7 @@ public class SatMove : Player
         CameraLookAtSatControl = GameObject.Find("CameraLookAtSatControl");
         MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
         Timer.drowning(breathRemaining);
+        startPos = transform.position;
     }
 
     public override void setCurrentPlayer(int player)

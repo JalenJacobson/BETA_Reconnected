@@ -30,8 +30,8 @@ public class BruteMove : Player
         healthBar.setHealth(maxHealth);
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
-        transform.position = startPos;
         Timer.drowning(breathRemaining);
+        startPos = transform.position;
         //getControls();
         //string[] GetJoystickNames();
         //P1Circle.spriteRenderer = GetComponent<SpriteRenderer>

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CrackedWall : MonoBehaviour
 {
     public Animator anim;
+    public bool broken = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,15 +17,28 @@ public class CrackedWall : MonoBehaviour
     {
         
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
-        if(other.name == "Mech_Drill")
-        StartCoroutine(BreakWall()); 
+        if(other.name == "Mech_Drill" && broken == false)
+        {
+          StartCoroutine(BreakWall());
+        } 
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if(broken == false)
+        {
+          StopAllCoroutines();
+          anim.Play("WallIdle");
+        }
     }
 
     public IEnumerator BreakWall()
-  {
+    {
+    anim.Play("BreakingWall");
     yield return new WaitForSeconds(2);
     anim.Play("BreakWall");
-  }
+    broken = true;
+    }
+  
 }

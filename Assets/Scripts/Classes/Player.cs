@@ -52,7 +52,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         startPos = new Vector3(47f, 1.29f, -246f);
-        transform.position = startPos;
+        startPos = transform.position;
         Controllers = Input.GetJoystickNames();
     }
 

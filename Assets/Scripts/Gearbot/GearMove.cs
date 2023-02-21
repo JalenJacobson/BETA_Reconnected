@@ -41,6 +41,7 @@ public class GearMove : Player
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         Timer.drowning(breathRemaining);
+        startPos = transform.position;
        // getControls();
         
         // startPos = new Vector3(47f, 1.44f, -231f);

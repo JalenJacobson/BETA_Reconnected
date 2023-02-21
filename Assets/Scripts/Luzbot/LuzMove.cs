@@ -31,7 +31,7 @@ public class LuzMove : Player
         lose_condition = GameObject.Find("Lose_Conditions");
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(-180f, .5f, -98.5f);
-        transform.position = startPos;
+        startPos = transform.position;
        // getControls();
         // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
         // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);

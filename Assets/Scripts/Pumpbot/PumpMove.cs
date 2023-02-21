@@ -39,7 +39,7 @@ public class PumpMove : Player
         name = "Pump";
         currentHealth = maxHealth;
         pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
-        // transform.position = startPos;
+        startPos = transform.position;
         anim = GetComponent<Animator>();
         healthBar.setHealth(maxHealth);  
         lose_condition = GameObject.Find("Lose_Conditions");
