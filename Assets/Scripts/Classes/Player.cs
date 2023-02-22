@@ -56,29 +56,6 @@ public class Player : MonoBehaviour
         Controllers = Input.GetJoystickNames();
     }
 
-    // void FixedUpdate()
-    // {
-    //     directionMove = Vector3.zero;
-    //     if (fixPosition == false && currentHealth > 0 && controllingPlayer != 0){
-    //         Movement();
-    //     }
-
-    //     // if(isBeingCarried)
-    //     // {
-    //     //     transform.position = Brute.transform.TransformPoint(liftPos);
-    //     //     GetComponent<Rigidbody>().useGravity = false;
-    //     // }
-    //     // else if(!isBeingCarried)
-    //     // {
-    //     //    GetComponent<Rigidbody>().useGravity = true; 
-    //     // }
-    // }
-
-    // private void OnMove(InputValue value)
-    // {
-    //     moveInputValue = value.Get<Vector2>();
-    //     print("GAMER" + Gamepad.current.displayName);
-    // }
 
     public virtual void setCurrentPlayer(int player)
     {

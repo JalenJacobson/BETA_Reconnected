@@ -5,26 +5,21 @@ using UnityEngine.UI;
 
 public class PumpMove : Player
 {
-    // public float moveSpeed = 7;
-    // public float rotateSpeed = 10;
-    // public Rigidbody rb;
-    // public bool toggleSelected;
-    // private Vector3 direction;
-    // public Vector3 startPos;
-    // public bool fixPosition = false;
-    // public Joystick joystick;
-
     public GameObject PumpBlueWall;
     public BlueWall pumpBlueWall_script;
-    // public Animator anim;
     public string moveAxisHorizontal;
     public string moveAxisVertical;
     public string special;
     public string specialController;
     public bool bubbleOpen;
     public string playerNumber;
-    // public Image P1Circle;
-    // public Image P2Circle;
+    public bool airBlow = false;
+    public ParticleSystem air;
+    public ParticleSystem air2;
+    public bool drainWater = false;
+    public ParticleSystem runningWater;
+    public ParticleSystem WaterDrops;
+    public bool fireBurn = false; 
     
 
     void Awake()
@@ -35,7 +30,6 @@ public class PumpMove : Player
 
     void Start()
     {   
-       // getControls();
         name = "Pump";
         currentHealth = maxHealth;
         pumpBlueWall_script = PumpBlueWall.GetComponent<BlueWall>();
@@ -43,51 +37,19 @@ public class PumpMove : Player
         anim = GetComponent<Animator>();
         healthBar.setHealth(maxHealth);  
         lose_condition = GameObject.Find("Lose_Conditions");
-        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();      
+        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>(); 
+        air = GameObject.Find("air").GetComponent<ParticleSystem>();  
+        air2 = GameObject.Find("air2").GetComponent<ParticleSystem>();     
+        runningWater = GameObject.Find("runningWater").GetComponent<ParticleSystem>();  
+        WaterDrops = GameObject.Find("WaterDrops").GetComponent<ParticleSystem>();  
+        
     }
 
     public override void setCurrentPlayer(int player)
     {
         controllingPlayer = player;
         playerNumber = "P" + player.ToString();
-        //getControls();
     }
-
-    // void getControls()
-    // {
-    //     if(playerNumber == "P0")
-    //     {
-    //         P1Circle.enabled = false;
-    //         P2Circle.enabled = false;
-    //     }
-    //     else if(playerNumber == "P1")
-    //     {
-    //         moveAxisHorizontal = "Horizontal";
-    //         moveAxisVertical = "Vertical";
-    //         special = "space";
-    //         specialController = "special1";
-    //         P1Circle.enabled = true;
-    //         P2Circle.enabled = false;
-    //     }
-    //     else if(playerNumber == "P2")
-    //     {
-    //         moveAxisHorizontal = "HorizontalPlayer2";
-    //         moveAxisVertical = "VerticalPlayer2";  
-    //         special = "return";
-    //         specialController = "special2"; 
-    //         P1Circle.enabled = false;
-    //         P2Circle.enabled = true;  
-    //     }
-    // }
-
-    // void FixedUpdate()
-    // {
-    //     if (toggleSelected == true && fixPosition == false){
-    //         Movement();
-    //     }
-        
-    // }
-
 
     public override void Movement(float x, float y)
     {
@@ -101,43 +63,56 @@ public class PumpMove : Player
         {
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
             currentHealth = currentHealth - .05f;
-            anim.Play("PumpWalk");
+            if(!airBlow && !drainWater && !fireBurn)
+            {
+                anim.Play("PumpWalk");
+                moveSpeed = 10;
+                air.Stop();
+                air2.Stop();
+                runningWater.Stop();
+                WaterDrops.Stop();
+            }
+            else if(airBlow)
+            {
+                anim.Play("PumpBlowingHose");
+                moveSpeed = 3;
+                air.Play();
+                air2.Play();
+            }
+            else if(drainWater)
+            {
+                anim.Play("PumpWaterHose");
+                moveSpeed = 3;
+                runningWater.Play();
+                WaterDrops.Play();
+            }
+            else if(fireBurn)
+            {
+                anim.Play("fireBlow");
+                moveSpeed = 3;
+            }
+
         }
 
-        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         
     }
 
     void Update()
     {
 
-        // if(ActivateCircle)
-        // {
-        //     P1Circle.enabled = true;
-        // }
-        // else if(!ActivateCircle)
-        // {
-        //     P1Circle.enabled = false;
-        // }
-        // if(inWater == true && Input.GetKeyDown(special) ||inWater == true && Input.GetButtonDown(specialController))
-        // {
-        //     if(bubbleOpen == false)
-        //     {
-        //         pumpBlueWall_script.Play();
-        //         bubbleOpen = true;
-        //     }
-        //     else if(bubbleOpen == true)
-        //     {
-        //         pumpBlueWall_script.Stop();
-        //         bubbleOpen = false;
-        //     }
-        // }
         healthBar.setHealth(currentHealth);
 
         if(currentHealth <= 0)
         {
             batteryDead = true;
             anim.Play("PumpDeadBattery");
+            drainWater = false;
+            airBlow = false;
+            fireBurn = false;
+            air.Stop();
+            air2.Stop();
+            runningWater.Stop();
+            WaterDrops.Stop();
         }
         else if(currentHealth > 0)
         {
@@ -150,15 +125,7 @@ public class PumpMove : Player
         }
     }
 
-        // public void ToggleCircle()
-        // {
-        //     P1Circle.enabled = true;  
-        // }
-
-        // public void ToggleCircleOff()
-        // {
-        //     P1Circle.enabled = false;  
-        // }
+        
 
     public void openBubble()
     {
@@ -185,17 +152,43 @@ public class PumpMove : Player
     }
     public void waterDrain()
     {
+        drainWater = !drainWater;
         anim.Play("PumpWaterHose");
+        moveSpeed = 3;
+        runningWater.Play();
+        WaterDrops.Play();
     }
     public void pumpBlow()
     {
+        airBlow = !airBlow;
         anim.Play("PumpBlowingHose");
+        moveSpeed = 3;
+        air.Play();
+        air2.Play();
+    }
+    public void pumpBurn()
+    {
+        fireBurn = !fireBurn;
+        anim.Play("fireBlow");
+        moveSpeed = 3;
+
     }
     public void waterExit()
     {
         inWater = false;
         bubbleOpen = false;
         pumpBlueWall_script.Stop();
+    }
+    public void armDown()
+    {
+        anim.Play("PumpWalk");
+        drainWater = false;
+        airBlow = false;
+        fireBurn = false;
+        air.Stop();
+        air2.Stop();
+        runningWater.Stop();
+        WaterDrops.Stop();
     }
 
     public void death()
@@ -208,14 +201,4 @@ public class PumpMove : Player
         
     }
 
-    // public void BlueWallOpen()
-    // {
-    //     blueWall = true;
-    //     print("NUMBER2 this should open wall "+blueWall);
-    //     //  anim.Play("BlueWallOpen");
-    // }
-    // public void BlueWallClose()
-    // {
-    //     blueWall = false;
-    // }
 }

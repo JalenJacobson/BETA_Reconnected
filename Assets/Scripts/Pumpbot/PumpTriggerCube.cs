@@ -13,39 +13,14 @@ public class PumpTriggerCube : TriggerCubeBase
     public Vector3 connectPos;
     public GameObject touching = null;
     public Animator anim;
-    // public GameObject ActionPump;
-    // ActionPump Bubble_Script;
-    // public GameObject ActionPump2;
-    // ActionPump2 Bubble_Script2;
-    // public GameObject ActionLight;
-    // ActionPump Light_Script;
-    // public GameObject ActionCircles;
-    // ActionPump Circle_Script;
-    // public GameObject Activate1Pump;
-    // Act1Script Act1Button_Script;
-    // public GameObject Activate2;
-    // Act1Script Act2Button_Script;
-    // public GameObject Activate3;
-    // Act1Script Act3Button_Script;
-    // public GameObject Cancel;
-    // CancelButton CancelButton_Script;
-    // public GameObject Cancel2;
-    // CancelButton CancelButton2_Script;
     public GameObject BlueWall;
     BlueWall BlueWall_Script;
-
-    // public string playerNumber;
-    // public string connectKey;
-    // public string activateKey;
-    // public string disconnectKey;
-    // public string special;
-    // public string activateController;
-    // public string specialController;
     public bool connectedBox = false;
     public GameObject connectedBoxName = null;
     public GameObject[] PumpHelp_Icons;
+    public GameObject PumpUI;
+    public Animator animUI;
 
-    // public int controllingPlayer = 0;
 
     void Awake()
      {
@@ -53,73 +28,18 @@ public class PumpTriggerCube : TriggerCubeBase
         
      }
 
-
-    // Start is called before the first frame update
     void Start()
     {
         ConnectionScript = Connector.GetComponent<PumpConnector>();
         PumpMove_Script = Pump.GetComponent<PumpMove>();
-        // Bubble_Script = ActionPump.GetComponent<ActionPump>();
-        // Bubble_Script2 = ActionPump2.GetComponent<ActionPump2>();
-        // Light_Script = ActionLight.GetComponent<ActionPump>();
-        // Circle_Script = ActionCircles.GetComponent<ActionPump>();
-        // Act1Button_Script = Activate1Pump.GetComponent<Act1Script>();
-        // Act2Button_Script = Activate2.GetComponent<Act1Script>();
-        // Act3Button_Script = Activate3.GetComponent<Act1Script>();
-        // CancelButton_Script = Cancel.GetComponent<CancelButton>();
-        // CancelButton2_Script = Cancel2.GetComponent<CancelButton>();
         BlueWall_Script = BlueWall.GetComponent<BlueWall>();
         anim = GetComponent<Animator>();
         PumpHelp_Icons = GameObject.FindGameObjectsWithTag("PumpHelpIcon");
-        //getControls();
+        animUI = PumpUI.GetComponent<Animator>();
+
     }
 
-    // public void getControls()
-    // {
-    //     if(playerNumber == "P0") return;
-    //     else if(playerNumber == "P1")
-    //     {
-    //         activateKey = "v";
-    //         disconnectKey = "b";
-    //         connectKey = "c";
-    //         special = "space";
-    //         activateController = "activate1";
-    //         specialController = "special1";
-    //     }
-    //     else if(playerNumber == "P2")
-    //     {
-    //         activateKey = "k";
-    //         disconnectKey = "l";
-    //         connectKey = "j";
-    //         special = "return";
-    //         activateController = "activate2";
-    //         specialController = "special2";
-    //     }
-    // }
 
-    // public void setCurrentPlayer(int player)
-    // {
-    //     controllingPlayer = player;
-    //     playerNumber = "P" + player.ToString();
-    //     getControls();
-    // }
-
-//    void OnTriggerEnter(Collider other)
-//      {
-//         if(other.name.Contains("Water"))
-//         {
-//             Bubble_Script.actionBubbleStart();
-//             Light_Script.actionBubbleStart();
-//             Circle_Script.actionBubbleStart();
-//         }
-//         if(other.name.Contains("Pump") || (other.name.Contains("Gas")))
-//         {
-//             Bubble_Script2.actionBubble2Start();
-//             Light_Script.actionBubbleStart();
-//             Circle_Script.actionBubbleStart();
-//         }
-
-//      }
 
     void OnTriggerStay(Collider other)
     {
@@ -144,13 +64,6 @@ public class PumpTriggerCube : TriggerCubeBase
         if(other.name.Contains("pump") || other.name.Contains("Gas") || other.name.Contains("BatteryUI"))
         {
             touching = null;
-            // Bubble_Script.actionBubbleStop();
-            // Light_Script.actionBubbleStop();
-            // Circle_Script.actionBubbleStop();
-            // BlueWall_Script.Stop();
-            // PumpMove_Script.BlueWallClose();
-            // CancelButton_Script.CancelStop();
-            // Bubble_Script2.actionBubble2Stop();
             ConnectionScript.touching = null;
         }
 
@@ -159,18 +72,6 @@ public class PumpTriggerCube : TriggerCubeBase
      void Update()
      {
     
-        // if(touching != null && Input.GetKeyDown(activateKey))
-        // {
-        //    Activate();
-        // }
-        // if(touching != null && Input.GetKeyDown(special))
-        // {
-        //    pumpSpecial();
-        // }
-        // if(touching == null && connectedBox && Input.GetKeyDown(activateKey))
-        // {
-        //    SnapBack();
-        // }
      }
 
      public override void Activate()
@@ -181,6 +82,7 @@ public class PumpTriggerCube : TriggerCubeBase
             {
                 ConnectionScript.SendMessage("Connect");
                 connectedBoxName = touching;
+                animUI.Play("UiButton");
             }
             else touching.SendMessage("Activate");
         }
@@ -210,7 +112,7 @@ public class PumpTriggerCube : TriggerCubeBase
             }
             else if(connectedBoxName.name.Contains("Fire"))
             {
-                // fire animation
+                PumpMove_Script.pumpBurn();
             }
             else if(connectedBoxName.name.Contains("Gas"))
             {
@@ -221,7 +123,8 @@ public class PumpTriggerCube : TriggerCubeBase
 
      public void SnapBack()
      {
-       ConnectionScript.SendMessage("SnapHoseBack");  
+       ConnectionScript.SendMessage("SnapHoseBack");
+       animUI.Play("UiButtonDown");  
      }
 
        public override void enableHelpIcon()

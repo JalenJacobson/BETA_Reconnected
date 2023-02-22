@@ -7,6 +7,7 @@ public class PumpConnector : MonoBehaviour
     public GameObject PumpTriggerCube;
     public PumpTriggerCube PumpTrigger_Script;
     public GameObject Pump;
+    public PumpMove PumpMove_Script;
     public GameObject Connector;
     public bool connected = false;
     public GameObject touching = null;
@@ -20,6 +21,7 @@ public class PumpConnector : MonoBehaviour
     PumpTriggerCube = GameObject.Find("PumpTriggerCube");
     Pump = GameObject.Find("Pump");
     PumpTrigger_Script = PumpTriggerCube.GetComponent<PumpTriggerCube>();
+    PumpMove_Script = Pump.GetComponent<PumpMove>();
     }
     void Start()
     { 
@@ -54,5 +56,6 @@ public class PumpConnector : MonoBehaviour
     public void SnapHoseBack()
     {
         connected = false;
+        PumpMove_Script.armDown();
     }
 }
