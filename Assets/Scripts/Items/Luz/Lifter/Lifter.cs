@@ -4,29 +4,31 @@ using UnityEngine;
 
 public class Lifter : MonoBehaviour
 {
-   public Animator anim;
-   public GameObject Stand;
-   public Rigidbody Stand_Rigidbody;
-   public float force = 20f;
+    public Animator anim;
+    public GameObject Stand;
+    public Rigidbody Stand_Rigidbody;
+    public float force = 20f;
+    public Vector3 directionMove;
+    public bool lifting = false;
 
- // Use this for initialization
- void Start () {
+    void Start () 
+    {
         anim = GetComponent<Animator>();
         Stand_Rigidbody = Stand.GetComponent<Rigidbody>(); 
- }
+    }
  
- // Update is called once per frame
- void Update () {
-        if (Input.GetKeyDown("g"))
+    void Update () 
+    {  
+        if(lifting)
         {
-            anim.Play("Lifter");
-
-        }
+            directionMove = new Vector3(0, 10, 0);
+            Stand_Rigidbody.velocity = directionMove;
+        }  
     }
 
     public void Activate()
     {
         anim.Play("Lifter");
-        Stand_Rigidbody.AddForce(transform.up * force);
+        lifting = !lifting;
     }
 }

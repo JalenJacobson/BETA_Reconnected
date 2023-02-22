@@ -687,8 +687,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2344137105782584056}
   - component: {fileID: 2811008379626378511}
-  - component: {fileID: 2811008379626378510}
   - component: {fileID: 940851673645566625}
+  - component: {fileID: 2357444358766114568}
   m_Layer: 0
   m_Name: Luz_Box 1
   m_TagString: Untagged
@@ -730,26 +730,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.03, y: 0.03, z: 0.03}
   m_Center: {x: 0.01, y: 0.015, z: 0}
---- !u!114 &2811008379626378510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3153607069123995714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65707fad75cc74ef99552a6db96e958e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  message: 
-  botTouching: 0
-  botConnected: 0
-  botToIgnore: 
-  LuzLifter: {fileID: 0}
-  LuzLifter_script: {fileID: 0}
-  TimeDeactivated: 3
 --- !u!95 &940851673645566625
 Animator:
   serializedVersion: 3
@@ -769,6 +749,26 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2357444358766114568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3153607069123995714}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34971ba744edf43dd89f8a8b823b3e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  message: 
+  botTouching: 0
+  botConnected: 0
+  botToIgnore: 
+  LuzLifter: {fileID: 0}
+  LuzLifter_script: {fileID: 0}
+  TimeDeactivated: 3
 --- !u!1 &3415177560847974574
 GameObject:
   m_ObjectHideFlags: 0
@@ -1615,15 +1615,15 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 1503228178298106083, guid: 856a7e2c78188ad488d4e5bb495c3276, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 856a7e2c78188ad488d4e5bb495c3276, type: 3}
---- !u!1 &2066427428779169093 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1503228178298106082, guid: 856a7e2c78188ad488d4e5bb495c3276,
-    type: 3}
-  m_PrefabInstance: {fileID: 608521257261032871}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2066427428779169119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1503228178298106104, guid: 856a7e2c78188ad488d4e5bb495c3276,
+    type: 3}
+  m_PrefabInstance: {fileID: 608521257261032871}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2066427428779169093 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1503228178298106082, guid: 856a7e2c78188ad488d4e5bb495c3276,
     type: 3}
   m_PrefabInstance: {fileID: 608521257261032871}
   m_PrefabAsset: {fileID: 0}
