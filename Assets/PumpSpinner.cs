@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PumpSpinner : MonoBehaviour
 {
-   public Animator anim;
+    public GameObject Lock;
+    public PumpLock lock_Script;
+    public Animator anim;
     public bool spun = false;
+    private bool alreadyActivated = false;
     // Start is called before the first frame update
     void Start()
     {
+        lock_Script = Lock.GetComponent<PumpLock>();
         anim = GetComponent<Animator>(); 
     }
 
@@ -41,5 +45,10 @@ public class PumpSpinner : MonoBehaviour
     anim.Play("SpinnerRed");
     yield return new WaitForSeconds(3);
     spun = true;
+    if(!alreadyActivated)
+    {
+        alreadyActivated = true;
+        lock_Script.Activate();
+    }
     }
 }
