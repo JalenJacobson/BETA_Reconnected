@@ -45,38 +45,6 @@ public class BruteMove : Player
         //getControls();
     }
 
-    // void getControls()
-    // {
-    //     if(playerNumber == "P0")
-    //     {
-    //         P1Circle.enabled = false;
-    //         P2Circle.enabled = false;
-    //     }
-    //     else if(playerNumber == "P1")
-    //     {
-    //         moveAxisHorizontal = "Horizontal";
-    //         moveAxisVertical = "Vertical";
-    //         P1Circle.enabled = true;
-    //         P2Circle.enabled = false;
-    //     }
-    //     else if(playerNumber == "P2")
-    //     {
-    //         moveAxisHorizontal = "HorizontalPlayer2";
-    //         moveAxisVertical = "VerticalPlayer2";
-    //         P1Circle.enabled = false;
-    //         P2Circle.enabled = true;   
-    //     }
-    // }
-
-    // public void ToggleCircle()
-    // {
-    //   P1Circle.enabled = true;  
-    // }
-
-    // public void ToggleCircleOff()
-    // {
-    //   P1Circle.enabled = false;  
-    // }
 
     public void toggleToNext()
     {
@@ -94,8 +62,7 @@ public class BruteMove : Player
 
     public override void Movement(float x, float y)
     {
-        //float horizontalMove = Input.GetAxis(moveAxisHorizontal);
-        //float verticalMove = Input.GetAxis(moveAxisVertical);
+
 
         directionRotate = new Vector3(x, 0.0f, y);
         directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
@@ -111,20 +78,12 @@ public class BruteMove : Player
             transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
         }
 
-        // rb.MovePosition(transform.position + moveSpeed * Time.deltaTime * direction);
         
     }
 
     void Update()
     {
-        // if(ActivateCircle)
-        // {
-        //     P1Circle.enabled = true;
-        // }
-        // else if(!ActivateCircle)
-        // {
-        //     P1Circle.enabled = false;
-        // }
+
 
         if(inWater == true)
         {
@@ -136,7 +95,6 @@ public class BruteMove : Player
 
         if(breathRemaining <= 0f)
         {
-            // StartCoroutine(returnToStart("DeadBrute"));
             death();
             waterExit();
         }
@@ -190,9 +148,23 @@ public class BruteMove : Player
                 BruteTrigger_Script.drop();
             }
             StartCoroutine(returnToStart("DeadBrute"));
-        }
-        
+        }       
     }
+
+    public void HealBattery()
+    {
+        if(currentHealth <= 0)
+            {
+                StartCoroutine(Heal());
+            }    
+    }
+    IEnumerator Heal()
+    {
+        anim.Play("BruteHealBattery");
+        yield return new WaitForSeconds(2f);
+        anim.Play("Take 001");
+    }
+
     public void Sprint()
     {
         anim.Play("BruteSprint");

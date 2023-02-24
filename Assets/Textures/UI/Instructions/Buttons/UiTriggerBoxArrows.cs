@@ -16,9 +16,9 @@ public class UiTriggerBoxArrows : MonoBehaviour
     {
         
     }
-        void OnTriggerEnter(Collider other)
+        void OnTriggerStay(Collider other)
          {
-            if(other.name.Contains("Brute"))
+            if(other.name.Contains("TriggerCube") || other.name.Contains("Brute"))
             {
              anim.Play("BoxArrows");
             }
@@ -26,7 +26,7 @@ public class UiTriggerBoxArrows : MonoBehaviour
 
     void OnTriggerExit(Collider other)
          {
-            if(other.name.Contains("Brute"))
+            if(other.name.Contains("TriggerCube") || other.name.Contains("Brute"))
             {
              anim.Play("BoxArrowsDown");
             }

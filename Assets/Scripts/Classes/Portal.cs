@@ -32,7 +32,7 @@ public class Portal : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute") || characterName.Contains("Push"))
+        if(characterName == "IdleLuz" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("Brute"))
         {
            if(portalIsActive && canPortal)
            {

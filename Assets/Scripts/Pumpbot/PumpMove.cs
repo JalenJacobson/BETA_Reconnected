@@ -201,4 +201,18 @@ public class PumpMove : Player
         
     }
 
+    public void HealBattery()
+    {
+        if(currentHealth <= 0)
+            {
+                StartCoroutine(Heal());
+            }    
+    }
+    IEnumerator Heal()
+    {
+        anim.Play("PumpHealBattery");
+        yield return new WaitForSeconds(2f);
+        anim.Play("PumpIdle");
+    }
+
 }

@@ -13,6 +13,8 @@ public class LightBulb : MonoBehaviour
     public bool isBeingCarried;
     public Vector3 liftPos;
     public GameObject Brute;
+    public bool dead = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,17 +27,15 @@ public class LightBulb : MonoBehaviour
     {
         slider.value = chargeTime;
         chargeTime -= Time.deltaTime;
-        if(slider.value <= 0)
+        if(slider.value <= 5)
         {
-            myLight.intensity = 0;
+            StartCoroutine(FlickerOff());
         }
-        else if(slider.value > 0)
-        {
-            myLight.intensity = 12f;
-        }
+        
     }
+    
 
-    public void HealBattery()
+    public void restoreHealth()
     {
         chargeTime = maxChargeTime;
     }
@@ -58,5 +58,55 @@ public class LightBulb : MonoBehaviour
                 Destroy(gameObject.GetComponent<FixedJoint>());
                 GetComponent<Rigidbody>().useGravity = true;  
         }
+    }
+
+    IEnumerator FlickerOff()
+    {
+        if(!dead)
+        {
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 12;
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 0;
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 10;
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 0;
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 6;
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 0;
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 4;
+            yield return new WaitForSeconds(.3f);
+            myLight.intensity = 0;
+            dead = true;
+        }
+
+        
+    }
+    IEnumerator FlickerOn()
+    {
+        yield return new WaitForSeconds(.3f);
+        myLight.intensity = 3;
+        yield return new WaitForSeconds(.3f);
+        myLight.intensity = 1;
+        yield return new WaitForSeconds(.3f);
+        myLight.intensity = 8;
+        yield return new WaitForSeconds(.3f);
+        myLight.intensity = 1;
+        yield return new WaitForSeconds(.3f);
+        myLight.intensity = 10;
+        yield return new WaitForSeconds(.3f);
+        myLight.intensity = 2;
+        yield return new WaitForSeconds(.3f);
+        myLight.intensity = 12;
+        
+    }
+
+    public void HealBattery()
+    {
+        dead = false;
+        StartCoroutine(FlickerOn());
     }
 }

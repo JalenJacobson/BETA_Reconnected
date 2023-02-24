@@ -193,12 +193,13 @@ public class GearMove : Player
 
         healthBar.setHealth(currentHealth);
     }
-        public void HealBattery()
+
+    public void HealBattery()
     {
-        //if(currentHealth <= 0)
-            //{
+        if(currentHealth <= 0)
+            {
                 StartCoroutine(Heal());
-            //}    
+            }    
     }
     IEnumerator Heal()
     {

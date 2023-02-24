@@ -20,18 +20,17 @@ public class Luz_Recharge_Sphere : MonoBehaviour
 
             // touching.SendMessage("restoreHealth");
             touchingBots.Add(other.gameObject);
+            StartCoroutine(Remove());
         }
         
     }
 
-     void OnTriggerExit(Collider other)
-     { 
-        var characterName = other.name;    
-        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "Pump" || characterName.Contains("LightBulb"))
-        {   
-                touchingBots.Remove(other.gameObject);
-        }
-     }
+
+    IEnumerator Remove()
+    {
+        yield return new WaitForSeconds(2f);
+        touchingBots.Clear();
+    }
 
     public void Update()
     {
@@ -41,7 +40,7 @@ public class Luz_Recharge_Sphere : MonoBehaviour
             {
                 bot.SendMessage("HealBattery");
                 bot.SendMessage("restoreHealth");
-                touchingBots.Remove(bot);
+                //touchingBots.Remove(bot);
             }
         }
     }

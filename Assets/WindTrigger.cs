@@ -26,7 +26,7 @@ public class WindTrigger : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         var characterName = other.name;
-        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "IdleLuz" || characterName.Contains("LightBulb"))
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "IdleLuz" || characterName.Contains("LightBulb") || characterName.Contains("Push"))
         {
             touchingBots.Add(other.gameObject);
         }
@@ -37,7 +37,7 @@ public class WindTrigger : MonoBehaviour
      void OnTriggerExit(Collider other)
      { 
         var characterName = other.name;    
-        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "IdleLuz" || characterName.Contains("LightBulb"))
+        if(characterName == "Brute" || characterName == "Gears" || characterName == "SatBot" || characterName == "IdleLuz" || characterName.Contains("LightBulb") || characterName.Contains("Push"))
         {   
                 touchingBots.Remove(other.gameObject);
         }
