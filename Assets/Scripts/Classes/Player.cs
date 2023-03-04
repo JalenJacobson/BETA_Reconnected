@@ -109,6 +109,9 @@ public class Player : MonoBehaviour
     {
 
     }
+    public void inAir()
+    {
+    }
 
     public void toggleFixPosition()
     {

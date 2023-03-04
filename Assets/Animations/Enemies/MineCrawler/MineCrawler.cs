@@ -16,38 +16,33 @@ public class MineCrawler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isBeingCarried == true)
-        {
-            anim.Play("Scramble");              
-        }
-        if(Explode == true)
-        {
-            anim.Play("Explode");              
-        }   
+  
     }
-    void OnTriggerEnter(Collider other)
+    void OnTriggerStay(Collider other)
     {
         if(other.name.Contains("Floor"))
         {
-            anim.Play("Dig");
+            onGround();
         }
-        if(other.name.Contains("Hole"))
+        else if(other.name.Contains("Hole"))
         {
             anim.Play("Explode");
         }
     }
 
     void OnTriggerExit(Collider other)
-         {
-         }
-    public void IsBeingCarried()
     {
-        isBeingCarried = true;
-    }
-    public void isNotBeingCarried()
-    {
-        isBeingCarried = false;
 
     }
+
+    public void onGround()
+    {
+        anim.Play("Dig");
+    }
+    public void inAir()
+    {
+        anim.Play("Scramble");
+    }
+
 
 }

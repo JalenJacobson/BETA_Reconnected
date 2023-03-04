@@ -64,6 +64,14 @@ public class Claw : MonoBehaviour
         {
             touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
             touching.GetComponent<Rigidbody>().isKinematic = true;
+            touching.SendMessage("inAir");
+
+            // if(touching == null) return;
+            // else if(touching.name.Contains("MineCrawler"))
+            // {
+            //     touching.SendMessage("isBeingCarried");
+            // }
+            
         }
         else if(!lifting)
         {
@@ -71,6 +79,10 @@ public class Claw : MonoBehaviour
             {
                 touching.GetComponent<Rigidbody>().isKinematic = false;
             }
+            // else if(touching.name.Contains("MineCrawler"))
+            // {
+            //     touching.SendMessage("isNotBeingCarried");
+            // }
             
         }
            
