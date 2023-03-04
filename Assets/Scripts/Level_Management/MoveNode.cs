@@ -27,7 +27,7 @@ public class MoveNode : MonoBehaviour
         //directionMove = Vector3.zero;
         moveAxisHorizontal = "Horizontal";
         moveAxisVertical = "Vertical"; 
-        transform.position = startPos;
+        startPos = transform.position;
     }
     void FixedUpdate()
     {
