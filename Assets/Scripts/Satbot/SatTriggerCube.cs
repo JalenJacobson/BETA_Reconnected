@@ -23,6 +23,8 @@ public class SatTriggerCube : TriggerCubeBase
     
     public bool tokenExpire = false;
     public float tokenExpireTime;
+    public GameObject SatSpecial;
+    public bool controllingCamera = false;
 
 
     // public GameObject TimerBarSat;
@@ -48,6 +50,7 @@ public class SatTriggerCube : TriggerCubeBase
     {
         SatMove_Script = SatBot.GetComponent<SatMove>();
         SatHelp_Icons = GameObject.FindGameObjectsWithTag("SatHelpIcon");
+        SatSpecial = GameObject.FindGameObjectWithTag("SatSpecialUI");
         //getControls();
         
     }
@@ -145,6 +148,15 @@ public class SatTriggerCube : TriggerCubeBase
 
             }      
         }
+
+        if(!controllingCamera && !connected)
+        {
+            SatSpecial.GetComponent<Animator>().Play("SatSpecial");
+        }
+        else if(controllingCamera && !connected)
+        {
+            SatSpecial.GetComponent<Animator>().Play("SatSpecialCamera");
+        }
      }
 
      void FixedUpdate()
@@ -210,12 +222,14 @@ public class SatTriggerCube : TriggerCubeBase
                 SatBot.gameObject.AddComponent<FixedJoint>();
                 SatBot.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
                 touching.SendMessage("setGravaInTriggerCube", gameObject.GetComponent<SatTriggerCube>());
+                SatSpecial.GetComponent<Animator>().Play("SatSpecialGravaBox");
             }
             else if(!connected)
             {
                 Destroy(SatBot.gameObject.GetComponent<FixedJoint>());
                 touching.SendMessage("disconnect");
                 setGravaToNull();
+                SatSpecial.GetComponent<Animator>().Play("SatSpecial");
             }
             SatMove_Script.connectGrava();
             
@@ -232,6 +246,7 @@ public class SatTriggerCube : TriggerCubeBase
      public override void Special()
      {
         SatMove_Script.controllingCamera = !SatMove_Script.controllingCamera;
+        controllingCamera = !controllingCamera;
      }
 
      public override void enableHelpIcon()

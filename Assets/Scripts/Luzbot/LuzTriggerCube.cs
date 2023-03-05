@@ -21,6 +21,7 @@ public class LuzTriggerCube : TriggerCubeBase
     public Text Connection;
     public Text ErrorMessage;
     public GameObject[] LuzHelp_Icons;
+    public GameObject LuzSpecial;
 
     // public string playerNumber;
     // public string connectKey;
@@ -41,6 +42,7 @@ public class LuzTriggerCube : TriggerCubeBase
         LuzMove_Script = IdleLuz.GetComponent<LuzMove>();
         PowerScript = IdleLuz.GetComponent<ActivatePower>();
         LuzHelp_Icons = GameObject.FindGameObjectsWithTag("LuzHelpIcon");
+        LuzSpecial = GameObject.FindGameObjectWithTag("LuzSpecialUI");
         // getControls();
     }
 
@@ -110,6 +112,7 @@ public class LuzTriggerCube : TriggerCubeBase
     public override void Special()
     {
         LuzMove_Script.Recharge();
+        LuzSpecial.GetComponent<Animator>().Play("LuzSpecialCharge");
     }
 
      

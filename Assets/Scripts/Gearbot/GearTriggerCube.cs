@@ -30,6 +30,7 @@ public class GearTriggerCube : TriggerCubeBase
     public GameObject[] GearHelp_Icons;
 
     public string XorZ;
+    public GameObject GearSpecial;
 
     // public int controllingPlayer = 0;
 
@@ -60,6 +61,7 @@ public class GearTriggerCube : TriggerCubeBase
         GearMove_Script = Gears.GetComponent<GearMove>();
         connectPos = new Vector3(-0.01f, 0.005f, -0.003f);
         GearHelp_Icons = GameObject.FindGameObjectsWithTag("GearHelpIcon");
+        GearSpecial = GameObject.FindGameObjectWithTag("GearSpecialUI");
         // Bubble_Script = ActionBubbles.GetComponent<BubbleScript>();
         // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
         //getControls();
@@ -212,11 +214,20 @@ public class GearTriggerCube : TriggerCubeBase
                 Gears.gameObject.AddComponent<FixedJoint>();
                 Gears.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
                 touching.SendMessage("setGizmoInTriggerCube", gameObject.GetComponent<GearTriggerCube>());
+                if(touching.name.Contains("Claw"))
+                {
+                    GearSpecial.GetComponent<Animator>().Play("GearSpecialClaw");
+                }
+                else if(touching.name.Contains("Crawlers") || touching.name.Contains("Rotator"))
+                {
+                    GearSpecial.GetComponent<Animator>().Play("GearSpecialGear");
+                }
             }
             else if(!connected)
             {
                 Destroy(Gears.gameObject.GetComponent<FixedJoint>());
                 setGizmoToNull();
+                GearSpecial.GetComponent<Animator>().Play("GearSpecial");
             }
             GearMove_Script.toggleFixPosition();
             GearMove_Script.Gizmo();
@@ -229,6 +240,7 @@ public class GearTriggerCube : TriggerCubeBase
             connectedToWall = !connectedToWall;
             wallInteraction(connectedToWall);
             touching.SendMessage("Activate");
+            GearSpecial.GetComponent<Animator>().Play("GearSpecialGear");
         }
         else touching.SendMessage("Activate", ErrorMessage);
             

@@ -12,6 +12,7 @@ public class BruteTriggerCube : TriggerCubeBase
     public bool canLift = false;
     public Vector3 liftPos;
     public GameObject[] BruteHelp_Icons;
+    public GameObject BruteSpecial;
 
     // public int controllingPlayer = 0;
     
@@ -36,6 +37,7 @@ public class BruteTriggerCube : TriggerCubeBase
         BruteMove_Script = Brute.GetComponent<BruteMove>();
         liftPos = new Vector3(0.0f, -0.5f, -1.0f);
         BruteHelp_Icons = GameObject.FindGameObjectsWithTag("BruteHelpIcon");
+        BruteSpecial = GameObject.FindGameObjectWithTag("BruteSpecialUI");
         //getControls();
     }
 
@@ -175,11 +177,13 @@ public class BruteTriggerCube : TriggerCubeBase
             {
                 lift();
                 BruteMove_Script.Lift();
+                BruteSpecial.GetComponent<Animator>().Play("BruteSpecialLifting");
             }
             else if(lifting)
             {
                 drop();
-                BruteMove_Script.Drop();   
+                BruteMove_Script.Drop(); 
+                BruteSpecial.GetComponent<Animator>().Play("BruteSpecial");  
             }
         }
         
