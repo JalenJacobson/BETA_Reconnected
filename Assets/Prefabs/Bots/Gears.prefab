@@ -162,6 +162,99 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &481828174499742784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5739585539527435571}
+  - component: {fileID: 123339627403072462}
+  m_Layer: 0
+  m_Name: Spot Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5739585539527435571
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481828174499742784}
+  m_LocalRotation: {x: -0.19985712, y: -0.6782736, z: 0.67827517, w: -0.19986247}
+  m_LocalPosition: {x: 0.00058412313, y: -0.0146, z: 0.00021198031}
+  m_LocalScale: {x: 0.007881155, y: 0.007881158, z: 0.007881158}
+  m_Children: []
+  m_Father: {fileID: 1817441670796176980}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &123339627403072462
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481828174499742784}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 5000
+  m_Range: 35.83
+  m_SpotAngle: 4.3
+  m_InnerSpotAngle: 1
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 5000
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &526172071353557312
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,6 +795,7 @@ Transform:
   - {fileID: 2242348715970567150}
   - {fileID: 3453159328604451443}
   - {fileID: 5176412933713007057}
+  - {fileID: 5739585539527435571}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -821,6 +915,9 @@ MonoBehaviour:
   StartHealth: 100
   gizmoConnected: 0
   moveInputValues: {x: 0, y: 0}
+  wallConnectionAngle: 0
+  wallConnectionAnleString: 
+  connectedToWall: 0
 --- !u!114 &2211936947424602208
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6868,13 +6965,17 @@ MonoBehaviour:
   ErrorMessage: {fileID: 0}
   triggerEntered: 0
   connected: 0
+  connectedToWall: 0
   touching: {fileID: 0}
   connectPos: {x: 0, y: 0, z: 0}
   gizmoClaw_Script: {fileID: 0}
   gizmoRotator_Script: {fileID: 0}
   gizmoGear_Crawler_Script: {fileID: 0}
+  gearWall: {fileID: 0}
+  touchingGearWalls: []
   moveInputValues: {x: 0, y: 0}
   GearHelp_Icons: []
+  XorZ: 
 --- !u!1 &2211936948432214019
 GameObject:
   m_ObjectHideFlags: 0
@@ -9221,6 +9322,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f878f7a6db1db974b92e3d365f4c190d, type: 3}
+--- !u!224 &3777873049595486940 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3070915760413117658, guid: f878f7a6db1db974b92e3d365f4c190d,
+    type: 3}
+  m_PrefabInstance: {fileID: 2230308866199629318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1188447651770906474 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1048653508737767788, guid: f878f7a6db1db974b92e3d365f4c190d,
@@ -9233,12 +9340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &3777873049595486940 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 3070915760413117658, guid: f878f7a6db1db974b92e3d365f4c190d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2230308866199629318}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2731589419375953121
 PrefabInstance:
   m_ObjectHideFlags: 0

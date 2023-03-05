@@ -20,6 +20,7 @@ public class PumpTriggerCube : TriggerCubeBase
     public GameObject[] PumpHelp_Icons;
     public GameObject PumpUI;
     public Animator animUI;
+    public GameObject PumpSpecial;
 
 
     void Awake()
@@ -36,6 +37,7 @@ public class PumpTriggerCube : TriggerCubeBase
         anim = GetComponent<Animator>();
         PumpHelp_Icons = GameObject.FindGameObjectsWithTag("PumpHelpIcon");
         animUI = PumpUI.GetComponent<Animator>();
+        PumpSpecial = GameObject.FindGameObjectWithTag("PumpSpecialUI");
 
     }
 
@@ -83,12 +85,25 @@ public class PumpTriggerCube : TriggerCubeBase
                 ConnectionScript.SendMessage("Connect");
                 connectedBoxName = touching;
                 animUI.Play("UiButton");
+                if(touching.name.Contains("Drain"))
+                {
+                    PumpSpecial.GetComponent<Animator>().Play("PumpSpecialDrain");
+                }
+                else if(touching.name.Contains("Fire"))
+                {
+                    PumpSpecial.GetComponent<Animator>().Play("PumpSpecialFire");
+                }
+                else if(touching.name.Contains("Air"))
+                {
+                    PumpSpecial.GetComponent<Animator>().Play("PumpSpecialAir");
+                }
             }
             else touching.SendMessage("Activate");
         }
         else if(touching == null && connectedBox)
         {
            SnapBack();
+           PumpSpecial.GetComponent<Animator>().Play("PumpSpecial");
         }
         
      }
