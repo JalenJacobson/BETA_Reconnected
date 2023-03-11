@@ -105,11 +105,22 @@ public class Player1_Controller : MonoBehaviour
     {
         if(firstInstantiation)
         {
+            toggleStartButtonInteractible();
             Player_Toggle_LevelSelect = GameObject.Find("Player_Toggle_LevelSelect");
             Player_Toggle_LevelSelect_Script = Player_Toggle_LevelSelect.GetComponent<Player_Toggle_LevelSelect>();
             bubbleControlling = Player_Toggle_LevelSelect_Script.Bubbles[playerIndex].GetComponent<BotSelect>();
             getLevelSelectBot();
            // firstInstantiation = false;
+        }
+    }
+
+    public void toggleStartButtonInteractible()
+    {
+        GameObject[] startButtons = GameObject.FindGameObjectsWithTag("HeroSelectStartButton");
+        foreach(GameObject button in startButtons)
+        {
+            var buttonComponent = button.GetComponent<Button>();
+            buttonComponent.interactable = true;
         }
     }
 

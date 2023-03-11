@@ -1,14 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StartUpButton : MonoBehaviour
 {
     public Animator anim;
+    public Button startButton;
     // Start is called before the first frame update
     void Start()
     {
-         anim = GetComponent<Animator>();       
+         anim = GetComponent<Animator>();
+         startButton = GetComponent<Button>(); 
+         startButton.interactable = false;      
     }
 
     // Update is called once per frame
