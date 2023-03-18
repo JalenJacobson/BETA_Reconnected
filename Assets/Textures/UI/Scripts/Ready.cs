@@ -1,11 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ready : MonoBehaviour
 {
     //public GameObject ReadyButton;
    public Animator anim;
+   public Button startButton;
     // public bool displayBubble = false;
     //public GameObject touching = null;
 
@@ -13,6 +15,8 @@ public class Ready : MonoBehaviour
  // Use this for initialization
  void Start () {
         anim = GetComponent<Animator>();
+        startButton = GetComponent<Button>(); 
+        startButton.interactable = false;  
  }
  
  // Update is called once per frame

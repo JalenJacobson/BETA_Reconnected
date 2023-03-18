@@ -71,29 +71,15 @@ public class IntroTextHackerScene : MonoBehaviour
         yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         source.PlayOneShot(clip);
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(8);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         source.PlayOneShot(clip2);
-        yield return new WaitForSeconds(5);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        source.PlayOneShot(clip);
-        yield return new WaitForSeconds(5);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        source.PlayOneShot(clip);
-        yield return new WaitForSeconds(5);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        source.PlayOneShot(clip1);
-        yield return new WaitForSeconds(7);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        source.PlayOneShot(clip2);
-        yield return new WaitForSeconds(5);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        source.PlayOneShot(clip2);
+        
     }
 
     IEnumerator goToVideo()
     {
-        yield return new WaitForSeconds(103);
+        yield return new WaitForSeconds(80);
         LevelManager_Script.loadStoryIntroVideoScene();
     }
 }
