@@ -32,16 +32,7 @@ public class LuzSelect : HeroSelectPlayer
         
     }
     
-   public void Up()
-   {
-        anim.Play("LuzSelectUp");
-        
-   }
-   public void Down()
-   {
-       anim.Play("LuzSelectDown");
 
-   }
       public void Up2()
    {
         anim.Play("LuzSelectUp2");
@@ -59,13 +50,13 @@ public class LuzSelect : HeroSelectPlayer
         isSelected = !isSelected;
     }
 
-    public void luzUp()
+    public void Up()
     {
         isUp = true;
         anim.Play("LuzUp");
     }
 
-    public void luzDown()
+    public void Down()
     {
         isUp = false;
         anim.Play("LuzStart");

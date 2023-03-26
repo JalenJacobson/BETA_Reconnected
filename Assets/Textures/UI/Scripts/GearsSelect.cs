@@ -33,17 +33,7 @@ public class GearsSelect : HeroSelectPlayer
     {
        
     }
-    
-   public void Up()
-   {
-       anim.Play("GearsSelectUp");
 
-   }
-   public void Down()
-   {
-       anim.Play("GearsSelectDown");
-
-   }
       public void Up2()
    {
        anim.Play("GearsSelectUp2");
@@ -62,7 +52,7 @@ public class GearsSelect : HeroSelectPlayer
         isSelected = !isSelected;
     }
 
-    public void gearsUp()
+    public void Up()
     {
         isUp = true;
         anim.Play("GearUp");
@@ -70,7 +60,7 @@ public class GearsSelect : HeroSelectPlayer
         // print(Level_Manager_Script.levelValue);
     }
 
-    public void gearsDown()
+    public void Down()
     {
         isUp = false;
         anim.Play("GearDown");

@@ -3372,6 +3372,81 @@ RectTransform:
   m_AnchoredPosition: {x: -8, y: -6.5}
   m_SizeDelta: {x: 8.3161, y: 7.0278}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &290322553
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 290322555}
+  - component: {fileID: 290322554}
+  m_Layer: 0
+  m_Name: ButtonNavigationManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &290322554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290322553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8e36f2e637b264ea31b420fd1fefe1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Canvas: {fileID: 764475205}
+  Brute: {fileID: 919132149480783412}
+  Pump: {fileID: 919132148623166643}
+  Luz: {fileID: 919132148830739449}
+  Gears: {fileID: 919132147794512123}
+  Sat: {fileID: 919132149137789085}
+  Beacon1: {fileID: 631038935}
+  Beacon2: {fileID: 2039267963}
+  Beacon3: {fileID: 761534258}
+  Beacon4: {fileID: 346333025}
+  Beacon5: {fileID: 1176330327}
+  StartButton: {fileID: 1514636536}
+  NewGame: {fileID: 997609216}
+  NewGameWarning: {fileID: 1708314220}
+  NewGameCancel: {fileID: 1475075134}
+  NewGameReady: {fileID: 896850305}
+  NewGameStart: {fileID: 28947817}
+  NewGameNotReady: {fileID: 412965403}
+  Continue: {fileID: 675496109}
+  ContinueCancel: {fileID: 1385297339}
+  ContinueReady: {fileID: 1042355647}
+  ContinueStart: {fileID: 1107714004}
+  ContinueNotReady: {fileID: 412965403}
+  BotSelect: {fileID: 660291778}
+  BotSelectP1: {fileID: 267971249}
+  BotSelectP2: {fileID: 1080327406}
+  BotSelectP3: {fileID: 871887632}
+  BotSelectP4: {fileID: 342584969}
+  BotSelectP5: {fileID: 645797471}
+  Logo: {fileID: 601481991}
+  TopLine: {fileID: 571657216}
+  BottomLine: {fileID: 2135642263}
+--- !u!4 &290322555
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 290322553}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 352.148, y: 165.39934, z: 23.269096}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &322762319
 GameObject:
   m_ObjectHideFlags: 0
@@ -5476,7 +5551,8 @@ MonoBehaviour:
     type: 3}
   m_SubmitAction: {fileID: -2450369760773445333, guid: a55e09ab283c94356b28e68471fabb2e,
     type: 3}
-  m_CancelAction: {fileID: 0}
+  m_CancelAction: {fileID: 2286317959416526780, guid: a55e09ab283c94356b28e68471fabb2e,
+    type: 3}
   m_LeftClickAction: {fileID: 0}
   m_MiddleClickAction: {fileID: 0}
   m_RightClickAction: {fileID: 0}
@@ -6542,285 +6618,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 601481995}
-        m_TargetAssemblyTypeName: StartUpL, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 571657220}
-        m_TargetAssemblyTypeName: StartUpTopLine, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2135642267}
-        m_TargetAssemblyTypeName: StartUpBottomLine, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 675496112}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtonsDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 997609220}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtonsDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1112660109}
-        m_TargetAssemblyTypeName: PumpSelect, Assembly-CSharp
-        m_MethodName: pumpUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1375402813}
-        m_TargetAssemblyTypeName: SatSelect, Assembly-CSharp
-        m_MethodName: satUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 919132149480783415}
-        m_TargetAssemblyTypeName: BruteSelect, Assembly-CSharp
-        m_MethodName: bruteUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1438819706}
-        m_TargetAssemblyTypeName: LuzSelect, Assembly-CSharp
-        m_MethodName: luzUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1510297554}
-        m_TargetAssemblyTypeName: GearsSelect, Assembly-CSharp
-        m_MethodName: gearsUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 631038937}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2039267964}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 761534259}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 346333026}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1176330328}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 267971251}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1080327407}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 871887633}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 342584970}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 660291784}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1042355650}
-        m_TargetAssemblyTypeName: Ready, Assembly-CSharp
-        m_MethodName: ReadyStart
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1385297341}
-        m_TargetAssemblyTypeName: CancelGearSelect, Assembly-CSharp
-        m_MethodName: Back
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 764475212}
-        m_TargetAssemblyTypeName: Menu_navigator, Assembly-CSharp
-        m_MethodName: callcontinueButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 645797473}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
+      - m_Target: {fileID: 290322554}
+        m_TargetAssemblyTypeName: ButtonNavigationManager, Assembly-CSharp
+        m_MethodName: moveToContinueFromGametype
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -9794,81 +9594,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1708314223}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 675496112}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtonsDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 997609220}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtonsDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 601481995}
-        m_TargetAssemblyTypeName: StartUpL, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 571657220}
-        m_TargetAssemblyTypeName: StartUpTopLine, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2135642267}
-        m_TargetAssemblyTypeName: StartUpBottomLine, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 764475212}
-        m_TargetAssemblyTypeName: Menu_navigator, Assembly-CSharp
-        m_MethodName: Warning
+      - m_Target: {fileID: 290322554}
+        m_TargetAssemblyTypeName: ButtonNavigationManager, Assembly-CSharp
+        m_MethodName: moveToWarningFromGametype
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13816,21 +13544,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1098039005}
-        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
-        m_MethodName: returnToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 497756443}
-        m_TargetAssemblyTypeName: FadeBlack, Assembly-CSharp
-        m_MethodName: FadeBlackStart
+      - m_Target: {fileID: 290322554}
+        m_TargetAssemblyTypeName: ButtonNavigationManager, Assembly-CSharp
+        m_MethodName: moveToGameTypeFromContinue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15061,21 +14777,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1098039005}
-        m_TargetAssemblyTypeName: Level_Manager, Assembly-CSharp
-        m_MethodName: returnToMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 497756443}
-        m_TargetAssemblyTypeName: FadeBlack, Assembly-CSharp
-        m_MethodName: FadeBlackStart
+      - m_Target: {fileID: 290322554}
+        m_TargetAssemblyTypeName: ButtonNavigationManager, Assembly-CSharp
+        m_MethodName: moveToGameTypeFromNewGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -15665,45 +15369,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1514636539}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtonsDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 675496112}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 997609220}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtons
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 764475212}
-        m_TargetAssemblyTypeName: Menu_navigator, Assembly-CSharp
-        m_MethodName: SelectGameType
+      - m_Target: {fileID: 290322554}
+        m_TargetAssemblyTypeName: ButtonNavigationManager, Assembly-CSharp
+        m_MethodName: moveToGameTypeFromStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -17428,249 +17096,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1375402813}
-        m_TargetAssemblyTypeName: SatSelect, Assembly-CSharp
-        m_MethodName: satUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 919132149480783415}
-        m_TargetAssemblyTypeName: BruteSelect, Assembly-CSharp
-        m_MethodName: bruteUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1438819706}
-        m_TargetAssemblyTypeName: LuzSelect, Assembly-CSharp
-        m_MethodName: luzUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1510297554}
-        m_TargetAssemblyTypeName: GearsSelect, Assembly-CSharp
-        m_MethodName: gearsUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 631038937}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2039267964}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 761534259}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 346333026}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1176330328}
-        m_TargetAssemblyTypeName: StartUpBeacon, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1708314223}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtonsDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 675496112}
-        m_TargetAssemblyTypeName: StartUpButton, Assembly-CSharp
-        m_MethodName: newButtonsDown
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 660291784}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 896850307}
-        m_TargetAssemblyTypeName: Ready, Assembly-CSharp
-        m_MethodName: Initiate
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1112660109}
-        m_TargetAssemblyTypeName: PumpSelect, Assembly-CSharp
-        m_MethodName: pumpUp
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1475075136}
-        m_TargetAssemblyTypeName: CancelGearSelect, Assembly-CSharp
-        m_MethodName: Back
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 267971251}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1080327407}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 871887633}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 342584970}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 764475212}
-        m_TargetAssemblyTypeName: Menu_navigator, Assembly-CSharp
-        m_MethodName: BotSelect
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 645797473}
-        m_TargetAssemblyTypeName: BotSelect, Assembly-CSharp
-        m_MethodName: Initiate2
+      - m_Target: {fileID: 290322554}
+        m_TargetAssemblyTypeName: ButtonNavigationManager, Assembly-CSharp
+        m_MethodName: moveToNewGameFromWarning
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

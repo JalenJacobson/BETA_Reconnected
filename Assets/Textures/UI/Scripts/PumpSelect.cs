@@ -34,15 +34,6 @@ public class PumpSelect : HeroSelectPlayer
         
     }
     
-   public void Up()
-   {
-       anim.Play("PumpSelectUp");
-   }
-   public void Down()
-   {
-       anim.Play("PumpSelectDown");
-
-   }
       public void Up2()
    {
        anim.Play("PumpSelectUp2");
@@ -61,13 +52,13 @@ public class PumpSelect : HeroSelectPlayer
         isSelected = !isSelected;
     }
 
-    public void pumpUp()
+    public void Up()
     {
         isUp = true;
         anim.Play("PumpUp");
     }
 
-    public void pumpDown()
+    public void Down()
     {
         isUp = false;
         anim.Play("PumpStart");

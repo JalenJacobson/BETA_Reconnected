@@ -32,17 +32,7 @@ public class SatSelect : HeroSelectPlayer
        
     }
     
-   public void Up()
-   {
-       anim.Play("SatSelectUp");
-       
 
-   }
-   public void Down()
-   {
-       anim.Play("SatSelectDown");
-
-   }
       public void Up2()
    {
        anim.Play("SatSelectUp2");
@@ -61,13 +51,13 @@ public class SatSelect : HeroSelectPlayer
         isSelected = !isSelected;
     }
 
-    public void satUp()
+    public void Up()
     {
         isUp = true;
         anim.Play("SatUp");
     }
 
-    public void satDown()
+    public void Down()
     {
         isUp = false;
         anim.Play("SatDown");

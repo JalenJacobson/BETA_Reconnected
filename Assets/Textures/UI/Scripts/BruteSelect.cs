@@ -33,16 +33,7 @@ public class BruteSelect : HeroSelectPlayer
         
     }
     
-   public void Up()
-   {
-        anim.Play("BruteSelectUp");
-        
-   }
-   public void Down()
-   {
-       anim.Play("BruteSelectDown");
 
-   }
       public void Up2()
    {
         anim.Play("BruteSelectUp2");
@@ -59,13 +50,13 @@ public class BruteSelect : HeroSelectPlayer
         isSelected = !isSelected;
     }
 
-    public void bruteUp()
+    public void Up()
     {
         isUp = true;
         anim.Play("BruteUp");
     }
 
-    public void bruteDown()
+    public void Down()
     {
         isUp = false;
         anim.Play("BruteStart");

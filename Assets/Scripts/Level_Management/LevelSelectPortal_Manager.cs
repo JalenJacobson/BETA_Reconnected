@@ -14,7 +14,7 @@ public class LevelSelectPortal_Manager : MonoBehaviour
 
     void Awake()
     {
-        //PlayerPrefs.SetInt("highestLevelComplete", 30);
+        PlayerPrefs.SetInt("highestLevelComplete", 30);
         LevelSelectPortals = GameObject.FindGameObjectsWithTag("LevelSelect_Portal");
         foreach(GameObject portal in LevelSelectPortals)
         {
@@ -49,7 +49,7 @@ public class LevelSelectPortal_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(highestLevelComplete >= 7)
+        if(highestLevelComplete >= 13)
         {
             forcegate_script.toggleActive();
         }

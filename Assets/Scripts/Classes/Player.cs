@@ -184,6 +184,7 @@ public class Player : MonoBehaviour
         fixPosition = !fixPosition;
         yield return new WaitForSeconds(1);
         transform.position = startPos;
+        rb.velocity = new Vector3(0,0,0);
         inWater = false;
         breathRemaining = 5f;
         yield return new WaitForSeconds(2);
