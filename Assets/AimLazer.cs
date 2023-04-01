@@ -28,9 +28,8 @@ public class AimLazer : MonoBehaviour
 
     void FixedUpdate()
     {
-      YRotator.transform.rotation = Quaternion.Slerp(YRotator.transform.rotation, Quaternion.LookRotation( target.transform.position - YRotator.transform.position ), followTimeDelta * 2 ); 
-      XRotator.transform.rotation = Quaternion.Slerp(XRotator.transform.rotation, Quaternion.LookRotation( target.transform.position - XRotator.transform.position ), followTimeDelta * 2 ); 
-      print(YRotator.transform.rotation);
+      YRotator.transform.rotation = Quaternion.Lerp(YRotator.transform.rotation, Quaternion.LookRotation( target.transform.position - YRotator.transform.position ), followTimeDelta * 2 ); 
+      XRotator.transform.rotation = Quaternion.Lerp(XRotator.transform.rotation, Quaternion.LookRotation( target.transform.position - XRotator.transform.position ), followTimeDelta * 2 ); 
         // Quaternion deltaRotation = Quaternion.Euler(m_EulerAngleVelocity * Time.fixedDeltaTime);
         // m_Rigidbody.MoveRotation(m_Rigidbody.rotation * deltaRotation); 
     }
