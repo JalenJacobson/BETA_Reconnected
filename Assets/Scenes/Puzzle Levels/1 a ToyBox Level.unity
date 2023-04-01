@@ -4903,6 +4903,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1157062664}
   speed: 6
+  rb: {fileID: 364856874}
+  directionMove: {x: 0, y: 0, z: 0}
+  moveSpeed: 10
 --- !u!1 &386427493
 GameObject:
   m_ObjectHideFlags: 0
@@ -5192,12 +5195,12 @@ PrefabInstance:
     - target: {fileID: 5426739155350182934, guid: eac4195ebf3c1a94eab22f93010d0db0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0008034171
+      value: 0.00080341665
       objectReference: {fileID: 0}
     - target: {fileID: 5426739155350182934, guid: eac4195ebf3c1a94eab22f93010d0db0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00088117184
+      value: -0.00088117115
       objectReference: {fileID: 0}
     - target: {fileID: 5549092187037723083, guid: eac4195ebf3c1a94eab22f93010d0db0,
         type: 3}
@@ -5227,12 +5230,12 @@ PrefabInstance:
     - target: {fileID: 5549092187037723083, guid: eac4195ebf3c1a94eab22f93010d0db0,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.0008034171
+      value: 0.00080341665
       objectReference: {fileID: 0}
     - target: {fileID: 5549092187037723083, guid: eac4195ebf3c1a94eab22f93010d0db0,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.00088117184
+      value: -0.00088117115
       objectReference: {fileID: 0}
     - target: {fileID: 7495195609674157467, guid: eac4195ebf3c1a94eab22f93010d0db0,
         type: 3}
@@ -9936,6 +9939,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6216330370341145799, guid: 8c1ccf7dfdece51439433e60b1ee726c,
+        type: 3}
+      propertyPath: m_Name
+      value: Gears_Box_Lazer
+      objectReference: {fileID: 0}
     - target: {fileID: 6451501584987003815, guid: 8c1ccf7dfdece51439433e60b1ee726c,
         type: 3}
       propertyPath: m_Enabled
@@ -9996,8 +10004,29 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3474488479122422034, guid: 8c1ccf7dfdece51439433e60b1ee726c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8c1ccf7dfdece51439433e60b1ee726c, type: 3}
+--- !u!1 &776154754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6216330370341145799, guid: 8c1ccf7dfdece51439433e60b1ee726c,
+    type: 3}
+  m_PrefabInstance: {fileID: 776154753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &776154755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776154754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 912410af201ed4aee8b1a8fd212eb70c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gizmo: {fileID: 364856871}
+  gizmoMove_Script: {fileID: 0}
 --- !u!1 &795602461
 GameObject:
   m_ObjectHideFlags: 0
@@ -10866,6 +10895,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 294523274}
   speed: 6
+  rb: {fileID: 0}
+  directionMove: {x: 0, y: 0, z: 0}
+  moveSpeed: 10
 --- !u!135 &925409492
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -16363,6 +16395,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1098071923}
   speed: 6
+  rb: {fileID: 0}
+  directionMove: {x: 0, y: 0, z: 0}
+  moveSpeed: 10
 --- !u!135 &1115733512
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23014,6 +23049,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 993041059}
   speed: 6
+  rb: {fileID: 0}
+  directionMove: {x: 0, y: 0, z: 0}
+  moveSpeed: 10
 --- !u!135 &1756693597
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -23407,6 +23445,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 1550664733}
   speed: 6
+  rb: {fileID: 0}
+  directionMove: {x: 0, y: 0, z: 0}
+  moveSpeed: 10
 --- !u!135 &1812118796
 SphereCollider:
   m_ObjectHideFlags: 0

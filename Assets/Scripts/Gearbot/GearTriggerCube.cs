@@ -19,6 +19,7 @@ public class GearTriggerCube : TriggerCubeBase
     public Vector3 connectPos;
 
     public Claw gizmoClaw_Script = null;
+    public LazerFollow gizmoLazer_Script = null;
     public Rotator gizmoRotator_Script = null;
     public Gear_Crawler gizmoGear_Crawler_Script = null;
 
@@ -164,6 +165,10 @@ public class GearTriggerCube : TriggerCubeBase
             if(gizmoClaw_Script != null)
             {
                 gizmoClaw_Script.Movement(moveInputValues.x, moveInputValues.y);
+            }
+            if(gizmoLazer_Script != null)
+            {
+                gizmoLazer_Script.Movement(moveInputValues.x, moveInputValues.y);
             }
             else if(gizmoRotator_Script != null)
             {
