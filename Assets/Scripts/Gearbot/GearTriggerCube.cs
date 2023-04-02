@@ -210,7 +210,7 @@ public class GearTriggerCube : TriggerCubeBase
         if(!touching) return;
           GearMove_Script.Activate();
          
-        if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers") || touching.name.Contains("Rotator"))
+        if(touching.name.Contains("Claw") || touching.name.Contains("Crawlers") || touching.name.Contains("Rotator") || touching.name.Contains("Lazer"))
         {
             var connectMessage = connected ? "disconnect" : "connect";
             connected = !connected; 

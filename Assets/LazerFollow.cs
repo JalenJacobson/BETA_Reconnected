@@ -14,15 +14,16 @@ public class LazerFollow : MonoBehaviour
 
     void Start()
     {
-        targetPosition = target.transform;
+        
     }
 
 
 
     void Update() 
      {
+        targetPosition = target.transform;
         var step =  speed * Time.deltaTime; // calculate distance to move
-        rb.velocity = Vector3.MoveTowards(transform.position, targetPosition.position, step);
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition.position, step);
      }
 
     public void Movement(float x, float y)
