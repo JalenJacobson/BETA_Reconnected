@@ -19,7 +19,7 @@ public class UiTriggerBattery : MonoBehaviour
     {
         
     }
-        void OnTriggerEnter(Collider other)
+        void OnTriggerStay(Collider other)
          {
             if(other.name.Contains("Sat") || other.name.Contains("IdleLuz") || other.name.Contains("Gear") || other.name.Contains("Pump") || other.name.Contains("Brute"))
             {

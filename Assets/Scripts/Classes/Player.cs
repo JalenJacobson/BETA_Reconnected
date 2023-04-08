@@ -112,6 +112,9 @@ public class Player : MonoBehaviour
     public void inAir()
     {
     }
+    public void HealBattery()
+    {
+    }
 
     public void toggleFixPosition()
     {
@@ -210,5 +213,10 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         moveSpeed = 7;
         yield return new WaitForSeconds(4);
+    }
+
+    public void Lazerdmg()
+    {
+        currentHealth = currentHealth - 1f;
     }
 }

@@ -28,6 +28,10 @@ public class MineCrawler : MonoBehaviour
         {
             anim.Play("Explode");
         }
+        else if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
+        {
+            anim.Play("BlowUp");
+        }
     }
 
     void OnTriggerExit(Collider other)
@@ -42,6 +46,14 @@ public class MineCrawler : MonoBehaviour
     public void inAir()
     {
         anim.Play("Scramble");
+    }
+    public void Lazerdmg()
+    {
+        anim.Play("BlowUp");
+    }
+    public void death()
+    {
+        anim.Play("BlowUp");
     }
 
 

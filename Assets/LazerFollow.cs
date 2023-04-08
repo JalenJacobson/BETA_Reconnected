@@ -11,10 +11,12 @@ public class LazerFollow : MonoBehaviour
     public Rigidbody rb;
     public Vector3 directionMove;
     public float moveSpeed = 10;
+    public bool killMode = true;
+    private Vector3 scaleChange;
 
     void Start()
     {
-        
+         scaleChange = new Vector3(2.5f, 2.5f, 2.5f);
     }
 
 
@@ -30,6 +32,43 @@ public class LazerFollow : MonoBehaviour
     {
         directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
         rb.velocity = directionMove;
+    }
+
+    public void OnTriggerStay(Collider other)
+    {
+
+      if(other.name == "Gears" || other.name == "Brute" || other.name == "IdleLuz" || other.name == "Pump" || other.name == "SatBot" || other.name.Contains("Mine"))
+      {
+        if(killMode == false)
+        {
+            other.gameObject.SendMessage("Lazerdmg");
+        }
+        else if(killMode == true)
+        {
+            other.gameObject.SendMessage("death");
+        }
+        
+      }
+    
+    } 
+
+    public void Slow()
+    {
+        speed = 5f;
+        killMode = false;
+        scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
+    }
+    public void Slow2()
+    {
+        speed = 10f;
+        killMode = false;
+        scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
+    }
+    public void Fast()
+    {
+        speed = 40f;
+        killMode = true;
+        scaleChange = new Vector3(2.5f, 2.5f, 2.5f);
     }
 
 }
