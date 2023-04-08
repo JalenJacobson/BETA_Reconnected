@@ -52,10 +52,33 @@ public class Player : MonoBehaviour
     void Start()
     {
         startPos = new Vector3(47f, 1.29f, -246f);
-        startPos = transform.position;
+        transform.position = startPos;
         Controllers = Input.GetJoystickNames();
     }
 
+    // void FixedUpdate()
+    // {
+    //     directionMove = Vector3.zero;
+    //     if (fixPosition == false && currentHealth > 0 && controllingPlayer != 0){
+    //         Movement();
+    //     }
+
+    //     // if(isBeingCarried)
+    //     // {
+    //     //     transform.position = Brute.transform.TransformPoint(liftPos);
+    //     //     GetComponent<Rigidbody>().useGravity = false;
+    //     // }
+    //     // else if(!isBeingCarried)
+    //     // {
+    //     //    GetComponent<Rigidbody>().useGravity = true; 
+    //     // }
+    // }
+
+    // private void OnMove(InputValue value)
+    // {
+    //     moveInputValue = value.Get<Vector2>();
+    //     print("GAMER" + Gamepad.current.displayName);
+    // }
 
     public virtual void setCurrentPlayer(int player)
     {
@@ -101,19 +124,15 @@ public class Player : MonoBehaviour
     {
 
     }
+
     public virtual void CameraLookAtChangeNext()
-    {   
+    {
+        
 
     }
     public virtual void CameraLookAtChangePrevious()
     {
-
-    }
-    public void inAir()
-    {
-    }
-    public void HealBattery()
-    {
+       
     }
 
     public void toggleFixPosition()
@@ -187,7 +206,6 @@ public class Player : MonoBehaviour
         fixPosition = !fixPosition;
         yield return new WaitForSeconds(1);
         transform.position = startPos;
-        rb.velocity = new Vector3(0,0,0);
         inWater = false;
         breathRemaining = 5f;
         yield return new WaitForSeconds(2);
@@ -213,10 +231,5 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(.3f);
         moveSpeed = 7;
         yield return new WaitForSeconds(4);
-    }
-
-    public void Lazerdmg()
-    {
-        currentHealth = currentHealth - 1f;
     }
 }

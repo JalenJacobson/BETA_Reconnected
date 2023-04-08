@@ -10,10 +10,18 @@ public class BossActivate : MonoBehaviour
     public GameObject Pump, Gears, Brute, Sat, Luz;
     public GameObject Lazer1, Lazer2, Lazer3, Lazer4;
     public GameObject Empty1, Empty2, Empty3, Empty4;
+
+    public healthBar healthBar;
+
+    public float startHealth = 100; 
+    public float currentHealth; 
+
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        currentHealth = startHealth;
+        healthBar.setHealth(currentHealth);
     }
 
     // Update is called once per frame
@@ -29,8 +37,12 @@ public class BossActivate : MonoBehaviour
         anim.Play("SS_BOSS_UP");
         StartCoroutine(Sequence1());
       }
+    }
 
-    
+    public void takeDamage(float damageGiven)
+    {
+      currentHealth -= damageGiven;
+      healthBar.setHealth(currentHealth);
     }  
 
     IEnumerator Sequence1()
