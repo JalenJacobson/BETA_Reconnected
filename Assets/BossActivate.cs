@@ -27,6 +27,11 @@ public class BossActivate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(currentHealth <= 0)
+        {
+          StopAllCoroutines();
+          StartCoroutine(DeadBoss()); 
+        }
         
     }
     public void OnTriggerEnter(Collider other)
@@ -270,6 +275,31 @@ public class BossActivate : MonoBehaviour
         Target4.transform.position = Empty4.transform.position;   
         yield return new WaitForSeconds(3f);
         StartCoroutine(Sequence2());      
+    }
+
+    IEnumerator DeadBoss()
+    {
+        anim.Play("DeadBoss");
+        yield return new WaitForSeconds(.1f);
+        Target1.transform.SetParent(Empty1.transform);
+        Target2.transform.SetParent(Empty2.transform);
+        Target3.transform.SetParent(Empty3.transform);
+        Target4.transform.SetParent(Empty4.transform);
+        yield return new WaitForSeconds(.1f);
+        Target1.transform.position = Empty1.transform.position;
+        Target2.transform.position = Empty2.transform.position;
+        Target3.transform.position = Empty3.transform.position;
+        Target4.transform.position = Empty4.transform.position; 
+        yield return new WaitForSeconds(.1f);
+        Lazer1.SendMessage("Fast");
+        Lazer2.SendMessage("Fast");
+        Lazer3.SendMessage("Fast");
+        Lazer4.SendMessage("Fast");  
+        yield return new WaitForSeconds(3f);
+        anim.Play("DeadBossFallApart");
+        EnemyManager.SendMessage("batterySpawn1");
+        EnemyManager.SendMessage("batterySpawn2");
+        
     }
 
   IEnumerator Spawn1()

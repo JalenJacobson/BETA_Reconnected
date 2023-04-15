@@ -225,6 +225,12 @@ public class Player : MonoBehaviour
             currentHealth+= 0.05f;
         }
     }
+
+    public void Lazerdmg()
+    {
+        currentHealth = currentHealth - .2f;
+    }
+
         public IEnumerator BotSprint()
     {
         moveSpeed = 15;

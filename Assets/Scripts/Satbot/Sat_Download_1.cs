@@ -6,6 +6,8 @@ public class Sat_Download_1 : CDI_Class
 {
    public string token = "1";
    public bool Active = false;
+   public GameObject Key;
+   public GameObject Sat;
     // public GameObject forcegate_gate;
     // ForceGate forcegate_script;
 
@@ -14,6 +16,7 @@ public class Sat_Download_1 : CDI_Class
     void Start()
     {
         anim = GetComponent<Animator>();
+        Sat = GameObject.Find("SatBot");
         // forcegate_script = forcegate_gate.GetComponent<ForceGate>();
     }
 
@@ -35,7 +38,8 @@ public class Sat_Download_1 : CDI_Class
 
     void Activate()
     {
-     Active = true;      
+     Active = true;   
+     Key.transform.SetParent(Sat.transform);   
     }
 
 }

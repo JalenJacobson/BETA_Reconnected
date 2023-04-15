@@ -11,6 +11,8 @@ public class Sat_Upload_1 : CDI_Class
     
     public LevelComplete levelcomplete_script;
     public bool Active = false;
+    public GameObject Key;
+    public GameObject UIOBJ;
     
     void Start()
     {
@@ -38,6 +40,7 @@ public class Sat_Upload_1 : CDI_Class
     
     void Activate()
     {
+        Key.transform.SetParent(UIOBJ.transform); 
         StartCoroutine(activateItemSequence());
     }
 
