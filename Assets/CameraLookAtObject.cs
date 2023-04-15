@@ -12,6 +12,11 @@ public class CameraLookAtObject : MonoBehaviour
     public SatMove SatMove_Script;
     public BotSelect followIndicator;
 
+    public GameObject MoveCamera;
+    public MoveCamera MoveCamera_Script;
+    public Vector3 offset;
+    
+
     public int selectedBot = 0;
 
     void Awake()
@@ -30,7 +35,9 @@ public class CameraLookAtObject : MonoBehaviour
         {
             bots.Add(botInitial);
         }
-        
+        MoveCamera = GameObject.Find("CinemachineCamera");
+        MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
+        offset = new Vector3(0, 25, 25);
     }
 
     // Update is called once per frame
@@ -47,6 +54,7 @@ public class CameraLookAtObject : MonoBehaviour
         if(botToFollow)
         {
             transform.position = botToFollow.transform.position;
+            MoveCamera.transform.position = botToFollow.transform.position + offset;
         } 
     }
 
@@ -55,6 +63,7 @@ public class CameraLookAtObject : MonoBehaviour
         
         selectedBot = (selectedBot + 1) % bots.Count;
         botToFollow = bots[selectedBot];
+
         //followIndicator.anim.Play(botToFollow.name);
     }
 
