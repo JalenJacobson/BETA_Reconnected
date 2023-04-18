@@ -22,7 +22,11 @@ public class TutorialUI : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if(other.name.Contains(objectThatShouldTrigger))
+        if(objectThatShouldTrigger != null && other.name.Contains(objectThatShouldTrigger))
+        {
+            DisplayOff();
+        }
+        else if(objectThatShouldTrigger == null)
         {
             DisplayOff();
         }
