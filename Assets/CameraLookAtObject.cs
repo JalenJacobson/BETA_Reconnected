@@ -37,7 +37,7 @@ public class CameraLookAtObject : MonoBehaviour
         }
         MoveCamera = GameObject.Find("CinemachineCamera");
         MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
-        offset = new Vector3(0, 25, 25);
+        offset = new Vector3(0, 40, -25);
     }
 
     // Update is called once per frame
@@ -54,7 +54,11 @@ public class CameraLookAtObject : MonoBehaviour
         if(botToFollow)
         {
             transform.position = botToFollow.transform.position;
-            MoveCamera.transform.position = botToFollow.transform.position + offset;
+            if(!botToFollow.name.Contains("Camera"))
+            {
+                MoveCamera.transform.position = botToFollow.transform.position + offset;
+            }
+            
         } 
     }
 
