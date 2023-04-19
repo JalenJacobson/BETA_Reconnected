@@ -18,6 +18,7 @@ public class TutorialCanvas : MonoBehaviour
         anim = GetComponent<Animator>();
         FirstTarget.SendMessage("Display"); 
         StartCoroutine(TutorialText());
+        Music = GameObject.Find("Music").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
