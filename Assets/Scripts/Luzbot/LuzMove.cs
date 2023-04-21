@@ -37,6 +37,7 @@ public class LuzMove : Player
         // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
         // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
         Timer.drowning(breathRemaining);
+        getIconSelectors();
     }
 
     public override void setCurrentPlayer(int player)

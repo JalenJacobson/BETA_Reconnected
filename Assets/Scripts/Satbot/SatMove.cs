@@ -70,6 +70,7 @@ public class SatMove : Player
         MoveCamera_Script = MoveCamera.GetComponent<MoveCamera>();
         Timer.drowning(breathRemaining);
         startPos = transform.position;
+        getIconSelectors();
     }
 
     public override void setCurrentPlayer(int player)

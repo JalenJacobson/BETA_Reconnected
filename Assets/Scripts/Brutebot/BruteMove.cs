@@ -36,6 +36,7 @@ public class BruteMove : Player
         //string[] GetJoystickNames();
         //P1Circle.spriteRenderer = GetComponent<SpriteRenderer>
         //P2Circle.spriteRenderer = GetComponent<SpriteRenderer>
+        getIconSelectors();
     }
 
     public override void setCurrentPlayer(int player)

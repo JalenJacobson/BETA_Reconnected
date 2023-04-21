@@ -52,8 +52,6 @@ public class GearMove : Player
         getIconSelectors();
     }
 
-    public void getIconSelectors()
-    {}
 
     public override void setCurrentPlayer(int player)
     {

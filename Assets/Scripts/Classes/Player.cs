@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
     public List<Image> circles;
     public GameObject iconParent;
-    public List<GameObject> iconSelectors;
+    public List<Image> iconSelectors;
 
     public TimeBarSat Timer;
 
@@ -62,10 +62,11 @@ public class Player : MonoBehaviour
     public void getIconSelectors()
     {
         string selectorObject = name + "Selectors";
+        print("XXXXX" + selectorObject);
         iconParent = GameObject.Find(selectorObject);
         foreach (Transform child in iconParent.transform)
         {
-            iconSelectors.Add(child.gameObject);
+            iconSelectors.Add(child.gameObject.GetComponent<Image>());
         }
     }
 
@@ -101,7 +102,7 @@ public class Player : MonoBehaviour
     public void makeUnavailable(int playerIndex)
     {
         circles[playerIndex].enabled = true;
-        // iconSelectors[playerIndex].SetActive = true;
+        iconSelectors[playerIndex].enabled = true;
         available = false; 
     }
 
@@ -111,10 +112,10 @@ public class Player : MonoBehaviour
         {
             circle.enabled = false;
         }
-        // foreach(Image selector in iconSelectors)
-        // {
-        //     selector.enabled = false;
-        // }
+        foreach(Image selector in iconSelectors)
+        {
+            selector.enabled = false;
+        }
         available = true;
     }
 

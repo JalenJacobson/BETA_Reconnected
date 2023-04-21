@@ -42,6 +42,7 @@ public class PumpMove : Player
         air2 = GameObject.Find("air2").GetComponent<ParticleSystem>();     
         runningWater = GameObject.Find("runningWater").GetComponent<ParticleSystem>();  
         WaterDrops = GameObject.Find("WaterDrops").GetComponent<ParticleSystem>();  
+        getIconSelectors();
         
     }
 
