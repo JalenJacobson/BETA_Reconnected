@@ -18,8 +18,6 @@ public class GearMove : Player
     public Vector2 moveInputValues;
     public float wallConnectionAngle;
     public string wallConnectionAnleString;
-    
-
     public bool connectedToWall = false;
     
     // public Animator anim;
