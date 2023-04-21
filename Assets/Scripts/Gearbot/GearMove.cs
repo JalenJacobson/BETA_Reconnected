@@ -49,7 +49,11 @@ public class GearMove : Player
         // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
         // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
         // redDanger = new Color(1f, 0.1f, 0.0f, 1.0f);
+        getIconSelectors();
     }
+
+    public void getIconSelectors()
+    {}
 
     public override void setCurrentPlayer(int player)
     {
