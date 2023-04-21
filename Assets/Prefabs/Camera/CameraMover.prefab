@@ -231,7 +231,7 @@ Rigidbody:
   m_Drag: 10
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
@@ -254,6 +254,9 @@ MonoBehaviour:
   Satbot: {fileID: 0}
   SatMove_Script: {fileID: 0}
   followIndicator: {fileID: 3517326000456925508}
+  MoveCamera: {fileID: 0}
+  MoveCamera_Script: {fileID: 0}
+  offset: {x: 0, y: 0, z: 0}
   selectedBot: 0
 --- !u!1 &5426739154245949158
 GameObject:
@@ -622,7 +625,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 373, y: 437}
+  m_AnchoredPosition: {x: 179, y: 437}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2017990903991378542
