@@ -46,6 +46,7 @@ public class Player : MonoBehaviour
     public bool ActivateCircle = false;
 
     public List<Image> circles;
+    public List<Image> iconSelectors;
 
     public TimeBarSat Timer;
 
