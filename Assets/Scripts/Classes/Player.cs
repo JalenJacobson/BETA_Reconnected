@@ -175,7 +175,8 @@ public class Player : MonoBehaviour
     {
         if(available)
         {
-            nav.SetDestination(botToFollow.position);
+            shouldFollowTeamBot = !shouldFollowTeamBot;
+            botToFollowWhenUnoccupied = botToFollow;
             if(firstFollowRequest)
             {
                 firstFollowRequest = false;
