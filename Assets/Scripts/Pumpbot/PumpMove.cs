@@ -43,6 +43,7 @@ public class PumpMove : Player
         runningWater = GameObject.Find("runningWater").GetComponent<ParticleSystem>();  
         WaterDrops = GameObject.Find("WaterDrops").GetComponent<ParticleSystem>();  
         getIconSelectors();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
         
     }
 

@@ -71,6 +71,7 @@ public class SatMove : Player
         Timer.drowning(breathRemaining);
         startPos = transform.position;
         getIconSelectors();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     public override void setCurrentPlayer(int player)
@@ -179,15 +180,7 @@ public class SatMove : Player
 
     void Update()
     {
-
-        // if(ActivateCircle)
-        // {
-        //     P1Circle.enabled = true;
-        // }
-        // else if(!ActivateCircle)
-        // {
-        //     P1Circle.enabled = false;
-        // }
+        
 
 
         if(inWater == true)

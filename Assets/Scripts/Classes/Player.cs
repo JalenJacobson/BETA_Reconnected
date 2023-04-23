@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 using System.Net.Http;
 using System;
 using System.Text;
+using UnityEngine.AI;
 
 public class Player : MonoBehaviour
 {
@@ -50,6 +51,13 @@ public class Player : MonoBehaviour
     public List<Image> iconSelectors;
 
     public TimeBarSat Timer;
+
+    //AI follow stuff
+    public Transform botToFollowWhenUnoccupied;
+    public bool shouldFollowTeamBot = false;
+    public NavMeshAgent nav;
+    public bool firstFollowRequest = true;
+    
 
     void Start()
     {
@@ -161,6 +169,24 @@ public class Player : MonoBehaviour
     public void toggleFixRotation()
     {
         fixRotation = !fixRotation;
+    }
+
+    public void toggleFollowTeamBot(Transform botToFollow)
+    {
+        if(available)
+        {
+            nav.SetDestination(botToFollow.position);
+            if(firstFollowRequest)
+            {
+                firstFollowRequest = false;
+            }
+            else{ nav.isStopped = !nav.isStopped;}
+        }
+        else if(!available)
+        {
+            //we could put like a highfive UI here for fun.
+        }
+        
     }
 
     public void toggleIsBeingCarried()

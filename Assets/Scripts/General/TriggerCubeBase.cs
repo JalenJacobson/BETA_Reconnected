@@ -14,6 +14,7 @@ public class TriggerCubeBase : MonoBehaviour
     public string special;
     public string activateController;
     public string specialController;
+    public GameObject teamBotTouching;
 
     // Start is called before the first frame update
     void Start()

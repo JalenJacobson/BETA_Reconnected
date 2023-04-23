@@ -32,12 +32,9 @@ public class LuzMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         // startPos = new Vector3(-180f, .5f, -98.5f);
         startPos = transform.position;
-       // getControls();
-        // orangeGravityField = new Color(0.689f, 0.452f, 0.016f, 1.000f);
-        // greenConsole = new Color(0.0f, 1.0f, 0.1144f, 1.0f);
-        // blueCircuitField = new Color(0.06799023f, 0.5f, 0.8584906f, 1.0f);
         Timer.drowning(breathRemaining);
         getIconSelectors();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     public override void setCurrentPlayer(int player)

@@ -32,11 +32,8 @@ public class BruteMove : Player
         lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
         Timer.drowning(breathRemaining);
         startPos = transform.position;
-        //getControls();
-        //string[] GetJoystickNames();
-        //P1Circle.spriteRenderer = GetComponent<SpriteRenderer>
-        //P2Circle.spriteRenderer = GetComponent<SpriteRenderer>
         getIconSelectors();
+        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     public override void setCurrentPlayer(int player)

@@ -99,6 +99,11 @@ public class SatTriggerCube : TriggerCubeBase
         {
             touching = other.gameObject;
         }
+        else if(other.name == "Brute" || other.name == "Gears" || other.name == "IdleLuz" || other.name == "Pump")
+        {
+            teamBotTouching = other.gameObject;
+        }
+
 
     }
 
@@ -190,51 +195,61 @@ public class SatTriggerCube : TriggerCubeBase
 
     public override void Activate()
      {
-        if(touching.name.Contains("Download"))
+        if(teamBotTouching && touching == null)
         {
-            touching.SendMessage("Activate");
-            if(touching.name.Contains("Expiring"))
-            {
-                DownloadExpiringToken();
-                // ErrorMessage.text = "Expiring Token Downloaded";
-            }
-            else 
-            {
-                DownloadToken();
-                // ErrorMessage.text = "Token Downloaded";
-            }
+            teamBotTouching.SendMessage("toggleFollowTeamBot", SatBot.transform);
         }
-        else if(touching.name.Contains("Upload"))
+        else if(touching == null) return;
+        else
         {
-            if(token == touchingToken)
+            if(touching.name.Contains("Download"))
             {
-                touching.SendMessage("Activate", "forceGate");
-                token = "0";
-                tokenExpire = false;
+                touching.SendMessage("Activate");
+                if(touching.name.Contains("Expiring"))
+                {
+                    DownloadExpiringToken();
+                    // ErrorMessage.text = "Expiring Token Downloaded";
+                }
+                else 
+                {
+                    DownloadToken();
+                    // ErrorMessage.text = "Token Downloaded";
+                }
             }
-        }
-        else if(touching.name.Contains("Grava"))
-        {
-            var connectMessage = connected ? "disconnect" : "connect";
-            connected = !connected; 
-            if(connected)
+            else if(touching.name.Contains("Upload"))
             {
-                SatBot.gameObject.AddComponent<FixedJoint>();
-                SatBot.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
-                touching.SendMessage("setGravaInTriggerCube", gameObject.GetComponent<SatTriggerCube>());
-                SatSpecial.GetComponent<Animator>().Play("SatSpecialGravaBox");
+                if(token == touchingToken)
+                {
+                    touching.SendMessage("Activate", "forceGate");
+                    token = "0";
+                    tokenExpire = false;
+                }
             }
-            else if(!connected)
+            else if(touching.name.Contains("Grava"))
             {
-                Destroy(SatBot.gameObject.GetComponent<FixedJoint>());
-                touching.SendMessage("disconnect");
-                setGravaToNull();
-                SatSpecial.GetComponent<Animator>().Play("SatSpecial");
-            }
-            SatMove_Script.connectGrava();
+                var connectMessage = connected ? "disconnect" : "connect";
+                connected = !connected; 
+                if(connected)
+                {
+                    SatBot.gameObject.AddComponent<FixedJoint>();
+                    SatBot.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
+                    touching.SendMessage("setGravaInTriggerCube", gameObject.GetComponent<SatTriggerCube>());
+                    SatSpecial.GetComponent<Animator>().Play("SatSpecialGravaBox");
+                }
+                else if(!connected)
+                {
+                    Destroy(SatBot.gameObject.GetComponent<FixedJoint>());
+                    touching.SendMessage("disconnect");
+                    setGravaToNull();
+                    SatSpecial.GetComponent<Animator>().Play("SatSpecial");
+                }
+                SatMove_Script.connectGrava();
             
+            }
+            else touching.SendMessage("Activate");
         }
-        else touching.SendMessage("Activate");
+
+        
              
      }
 
