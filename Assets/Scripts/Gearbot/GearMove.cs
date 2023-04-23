@@ -139,9 +139,21 @@ public class GearMove : Player
     void Update()
     {
         if(shouldFollowTeamBot && available)
-       {
+        {
             nav.SetDestination(botToFollowWhenUnoccupied.position);
-       }
+            Follow.enabled = true;
+            GetToFollow.enabled = false;
+        }
+        else if(!shouldFollowTeamBot && available)
+        {
+            Follow.enabled = false;
+            GetToFollow.enabled = true;
+        }
+        else if(!available)
+        {
+            Follow.enabled = false;
+            GetToFollow.enabled = false;
+        }
         // if(ActivateCircle)
         // {
         //     P1Circle.enabled = true;

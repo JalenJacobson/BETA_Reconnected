@@ -57,6 +57,8 @@ public class Player : MonoBehaviour
     public bool shouldFollowTeamBot = false;
     public NavMeshAgent nav;
     public bool firstFollowRequest = true;
+    public Image Follow;
+    public Image GetToFollow;
     
 
     void Start()
