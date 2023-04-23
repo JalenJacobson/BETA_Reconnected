@@ -101,6 +101,10 @@ public class PumpMove : Player
 
     void Update()
     {
+        if(shouldFollowTeamBot && available)
+       {
+            nav.SetDestination(botToFollowWhenUnoccupied.position);
+       }
 
         healthBar.setHealth(currentHealth);
 

@@ -203,6 +203,11 @@ public class GearTriggerCube : TriggerCubeBase
 
      public override void Activate()
      {
+        if(teamBotTouching && touching == null)
+        {
+            teamBotTouching.SendMessage("toggleFollowTeamBot", Gears.transform);
+        }
+        else if(touching == null) return;
         if(connectedToWall)
         {
             wallInteraction(false);

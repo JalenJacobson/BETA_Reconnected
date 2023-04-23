@@ -196,6 +196,11 @@ public class BruteTriggerCube : TriggerCubeBase
 
     public override void Activate()
     {
+        if(teamBotTouching && touching == null)
+        {
+            teamBotTouching.SendMessage("toggleFollowTeamBot", Brute.transform);
+        }
+        else if(touching == null) return;
         if(touching)
         {
             if(touching.name.Contains("Doors") || touching.name.Contains("Button"))

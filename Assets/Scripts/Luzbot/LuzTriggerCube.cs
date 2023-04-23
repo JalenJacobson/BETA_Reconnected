@@ -105,6 +105,11 @@ public class LuzTriggerCube : TriggerCubeBase
 
     public override void Activate()
     {
+        if(teamBotTouching && touching == null)
+        {
+            teamBotTouching.SendMessage("toggleFollowTeamBot", IdleLuz.transform);
+        }
+        else if(touching == null) return;
         touching.SendMessage("Activate");
         PowerScript.Play();
     }

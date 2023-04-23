@@ -180,7 +180,10 @@ public class SatMove : Player
 
     void Update()
     {
-        
+        if(shouldFollowTeamBot && available)
+       {
+            nav.SetDestination(botToFollowWhenUnoccupied.position);
+       }
 
 
         if(inWater == true)

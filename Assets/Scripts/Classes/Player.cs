@@ -125,6 +125,7 @@ public class Player : MonoBehaviour
             selector.enabled = false;
         }
         available = true;
+        nav.isStopped = true;
     }
 
     void Update()

@@ -78,6 +78,11 @@ public class PumpTriggerCube : TriggerCubeBase
 
      public override void Activate()
      {
+        if(teamBotTouching && touching == null)
+        {
+            teamBotTouching.SendMessage("toggleFollowTeamBot", Pump.transform);
+        }
+        else if(touching == null) return;
         if(touching)
         {
             if(touching.name.Contains("ConnectionBox") && !connectedBox)
