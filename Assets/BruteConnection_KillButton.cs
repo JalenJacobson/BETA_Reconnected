@@ -16,11 +16,15 @@ public class BruteConnection_KillButton : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown("v"))
+        {
+            Boss_Script.takeDamage(50f);
+        }
     }
 
     public void Activate()
     {
-        Boss_Script.takeDamage(25f);
+        Boss_Script.takeDamage(50f);
+        
     }
 }

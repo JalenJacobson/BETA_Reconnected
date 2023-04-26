@@ -10,6 +10,7 @@ public class BossActivate : MonoBehaviour
     public GameObject Pump, Gears, Brute, Sat, Luz;
     public GameObject Lazer1, Lazer2, Lazer3, Lazer4;
     public GameObject Empty1, Empty2, Empty3, Empty4;
+    public GameObject SatTriggerCube;
 
     public healthBar healthBar;
 
@@ -27,11 +28,11 @@ public class BossActivate : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(currentHealth <= 0)
-        {
-          StopAllCoroutines();
-          StartCoroutine(DeadBoss()); 
-        }
+        // if(currentHealth <= 0)
+        // {
+        //   StopAllCoroutines();
+        //   StartCoroutine(DeadBoss()); 
+        // }
         
     }
     public void OnTriggerEnter(Collider other)
@@ -40,7 +41,7 @@ public class BossActivate : MonoBehaviour
       if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
       {
         anim.Play("SS_BOSS_UP");
-        StartCoroutine(Sequence1());
+        StartCoroutine(SequenceStart());
       }
     }
 
@@ -48,9 +49,20 @@ public class BossActivate : MonoBehaviour
     {
       currentHealth -= damageGiven;
       healthBar.setHealth(currentHealth);
-    }  
+      SatTriggerCube.SendMessage("forceGravaDisconnect");
+      if(currentHealth <= 0)
+        {
+          StopAllCoroutines();
+          StartCoroutine(DeadBoss()); 
+        }
+      else if(currentHealth >= 0)
+        {
+          StopAllCoroutines();
+          StartCoroutine(MadBoss());
+        }
+    }
 
-    IEnumerator Sequence1()
+    IEnumerator SequenceStart()
     {
         yield return new WaitForSeconds(10f);
         anim.Play("Boss_Squares");
@@ -58,7 +70,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(9f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_SmallSquares");
@@ -66,7 +78,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(9f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_VerticleLines");
@@ -74,14 +86,44 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(14f);
+        yield return new WaitForSeconds(7f);
+        anim.Play("Boss_Stationary");
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(FollowBots1());
+    }  
+
+    IEnumerator Sequence1()
+    {
+        yield return new WaitForSeconds(5f);
+        anim.Play("Boss_Squares");
+        EnemyManager.SendMessage("Spawn1");
+        EnemyManager.SendMessage("Spawn2");
+        EnemyManager.SendMessage("Spawn3");
+        EnemyManager.SendMessage("Spawn4");
+        yield return new WaitForSeconds(9f);
+        anim.Play("Boss_Stationary");
+        yield return new WaitForSeconds(1f);
+        anim.Play("Boss_SmallSquares");
+        EnemyManager.SendMessage("Spawn1");
+        EnemyManager.SendMessage("Spawn2");
+        EnemyManager.SendMessage("Spawn3");
+        EnemyManager.SendMessage("Spawn4");
+        yield return new WaitForSeconds(9f);
+        anim.Play("Boss_Stationary");
+        yield return new WaitForSeconds(1f);
+        anim.Play("Boss_VerticleLines");
+        EnemyManager.SendMessage("Spawn1");
+        EnemyManager.SendMessage("Spawn2");
+        EnemyManager.SendMessage("Spawn3");
+        EnemyManager.SendMessage("Spawn4");
+        yield return new WaitForSeconds(7f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         StartCoroutine(FollowBots1());
     }
     IEnumerator Sequence1_2()
     {
-        yield return new WaitForSeconds(20f);
+        yield return new WaitForSeconds(5f);
         anim.Play("Boss_Squares");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -92,7 +134,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(9f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_SmallSquares");
@@ -105,7 +147,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(9f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_VerticleLines");
@@ -118,7 +160,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(14f);
+        yield return new WaitForSeconds(7f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         StartCoroutine(FollowBots2());
@@ -126,7 +168,7 @@ public class BossActivate : MonoBehaviour
 
     IEnumerator Sequence2()
     {
-        yield return new WaitForSeconds(80f);
+        yield return new WaitForSeconds(5f);
         anim.Play("Boss_HorizontalLines");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -137,7 +179,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         anim.Play("Boss_SmallCircles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -148,7 +190,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(11f);
+        yield return new WaitForSeconds(5.5f);
         anim.Play("Boss_Circles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -159,7 +201,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(9f);
         anim.Play("Boss_HorizontalLines");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -175,7 +217,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(5f);
         anim.Play("Boss_SmallCircles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -191,7 +233,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(11f);
+        yield return new WaitForSeconds(5.5f);
         anim.Play("Boss_Circles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -207,7 +249,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(18f);
+        yield return new WaitForSeconds(9f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         StartCoroutine(FollowBots2());
@@ -273,12 +315,24 @@ public class BossActivate : MonoBehaviour
         Target2.transform.position = Empty2.transform.position;
         Target3.transform.position = Empty3.transform.position;
         Target4.transform.position = Empty4.transform.position;   
-        yield return new WaitForSeconds(3f);
-        StartCoroutine(Sequence2());      
+        yield return new WaitForSeconds(80f);
+        if(currentHealth == 100)
+        {
+          StartCoroutine(Sequence1()); 
+        } 
+        else if(currentHealth == 75) 
+        {
+          StartCoroutine(Sequence1_2()); 
+        } 
+        else if(currentHealth <= 50) 
+        {
+          StartCoroutine(Sequence2()); 
+        }      
     }
 
     IEnumerator DeadBoss()
     {
+        yield return new WaitForSeconds(.5f);
         anim.Play("DeadBoss");
         yield return new WaitForSeconds(.1f);
         Target1.transform.SetParent(Empty1.transform);
@@ -295,11 +349,44 @@ public class BossActivate : MonoBehaviour
         Lazer2.SendMessage("Fast");
         Lazer3.SendMessage("Fast");
         Lazer4.SendMessage("Fast");  
-        yield return new WaitForSeconds(3f);
-        anim.Play("DeadBossFallApart");
+        yield return new WaitForSeconds(5f);
+        //anim.Play("DeadBossFallApart");
         EnemyManager.SendMessage("batterySpawn1");
         EnemyManager.SendMessage("batterySpawn2");
         
+    }
+
+    IEnumerator MadBoss()
+    {
+
+        anim.Play("MadBoss");
+        Lazer1.SendMessage("Fast");
+        Lazer2.SendMessage("Fast");
+        Lazer3.SendMessage("Fast");
+        Lazer4.SendMessage("Fast");
+        yield return new WaitForSeconds(.1f);
+        Target1.transform.SetParent(Empty1.transform);
+        Target2.transform.SetParent(Empty2.transform);
+        Target3.transform.SetParent(Empty3.transform);
+        Target4.transform.SetParent(Empty4.transform);
+        yield return new WaitForSeconds(.1f);
+        Target1.transform.position = Empty1.transform.position;
+        Target2.transform.position = Empty2.transform.position;
+        Target3.transform.position = Empty3.transform.position;
+        Target4.transform.position = Empty4.transform.position;   
+        yield return new WaitForSeconds(5f);
+        if(currentHealth == 100)
+        {
+          StartCoroutine(Sequence1()); 
+        } 
+        else if(currentHealth == 75) 
+        {
+          StartCoroutine(Sequence1_2()); 
+        } 
+        else if(currentHealth <= 50) 
+        {
+          StartCoroutine(Sequence2()); 
+        }  
     }
 
   IEnumerator Spawn1()

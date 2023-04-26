@@ -60,7 +60,7 @@ public class LazerFollow : MonoBehaviour
     }
     public void Slow2()
     {
-        speed = 10f;
+        speed = 7f;
         killMode = false;
         scaleChange = new Vector3(0.5f, 0.5f, 0.5f);
     }

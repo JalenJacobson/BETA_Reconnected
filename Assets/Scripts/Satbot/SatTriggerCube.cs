@@ -247,11 +247,35 @@ public class SatTriggerCube : TriggerCubeBase
             
             }
             else touching.SendMessage("Activate");
-        }
-
-        
-             
+        }            
      }
+
+    public void forceGravaDisconnect()
+    {
+        StartCoroutine(forceGravaDisconnectSequence());
+    }
+
+    public IEnumerator forceGravaDisconnectSequence()
+    {
+        yield return new WaitForSeconds(2f);
+        var connectMessage = connected ? "disconnect" : "connect";
+        connected = !connected; 
+        if(connected)
+        {
+            SatBot.gameObject.AddComponent<FixedJoint>();
+            SatBot.gameObject.GetComponent<FixedJoint>().connectedBody=touching.GetComponent<Rigidbody>();
+            touching.SendMessage("setGravaInTriggerCube", gameObject.GetComponent<SatTriggerCube>());
+            SatSpecial.GetComponent<Animator>().Play("SatSpecialGravaBox");
+        }
+        else if(!connected)
+        {
+            Destroy(SatBot.gameObject.GetComponent<FixedJoint>());
+            touching.SendMessage("disconnect");
+            setGravaToNull();
+            SatSpecial.GetComponent<Animator>().Play("SatSpecial");
+        }
+        SatMove_Script.connectGrava();       
+    }
 
     void setGravaToNull()
     {
