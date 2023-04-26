@@ -45,7 +45,7 @@ public class LazerFollow : MonoBehaviour
         }
         else if(killMode == true)
         {
-            other.gameObject.SendMessage("death");
+            other.gameObject.SendMessage("bigLazerdmg");
         }
         
       }

@@ -16,8 +16,13 @@ public class LightningGate : MonoBehaviour
     {
         
     }
-        public void Activate()
+
+    public void Activate()
     {
         anim.Play("StopLightning");
+    }
+    public void DeActivate()
+    {
+        anim.Play("StartLightning");
     }
 }

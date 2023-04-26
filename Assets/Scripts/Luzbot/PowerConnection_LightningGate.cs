@@ -28,10 +28,11 @@ public class PowerConnection_LightningGate : MonoBehaviour
         StartCoroutine(OutletSequence());
         LightningGate_script.Activate();
     }
-          public IEnumerator OutletSequence()
+    public IEnumerator OutletSequence()
   {
     anim.Play("LuzDoorActivate");
     yield return new WaitForSeconds(TimeDeactivated);
     anim.Play("LuzDoorIdle");
+    LightningGate_script.DeActivate();
   }
 }

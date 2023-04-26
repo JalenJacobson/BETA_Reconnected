@@ -24,11 +24,7 @@ public class MineCrawler : MonoBehaviour
         {
             onGround();
         }
-        else if(other.name.Contains("Hole"))
-        {
-            anim.Play("Explode");
-        }
-        else if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat"))
+        else if(other.name.Contains("Gear") || other.name.Contains("Brute") || other.name.Contains("Luz") || other.name.Contains("Pump") || other.name.Contains("Sat") || other.name.Contains("Hole"))
         {
             anim.Play("BlowUp");
         }
@@ -51,7 +47,7 @@ public class MineCrawler : MonoBehaviour
     {
         anim.Play("BlowUp");
     }
-    public void death()
+    public void bigLazerdmg()
     {
         anim.Play("BlowUp");
     }

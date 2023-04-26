@@ -58,7 +58,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(18f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_SmallSquares");
@@ -66,7 +66,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(18f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_VerticleLines");
@@ -74,14 +74,14 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(14f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         StartCoroutine(FollowBots1());
     }
     IEnumerator Sequence1_2()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(20f);
         anim.Play("Boss_Squares");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -92,7 +92,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(18f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_SmallSquares");
@@ -105,7 +105,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(18f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         anim.Play("Boss_VerticleLines");
@@ -118,7 +118,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(7f);
+        yield return new WaitForSeconds(14f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         StartCoroutine(FollowBots2());
@@ -126,18 +126,18 @@ public class BossActivate : MonoBehaviour
 
     IEnumerator Sequence2()
     {
+        yield return new WaitForSeconds(80f);
+        anim.Play("Boss_HorizontalLines");
+        EnemyManager.SendMessage("Spawn1");
+        EnemyManager.SendMessage("Spawn2");
+        EnemyManager.SendMessage("Spawn3");
+        EnemyManager.SendMessage("Spawn4");
+        yield return new WaitForSeconds(.1f);
+        EnemyManager.SendMessage("Spawn1");
+        EnemyManager.SendMessage("Spawn2");
+        EnemyManager.SendMessage("Spawn3");
+        EnemyManager.SendMessage("Spawn4");
         yield return new WaitForSeconds(10f);
-        anim.Play("Boss_HorizontalLines");
-        EnemyManager.SendMessage("Spawn1");
-        EnemyManager.SendMessage("Spawn2");
-        EnemyManager.SendMessage("Spawn3");
-        EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(.1f);
-        EnemyManager.SendMessage("Spawn1");
-        EnemyManager.SendMessage("Spawn2");
-        EnemyManager.SendMessage("Spawn3");
-        EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(5f);
         anim.Play("Boss_SmallCircles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -148,7 +148,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(11f);
         anim.Play("Boss_Circles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -159,7 +159,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(18f);
         anim.Play("Boss_HorizontalLines");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -175,7 +175,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(10f);
         anim.Play("Boss_SmallCircles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -191,7 +191,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(5.5f);
+        yield return new WaitForSeconds(11f);
         anim.Play("Boss_Circles");
         EnemyManager.SendMessage("Spawn1");
         EnemyManager.SendMessage("Spawn2");
@@ -207,7 +207,7 @@ public class BossActivate : MonoBehaviour
         EnemyManager.SendMessage("Spawn2");
         EnemyManager.SendMessage("Spawn3");
         EnemyManager.SendMessage("Spawn4");
-        yield return new WaitForSeconds(9f);
+        yield return new WaitForSeconds(18f);
         anim.Play("Boss_Stationary");
         yield return new WaitForSeconds(1f);
         StartCoroutine(FollowBots2());

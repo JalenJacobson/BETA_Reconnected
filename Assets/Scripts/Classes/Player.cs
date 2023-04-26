@@ -279,6 +279,10 @@ public class Player : MonoBehaviour
     {
         currentHealth = currentHealth - .2f;
     }
+    public void bigLazerdmg()
+    {
+        currentHealth = currentHealth - 1f;
+    }
 
         public IEnumerator BotSprint()
     {
