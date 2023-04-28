@@ -11,6 +11,7 @@ public class BossActivate : MonoBehaviour
     public GameObject Lazer1, Lazer2, Lazer3, Lazer4;
     public GameObject Empty1, Empty2, Empty3, Empty4;
     public GameObject SatTriggerCube;
+    public GameObject LeftPlatform, RightPlatform;
 
     public healthBar healthBar;
 
@@ -23,6 +24,7 @@ public class BossActivate : MonoBehaviour
         anim = GetComponent<Animator>();
         currentHealth = startHealth;
         healthBar.setHealth(currentHealth);
+
     }
 
     // Update is called once per frame
@@ -42,6 +44,8 @@ public class BossActivate : MonoBehaviour
       {
         anim.Play("SS_BOSS_UP");
         StartCoroutine(SequenceStart());
+        LeftPlatform.SendMessage("Change");
+        RightPlatform.SendMessage("Change");
       }
     }
 

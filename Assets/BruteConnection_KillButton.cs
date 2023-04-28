@@ -6,6 +6,7 @@ public class BruteConnection_KillButton : MonoBehaviour
 {
     public GameObject Boss;
     public BossActivate Boss_Script;
+    public GameObject Platform;
 
     // Start is called before the first frame update
     void Start()
