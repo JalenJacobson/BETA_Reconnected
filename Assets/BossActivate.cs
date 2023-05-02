@@ -98,6 +98,8 @@ public class BossActivate : MonoBehaviour
 
     IEnumerator Sequence1()
     {
+        LeftPlatform.SendMessage("Change");
+        RightPlatform.SendMessage("Change");
         yield return new WaitForSeconds(5f);
         anim.Play("Boss_Squares");
         EnemyManager.SendMessage("Spawn1");
@@ -127,6 +129,8 @@ public class BossActivate : MonoBehaviour
     }
     IEnumerator Sequence1_2()
     {
+        LeftPlatform.SendMessage("Change");
+        RightPlatform.SendMessage("Change");
         yield return new WaitForSeconds(5f);
         anim.Play("Boss_Squares");
         EnemyManager.SendMessage("Spawn1");
@@ -172,6 +176,8 @@ public class BossActivate : MonoBehaviour
 
     IEnumerator Sequence2()
     {
+        LeftPlatform.SendMessage("Change");
+        RightPlatform.SendMessage("Change");
         yield return new WaitForSeconds(5f);
         anim.Play("Boss_HorizontalLines");
         EnemyManager.SendMessage("Spawn1");
@@ -303,6 +309,8 @@ public class BossActivate : MonoBehaviour
 
     IEnumerator FollowEmpty()
     {
+        LeftPlatform.SendMessage("Change");
+        RightPlatform.SendMessage("Change");
         EnemyManager.SendMessage("batterySpawn1");
         EnemyManager.SendMessage("batterySpawn2");
         Lazer1.SendMessage("Fast");

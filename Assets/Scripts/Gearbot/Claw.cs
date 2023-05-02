@@ -64,7 +64,7 @@ public class Claw : MonoBehaviour
         {
             touching.transform.position = liftPoint.transform.TransformPoint(liftPos);
             touching.GetComponent<Rigidbody>().isKinematic = true;
-            touching.SendMessage("inAir");
+            //touching.SendMessage("inAir");
 
             // if(touching == null) return;
             // else if(touching.name.Contains("MineCrawler"))

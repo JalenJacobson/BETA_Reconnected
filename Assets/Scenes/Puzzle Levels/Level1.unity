@@ -4242,6 +4242,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8055105845590452395, guid: a5ea98323b47e124291b115d9c1b2b30,
+        type: 3}
+      propertyPath: m_Constraints
+      value: 112
+      objectReference: {fileID: 0}
     - target: {fileID: 8055105845590452405, guid: a5ea98323b47e124291b115d9c1b2b30,
         type: 3}
       propertyPath: Brute
@@ -8371,8 +8376,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.1497405, y: 5.1902013, z: 3.5900002}
-  m_Center: {x: 0.7751291, y: 1.2051005, z: 0}
+  m_Size: {x: 4.037869, y: 5.1902013, z: 6.362815}
+  m_Center: {x: 0.33106664, y: 1.2051005, z: 0.042821605}
 --- !u!23 &1736726213
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -10522,6 +10527,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3105660675281000355, guid: 255e9da472e7aeb4aab64a807c49a34f,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3105660675281000382, guid: 255e9da472e7aeb4aab64a807c49a34f,
         type: 3}
       propertyPath: m_Name
@@ -10695,17 +10705,17 @@ MonoBehaviour:
     - Use the left stick of your controller to move, but be careful, there is a limited
       power supply and movement will cause your battery to run out.  The green bar
       above your bot will indicate your battery level.
-    - To toggle between unselected bots, press the "NORTH" button on your controller. 
-      Unselected bots can be programmed to follow selected bots by simply pressing
-      the "NORTH" button next to them.
     - Each bot has a "SPECIAL" button for it's abilities and an "ACTIVATE" button
       for it's items.
     - The "ACTIVATE" button is located "EAST" and can be pressed next to bot specific
       items to activate them.
+    - To toggle between unselected bots, press the "NORTH" button on your controller. 
+      Unselected bots can be programmed to follow selected bots by pressing the "ACTIVATE"
+      button next to them.
     - The "SPECIAL" button is located "SOUTH" and can be pressed to use a bot's specific
       special ability.
-    - I will go over how to use each of the bots items and abilities in later training
-      sessions as you prove yourself by collected "DATA TOKENS"
+    - Your team will use these items and abilities to collect "DATA TOKENS" in these
+      extraction areas.
     - '"DATA TOKENS" are what we will use to develop the virus to stop the "GHOST". 
       We have located clusters of them inside these extraction areas. Your mission
       will be to collect these tokens within each area.'

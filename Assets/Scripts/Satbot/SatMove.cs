@@ -55,6 +55,7 @@ public class SatMove : Player
 
     void Start()
     {
+        
         //MiniMap_Script = MiniMap_Manager.GetComponent<MiniMap>();
         anim = GetComponent<Animator>(); 
         name = "Sat";
@@ -71,7 +72,8 @@ public class SatMove : Player
         Timer.drowning(breathRemaining);
         startPos = transform.position;
         getIconSelectors();
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        
     }
 
     public override void setCurrentPlayer(int player)
@@ -118,8 +120,15 @@ public class SatMove : Player
         {
             if(!gravaConnected)
             {
-                rb.velocity = directionMove;
-
+                if(directionMove != Vector3.zero)
+        {
+            rb.velocity = directionMove;
+            currentHealth = currentHealth - .03f;
+        }
+        else if(directionMove == Vector3.zero)
+        {
+            rb.velocity = Vector3.zero;
+        }
                 if (!fixRotation && directionRotate != Vector3.zero)
                 {
                     transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionRotate), rotateSpeed * Time.deltaTime);
@@ -176,25 +185,42 @@ public class SatMove : Player
         // {
         //     P1Circle.enabled = false;  
         // }
-    
+
 
     void Update()
     {
+        //rb.AddForce(0, -100, 0);
         if(shouldFollowTeamBot && available)
         {
-            nav.SetDestination(botToFollowWhenUnoccupied.position);
+           // nav.SetDestination(botToFollowWhenUnoccupied.position);
             Follow.enabled = true;
             GetToFollow.enabled = false;
+            coll.material = physicMaterial1;
+            //rb.drag = 10;
+            
         }
         else if(!shouldFollowTeamBot && available)
         {
             Follow.enabled = false;
             GetToFollow.enabled = true;
+            coll.material = physicMaterial1;
+           // rb.drag = 10;
+           
         }
         else if(!available)
         {
             Follow.enabled = false;
             GetToFollow.enabled = false;
+            if(currentHealth <= 0)
+            {
+                coll.material = physicMaterial1;
+            }
+            else if(currentHealth > 0)
+            {
+                coll.material = physicMaterial2;
+            }
+            //rb.drag = 0;
+            
         }
 
 
@@ -227,6 +253,7 @@ public class SatMove : Player
         {
             batteryDead = true;
             anim.Play("SatDeadBattery");
+            coll.material = physicMaterial1;
         }
         else if(currentHealth > 0)
         {
@@ -264,7 +291,6 @@ public class SatMove : Player
 
     IEnumerator Heal()
     {
-
         anim.Play("SatHealBattery");
         yield return new WaitForSeconds(2f);
         anim.Play("Idle");

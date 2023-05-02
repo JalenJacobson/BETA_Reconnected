@@ -37448,7 +37448,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7497158263985651271}
-  m_LocalRotation: {x: 0, y: -0.68792796, z: 0, w: -0.72577894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 135.64243, y: 135.64243, z: 135.64243}
   m_Children:
@@ -37474,7 +37474,7 @@ Transform:
   - {fileID: 8361918595450808992}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &7262661784297223643
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -37485,7 +37485,7 @@ Rigidbody:
   serializedVersion: 2
   m_Mass: 1
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -37511,7 +37511,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7497158263985651271}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b259327948dac03479a208d6f2d6bcd1, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.005
@@ -37611,6 +37611,9 @@ MonoBehaviour:
   firstFollowRequest: 1
   Follow: {fileID: 3196126717502595184}
   GetToFollow: {fileID: 4468448931313989596}
+  coll: {fileID: 7262661784297223637}
+  physicMaterial1: {fileID: 13400000, guid: fdbad294223d2df4c9ea1290e2d8b43d, type: 2}
+  physicMaterial2: {fileID: 13400000, guid: b259327948dac03479a208d6f2d6bcd1, type: 2}
   PumpBlueWall: {fileID: 5818214191416920537}
   pumpBlueWall_script: {fileID: 0}
   moveAxisHorizontal: 
@@ -37633,7 +37636,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7497158263985651271}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.007
   m_Speed: 7

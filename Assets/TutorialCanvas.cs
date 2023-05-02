@@ -57,9 +57,9 @@ public class TutorialCanvas : MonoBehaviour
 
     public IEnumerator TutorialText()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2.3f);
         textOn();
-        Tutorial_Dialogue.SendMessage("startDialogue");
+        //Tutorial_Dialogue.SendMessage("startDialogue");
     }
 
 }

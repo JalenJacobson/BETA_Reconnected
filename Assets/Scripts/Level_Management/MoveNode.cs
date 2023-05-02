@@ -47,7 +47,10 @@ public class MoveNode : MonoBehaviour
         if(directionMove != Vector3.zero)
         {
             rb.velocity = directionMove;
-            //currentHealth = currentHealth - .03f;
+        }
+        else if(directionMove == Vector3.zero)
+        {
+            rb.velocity = Vector3.zero;
         }
 
         // if (!fixRotation && directionRotate != Vector3.zero)

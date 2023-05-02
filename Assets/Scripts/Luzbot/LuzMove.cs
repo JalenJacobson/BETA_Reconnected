@@ -34,7 +34,7 @@ public class LuzMove : Player
         startPos = transform.position;
         Timer.drowning(breathRemaining);
         getIconSelectors();
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        //nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     public override void setCurrentPlayer(int player)
@@ -51,7 +51,15 @@ public class LuzMove : Player
         directionRotate = new Vector3(x, 0.0f, y);
         directionMove = new Vector3(x * moveSpeed, rb.velocity.y, y * moveSpeed);
         if(currentHealth <= 0) return;
-        rb.velocity = directionMove;
+        if(directionMove != Vector3.zero)
+        {
+            rb.velocity = directionMove;
+            currentHealth = currentHealth - .03f;
+        }
+        else if(directionMove == Vector3.zero)
+        {
+            rb.velocity = Vector3.zero;
+        }
 
         if (!fixRotation && directionRotate != Vector3.zero)
         {
@@ -67,21 +75,36 @@ public class LuzMove : Player
 
      void Update()
     {
+        //rb.AddForce(0, -100, 0);
        if(shouldFollowTeamBot && available)
         {
-            nav.SetDestination(botToFollowWhenUnoccupied.position);
+           // nav.SetDestination(botToFollowWhenUnoccupied.position);
             Follow.enabled = true;
             GetToFollow.enabled = false;
+            //rb.drag = 10;
+            coll.material = physicMaterial1;
         }
         else if(!shouldFollowTeamBot && available)
         {
             Follow.enabled = false;
             GetToFollow.enabled = true;
+            //rb.drag = 10;
+            coll.material = physicMaterial1;
         }
         else if(!available)
         {
             Follow.enabled = false;
             GetToFollow.enabled = false;
+            //rb.drag = 0;
+            if(currentHealth <= 0)
+            {
+                coll.material = physicMaterial1;
+            }
+            else if(currentHealth > 0)
+            {
+                coll.material = physicMaterial2;
+            }
+            
         }
 
         if(inWater == true)

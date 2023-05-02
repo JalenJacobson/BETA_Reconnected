@@ -1308,7 +1308,8 @@ GameObject:
   - component: {fileID: 1092433695379759571}
   - component: {fileID: 9120314797471677610}
   - component: {fileID: 8541260189061972248}
-  - component: {fileID: 4619685459043302677}
+  - component: {fileID: 3013649895946279592}
+  - component: {fileID: 6525877318507272287}
   m_Layer: 0
   m_Name: pCube2
   m_TagString: Untagged
@@ -1379,7 +1380,21 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4619685459043302677
+--- !u!136 &3013649895946279592
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7961303786341601113}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.012162229
+  m_Height: 0.035231307
+  m_Direction: 2
+  m_Center: {x: -0.00012276797, y: 0.00007821454, z: -0.010953478}
+--- !u!65 &6525877318507272287
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1390,8 +1405,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.036842626, y: 0.022994066, z: 0.033295725}
-  m_Center: {x: -0.00032231104, y: -6.9404354e-10, z: -0.009809866}
+  m_Size: {x: 0.02299407, y: 0.022994068, z: 0.011052711}
+  m_Center: {x: 0, y: -4.656613e-10, z: 0.0000000018626451}
 --- !u!1 &8622856372975112191
 GameObject:
   m_ObjectHideFlags: 0

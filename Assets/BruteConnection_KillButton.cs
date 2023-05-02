@@ -26,6 +26,7 @@ public class BruteConnection_KillButton : MonoBehaviour
     public void Activate()
     {
         Boss_Script.takeDamage(50f);
+        Platform.SendMessage("ButtonHit");
         
     }
 }

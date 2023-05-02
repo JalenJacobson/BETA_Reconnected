@@ -82,7 +82,6 @@ public class PumpTriggerCube : TriggerCubeBase
         {
             teamBotTouching.SendMessage("toggleFollowTeamBot", Pump.transform);
         }
-        else if(touching == null) return;
         if(touching)
         {
             if(touching.name.Contains("ConnectionBox") && !connectedBox)
@@ -110,6 +109,7 @@ public class PumpTriggerCube : TriggerCubeBase
            SnapBack();
            PumpSpecial.GetComponent<Animator>().Play("PumpSpecial");
         }
+        else if(touching == null) return;
         
      }
 
@@ -138,13 +138,17 @@ public class PumpTriggerCube : TriggerCubeBase
             {
                 // Gas animation
             }
+            else if(connectedBoxName == null) return;
         }
      }
 
      public void SnapBack()
      {
+       PumpMove_Script.anim.Play("PumpWalk");
        ConnectionScript.SendMessage("SnapHoseBack");
-       animUI.Play("UiButtonDown");  
+       animUI.Play("UiButtonDown");
+       connectedBoxName = null;  
+       PumpMove_Script.moveSpeed = 10;
      }
 
        public override void enableHelpIcon()

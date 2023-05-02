@@ -33,7 +33,8 @@ public class BruteMove : Player
         Timer.drowning(breathRemaining);
         startPos = transform.position;
         getIconSelectors();
-        nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        
+        //nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
 
     public override void setCurrentPlayer(int player)
@@ -70,6 +71,10 @@ public class BruteMove : Player
             rb.velocity = directionMove;
             currentHealth = currentHealth - .03f;
         }
+        else if(directionMove == Vector3.zero)
+        {
+            rb.velocity = Vector3.zero;
+        }
 
         if (!fixRotation && directionRotate != Vector3.zero)
         {
@@ -84,19 +89,35 @@ public class BruteMove : Player
 
         if(shouldFollowTeamBot && available)
         {
-            nav.SetDestination(botToFollowWhenUnoccupied.position);
+           // nav.SetDestination(botToFollowWhenUnoccupied.position);
             Follow.enabled = true;
             GetToFollow.enabled = false;
+            //rb.drag = 10;
+            coll.material = physicMaterial1;
+            
         }
         else if(!shouldFollowTeamBot && available)
         {
             Follow.enabled = false;
             GetToFollow.enabled = true;
+            //rb.drag = 10;
+            coll.material = physicMaterial1;
+            
         }
         else if(!available)
         {
             Follow.enabled = false;
             GetToFollow.enabled = false;
+            //rb.drag = 0;
+            if(currentHealth <= 0)
+            {
+                coll.material = physicMaterial1;
+            }
+            else if(currentHealth > 0)
+            {
+                coll.material = physicMaterial2;
+            }
+            
         }
 
 

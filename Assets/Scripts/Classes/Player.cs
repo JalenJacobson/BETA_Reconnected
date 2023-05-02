@@ -59,6 +59,11 @@ public class Player : MonoBehaviour
     public bool firstFollowRequest = true;
     public Image Follow;
     public Image GetToFollow;
+
+    public Collider coll;
+    public PhysicMaterial physicMaterial1;
+    public PhysicMaterial physicMaterial2;
+
     
 
     void Start()
@@ -114,6 +119,7 @@ public class Player : MonoBehaviour
         circles[playerIndex].enabled = true;
         iconSelectors[playerIndex].enabled = true;
         available = false; 
+        coll.material = physicMaterial2;
     }
 
      public void makeAvailable()
@@ -127,7 +133,8 @@ public class Player : MonoBehaviour
             selector.enabled = false;
         }
         available = true;
-        nav.isStopped = true;
+        coll.material = physicMaterial1;
+        //nav.isStopped = true;
     }
 
     void Update()
@@ -143,6 +150,7 @@ public class Player : MonoBehaviour
         if(currentHealth <= 0)
         {
             print(name +" dead");
+            coll.material = physicMaterial1;
         }
     }
 

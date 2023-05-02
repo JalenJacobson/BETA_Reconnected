@@ -197,7 +197,7 @@ public class SatTriggerCube : TriggerCubeBase
      {
         if(teamBotTouching && touching == null)
         {
-            teamBotTouching.SendMessage("toggleFollowTeamBot", SatBot.transform);
+            return;
         }
         else if(touching == null) return;
         else
