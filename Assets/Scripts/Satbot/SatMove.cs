@@ -195,7 +195,7 @@ public class SatMove : Player
            // nav.SetDestination(botToFollowWhenUnoccupied.position);
             Follow.enabled = true;
             GetToFollow.enabled = false;
-            coll.material = physicMaterial1;
+            //coll.material = physicMaterial1;
             //rb.drag = 10;
             
         }
@@ -203,7 +203,7 @@ public class SatMove : Player
         {
             Follow.enabled = false;
             GetToFollow.enabled = true;
-            coll.material = physicMaterial1;
+            //coll.material = physicMaterial1;
            // rb.drag = 10;
            
         }
@@ -211,14 +211,14 @@ public class SatMove : Player
         {
             Follow.enabled = false;
             GetToFollow.enabled = false;
-            if(currentHealth <= 0)
-            {
-                coll.material = physicMaterial1;
-            }
-            else if(currentHealth > 0)
-            {
-                coll.material = physicMaterial2;
-            }
+            // if(currentHealth <= 0)
+            // {
+            //     coll.material = physicMaterial1;
+            // }
+            // else if(currentHealth > 0)
+            // {
+            //     coll.material = physicMaterial2;
+            // }
             //rb.drag = 0;
             
         }

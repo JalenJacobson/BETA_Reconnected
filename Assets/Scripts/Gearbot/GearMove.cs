@@ -41,14 +41,6 @@ public class GearMove : Player
         Timer.drowning(breathRemaining);
         startPos = transform.position;
         getIconSelectors();
-        if(available)
-        {
-            coll.material = physicMaterial1;
-        }
-        else if(!available)
-        {
-            coll.material = physicMaterial2;
-        }
         
         //nav = GetComponent<UnityEngine.AI.NavMeshAgent>();
     }
@@ -160,7 +152,7 @@ public class GearMove : Player
             Follow.enabled = true;
             GetToFollow.enabled = false;
             //rb.drag = 10;
-            coll.material = physicMaterial1;
+            //coll.material = physicMaterial1;
             
         }
         else if(!shouldFollowTeamBot && available)
@@ -168,7 +160,7 @@ public class GearMove : Player
             Follow.enabled = false;
             GetToFollow.enabled = true;
             //rb.drag = 10;
-            coll.material = physicMaterial1;
+            //coll.material = physicMaterial1;
             
             
         }
@@ -177,14 +169,14 @@ public class GearMove : Player
             Follow.enabled = false;
             GetToFollow.enabled = false;
             //rb.drag = 0;
-            if(currentHealth <= 0)
-            {
-                coll.material = physicMaterial1;
-            }
-            else if(currentHealth > 0)
-            {
-                coll.material = physicMaterial2;
-            }
+            // if(currentHealth <= 0)
+            // {
+            //     coll.material = physicMaterial1;
+            // }
+            // else if(currentHealth > 0)
+            // {
+            //     coll.material = physicMaterial2;
+            // }
             
         }
 

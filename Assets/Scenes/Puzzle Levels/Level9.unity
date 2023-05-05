@@ -1920,7 +1920,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &378259758
 Transform:
   m_ObjectHideFlags: 0
@@ -1983,9 +1983,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 378259760}
   Targets:
-  - {fileID: 883699484}
   - {fileID: 205297157}
-  - {fileID: 386503081}
   TutorialCanvas: {fileID: 1384120181}
   objectThatShouldTrigger: Gear
 --- !u!1 &386503081
@@ -2006,7 +2004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &386503082
 Transform:
   m_ObjectHideFlags: 0
@@ -2098,14 +2096,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425619998}
-  m_LocalRotation: {x: -0, y: -0.7780448, z: -0, w: -0.6282088}
-  m_LocalPosition: {x: -0.0024390065, y: 0.0389, z: -0.0049565216}
-  m_LocalScale: {x: 0.007881157, y: 0.007881159, z: 0.007881157}
+  m_LocalRotation: {x: -0, y: -0.6592481, z: -0, w: -0.75192547}
+  m_LocalPosition: {x: -0.0003, y: 0.0055, z: -0.0015}
+  m_LocalScale: {x: 0.008303431, y: 0.008303431, z: 0.008303431}
   m_Children:
   - {fileID: 653607298}
   - {fileID: 1896290275}
-  m_Father: {fileID: 1456905976}
-  m_RootOrder: 19
+  m_Father: {fileID: 938046441}
+  m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &425620000
 BoxCollider:
@@ -2153,7 +2151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anim: {fileID: 425620001}
   Targets:
-  - {fileID: 378259757}
+  - {fileID: 205297157}
   TutorialCanvas: {fileID: 1384120181}
   objectThatShouldTrigger: Brute
 --- !u!1 &480989142
@@ -5835,7 +5833,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &883699485
 Transform:
   m_ObjectHideFlags: 0
@@ -6405,6 +6403,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5ea98323b47e124291b115d9c1b2b30, type: 3}
+--- !u!4 &938046441 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7513065669816644557, guid: a5ea98323b47e124291b115d9c1b2b30,
+    type: 3}
+  m_PrefabInstance: {fileID: 938046440}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &940435028
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9031,12 +9035,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e0e497c6eced4196a13bf3e768d0719, type: 3}
---- !u!4 &1456905976 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 1817441670796176980, guid: 4572384bdd5e141e2835aa0adac1bb92,
-    type: 3}
-  m_PrefabInstance: {fileID: 1656291396}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1476961807
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10563,7 +10561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tutorialText: {fileID: 0}
   changeTextTo: With your "SPECIAL" button, Brute can pick up your teamates and carry
-    them through the "GRAVITY FIELD".  Let's take Gears over to it's "ACCESS POINT".
+    them through the "GRAVITY FIELD".  Let's take Sat over to it's "ACCESS POINT".
   objectThatShouldTrigger: Brute
   displayTextOnlyOnce: 1
 --- !u!65 &1896290277

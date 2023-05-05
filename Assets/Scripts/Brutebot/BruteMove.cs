@@ -93,7 +93,7 @@ public class BruteMove : Player
             Follow.enabled = true;
             GetToFollow.enabled = false;
             //rb.drag = 10;
-            coll.material = physicMaterial1;
+            //coll.material = physicMaterial1;
             
         }
         else if(!shouldFollowTeamBot && available)
@@ -101,7 +101,7 @@ public class BruteMove : Player
             Follow.enabled = false;
             GetToFollow.enabled = true;
             //rb.drag = 10;
-            coll.material = physicMaterial1;
+            //coll.material = physicMaterial1;
             
         }
         else if(!available)
@@ -109,14 +109,14 @@ public class BruteMove : Player
             Follow.enabled = false;
             GetToFollow.enabled = false;
             //rb.drag = 0;
-            if(currentHealth <= 0)
-            {
-                coll.material = physicMaterial1;
-            }
-            else if(currentHealth > 0)
-            {
-                coll.material = physicMaterial2;
-            }
+            // if(currentHealth <= 0)
+            // {
+            //     coll.material = physicMaterial1;
+            // }
+            // else if(currentHealth > 0)
+            // {
+            //     coll.material = physicMaterial2;
+            // }
             
         }
 

@@ -8,7 +8,7 @@ public class ButtonNavigationManager : MonoBehaviour
     public GameObject NewGame, NewGameWarning, NewGameCancel, NewGameReady, NewGameStart, NewGameNotReady;
     public GameObject Continue, ContinueCancel, ContinueReady, ContinueStart, ContinueNotReady;
     public GameObject BotSelect, BotSelectP1, BotSelectP2, BotSelectP3, BotSelectP4, BotSelectP5;
-    public GameObject Logo, TopLine, BottomLine;
+    //public GameObject Logo, TopLine, BottomLine;
 
     // Start is called before the first frame update
     void Start()
@@ -78,9 +78,9 @@ public class ButtonNavigationManager : MonoBehaviour
         BotSelectP3.SendMessage("Initiate2");
         BotSelectP4.SendMessage("Initiate2");
         BotSelectP5.SendMessage("Initiate2");
-        Logo.SendMessage("Initiate");
-        TopLine.SendMessage("Initiate");
-        BottomLine.SendMessage("Initiate");
+       // Logo.SendMessage("Initiate");
+       // TopLine.SendMessage("Initiate");
+       // BottomLine.SendMessage("Initiate");
         Canvas.SendMessage("callcontinueButton");
     }
 
@@ -89,9 +89,9 @@ public class ButtonNavigationManager : MonoBehaviour
         NewGame.SendMessage("newButtonsDown");
         Continue.SendMessage("newButtonsDown");
         NewGameWarning.SendMessage("newButtons");
-        Logo.SendMessage("Initiate");
-        TopLine.SendMessage("Initiate");
-        BottomLine.SendMessage("Initiate");
+       // Logo.SendMessage("Initiate");
+       // TopLine.SendMessage("Initiate");
+       // BottomLine.SendMessage("Initiate");
         Canvas.SendMessage("Warning");
     }
 

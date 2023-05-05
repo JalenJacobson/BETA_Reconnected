@@ -36,7 +36,7 @@ public class Tutorial_Dialogue : MonoBehaviour
 
     public void DisplayNextSentence()
     {
-        source.PlayOneShot(clip);  
+        //source.PlayOneShot(clip);  
         if(sentences.Count == 0)
         {
             EndDialogue();
@@ -50,12 +50,12 @@ public class Tutorial_Dialogue : MonoBehaviour
 
     IEnumerator TypeSentence(string sentence)
     {
-        dialogueText.text = "";
-        foreach (char letter in sentence.ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return null;
-        }
+        dialogueText.text = sentence;
+        // foreach (char letter in sentence.ToCharArray())
+        // {
+        //     dialogueText.text += letter;
+        // }
+        yield return null;
     }
 
     void EndDialogue()

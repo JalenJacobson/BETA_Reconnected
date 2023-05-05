@@ -38,15 +38,12 @@ public class IntroText : MonoBehaviour
         yield return new WaitForSeconds(4);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         source.PlayOneShot(clip2);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(5);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         source.PlayOneShot(clip2);
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(6);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         source.PlayOneShot(clip);
-        yield return new WaitForSeconds(4);
-        FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
-        source.PlayOneShot(clip1);
         yield return new WaitForSeconds(7);
         FindObjectOfType<Dialogue_Manager>().DisplayNextSentence();
         source.PlayOneShot(clip1);
