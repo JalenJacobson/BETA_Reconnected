@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Level_Selector : MonoBehaviour
 {
-    public GameObject Level_Manager;
+    public GameObject LevelManager;
     Level_Manager LevelManager_Script;
     public Animator anim;
     
@@ -16,13 +16,16 @@ public class Level_Selector : MonoBehaviour
     public bool nodeEntered = false;
     public bool won = false;
 
+    public int tokensCollected;
+    public double timeRemaining;
+
     
 
     void Start()
     {
         sceneToGoTo = LevelNumber;
-        Level_Manager = GameObject.FindGameObjectWithTag("Level_Manager");
-        LevelManager_Script = Level_Manager.GetComponent<Level_Manager>();
+        LevelManager = GameObject.FindGameObjectWithTag("Level_Manager");
+        LevelManager_Script = LevelManager.GetComponent<Level_Manager>();
         currentScene = SceneManager.GetActiveScene().buildIndex;
         anim = GetComponent<Animator>();
         
@@ -63,6 +66,24 @@ public class Level_Selector : MonoBehaviour
         // change color to blue
         won = true;
         available = true;
+        readLevelData();
+    }
+
+    public void readLevelData()
+    {
+        LevelClass thisLevel = new LevelClass();
+        string retrieveKey = StaticVariables.saveSlot + "_Level" + Level_Manager.previousLevel.ToString();
+        if(PlayerPrefs.GetString(retrieveKey) != null)
+        {
+            string jsonString = PlayerPrefs.GetString(retrieveKey);
+            thisLevel = JsonUtility.FromJson<LevelClass>(jsonString);
+            print("tokens Collected " + thisLevel.tokensCollected);
+            print("time remaining " + thisLevel.timeRemaining);
+            tokensCollected = thisLevel.tokensCollected;
+            timeRemaining = thisLevel.timeRemaining;
+        }
+        else return;
+        
     }
 
     private void gotoLevel()

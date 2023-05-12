@@ -11,9 +11,10 @@ public class Level_Manager : MonoBehaviour
     public int sceneToGoTo = -1;
     public Animator transition;
     public float transitionTime = 1f;
-    public static int oldTutorialLevel;
     public string levelValuePlayerOne = "";
     public string levelValuePlayerTwo = "";
+    public static int previousLevel;
+    public static int oldTutorialLevel;
     
 
     public async void Start()
@@ -71,48 +72,48 @@ public class Level_Manager : MonoBehaviour
 
     public int getSceneValue()
     {
-        var levelValueString = levelValuePlayerOne + levelValuePlayerTwo;
-        if(levelValueString == "gearluz" || levelValueString == "luzgear")
-        {
-            return 2;
-        }
-        else if(levelValueString == "gearbrute" || levelValueString == "brutegear")
-        {
-            return 3;
-        }
-        else if(levelValueString == "gearpump" || levelValueString == "pumpgear")
-        {
-            return 4;
-        }
-        else if(levelValueString == "gearsat" || levelValueString == "satgear")
-        {
-            return 5;
-        }
-        else if(levelValueString == "luzbrute" || levelValueString == "bruteluz")
-        {
-            return 6;
-        }
-        else if(levelValueString == "pumpluz" || levelValueString == "luzpump")
-        {
-            return 7;
-        }
-        else if(levelValueString == "brutepump" || levelValueString == "pumpbrute")
-        {
-            return 8;
-        }
-        else if(levelValueString == "brutesat" || levelValueString == "satbrute")
-        {
-            return 9;
-        }
-        else if(levelValueString == "pumpsat" || levelValueString == "satpump")
-        {
-            return 10;
-        }
-        else if(levelValueString == "satluz" || levelValueString == "luzsat")
-        {
-            return 11;
-        }
-        else return 1;
+    //     var levelValueString = levelValuePlayerOne + levelValuePlayerTwo;
+    //     if(levelValueString == "gearluz" || levelValueString == "luzgear")
+    //     {
+    //         return 2;
+    //     }
+    //     else if(levelValueString == "gearbrute" || levelValueString == "brutegear")
+    //     {
+    //         return 3;
+    //     }
+    //     else if(levelValueString == "gearpump" || levelValueString == "pumpgear")
+    //     {
+    //         return 4;
+    //     }
+    //     else if(levelValueString == "gearsat" || levelValueString == "satgear")
+    //     {
+    //         return 5;
+    //     }
+    //     else if(levelValueString == "luzbrute" || levelValueString == "bruteluz")
+    //     {
+    //         return 6;
+    //     }
+    //     else if(levelValueString == "pumpluz" || levelValueString == "luzpump")
+    //     {
+    //         return 7;
+    //     }
+    //     else if(levelValueString == "brutepump" || levelValueString == "pumpbrute")
+    //     {
+    //         return 8;
+    //     }
+    //     else if(levelValueString == "brutesat" || levelValueString == "satbrute")
+    //     {
+    //         return 9;
+    //     }
+    //     else if(levelValueString == "pumpsat" || levelValueString == "satpump")
+    //     {
+    //         return 10;
+    //     }
+    //     else if(levelValueString == "satluz" || levelValueString == "luzsat")
+    //     {
+    //         return 11;
+    //     }
+        return 1;
     }
     
     public void loadCurrentLevel()
@@ -206,7 +207,7 @@ public class Level_Manager : MonoBehaviour
     public void winTutorial(int sendingTutorialLevel)
     {
         print(sendingTutorialLevel);
-        oldTutorialLevel = sendingTutorialLevel;
+        previousLevel = sendingTutorialLevel;
         StartCoroutine(startTutorialWin());
     }
     

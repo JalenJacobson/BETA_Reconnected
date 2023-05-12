@@ -38,12 +38,15 @@ public class LevelSelectPortal_Manager : MonoBehaviour
             else if(level.LevelNumber <= highestLevelComplete)
             {
                 level.levelWon();
+                
             }
             else
             {
                 // level.levelUnavailable();
             }
         }
+
+        
     }
 
     // Update is called once per frame

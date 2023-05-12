@@ -23,6 +23,9 @@ public class Level_Complete_Doors : MonoBehaviour
 
     public GameObject Doors;
     public Doors Doors_script;
+    public GameObject lose_condition;
+    public Lose_Conditions lose_condition_script;
+    
 
     void Start()
     {
@@ -35,6 +38,8 @@ public class Level_Complete_Doors : MonoBehaviour
         print("BUILD INDEX " + scene.buildIndex);
         Doors = GameObject.FindGameObjectWithTag("Gate");
         Doors_script = Doors.GetComponent<Doors>();
+        lose_condition = GameObject.Find("Lose_Conditions");
+        lose_condition_script = lose_condition.GetComponent<Lose_Conditions>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -51,6 +56,7 @@ public class Level_Complete_Doors : MonoBehaviour
     {
         if(finishedBots >= bots.Length)
         {
+            PlayerPrefs.SetInt("highestLevelComplete", scene.buildIndex);
             saveLevelData();
             Winlights.Win();
             LevelManager_script.winTutorial(currentScene);
@@ -81,7 +87,7 @@ public class Level_Complete_Doors : MonoBehaviour
     {
         LevelClass currentLevel = new LevelClass();
         currentLevel.tokensCollected = Doors_script.tokensCollected;;
-        currentLevel.timeRemaiing = timeRemaiingCurrentLevel;
+        currentLevel.timeRemaining = lose_condition_script.timeRemaining;
         string jsonSaveObject = JsonUtility.ToJson(currentLevel);
         return jsonSaveObject;
     }
@@ -92,3 +98,4 @@ public class Level_Complete_Doors : MonoBehaviour
         return saveKey;
     }
 }
+
