@@ -15,8 +15,14 @@ public class Level_Complete_Doors : MonoBehaviour
 
     public GameObject[] bots;
     public int finishedBots = 0;
-
     public Scene scene;
+
+    // Saving Data Stuff
+    public int tokensCollectedCurrentLevel;
+    public double timeRemaiingCurrentLevel;
+
+    public GameObject Doors;
+    public Doors Doors_script;
 
     void Start()
     {
@@ -27,6 +33,8 @@ public class Level_Complete_Doors : MonoBehaviour
         Winlights = Lights.GetComponent<LevelWin>(); 
         scene = SceneManager.GetActiveScene();
         print("BUILD INDEX " + scene.buildIndex);
+        Doors = GameObject.FindGameObjectWithTag("Gate");
+        Doors_script = Doors.GetComponent<Doors>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -43,14 +51,44 @@ public class Level_Complete_Doors : MonoBehaviour
     {
         if(finishedBots >= bots.Length)
         {
-            PlayerPrefs.SetInt("highestLevelComplete", scene.buildIndex);
+            saveLevelData();
             Winlights.Win();
             LevelManager_script.winTutorial(currentScene);
+        } 
+        if(Input.GetKeyDown("e"))
+        {
+            print(StaticVariables.saveSlot);
         }   
     }
+
+    
     
     IEnumerator ExecuteAfterTime(float time, GameObject node)
     {
         yield return new WaitForSeconds(time);
     }  
+
+    public void saveLevelData()
+    {
+        string saveObject = createSaveObject();
+        print(saveObject);
+        string saveKey = createSaveKey();
+        print(saveKey);
+        PlayerPrefs.SetString(saveKey, saveObject);
+    }
+
+    public string createSaveObject()
+    {
+        LevelClass currentLevel = new LevelClass();
+        currentLevel.tokensCollected = Doors_script.tokensCollected;;
+        currentLevel.timeRemaiing = timeRemaiingCurrentLevel;
+        string jsonSaveObject = JsonUtility.ToJson(currentLevel);
+        return jsonSaveObject;
+    }
+
+    public string createSaveKey()
+    {
+        string saveKey = StaticVariables.saveSlot + "_Level" + currentScene.ToString();
+        return saveKey;
+    }
 }
