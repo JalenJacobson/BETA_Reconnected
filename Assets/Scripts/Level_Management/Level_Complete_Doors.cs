@@ -87,7 +87,6 @@ public class Level_Complete_Doors : MonoBehaviour
     {
         LevelClass currentLevel = new LevelClass();
         currentLevel.tokensCollected = Doors_script.tokensCollected;;
-        currentLevel.timeRemaining = lose_condition_script.timeRemaining;
         string jsonSaveObject = JsonUtility.ToJson(currentLevel);
         return jsonSaveObject;
     }

@@ -24,7 +24,6 @@ public class DataManager : MonoBehaviour
             string jsonString = PlayerPrefs.GetString(retrieveKey);
             thisLevel = JsonUtility.FromJson<LevelClass>(jsonString);
             print("tokens Collected " + thisLevel.tokensCollected);
-            print("time remaining " + thisLevel.timeRemaining);
         }
         else return;
         
@@ -35,5 +34,4 @@ public class DataManager : MonoBehaviour
 public class LevelClass
 {
     public int tokensCollected;
-    public double timeRemaining;
 }

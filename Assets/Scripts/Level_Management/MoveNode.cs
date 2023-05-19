@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 public class MoveNode : MonoBehaviour
 {
     public GameObject touching = null;     
-
+    public static Vector3 mostRecentLevelPlayed;
     public float moveSpeed = 10;
     //public float rotateSpeed = 10;
     public Vector3 directionMove;
@@ -18,7 +18,9 @@ public class MoveNode : MonoBehaviour
     public string moveAxisVertical;
     public bool fixRotation = false;
     public Vector3 startPos;
+    public Vector3 startPosRaw;
     public bool nodeEntered = false;
+    public Vector3 offset = new Vector3(0, 11, 0);
 
     public Vector2 moveInputValue;
 
@@ -27,8 +29,15 @@ public class MoveNode : MonoBehaviour
         //directionMove = Vector3.zero;
         moveAxisHorizontal = "Horizontal";
         moveAxisVertical = "Vertical"; 
-        startPos = transform.position;
+        
     }
+
+    void Start()
+    {
+      startPos = startPosRaw + offset;
+      transform.position = startPos;
+    }
+
     void FixedUpdate()
     {
         directionMove = Vector3.zero;
@@ -69,14 +78,19 @@ public class MoveNode : MonoBehaviour
     // }
 
     public void Submit()
-     {
+    {
         print("NEXTLEVEL");
 
         if(nodeEntered == true)
         {  
         touching.SendMessage("gotoLevel");
         }
-     }
+    }
+
+    public void resetRecentLevelLocation(Vector3 recentLevelLocation)
+    {
+      startPos = recentLevelLocation;
+    }
 
     void OnTriggerEnter(Collider other)
     {

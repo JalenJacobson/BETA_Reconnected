@@ -5,6 +5,7 @@ using UnityEngine;
 public class StaticVariables : MonoBehaviour
 {
     public static string saveSlot = "Slot1";
+    
     // Start is called before the first frame update
     void Start()
     {

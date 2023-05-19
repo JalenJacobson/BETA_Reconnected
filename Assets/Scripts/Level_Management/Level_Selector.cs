@@ -2,12 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Level_Selector : MonoBehaviour
 {
     public GameObject LevelManager;
     Level_Manager LevelManager_Script;
     public Animator anim;
+    public GameObject[] TokenCollectedIndicatorImages;
     
     public int LevelNumber;
     public int sceneToGoTo;
@@ -38,6 +40,12 @@ public class Level_Selector : MonoBehaviour
         {
             anim.Play("Level_Locked_Indicator");
         }
+        for(var i = 0; i< tokensCollected; i++)
+        {
+            TokenCollectedIndicatorImages[i].GetComponent<Image>().enabled = true;
+        }
+
+        PlayerPrefs.SetInt("mostRecentLevelPlayed", LevelNumber);
         // else if(available == true)
         // {
         //     anim.Play("Level_Available_Indicator");
@@ -49,6 +57,10 @@ public class Level_Selector : MonoBehaviour
         if(available == false)
         {
             anim.Play("Level_Locked");
+        }
+        foreach(GameObject tokenImage in TokenCollectedIndicatorImages)
+        {
+            tokenImage.GetComponent<Image>().enabled = false;
         }
         // else if(available == true)
         // {
@@ -78,9 +90,7 @@ public class Level_Selector : MonoBehaviour
             string jsonString = PlayerPrefs.GetString(retrieveKey);
             thisLevel = JsonUtility.FromJson<LevelClass>(jsonString);
             print("tokens Collected " + thisLevel.tokensCollected);
-            print("time remaining " + thisLevel.timeRemaining);
             tokensCollected = thisLevel.tokensCollected;
-            timeRemaining = thisLevel.timeRemaining;
         }
         else return;
         
