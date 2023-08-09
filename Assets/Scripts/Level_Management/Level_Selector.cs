@@ -89,7 +89,7 @@ public class Level_Selector : MonoBehaviour
         {
             string jsonString = PlayerPrefs.GetString(retrieveKey);
             thisLevel = JsonUtility.FromJson<LevelClass>(jsonString);
-            print("tokens Collected " + thisLevel.tokensCollected);
+//            print("tokens Collected " + thisLevel.tokensCollected);
             tokensCollected = thisLevel.tokensCollected;
         }
         else return;
